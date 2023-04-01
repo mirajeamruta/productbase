@@ -50,9 +50,13 @@
                 <li><a class="active" href="#section1">Home</a></li>
                 <li><a href="#section2">About Us</a></li>
                 <li><a href="#section3">Services</a></li>
-                <li><a href="#section4">Our team</a></li>
+                <li><a href="#section4">Our Team</a></li>
                 <li><a href="#section5">Career</a></li>
                 <li><a href="#section7">Contact</a></li>
+
+
+
+                
             </ul>
         </div>
     </nav>
@@ -61,9 +65,9 @@
     <section id="section1" class="parallax-bg1 hero parallax clearfix">
         <div class="dark content container">
             <div class="ticker">
-                <h1>Year Of Establishment:1987</h1>
-                <h1>ICAI REGISTRATION No:FR 000367s</h1>
-                <h1>Dun & Bradstreet Global Database Registration No: 67-676 - 7686</h1>
+                <h1>Year Of Establishment : 1987</h1>
+                <h1>ICAI REGISTRATION No : FR 000367s</h1>
+                <h1>Dun & Bradstreet Global Database Registration No : 67-676 - 7686</h1>
             </div>
             <ul class="call-to-action">
                 <li><a class="button" href="#section2">Learn more</a></li>
@@ -77,11 +81,11 @@
 
         <!-- Text -->
         <div class="title grid-full">
-            <h2>About us</h2>
+            <h2>About Us</h2>
             <span class="border"></span>
             <p class="sub-heading">
                 This site is intended to be a medium to disseminate useful information to audit
-                entities, taxpayers and other groups of persons who would interact with our firm apart from enabling our
+                entities, tax payers and other groups of persons who would interact with our firm apart from enabling our
                 existing clients to obtain online services and have ready access to information pertaining to their
                 individual matters handled by us. Other relevant and current information considered useful to general
                 public in the fields of audit, taxation, corporate and business laws will also be found in this site.
@@ -135,7 +139,7 @@
                     <div class="icon ux"></div>
 
                     <!-- Title -->
-                    <h5>Audit and assurance</h5>
+                    <h5>Audit and Assurance</h5>
 
                 </li>
 
@@ -163,7 +167,7 @@
                     <div class="icon design"></div>
 
                     <!-- Title -->
-                    <h5>Direct taxation</h5>
+                    <h5>Direct Taxation</h5>
                 </li>
 
                 <!-- Single Icon -->
@@ -189,7 +193,7 @@
                     <div class="icon seo"></div>
 
                     <!-- Title -->
-                    <h5>Indirect taxation</h5>
+                    <h5>Indirect Taxation</h5>
                 </li>
 
                 <!-- Single Icon -->
@@ -234,7 +238,7 @@
                     <div class="icon tech"></div>
 
                     <!-- Title -->
-                    <h5>Drafting and conveyancing</h5>
+                    <h5>Drafting and Conveyancing</h5>
                 </li>
 
                 <li class="overview animated entrance" data-appear-bottom-offset="100">
@@ -244,7 +248,7 @@
                         <ul class="feature-list">
                             <li>
                                 <span class="list-dot"></span>
-                                Obtaining approvals for opening liaison/branch offices in
+                                Obtaining approvals for opening liaison / branch offices in
                                 india for Overseas Corporate Bodies Preparation of Project Feasibility Reports for
                                 obtaining finance from banks and other Institutions Assisting in Obtaining Import-Export
                                 Code Number
@@ -254,7 +258,7 @@
                     <span class="arrow-down"></span>
 
                     <div class="icon commerce"></div>
-                    <h5>Supplementary services</h5>
+                    <h5>Supplementary Services</h5>
                 </li>
 
             </ul>
@@ -266,7 +270,7 @@
     <!-- Begin Team -->
     <section id="section4" class="content container">
         <div class="title grid-full">
-            <h2>The team</h2>
+            <h2>The Team</h2>
             <span class="border"></span>
         </div>
         <ul class="team-list clearfix">
@@ -280,7 +284,7 @@
                     Accountant in 1987. He holds a post-qualification diploma in International Trade Lawsand WTO matters
                     from the ICAI and is also a Law Graduate. His areas of expertise are in direct taxes including
                     international taxation, transfer pricing, and representation before appropriate appellate
-                    authorities and tribunals, corporatelaw matters and audit, and assurance services.
+                    authorities and tribunals, corporate law matters and audit, and assurance services.
                 </p>
                 <!-- <ul class="social-list">
                     <li><a href="http://www.facebook.com" target="_blank"><i class="social-icon facebook small"></i></a>
@@ -317,9 +321,9 @@
                     <h6 style="text-transform: capitalize; font-weight: bold;">partner</h6>
                 </div>
                 <p>
-                    Srinivas has a Bachelor’s Degree in Commerce from the University of Mysore andbecame a member of the
-                    Institute of Chartered Accountants of India in the year 2002. He holds apost-qualification diploma
-                    in Information Systems Audit from the ICAI and is also a GraduateMember of the Institute of Cost and
+                    Srinivas has a Bachelor’s Degree in Commerce from the University of Mysore and became a member of the
+                    Institute of Chartered Accountants of India in the year 2002. He holds a post-qualification diploma
+                    in Information Systems Audit from the ICAI and is also a Graduate Member of the Institute of Cost and
                     Works Accountants of India. His areas of expertise include audit,and assurance services and
                     management.
                 </p>
@@ -336,9 +340,9 @@
                     <h6 style="text-transform: capitalize; font-weight: bold;">partner</h6>
                 </div>
                 <p>
-                    Ashok has a Bachelor’s Degree in Commerce from the University of Mysore andbecame a member of the
-                    Institute of Chartered Accountants of India in the year 2004. His areas ofexpertise include audit,
-                    and assurance services, appraisal of and implementation of accountingsystems and controls in
+                    Ashok has a Bachelor’s Degree in Commerce from the University of Mysore and became a member of the
+                    Institute of Chartered Accountants of India in the year 2004. His areas of expertise include audit,
+                    and assurance services, appraisal of and implementation of accounting systems and controls in
                     government entities.
                 </p>
                 <!-- <ul class="social-list">
@@ -463,7 +467,7 @@
             </div>
             <div class="row">
                 <div class="col-10 onlineform textcolor">
-                    <label for="experience"> Experience If any :</label>
+                    <label for="experience"> Experience If Any :</label>
                 </div>
                 <div class="col-90 formtext">
                     <input type="text" id="experience" name="experience" placeholder="experience" autocomplete="off" />
@@ -507,7 +511,7 @@
                                 <address>
                                     No. 46 / 2, I Floor, 4th Cross, Malleswarm
                                     Bangalore - 560 003.
-                                    Ph: 080 - 23444712, 23465838,
+                                    Ph : 080 - 23444712, 23465838,
                                     <!-- 41280149 -->
                                 </address>
                             </li>
@@ -527,7 +531,7 @@
                                     No. 250 / 1, Between 16th & 17th Cross
                                     Sampige Road, Malleswarm .
                                     Bangalore - 560 003.
-                                    Ph: 080 - 41490274, 65989163
+                                    Ph : 080 - 41490274, 65989163
                                 </address>
                             </li>
                         </ul>
@@ -543,7 +547,7 @@
                                     I Floor, Basavarajendra Complex
                                     RudragudiStreet .
                                     Arasikere – 573 103
-                                    Ph: 08174-232308
+                                    Ph : 08174-232308
                                 </address>
                             </li>
                         </ul>
@@ -634,7 +638,7 @@
             <!-- Copyright Info -->
             <div class="copyright grid-full">
                 <h6>©2013 Visia. All rights reserved.</h6>
-                <a href="http://www.balunand.com/">
+                <a href="">
                     <h6 style="text-transform: lowercase;"> Visitor : www.balunand.com</h6>
                 </a>
             </div>
