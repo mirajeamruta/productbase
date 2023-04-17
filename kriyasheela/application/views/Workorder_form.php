@@ -1,3 +1,4 @@
+<!-- Form style presnt in htdocs\kriyasheela-p2\kriyasheela\stylesheets\style.css -->
 <div class='container userform'>
     <div id="section_userform" class="col-md-9 offset-md-1">
         <span class="span">Workorder Form</span>
@@ -6,7 +7,7 @@
             <div class="row mb-3">
                 <label for="type_of_work" class="col-sm-4">Type of Work :</label>
                 <div class="col-sm-8">
-                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="form-control"
+                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work"  class="classic"
                         aria-describedby="type_of_work" onchange="typeofwork();">
                         <option value="">Select</option>
                         <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
@@ -25,9 +26,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="demo-date" class="col-sm-4">Created on :</label>
+                <label for="demo-date" class="col-sm-4">Created On :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Created on" name="created_on" class="form-control" id="date_picker"
+                    <input type="text" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
                         aria-describedby="created_on">
                 </div>
             </div>
@@ -35,17 +36,14 @@
 
             <div class="row mb-3">
                 <label for="client_name" class="col-sm-4">Legal Name / Trade Name :</label>
-                <div class="col-sm-8">
-
-                    <select name="client_name" id='slct1'>
+                <div class="col-sm-6">
+                <select name="client_name" id='slct1' class="classic" aria-describedby="client_name" >
                         <option value="">Select</option>
                         <?php foreach ($clientname as $clientnamerecord) : ?>
                         <option value="<?= $clientnamerecord['name']; ?>"><?= $clientnamerecord['name']; ?>
                         </option>
                         <?php endforeach; ?>
                     </select>
-
-
                 </div>
             </div>
 
@@ -111,7 +109,7 @@
                         <select name="assign_to[]" class="form-control classic" id="select"
                             aria-describedby="assign_to[]">
                             <option value="">Select</option>
-                            <?php foreach ($assign_to as $worksheetrecord) : ?>
+                            <?php foreach ($assign_to2 as $worksheetrecord) : ?>
 
                             <option value="<?= $worksheetrecord['user_id']; ?>"><?= $worksheetrecord['name']; ?>
                             </option>

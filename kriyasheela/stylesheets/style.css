@@ -17,7 +17,7 @@ h1 {
 	margin-top: 200px;
 }
 .navbar-nav li {
-	margin-right: 15px;
+	margin-right: 35px;
 }
 /* .navbar-nav li a {
   margin-right: 15px;
@@ -102,6 +102,11 @@ body {
 .modal-login .form-group {
 	margin-bottom: 20px;
 }
+/* === In Client Form Choose file input button === */
+.form-group>#file-upload-button{
+	background-color: red !important ;
+}
+
 .modal-login label {
 	font-weight: normal;
 	font-size: 13px;
@@ -190,9 +195,12 @@ body {
 	display: block;
 	font-size: 25px;
 	line-height: 28px;
-	color: white;
+	color: rgb(0, 0, 0);
 	text-align: center;
-	margin: 30px 0px;
+	margin: 30px 0px 30px 15px;
+}
+#section_userform>.span{
+	margin-left: 210px;
 }
 
 .wkorderhead {
@@ -206,20 +214,23 @@ body {
 	color: white;
 	border: 1px solid #40ab3e;
 }
+
+/* ==== Form which is common for workorder,worksheet,userform,client form ====*/
 .userform {
 	border: 1px solid #ecf0f3;
 	margin-top: 100px;
 	margin-bottom: 100px;
-	border-radius: 10px;
-	color: white;
-	background: #765695;
-	box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+	border-radius: 7px;
+	color: rgb(0, 0, 0);
+	background: #3cfafa8d !important;
+	box-shadow: 2px 2px 4px #cbced1;
 }
 select {
 	/* styling */
 	background-color: white;
 	border: thin solid #c9cccf;
 	border-radius: 4px;
+	color: #444;
 	display: inline-block;
 	font: inherit;
 	line-height: 1.5em;
@@ -228,6 +239,8 @@ select {
 	-moz-appearance: none;
 	text-indent: 1px;
 	text-overflow: "";
+	height: calc(1.5em + 0.75rem + 2px) !important;
+
 }
 
 /* arrows */
@@ -240,6 +253,7 @@ select.classic {
 		calc(100% - 15px) calc(1em + 2px), 100% 0;
 	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
 	background-repeat: no-repeat;
+	/* width: 523px; */
 }
 
 select.classic:focus {
@@ -262,7 +276,7 @@ select.classic:focus {
 	height: 417px;
 	margin: 0px;
 	position: relative;
-	left: 50px;
+	left: 91px;
 }
 
 /* view details button */
@@ -733,4 +747,205 @@ nav .profile-details i {
 	border-radius: 50%;
 	background-color: red;
 	color: white;
+}
+/* === Testing === */
+
+/*  === Input field having file type ==== */
+input[type=file]::file-selector-button{
+	background-color: #17a2b8;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	color: #fff;
+	height: 40px;
+	width: 140px;
+}
+input[type=file]::file-selector-button:hover{
+	background-color: #0294aa;
+}
+
+/* === Workorder input field - legal name === */
+.select2-selection{
+	/* background-color: red !important; */
+	padding: 5px !important;
+	height: calc(1.5em + 0.75rem + 2px) !important;
+	border-color: #ced4da !important;
+	width: 32.7rem;
+}
+
+/* === Partner in charge === */
+#Partner_in_charge{
+	/* background-color: red !important; */
+	width: 32.7rem !important;
+}
+
+.select2-selection__arrow{
+	background-color: skyblue;
+	height: 36px !important;
+	width: 40px !important;
+	/* margin-top: 5px !important; */
+	margin-right: -0.2px !important;
+	right: -314px !important;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	font-size: 20px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: blue transparent transparent transparent !important;   
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent blue transparent !important;
+}
+
+/* === Search Field Inside dropdown list === */
+.select2-search__field:focus{
+	outline: none !important;
+	}
+	
+	/* ==== Calender === */
+	.ui-datepicker-header{
+		background: #8bcb48 !important;
+		border: none !important;
+	}
+	
+	/* === Submit Button === */
+	.btn-primary{
+		border: none;
+		background-color: #0a8294 !important;
+	}
+	.btn-primary:hover{
+		 background-color: #015967 !important;
+	}
+	/* === Password input field in user form === */
+	#password{
+		/* background-color: red !important; */
+		border-radius: 0.25rem;
+		border: 1px solid #ced4da;
+		padding-left: 10px;
+		height: calc(1.5em + 0.75rem + 2px) !important;
+	}
+	#password:focus{
+		outline: none;
+		box-shadow: 0px 0px 1px 3px #01e4e4d2;
+		 
+	}
+	/* === client submit form === */
+	#clientsubmit{
+		width: 700px !important;
+		margin-left: 3%;
+	}
+	
+	/* === Previous and Next Button in view client === */
+	.pagination>li>a{
+		color: red !important;
+	}
+	
+	#section_userform1>#span{
+		margin-left: 248px !important;
+	}
+	
+	/* === In Workorder Form - legal name input dropdown ==== */
+	.select2-dropdown{
+		width: 523.5px !important;
+	}
+	
+	/* === Danger button(Delete) in assign to label === */
+	.btn-danger{
+	margin-left: -6px;
+	}
+	
+	/* === Workorder form - workorder number field === */
+	#workorder_no{
+		width: 523px !important;
+	}
+	/* === Workoder form - start and end date clock === */
+	.fa-clock-o{
+		color: rgba(0, 0, 255, 0.676) !important;
+	}
+	.input-group-text{
+	  background-color: skyblue !important;
+	}
+	/* === User Form === */
+	#usertypeid{
+	width: 32.7rem !important;
+	}
+	#type_of_work{
+		width: 32.7rem !important;
+	}
+	#password{
+		width: 32.7rem !important;
+	}
+	
+	/* === View form Input field === */
+	.font-weight-bold {
+	   
+		margin-left: -340px;
+		margin-right: 10px;
+	}
+	
+	/*=== View Workorder Header Text ===  */
+	#section_viewworkorder>h2{
+		
+		margin-left: 46px;
+	}
+	
+	/* === View Workorder Drop Down === */
+	[aria-labelledby="select2-workorderids-container"]{
+		width: 523px !important;
+			/* background-color:  green !important; */
+			position: relative !important;
+	}
+	
+	/* === View Workorder Drop Down Arrow === */
+	[aria-labelledby="select2-workorderids-container"] >.select2-selection__arrow{
+		
+		right: 0px !important;
+		top: 0px !important;
+		
+	}
+	
+	[aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
+		right:-19.6rem !important;
+		/* background-color: red !important;	 */
+	}
+	
+	.select2-container .select2-selection--single .select2-selection__rendered {
+		padding-right: 171px !important;
+	}
+.container {
+    margin-left: 206px;
+	border-radius: 5px;
+}
+#remarks::placeholder{
+	padding-top: 12px;
+}
+
+/* profile password change password button */
+
+.float-right{
+	color: #fff;
+    background-color: #2b4cf1;
+    border: none;
+    border-radius: 6px;
+    width: 64%;
+    height: 42px;
+}
+
+#togglePassword{
+	
+}
+
+
+/* myprofile dropdown css */
+
+.dropdown-menu {
+    position: absolute;
+    /* right: -9px; */
+    margin-left: -42px;
+}
+
+/* table for all text align  */
+
+tbody {
+    text-align: center;
 }

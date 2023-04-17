@@ -5,9 +5,9 @@
         <span style="display: block;
 	font-size: 25px;
 	line-height: 28px;
-	color: white;
+	color: black;
 	text-align: center;
-	margin: 30px 0px; ">USER FORM </span>
+	margin: 30px 0px 30px 248px; ">USER FORM </span>
         <form class="" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('User/createUser') ?>"
             enctype='multipart/form-data'>
             <div class="row mb-3">
@@ -140,8 +140,7 @@
                 <div class="col-sm-8">
                     <input type="password" name="password" id="password" onkeyup="validatePassword(this.value)" placeholder="Password"
  />
-                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;
-    line-height: 1; "></i>
+                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -50px; position: relative; right: -17px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i>
 
                     <span id="msg" style="  margin: 0px 14px;"></span>
 

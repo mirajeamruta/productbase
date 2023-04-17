@@ -1,5 +1,5 @@
 <div class="sidebar">
-		<div class="logo-details">
+<div class="logo-details">
 			<i class='bx bxl-c-plus-plus'></i>
 			<span class="logo_name"></span>
 		</div>
@@ -8,39 +8,38 @@
 				<a class="active"  style="margin-left: 10px;">
 					<i class='bx bx-grid-alt'></i>
 					<span class="links_name">Total Workorders</span>
-					<div class="number" style="margin-left: -78px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;"><?php echo $countworkorder; ?></div>
+					<div class="number" style="margin-left: -85px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 10px 14px 10px 13px;color: black;"><?php echo $countworkorder; ?></div>
 				</a>
 			</li>
 			<li>
 				<a  style="margin-left: 10px; ;margin-top: 74px;">
 					<i class='bx bx-box'></i>
 					<span class="links_name">Pending Workorders</span>
-					<div class="number" style="margin-left: -101px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 11px 18px 9px 16px; color: black;" > <?php echo $pendingWorkorders; ?> </div>
+					<div class="number" style="margin-left: -109px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 10px 15px 11px 12px; color: black;" > <?php echo $pendingWorkorders; ?> </div>
 				</a>
 			</li>
 			<li>
 				<a style="margin-left: 10px;margin-top: 74px;">
 				<i class=' bx bx-user-pin'></i>
 					<span class="links_name">Number of Clients</span>
-					<div class="number" style="margin-left: -84px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;"><?php echo $countclents; ?></div>	
+					<div class="number" style="margin-left: -93px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;"><?php echo $countclents; ?></div>	
 				</a>
 			</li>
 			<li>
 				<a  style="margin-left: 10px; margin-top: 70px;">
 				<i class='bx bx-user'></i>
 					<span class="links_name">Number of Users</span>
-					<div class="number" style="margin-left: -79px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box;padding: 9px 15px 9px 20px; color: black;"><?php echo $countusers; ?></div>
+					<div class="number" style="margin-left: -87px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box;padding: 9px 14px 9px 11px; color: black;"><?php echo $countusers; ?></div>
 				</a>
 			</li>
 
 			</li>
 		</ul>
 	</div>
-
 	<section class="home-section">
     <div class="home-content">
 
-        <div class="sales-boxes" style="margin-top: -19px; height: 600px;"> 
+        <div class="sales-boxes" style="margin-top: -34px; height: 630px;"> 
             <div class="recent-sales box">
                 <div class="title" style="text-align: center;">Notifications</div>
 		

@@ -1,8 +1,8 @@
 <div class='container userform'>
-    <div id="section_userform1" class="col-md-9 offset-md-1">
+    <div id="section_userform1" class="col-md-8 offset-md-3" style="max-width: 63.666667%;">
         <div class="row mb-3 mt-3">
 
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <span id="span"> Change Password</span>
             </div>
 
@@ -26,14 +26,13 @@
 
 
         <form class="" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('user/MyProfile') ?>"
-            enctype='multipart/form-data'>
+            enctype='multipart/form-data'style="font-size: 17px;">
 
             <div class="row mb-2">
-                <label for="inputPassword3" class="col-sm-4"> Old Password: </label>
+                <label for="inputPassword3" class="col-sm-4"> Old Password : </label>
                 <div class="col-sm-6">
-                    <input type="password" name="oldpassword" id="password" style="   width: 69%;" required />
-                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;
-    line-height: 1; "></i>
+                    <input type="password" name="oldpassword" id="password1"  required style="width: 93%; height: 40px; border-radius: 6px; border-color: white;"/>
+                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i>
 
                     <!-- <span id="msg" style="  margin: 0px 14px;"></span> -->
 
@@ -43,12 +42,10 @@
             <hr>
 
             <div class="row mb-2">
-                <label for="inputPassword3" class="col-sm-4"> New Password: </label>
+                <label for="inputPassword3" class="col-sm-4"> New Password : </label>
                 <div class="col-sm-6">
-                    <input type="password" name="newpassword" id="password1" onkeyup="validatePassword(this.value)"
-                        style="width: 69%;" required />
-                    <i class="bi bi-eye-slash" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;
-    line-height: 1; "></i>
+                    <input type="password" name="newpassword" id="password1" onkeyup="validatePassword(this.value)"style="width: 93%;height: 40px;border-radius: 6px;border-color: white;" required />
+                    <i class="bi bi-eye-slash" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i>
 
                     <span id="msg1" style="  margin: 0px 14px;"></span>
 
@@ -64,11 +61,10 @@
             <hr>
 
             <div class="row mb-2">
-                <label for="inputPassword3" class="col-sm-4"> Confirm New Password: </label>
+                <label for="inputPassword3" class="col-sm-4"> Confirm New Password : </label>
                 <div class="col-sm-6">
-                    <input type="password" name="confirmpassword" id="password2" style="width: 69%;" required />
-                    <i class="bi bi-eye-slash" id="togglePassword2" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;
-    line-height: 1; "></i>
+                    <input type="password" name="confirmpassword" id="password2" required style="width: 93%;height: 40px;border-radius: 6px;border-color: white;"  />
+                    <i class="bi bi-eye-slash" id="togglePassword2" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom; line-height: 1; "></i>
 
                     <span id="msg2" style="  margin: 0px 14px;"></span>
 
@@ -76,17 +72,11 @@
                 </div>
             </div>
 
-            <div class="row mb-3" style=" padding: 20px 166px ">
-                <div class="col-sm-8">
-                    <input type="submit" name="insert" value="Change Password" class="float-right" style="background-color: #dc3545;
-    border: none;
-    border-radius: 6px;
-    width: 64%;
-    height: 40px;" />
+            <div class="row mb-3" style="padding: 33px 99px; margin-left: 83px; ">
+                <div class="col-sm-9">
+                    <input type="submit" name="insert" value="Change Password" class="float-right"  />
                 </div>
             </div>
-
-
         </form>
     </div>
 </div>

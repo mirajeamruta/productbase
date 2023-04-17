@@ -9,12 +9,12 @@
             if (count($workesheetuloginuserdetails) > 0) {
             foreach ($workesheetuloginuserdetails as $row) {
             ?>
-            <table class="table table-bordered my-5">
+            <table class="table table-bordered my-4">
                 <thead>
                     <tr class="text-center text-white text-capitalize wkorderhead">
                         <th>Name of student</th>
                         <th>Partner in Charge</th>
-                        <th>SRO No </th>
+                        <th>SRO Number </th>
                         <th>balunand_id_no</th>
                         <th>Start Date</th>
                         <th>Completing On</th>
