@@ -10,7 +10,7 @@
             </p>
             <?php } ?>
 
-            <form id=" clientsubmit" method="post" autocomplete="off" action="<?= base_url(
+            <form id="clientsubmit" method="post" autocomplete="off" action="<?= base_url(
                                                                                     'Client/createClient'
                                                                                 ) ?>" enctype='multipart/form-data'>
                 <div class="row mb-3">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-4">
-                        <input type="submit" name="insert" value="Submit" class="btn btn-primary" />
+                        <input type="submit" name="insert" value="Submit" id="clientFormSubmit"class="btn btn-primary" />
                     </div>
                 </div>
             </form>
@@ -75,8 +75,15 @@
             <?php } ?>
         </div>
         <hr class='hr' />
+        <hr class='hr1' />       
+        
         <div class='col-md-4  offset-md-1' style="margin-left: 8.2%;">
-            <form class="" id="" method="post" action="<?= base_url(
+
+        <p class="or">OR</p>
+        <!--=== In Client Form - Upload excel sheet button  === -->
+        <!-- <button id="csvUpload">Upload a CSV File</button> -->
+
+            <form class="clientUpload" id="" method="post" action="<?= base_url(
                                                             'Client/uploadClient'
                                                         ) ?>" enctype="multipart/form-data">
                 <!-- <div class="col-sm-10">
@@ -89,7 +96,8 @@
                                                     'success'
                                                 ); ?></div>
 				<?php endif; ?> -->
-
+                <!-- Container which container upload button  -->
+               <!-- <div class="uploadCSVContainer"> -->
                 <div class="form-group">
 
                     <input type="file" name="userfile" id="chooseFile" class="filestyle" data-icon="false">
@@ -103,8 +111,13 @@
                     </div>
                 </div> -->
 
-                <p class="file-upload1">Please Select CSV File</p>
-                <input type="submit" name="submit" value="Submit" class="btn btn-info" />
+                <!-- <p class="file-upload1">Please Upload Client CSV File</p> -->
+                <input type="submit" name="submit" value="Submit" class="btn btn-info uploadBtn" id="clientCSVSubmit" />
+                <label class="uploadClientCSV" for="chooseFile" > Upload Client CSV File </label>
+                <!-- Selected File Name  -->
+               <p id='selectedFileName'><span id="fileName"></span></p>
+                <!-- <button id="closeUploadClient">Cancel</button> -->
+                 <!-- </div> -->
             </form>
         </div>
     </div>
@@ -122,3 +135,47 @@ $('#chooseFile').bind('change', function() {
     }
 });
 </script> -->
+
+<script>
+
+    const btn=document.getElementById("csvUpload");
+    const closeUploadClient=document.getElementById("closeUploadClient");
+    const clientUpload=document.querySelector(".clientUpload")
+
+    const fileUpload=document.getElementById('chooseFile');
+    const clientCSVSubmit= document.getElementById('clientCSVSubmit');
+    const clientFormSubmit = document.getElementById('clientFormSubmit');
+    const fileName= document.getElementById('fileName');
+    const selectedFileName=document.getElementById('selectedFileName');
+    const uploadCSVFileLabel=document.querySelector('.uploadClientCSV');
+    const successMessage=document.querySelector('.text-success');
+    fileUpload.addEventListener('change',function(e){
+      if(e.target.files[0]){
+   
+        // file path
+        var path=fileUpload.value;
+       // allow file type
+       let allowType=/(\.xls)/i;
+
+       if(!allowType.exec(path)){
+        alert('Please Upload only CSV files');
+         fileName.innerHTML="Please Upload only CSV files";
+        successMessage.style.display="none";
+        fileUpload='';
+        return false;
+       }else{
+         fileName.innerHTML="File Selected: "+fileUpload.files[0].name;         
+         clientCSVSubmit.style.display="block";
+         selectedFileName.style.display="block";
+         fileName.style.display="block";
+         clientFormSubmit.style.display="none";
+        //  uploadCSVFileLabel.style.display="none";
+     //  === File Upload Success Message disable after file upload === //
+        successMessage.style.display="none";
+       }
+         
+
+      }
+    })
+
+</script>

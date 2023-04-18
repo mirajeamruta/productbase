@@ -11,9 +11,12 @@
         <form class="" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('User/createUser') ?>"
             enctype='multipart/form-data'>
             <div class="row mb-3">
+                
                 <label for="inputEmail3" class="col-sm-4">Type of User</label>
                 <div class="col-sm-8">
+              
                     <select name="usertype" class="classic" id="usertypeid" onchange="userfields(event)">
+                    <option value="">Select</option>
                         <?php
                         foreach ($usertypes as $id) {
                             // var_dump($zones);
@@ -100,7 +103,7 @@
                 <label for="inputPassword3" class="col-sm-4">Partner Under Whom Registered </label>
                 <div class="col-sm-8">
                     <select name="partner_registered" id="type_of_work" class="classic" aria-describedby="type_of_work">
-                        <option value="">select</option>
+                        <option value="">Select</option>
                         <option value="REB">REB</option>
                         <option value="AVM">AVM</option>
                         <option value="NKSB">NKSB</option>
@@ -133,26 +136,32 @@
                         title="10 digits Mobile Number" required>
                 </div>
             </div>
-
-
+     
             <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-4"> Password </label>
+        <div class="col-sm-8" data-placeholder="Password">
+            <input type="password" id="password4" placeholder="Password" onkeyup='checkPasswordLength(this.value)'>
+            <span class='passTypeToggle' title="Show" >
+            <i class="fa-solid fa-eye"style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>
+        </div>
+        <span class="message" id="message" style="margin: -21px 295px;" ></span>
+    </div>
+            <!-- <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8">
-                    <input type="password" name="password" id="password" onkeyup="validatePassword(this.value)" placeholder="Password"
- />
+                    <input type="password4"  name="password4" id="password4" onkeyup="validatePassword(this.value)" placeholder="Password"/>
                     <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -50px; position: relative; right: -17px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i>
 
                     <span id="msg" style="  margin: 0px 14px;"></span>
 
-                    <!-- <button type="submit" id="submit" class="submit"></button>  onkeyup="validatePassword(this.value)"-->
+                 
                 </div>
-            </div>
+            </div> -->
 
-            <div class="row mb-3">
+            <div class="row mb-3" style="margin-top: -8px;">
                 <label for="inputPassword3" class="col-sm-4"> Blood Group </label>
                 <div class="col-sm-8">
-                    <input type="text" name="bloodgroup" id="blood" class="form-control" placeholder="Blood Group"
->
+                    <input type="text" name="bloodgroup" id="blood" class="form-control" placeholder="Blood Group">
                 </div>
             </div>
 
@@ -168,203 +177,110 @@
 
 
 <script>
-function validatePassword(password) {
 
-    //const Password = document.getElementById("password");
+let input = document.querySelector('#password4')
+let formGroup = document.querySelector('.col-sm-8')
+let message = document.querySelector('.message')
+let passTypeToggle = document.querySelector('.passTypeToggle')
+let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
 
-    //var PasswordValidation = Password.addEventListener("keyup", function(event) {
-
-
-    // alert(password.length);
-    //alert('yes321');
-
-    //  password.length === 0
-
-    if (document.getElementById("password").value == '') {
-
-        //  alert('yeah empty');
-        document.getElementById("msg").innerHTML = "";
-        return;
-    }
-
-    if (password.length < 8) {
-
-        var error = 'less than 8'
-
-
-        //  return;
-
-    } else if (password.search(/[a-z]/) < 0) {
-
-        var error = ' Password must contain at least one lowercase letter';
-
-    } else if (password.search(/[A-Z]/) < 0) {
-
-        var error = '   Password must contain at least one uppercase letter ';
-
-    } else if (password.search(/[0-9]/) < 0) {
-
-        var error = 'Password must contain at least one number';
-
-    } else if (password.search(/[*%]/) < 0) {
-
-        var error = ' Password must be contains at least  special characters';
-
+document.body.addEventListener('click', function (e) {
+    if (input.contains(e.target)) {
+        formGroup.classList.add('focus')
     } else {
-
-        var error = '';
-
-    }
-
-    // Do not show anything when the length of password is zero.
-
-    // Create an array and push all possible values that you want in password
-    var matchedCase = new Array();
-    matchedCase.push("[$@$!)(%*#?&]"); // Special Charector
-    matchedCase.push("[A-Z]"); // Uppercase Alpabates
-    matchedCase.push("[0-9]"); // Numbers
-    matchedCase.push("[a-z]"); // Lowercase Alphabates
-
-    // Check the conditions
-    var ctr = 0;
-    for (var i = 0; i < matchedCase.length; i++) {
-        if (new RegExp(matchedCase[i]).test(password)) {
-            ctr++;
+        if(input.value == ''){
+            formGroup.classList.remove('focus')
         }
     }
-
-    if (ctr === 0 || ctr === 1 || ctr === 2) {
-        // alert('ctr is weak' + ctr);
-        document.getElementById("msg").innerHTML = "";
-        //   event.preventDefault();
-        // return false;
-    }
-
-    // Display it
-    var color = "";
-    var strength = "";
-    switch (ctr) {
-        case 0:
-        case 1:
-        case 2:
-            strength = "Password is Very Weak" + ' ' + error;
-
-            color = "red";
-            break;
-
-        case 3:
-            strength = "Medium";
-            color = "orange";
-            break;
-
-        case 4:
-            strength = "Strong Password";
-            color = "green";
-            break;
-    }
-
-
-    document.getElementById("msg").innerHTML = strength;
-    document.getElementById("msg").style.color = color;
-
-    //})
-
-
-    //alert('ctr is' + ctr);
-
-}
-
-
-const togglePassword = document.querySelector("#togglePassword");
-const password = document.querySelector("#password");
-
-togglePassword.addEventListener("click", function() {
-    // toggle the type attribute
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-
-    // toggle the icon
-    this.classList.toggle("bi-eye");
 });
 
-// prevent form submit
-// const form = document.querySelector("form");
-// form.addEventListener('submit', function(e) {
-// e.preventDefault();
-// });
-</script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-</script>
-<script type="text/javascript">
-function submituser() {
-    var submitdetails = document.getElementById('usersubmit');
-    //alert('vvvviiii');
-    submitdetails.addEventListener('submit', (event) => {
-        //alert('form submitted');
-
-        const empID = document.getElementById("usertypeid").value;
-
-        // alert(empID);
-
-        if (empID == 2) {
-            var username = document.getElementById("username").value;
-
-            if (username == '') {
-
-                document.getElementById('username').style.border = '3px solid red';
-                event.preventDefault();
+let checkPasswordStrength = (password) => {
+    let message = {}
+    var span = document.getElementById("message");
+    if(strongPassword.test(password)) {
+        span.style.color = "green";
+        message = {
+            strength : 'strong',
             }
 
-            var employementcommencement = document.getElementById("date_picker1").value;
+    } else if(mediumPassword.test(password)) {
+        span.style.color = "orange";
+        message = {
+            strength : 'medium',
+           }
 
-            if (employementcommencement == '') {
+    } else {
+        span.style.color = "red";
+        message = {
 
-                document.getElementById('date_picker1').style.border = '3px solid red';
+            strength : 'weak'
+         }
 
-                // document.getElementById('emplyomenterror').textContent =
-                //     'Please Select Date Of Commencement Of Employment';
-                event.preventDefault();
-            }
+    }
 
-        }
+    return message;
 
-
-        if (empID == 3) {
-
-            // alert(true);
-            var articlecommencement = document.getElementById("date_picker4").value;
-
-
-            if (articlecommencement == '') {
-
-
-                document.getElementById('date_picker4').style.border = '3px solid red';
-                event.preventDefault();
-            }
-
-        }
-
-        if (document.getElementById("msg").style.color == "red") {
-
-            //alert("yes cant");
-            event.preventDefault();
-
-        }
-
-        if (document.getElementById("password").value == '') {
-
-            //alert("yes cant");
-            event.preventDefault();
-
-        }
-
-
-
-    })
+    document.getElementById("message").innerHTML = strength;
+    document.getElementById("message").innerHTML = Color;
 }
+
+input.addEventListener('keyup', e => {
+    let password = e.target.value
+
+    password != "" ? passTypeToggle.style.display = 'block' : passTypeToggle.style.display = 'none'
+
+    if(password == ''){
+        message.classList.remove('weak')
+        message.classList.remove('medium')
+        message.classList.remove('strong')
+        
+        formGroup.classList.remove('weak')
+        formGroup.classList.remove('medium')
+        formGroup.classList.remove('strong')
+
+        message.innerHTML = ''
+    }else{
+        let result = checkPasswordStrength(password)
+
+        if(result.strength == 'weak'){
+            message.classList.remove('medium')
+            message.classList.remove('strong')
+            formGroup.classList.remove('medium')
+            formGroup.classList.remove('strong')
+            message.classList.add('weak')
+            formGroup.classList.add('weak')
+            message.innerHTML = 'Your Password is weak.'
+     
+        }else if(result.strength == 'medium'){
+            formGroup.classList.remove('weak')
+            formGroup.classList.remove('strong')
+            message.classList.remove('weak')
+            message.classList.remove('strong')
+            message.classList.add('medium')
+            formGroup.classList.add('medium')
+            message.innerHTML = 'Your Password is medium.'
+        }else{
+            formGroup.classList.remove('weak')
+            formGroup.classList.remove('medium')
+            message.classList.remove('weak')
+            message.classList.remove('medium')
+            message.classList.add('strong')
+            formGroup.classList.add('strong')
+            message.innerHTML = 'Your Password is Strong.'
+        }
+    }
+
+})
+
+passTypeToggle.addEventListener('click', e => {
+    input.getAttribute('type') == 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type', 'password')
+    input.getAttribute('type') == 'password' ? passTypeToggle.setAttribute('title', 'Show') : passTypeToggle.setAttribute('title', 'Hide')
+    document.querySelector('.passTypeToggle i').classList.toggle('fa-eye')
+    document.querySelector('.passTypeToggle i').classList.toggle('fa-eye-slash')
+})
 </script>
 <script type="text/javascript">
 function readfile(input) {
@@ -497,3 +413,8 @@ $(document).ready(function() {
     })
 })
 </script>
+
+
+
+
+

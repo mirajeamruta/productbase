@@ -9,10 +9,13 @@
                 <?php
                 foreach ($workorderdetails as $workid) {
                     // var_dump($zones);
-                    echo '<option value="' . $workid['workorder_no'] . '">' . $workid['workorder_no'] . '-' . $workid['client_name'] . '</option>';
+                  echo '<option value="' . $workid['workorder_no'] . '">' . $workid['workorder_no'] . '-' . $workid['client_name'] . '</option>';
                 } ?>
 
             </select>
+
+
+
 
         </div>
         <table class="table table-bordered my-5">
@@ -28,8 +31,8 @@
                 ?>
                 <tr>
 
-                    <!-- <input type="text" value=" <?php echo $row['workorder_no']; ?> " id="workno" hidden /> -->
-
+                    <input type="text" value=" <?php echo $row['workorder_no']; ?> " id="workno" hidden />
+                    <input type="text" value=" <?php echo $row['client_name']; ?> " id="workclnt" hidden />
                     <td colspan="2" class="wksubhead">Work Order No </td>
 
 
@@ -157,7 +160,125 @@
             </tbody>
         </table>
     </div>
+
+    <?php
+    
+    ?>
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+//alert('a' + workOrder);
+var data = <?php echo json_encode($workorderdetails); ?>;
+let newData = [];
+data.map((e) => {
+    var e1 = e.workorder_no;
+    var e2 = e.client_name;
+    var obj = {
+        e1,
+        e2
+    };
+    newData.push(obj);
+    // index = 0;
+    // newData.forEach(myFunction);
+
+    // function myFunction(item, index) {
+    //     console.log(item);
+    // }
+
+    // let newOption = new Option('e1', 'e1');
+    // let otherOption = new Option('e2', 'e2');
+    // const select = document.querySelector('select');
+    // select.add(newOption, otherOption);
+})
+console.log(newData);
+
+
+
+
+//alert('b' + workClient);
+
+//alert(var1)
+// select = document.querySelector('#workorderids');
+// output = select.options[select.selectedIndex].value
+// //document.querySelector('.output').textContent = output;
+// output = workOrder;
+// alert(output);
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+    const workOrder = document.getElementById("workno").value.trim();
+
+    const workClient = document.getElementById("workclnt").value;
+
+    const var1 = workOrder + '-' + workClient;
+
+    //var var2 = document.getElementById("#workorderids");
+
+    // console.log("<option value='" + var1 + "'</option>");
+
+    // $('select[name="workorder"]').append(var1);
+
+    // $("select[name='workorder']").find('option').val((var1).attr('selected', 'selected'));
+
+    // $("select[name='workorder']").find('option').append(var1).attr('selecte d', 'selected');
+    // //alert(var1);
+
+    // var output = [];
+    // console.log(newData);
+
+    newData.map((element) => {
+        // console.log(element.e1)
+        var pending = workOrder;
+        var d = element.e1;
+        console.log(d)
+        console.log(pending)
+        var output = [];
+
+        // $.each(newData, function(element, value) {
+        // console.log(workOrder)
+        // for (let d of newData) {
+
+
+        if (d == `${pending}`) {
+
+            // $.each(newData, function(element, value) {
+            output.push('<option selected value="' + element + '" selected="selected">' +
+                var1 + '</option>');
+            // });
+            // });
+            // $('#workorderids').html(output.join(" "));
+
+            newData.map((ele) => {
+                var e3 = ele.e1 + "- " + ele.e2;
+                if (ele.e1 != `${pending}`) {
+                    output.push('<option  value="' + ele.e1 + '">' +
+                        e3 + '</option>');
+
+                    //
+                }
+            })
+            $('#workorderids').html(output.join(" "));
+            console.log(output)
+        }
+        // console.log(newArray)
+        // }
+        // });
+    })
+
+    // $.each(newData, function(key, value) {
+    //     output.push('<option value="' + key + '">' + var1 + '</option>');
+    // });
+
+    // $('#workorderids').html(output.join(" ")).prop('selected', true);
+
+});
+</script>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
@@ -187,7 +308,7 @@ if (localStorage.getItem('selectedtem')) {
 
     // alert(localStorage.getItem('selectedtem'));
 
-    //  document.getElementById('workorderids').options[localStorage.getItem('selectedtem')].selected = true;
+    //document.getElementById('workorderids').options[localStorage.getItem('selectedtem')].selected = true;
 
     $('select').find('option[value=' + localStorage.getItem('selectedtem') + ']').attr('selected', 'selected');
 
@@ -195,6 +316,7 @@ if (localStorage.getItem('selectedtem')) {
 
 }
 </script>
+
 <script>
 $(document).ready(function() {
 

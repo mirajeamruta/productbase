@@ -1,50 +1,53 @@
-<div class="sidebar">
+<div class="sidebar" Id="sidebar1">
 <div class="logo-details">
 			<i class='bx bxl-c-plus-plus'></i>
 			<span class="logo_name"></span>
 		</div>
 		<ul class="nav-links">
 			<li>
-				<a class="active"  style="margin-left: 10px;">
+				<a class="active"  style="">
 					<i class='bx bx-grid-alt'></i>
 					<span class="links_name">Total Workorders</span>
 					<div class="number" style="margin-left: -85px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 10px 14px 10px 13px;color: black;"><?php echo $countworkorder; ?></div>
 				</a>
 			</li>
 			<li>
-				<a  style="margin-left: 10px; ;margin-top: 74px;">
+            <a  class="active1" id="active1" style="">
+				<!-- <a  class="active1" id="active1" style="margin-left: 10px; ;margin-top: 74px;"> -->
 					<i class='bx bx-box'></i>
 					<span class="links_name">Pending Workorders</span>
 					<div class="number" style="margin-left: -109px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 10px 15px 11px 12px; color: black;" > <?php echo $pendingWorkorders; ?> </div>
 				</a>
 			</li>
 			<li>
-				<a style="margin-left: 10px;margin-top: 74px;">
+				<a class="active3" style="">
+                <!-- <a class="active3" style="margin-left: 10px;margin-top: 74px;"> -->
 				<i class=' bx bx-user-pin'></i>
 					<span class="links_name">Number of Clients</span>
 					<div class="number" style="margin-left: -93px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;"><?php echo $countclents; ?></div>	
 				</a>
 			</li>
 			<li>
-				<a  style="margin-left: 10px; margin-top: 70px;">
+				<a class="active2" style="">
+                <!-- <a class="active2" style="margin-left: 10px; margin-top: 70px;"> -->
 				<i class='bx bx-user'></i>
-					<span class="links_name">Number of Users</span>
-					<div class="number" style="margin-left: -87px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box;padding: 9px 14px 9px 11px; color: black;"><?php echo $countusers; ?></div>
+					<span class="links_name" id="links">Number of Users</span>
+					<div class="number" id="Numb"><?php echo $countusers; ?></div>
 				</a>
 			</li>
 
 			</li>
 		</ul>
 	</div>
-	<section class="home-section">
+	<section class="home-section" id="hom">
     <div class="home-content">
 
-        <div class="sales-boxes" style="margin-top: -34px; height: 630px;"> 
-            <div class="recent-sales box">
+        <div class="sales-boxes" style=""> 
+            <div class="recent-sales box" id="recent">
                 <div class="title" style="text-align: center;">Notifications</div>
 		
 				
-                <div class="sales-details" style="margin-top: -82px;">
+                <div class="sales-details" style="">
 
                     <section id="section-dashboard" class="text-center">
                         <!-- <p><a>Workorder-150's</a> targeted end date has been revised.</p>
@@ -64,7 +67,7 @@
 
 
             <div class="top-sales box">
-                <div class="title" style="text-align: center;">Pending Workorders</div>
+                <div class="title1" style="text-align: center;">Pending Workorders</div>
                 <ul class="top-sales-details" style="margin-left: 36px;">
 
                     <?php
