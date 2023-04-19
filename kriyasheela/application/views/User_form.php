@@ -11,12 +11,12 @@
         <form class="" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('User/createUser') ?>"
             enctype='multipart/form-data'>
             <div class="row mb-3">
-                
+
                 <label for="inputEmail3" class="col-sm-4">Type of User</label>
                 <div class="col-sm-8">
-              
+
                     <select name="usertype" class="classic" id="usertypeid" onchange="userfields(event)">
-                    <option value="">Select</option>
+                        <option value="">Select</option>
                         <?php
                         foreach ($usertypes as $id) {
                             // var_dump($zones);
@@ -52,7 +52,8 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4">Name</label>
                 <div class="col-sm-8">
-                    <input type="text" name="username" id="username" class="form-control" id="inputPassword3" placeholder="Name">
+                    <input type="text" name="username" id="username" class="form-control" id="inputPassword3"
+                        placeholder="Name">
                 </div>
             </div>
             <div class="row mb-3" id="studentregno" style="display:none">
@@ -64,14 +65,15 @@
             <div class="row mb-3" id="employeeID">
                 <label for="inputPassword3" class="col-sm-4">ICAI Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="employee_id" id="employeeid" class="form-control" placeholder="ICAI Number">
+                    <input type="text" name="employee_id" id="employeeid" class="form-control"
+                        placeholder="ICAI Number">
                 </div>
             </div>
             <div class="row mb-3" id="Articleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Articleship</label>
                 <div class="col-sm-8">
-                    <input type="text" name="commencementofarticleship" id="date_picker4" placeholder="Select Date of Commencement of Articleship"
-                        class="form-control">
+                    <input type="text" name="commencementofarticleship" id="date_picker4"
+                        placeholder="Select Date of Commencement of Articleship" class="form-control">
                 </div>
             </div>
 
@@ -80,23 +82,23 @@
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Employment</label>
                 <div class="col-sm-8">
                     <h6 for="inputPassword3" class="col-sm-2" id="emplyomenterror"></h6>
-                    <input type="text" placeholder="Select Date of Commencement of Employment" name="commencementofemployment" id="date_picker1"
-                        class="form-control">
+                    <input type="text" placeholder="Select Date of Commencement of Employment"
+                        name="commencementofemployment" id="date_picker1" class="form-control">
                 </div>
             </div>
 
             <div class="row mb-3" id="completionArticleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Completion of Articleship</label>
                 <div class="col-sm-8">
-                    <input type="text" name="completionofarticleship" placeholder="Select Date of Completion of Articleship" class="form-control"
-                        id="date_picker3">
+                    <input type="text" name="completionofarticleship"
+                        placeholder="Select Date of Completion of Articleship" class="form-control" id="date_picker3">
                 </div>
             </div>
             <div class="row mb-3" id="completionEmployment">
                 <label for="inputPassword3" class="col-sm-4">Date of Completion of Employment</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Select Date of Completion of Employment" name="completionofemployment" id="date_picker2"
-                        class="form-control">
+                    <input type="text" placeholder="Select Date of Completion of Employment"
+                        name="completionofemployment" id="date_picker2" class="form-control">
                 </div>
             </div>
             <div class="row mb-3" id="partner">
@@ -114,38 +116,43 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4">Balu & Anand ID Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"  class="form-control">
+                    <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"
+                        class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Personal Email Address </label>
                 <div class="col-sm-8">
-                    <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address" class="form-control">
+                    <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address"
+                        class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Official Email Address </label>
                 <div class="col-sm-8">
-                    <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address" class="form-control">
+                    <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address"
+                        class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Mobile Number </label>
                 <div class="col-sm-8">
-                    <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10" placeholder="Mobile Number"
-                        title="10 digits Mobile Number" required>
+                    <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10"
+                        placeholder="Mobile Number" title="10 digits Mobile Number" required>
                 </div>
             </div>
-     
+
             <div class="row mb-3">
-            <label for="inputPassword3" class="col-sm-4"> Password </label>
-        <div class="col-sm-8" data-placeholder="Password">
-            <input type="password" id="password4" placeholder="Password" onkeyup='checkPasswordLength(this.value)'>
-            <span class='passTypeToggle' title="Show" >
-            <i class="fa-solid fa-eye"style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>
-        </div>
-        <span class="message" id="message" style="margin: -21px 295px;" ></span>
-    </div>
+                <label for="inputPassword3" class="col-sm-4"> Password </label>
+                <div class="col-sm-8" data-placeholder="Password">
+                    <input type="password" id="password4" placeholder="Password"
+                        onkeyup='checkPasswordLength(this.value)'>
+                    <span class='passTypeToggle' title="Show">
+                        <i class="fa-solid fa-eye"
+                            style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>
+                </div>
+                <span class="message" id="message" style="margin: -21px 295px;"></span>
+            </div>
             <!-- <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8">
@@ -177,19 +184,20 @@
 
 
 <script>
-
 let input = document.querySelector('#password4')
 let formGroup = document.querySelector('.col-sm-8')
 let message = document.querySelector('.message')
 let passTypeToggle = document.querySelector('.passTypeToggle')
 let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
-let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+let mediumPassword = new RegExp(
+    '((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))'
+)
 
-document.body.addEventListener('click', function (e) {
+document.body.addEventListener('click', function(e) {
     if (input.contains(e.target)) {
         formGroup.classList.add('focus')
     } else {
-        if(input.value == ''){
+        if (input.value == '') {
             formGroup.classList.remove('focus')
         }
     }
@@ -200,24 +208,24 @@ document.body.addEventListener('click', function (e) {
 let checkPasswordStrength = (password) => {
     let message = {}
     var span = document.getElementById("message");
-    if(strongPassword.test(password)) {
+    if (strongPassword.test(password)) {
         span.style.color = "green";
         message = {
-            strength : 'strong',
-            }
+            strength: 'strong',
+        }
 
-    } else if(mediumPassword.test(password)) {
+    } else if (mediumPassword.test(password)) {
         span.style.color = "orange";
         message = {
-            strength : 'medium',
-           }
+            strength: 'medium',
+        }
 
     } else {
         span.style.color = "red";
         message = {
 
-            strength : 'weak'
-         }
+            strength: 'weak'
+        }
 
     }
 
@@ -232,20 +240,20 @@ input.addEventListener('keyup', e => {
 
     password != "" ? passTypeToggle.style.display = 'block' : passTypeToggle.style.display = 'none'
 
-    if(password == ''){
+    if (password == '') {
         message.classList.remove('weak')
         message.classList.remove('medium')
         message.classList.remove('strong')
-        
+
         formGroup.classList.remove('weak')
         formGroup.classList.remove('medium')
         formGroup.classList.remove('strong')
 
         message.innerHTML = ''
-    }else{
+    } else {
         let result = checkPasswordStrength(password)
 
-        if(result.strength == 'weak'){
+        if (result.strength == 'weak') {
             message.classList.remove('medium')
             message.classList.remove('strong')
             formGroup.classList.remove('medium')
@@ -253,8 +261,8 @@ input.addEventListener('keyup', e => {
             message.classList.add('weak')
             formGroup.classList.add('weak')
             message.innerHTML = 'Your Password is weak.'
-     
-        }else if(result.strength == 'medium'){
+
+        } else if (result.strength == 'medium') {
             formGroup.classList.remove('weak')
             formGroup.classList.remove('strong')
             message.classList.remove('weak')
@@ -262,7 +270,7 @@ input.addEventListener('keyup', e => {
             message.classList.add('medium')
             formGroup.classList.add('medium')
             message.innerHTML = 'Your Password is medium.'
-        }else{
+        } else {
             formGroup.classList.remove('weak')
             formGroup.classList.remove('medium')
             message.classList.remove('weak')
@@ -276,8 +284,10 @@ input.addEventListener('keyup', e => {
 })
 
 passTypeToggle.addEventListener('click', e => {
-    input.getAttribute('type') == 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type', 'password')
-    input.getAttribute('type') == 'password' ? passTypeToggle.setAttribute('title', 'Show') : passTypeToggle.setAttribute('title', 'Hide')
+    input.getAttribute('type') == 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type',
+        'password')
+    input.getAttribute('type') == 'password' ? passTypeToggle.setAttribute('title', 'Show') : passTypeToggle
+        .setAttribute('title', 'Hide')
     document.querySelector('.passTypeToggle i').classList.toggle('fa-eye')
     document.querySelector('.passTypeToggle i').classList.toggle('fa-eye-slash')
 })
@@ -413,8 +423,3 @@ $(document).ready(function() {
     })
 })
 </script>
-
-
-
-
-

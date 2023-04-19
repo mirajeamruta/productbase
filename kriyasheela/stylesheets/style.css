@@ -103,7 +103,7 @@ body {
 	margin-bottom: 20px;
 }
 /* === In Client Form Choose file input button === */
-.form-group>#file-upload-button{
+.form-group > #file-upload-button {
 	background-color: red !important ;
 }
 
@@ -199,7 +199,7 @@ body {
 	text-align: center;
 	margin: 30px 0px 30px 15px;
 }
-#section_userform>.span{
+#section_userform > .span {
 	margin-left: 210px;
 }
 
@@ -215,7 +215,7 @@ body {
 	border: 1px solid #40ab3e;
 }
 
- /* ============Amruta Code Start========================= */
+/* ============Amruta Code Start========================= */
 
 /* ==== Form which is common for workorder,worksheet,userform,client form ====*/
 .userform {
@@ -242,7 +242,6 @@ select {
 	text-indent: 1px;
 	text-overflow: "";
 	height: calc(1.5em + 0.75rem + 2px) !important;
-
 }
 
 /* arrows */
@@ -556,7 +555,7 @@ nav .profile-details i {
 	justify-content: space-between;
 	/* padding: 0 20px; */
 	height: 630px;
-    margin-top: -34px;
+	margin-top: -34px;
 }
 
 /* left box */
@@ -741,9 +740,6 @@ nav .profile-details i {
 	}
 }
 
-
-
-
 /* notification css */
 
 .notification-icon {
@@ -761,33 +757,29 @@ nav .profile-details i {
 	color: white;
 }
 
-
 /* profile password change password button */
 
-.float-right{
+.float-right {
 	color: #fff;
-    background-color: #2b4cf1;
-    border: none;
-    border-radius: 6px;
-    width: 64%;
-    height: 42px;
+	background-color: #2b4cf1;
+	border: none;
+	border-radius: 6px;
+	width: 64%;
+	height: 42px;
 }
-
-
-
 
 /* myprofile dropdown css */
 
 .dropdown-menu {
-    position: absolute;
-    /* right: -9px; */
-    margin-left: -42px;
+	position: absolute;
+	/* right: -9px; */
+	margin-left: -42px;
 }
 
 /* table for all text align  */
 
 tbody {
-    text-align: center;
+	text-align: center;
 }
 
 /* .oldPass{
@@ -802,59 +794,59 @@ tbody {
 } */
 
 span#msg1 {
-    /* margin-top: 10px !important; */
-    position: absolute;
+	/* margin-top: 10px !important; */
+	position: absolute;
 	top: 192px;
-    left: 250px;
+	left: 250px;
 }
-.mb-2, .my-2 {
-    margin-bottom: 2.5rem!important;
+.mb-2,
+.my-2 {
+	margin-bottom: 2.5rem !important;
 }
 /* responsive */
 
-@media screen and (max-width: 600px){
-.navbar{
-	background-color: rgb(255, 255, 255) !important;
-	text-align: center !important;
-	padding-top: 10px;
-}
-.logo{
-	display: none;
-}
-.navbar-toggler{
-	background-color: yellow !important;
-	position: relative;
-	right: -305px;
-}
-}
-
-@media (max-width: 1150px){
-.home-content .sales-boxes .top-sales {
-    margin: 0;
-    /* background: blue; */
-}
+@media screen and (max-width: 600px) {
+	.navbar {
+		background-color: rgb(255, 255, 255) !important;
+		text-align: center !important;
+		padding-top: 10px;
+	}
+	.logo {
+		display: none;
+	}
+	.navbar-toggler {
+		background-color: yellow !important;
+		position: relative;
+		right: -305px;
+	}
 }
 
-@media (max-width: 1150px){
-.home-content .sales-boxes .box {
-    width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 36px;
-    /* background: #ff5500; */
-	margin-left: 1px;
-	/* height: 100%; */
-}
+@media (max-width: 1150px) {
+	.home-content .sales-boxes .top-sales {
+		margin: 0;
+		/* background: blue; */
+	}
 }
 
-
-@media (max-width: 1150px){
-.home-content .sales-boxes {
-    flex-direction: column;
-    /* padding: 6px 1px 302px -12px; */
+@media (max-width: 1150px) {
+	.home-content .sales-boxes .box {
+		width: 100%;
+		overflow-x: scroll;
+		margin-bottom: 36px;
+		/* background: #ff5500; */
+		margin-left: 1px;
+		/* height: 100%; */
+	}
 }
+
+@media (max-width: 1150px) {
+	.home-content .sales-boxes {
+		flex-direction: column;
+		/* padding: 6px 1px 302px -12px; */
+	}
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
 	.home-section {
 		width: 100%;
 		left: 0;
@@ -862,21 +854,18 @@ span#msg1 {
 	}
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
 	.sidebar {
 		width: 0;
 		z-index: 1;
 	}
 }
 
-
-@media(max-width:400px){
-	.dropdown-menu.show{
+@media (max-width: 400px) {
+	.dropdown-menu.show {
 		float: none;
 		margin-left: 77px;
-    width: 182px;
-	
-
+		width: 182px;
 	}
 }
 
@@ -886,10 +875,10 @@ span#msg1 {
 	}
 } */
 
-@media(max-width:400px){
-	#active1{
+@media (max-width: 400px) {
+	#active1 {
 		padding-left: 164px;
-        margin-top: -49px;
+		margin-top: -49px;
 	}
 }
 
@@ -900,60 +889,59 @@ span#msg1 {
 	}
 } */
 
-@media (max-width: 400px){
-.home-content .recent-sales.box {
-	margin-top: 265px;
-    height: 123px;
-}
-}
-
-@media(max-width:400px){
-	.active3{
-	    margin-top: 86px;
+@media (max-width: 400px) {
+	.home-content .recent-sales.box {
+		margin-top: 265px;
+		height: 123px;
 	}
 }
 
-@media (max-width: 400px){
-.title {
-    margin-left: -47px;
-}
-}
-
-@media (max-width: 400px){
-.bx-user {
-    margin-top: -239px;
-    margin-left: 166px;
-}
+@media (max-width: 400px) {
+	.active3 {
+		margin-top: 86px;
+	}
 }
 
+@media (max-width: 400px) {
+	.title {
+		margin-left: -47px;
+	}
+}
 
-@media(max-width:400px){
-	#links{
+@media (max-width: 400px) {
+	.bx-user {
+		margin-top: -239px;
+		margin-left: 166px;
+	}
+}
+
+@media (max-width: 400px) {
+	#links {
 		margin-top: -231px;
 	}
 }
 
-@media (max-width: 400px){
-#Numb {
-    margin-top: -146px;
-}
+@media (max-width: 400px) {
+	#Numb {
+		margin-top: -146px;
+	}
 }
 
-.number{
+.number {
 	margin-left: -87px;
-    margin-top: 88px;
-    background: white;
-    border-radius: 21px;
-    box-sizing: border-box;
-    padding: 9px 14px 9px 11px;
-    color: black;
+	margin-top: 88px;
+	background: white;
+	border-radius: 21px;
+	box-sizing: border-box;
+	padding: 9px 14px 9px 11px;
+	color: black;
 }
 /* ========= AMRUTA CODE END======================== */
 
 /* =========================================   KAMAL CODE START   ================================= */
 
 /*  === Input field having file type ==== */
-input[type=file]::file-selector-button{
+input[type="file"]::file-selector-button {
 	background-color: #17a2b8;
 	border: none;
 	border-radius: 3px;
@@ -962,12 +950,12 @@ input[type=file]::file-selector-button{
 	height: 40px;
 	width: 140px;
 }
-input[type=file]::file-selector-button:hover{
+input[type="file"]::file-selector-button:hover {
 	background-color: #0294aa;
 }
 
 /* === Workorder input field - legal name === */
-.select2-selection{
+.select2-selection {
 	/* background-color: red !important; */
 	padding: 5px !important;
 	height: calc(1.5em + 0.75rem + 2px) !important;
@@ -976,16 +964,15 @@ input[type=file]::file-selector-button:hover{
 }
 
 /* === Partner in charge === */
-#Partner_in_charge{
-	
+#Partner_in_charge {
 	width: 32.7rem !important;
 }
-[aria-describedby="partner_in_charge"]{
-/* background-color: red !important; */
-width: 32.7rem !important;
+[aria-describedby="partner_in_charge"] {
+	/* background-color: red !important; */
+	width: 32.7rem !important;
 }
 
-.select2-selection__arrow{
+.select2-selection__arrow {
 	background-color: skyblue;
 	height: 36px !important;
 	width: 40px !important;
@@ -996,126 +983,125 @@ width: 32.7rem !important;
 	border-bottom-right-radius: 2px;
 	font-size: 20px !important;
 }
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: blue transparent transparent transparent !important;   
+.select2-container--default
+	.select2-selection--single
+	.select2-selection__arrow
+	b {
+	border-color: blue transparent transparent transparent !important;
 }
-.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
-    border-color: transparent transparent blue transparent !important;
+.select2-container--default.select2-container--open
+	.select2-selection--single
+	.select2-selection__arrow
+	b {
+	border-color: transparent transparent blue transparent !important;
 }
-
 
 /* === Search Field Inside dropdown list === */
-.select2-search__field:focus{
-outline: none !important;
+.select2-search__field:focus {
+	outline: none !important;
 }
 
 /* ==== Calender === */
-.ui-datepicker-header{
+.ui-datepicker-header {
 	background: #8bcb48 !important;
 	border: none !important;
 }
 
 /* === Submit Button === */
-#clientFormSubmit{
+#clientFormSubmit {
 	border: none;
-    background-color: #049fb7 !important;
+	background-color: #049fb7 !important;
 	margin-left: 424px;
-    margin-top: 4px;
+	margin-top: 4px;
 }
-#clientFormSubmit:hover{
-	 background-color: #015967 !important;
+#clientFormSubmit:hover {
+	background-color: #015967 !important;
 }
 /* === Password input field in user form === */
-#password4{
-	
+#password4 {
 	border-radius: 0.25rem;
 	border: 1px solid #ced4da;
 	padding-left: 10px;
 	height: calc(1.5em + 0.75rem + 2px) !important;
-} 
-#password4:focus{
+}
+#password4:focus {
 	outline: none;
 	box-shadow: 0px 0px 1px 3px #01e4e4d2;
-	 
-} 
+}
 /* === client submit form === */
-#clientsubmit{
+#clientsubmit {
 	width: 700px !important;
 	margin-left: 3%;
 }
 
 /* === Previous and Next Button in view client === */
-.pagination>li>a{
+.pagination > li > a {
 	color: red !important;
 }
 
-#section_userform1>#span{
+#section_userform1 > #span {
 	margin-left: 248px !important;
 }
 
 /* === In Workorder Form - legal name input dropdown ==== */
-.select2-dropdown{
+.select2-dropdown {
 	width: 523.5px !important;
 }
 
 /* === Danger button(Delete) in assign to label === */
-.btn-danger{
-margin-left: -6px;
+.btn-danger {
+	margin-left: -6px;
 }
 
 /* === Workorder form - workorder number field === */
-#workorder_no{
+#workorder_no {
 	width: 523px !important;
 }
 /* === Workoder form - start and end date clock === */
-.fa-clock-o{
+.fa-clock-o {
 	color: rgba(0, 0, 255, 0.676) !important;
 }
-.input-group-text{
-  background-color: skyblue !important;
+.input-group-text {
+	background-color: skyblue !important;
 }
 /* === User Form === */
-#usertypeid{
-width: 32.7rem !important;
+#usertypeid {
+	width: 32.7rem !important;
 }
-#type_of_work{
+#type_of_work {
 	width: 32.7rem !important;
 }
 
 /* === Its was effecting with user profile forms so commented === */
-#password4{
+#password4 {
 	width: 32.7rem !important;
-} 
+}
 /* === View form Input field === */
 .font-weight-bold {
-   
-    margin-left: -340px;
-    margin-right: 10px;
+	margin-left: -340px;
+	margin-right: 10px;
 }
 
 /*=== View Workorder Header Text ===  */
-#section_viewworkorder>h2{
-	
+#section_viewworkorder > h2 {
 	margin-left: 46px;
 }
 
 /* === View Workorder Drop Down === */
-[aria-labelledby="select2-workorderids-container"]{
+[aria-labelledby="select2-workorderids-container"] {
 	width: 523px !important;
-		/* background-color:  green !important; */
-		position: relative !important;
+	/* background-color:  green !important; */
+	position: relative !important;
 }
 
 /* === View Workorder Drop Down Arrow === */
-[aria-labelledby="select2-workorderids-container"] >.select2-selection__arrow{
-	
+[aria-labelledby="select2-workorderids-container"] > .select2-selection__arrow {
 	right: 0px !important;
 	top: 0px !important;
-	
 }
 
-[aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
-	right:-20rem !important;
+[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
+	right: -19.6rem !important;
 	/* background-color: red !important;	 */
 }
 
@@ -1124,13 +1110,12 @@ width: 32.7rem !important;
 }
 .container {
 	margin-top: 86px;
-    margin-left: 110px;
+	margin-left: 110px;
 	border-radius: 5px;
 }
 
-
 /* ==== Client Form - CSV File Upload Section ==== */
-.or{
+.or {
 	/* color: #fff; */
 	background-color: transparent;
 	position: absolute;
@@ -1139,24 +1124,20 @@ width: 32.7rem !important;
 	z-index: 1;
 }
 
-
-
-
 /* ==== Client Form new code ==== */
-.uploadBtn{
+.uploadBtn {
 	position: absolute;
-	 top: 433px !important;
-    left: -298px !important;
+	top: 433px !important;
+	left: -298px !important;
 	height: 33px !important;
 	padding: 3px;
 }
 /* ==== Client Form Subit Button ==== */
-input#clientFormSubmit{
-	
+input#clientFormSubmit {
 }
 
 /* === Upload CSV file label === */
-.uploadClientCSV{
+.uploadClientCSV {
 	background-color: #17a2b8;
 	border-radius: 7px;
 	cursor: pointer;
@@ -1168,7 +1149,7 @@ input#clientFormSubmit{
 }
 
 /* === File input-It is hidden-getting control via label === */
-#chooseFile{
+#chooseFile {
 	position: absolute;
 	top: 185px;
 	left: 100px;
@@ -1178,21 +1159,21 @@ input#clientFormSubmit{
 }
 
 /* === Submit button of file === */
-#clientCSVSubmit{
+#clientCSVSubmit {
 	display: none;
 }
 /* === Client Form submit button === */
-#section_clientform{
+#section_clientform {
 	height: 600px !important;
 }
 /* === Selected CSV File Name (In client Form) ==== */
-#selectedFileName{
+#selectedFileName {
 	display: none;
 	position: absolute;
 	top: 142px;
 	left: 100px;
 }
-#fileName{
+#fileName {
 	display: none;
 	font-size: 16px !important;
 	position: absolute;
@@ -1201,18 +1182,18 @@ input#clientFormSubmit{
 	width: 300px;
 }
 /* === CSV File upload success message ==== */
-.text-success{
+.text-success {
 	margin-top: -342px !important;
-    margin-left: 790px !important;
-    width: 300px !important;
+	margin-left: 790px !important;
+	width: 300px !important;
 }
 /* === Add more plus icon disapble in large screen === */
-.bxs-plus-square{
+.bxs-plus-square {
 	display: none !important;
 }
 /* === Mobile Responsive === */
-@media screen and (max-width: 600px){
-	.container{
+@media screen and (max-width: 600px) {
+	.container {
 		border: none !important;
 		box-shadow: none !important;
 		height: 1050px !important;
@@ -1220,69 +1201,68 @@ input#clientFormSubmit{
 		width: 355px !important;
 		margin-left: 11px !important;
 		height: 1075px !important;
-
 	}
-	#workorder_form{
+	#workorder_form {
 		margin-left: -12px !important;
 	}
-	
+
 	/* === Workorder label - in create workorder number ==== */
-	#section_userform>.span{
+	#section_userform > .span {
 		margin: 10px 0px 0px 14px !important;
 		font-size: 18px;
 		padding-top: 15px !important;
 	}
 	/* === Workorder Submit button === */
-	.btn-info{
+	.btn-info {
 		margin: 4px 0 0 120px !important;
 	}
 	/* === Type of work === */
-	#type_of_work{
+	#type_of_work {
 		width: 20rem !important;
 	}
 	/* === Workorder number input field === */
-	#workorder_no{
-		width: 20rem!important;
+	#workorder_no {
+		width: 20rem !important;
 	}
 	/* === Created on Input field === */
-	.form-control{
+	.form-control {
 		width: 20rem !important;
 	}
 	/* === Legal and Trade Name === */
-	.select2-selection--single{
+	.select2-selection--single {
 		width: 20rem !important;
 	}
-	[aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
+	[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
 		right: -7.1rem !important;
 	}
-	span.select2-dropdown.select2-dropdown--above{
+	span.select2-dropdown.select2-dropdown--above {
 		width: 319px !important;
 	}
 	/* === Partner In Charge ===  */
-	#partner_in_charge{
+	#partner_in_charge {
 		width: 20rem !important;
 	}
 
 	/* === Asign to input field === */
-	select#select{
+	select#select {
 		width: 270px !important;
 	}
 	/* === Delete Buttom ==== */
-	.btn-danger{
+	.btn-danger {
 		display: none !important;
 	}
 	/* === Add More text button disable in mobile view === */
-	#btnAdd{
+	#btnAdd {
 		display: none;
 	}
 	/* === Add more plus icon display in small screen === */
-.bxs-plus-square{
-	display: block !important;
-	font-size: 49px;
-	position: absolute !important;
-	top: -59px;
-	right: 3px;
-}
+	.bxs-plus-square {
+		display: block !important;
+		font-size: 49px;
+		position: absolute !important;
+		top: -59px;
+		right: 3px;
+	}
 }
 
 /* =========================================   KAMAL CODE END   ================================= */

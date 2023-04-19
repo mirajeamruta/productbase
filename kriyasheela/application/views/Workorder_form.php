@@ -7,7 +7,7 @@
             <div class="row mb-3">
                 <label for="type_of_work" class="col-sm-4">Type of Work :</label>
                 <div class="col-sm-8">
-                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work"  class="classic"
+                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="classic"
                         aria-describedby="type_of_work" onchange="typeofwork();">
                         <option value="">Select</option>
                         <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
@@ -37,7 +37,7 @@
             <div class="row mb-3">
                 <label for="client_name" class="col-sm-4">Legal Name / Trade Name :</label>
                 <div class="col-sm-6">
-                <select name="client_name" id='slct1' class="classic" aria-describedby="client_name" >
+                    <select name="client_name" id='slct1' class="classic" aria-describedby="client_name">
                         <option value="">Select</option>
                         <?php foreach ($clientname as $clientnamerecord) : ?>
                         <option value="<?= $clientnamerecord['name']; ?>"><?= $clientnamerecord['name']; ?>
@@ -106,8 +106,8 @@
                 <div class="col-sm-5" style="max-width: 37.666667%;">
                     <div id="testingDiv1" class="mb-3 clonedInput">
 
-                        <select name="assign_to[]" class="form-control classic" id="select"
-                            aria-describedby="assign_to[]">
+                        <select name="assign_to2[]" class="form-control classic" id="select"
+                            aria-describedby="assign_to2[]">
                             <option value="">Select</option>
                             <?php foreach ($assign_to2 as $worksheetrecord) : ?>
 
