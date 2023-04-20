@@ -21,7 +21,7 @@ class Workorder extends CI_Controller
 			$data['assign_to'] = $this->Workorder_model->getUsers();
 			// var_dump($data['assign_to'] );
 			foreach ($data['assign_to']  as $assign_to) {
-				$data['assign_to'][] = array(
+				$data['assign_to2'][] = array(
 					'user_id' =>  $assign_to['user_id'],
 					'name' =>   $assign_to['name']
 				);

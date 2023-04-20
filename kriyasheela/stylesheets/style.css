@@ -773,7 +773,15 @@ nav .profile-details i {
     height: 42px;
 }
 
-
+.number{
+	margin-left: -87px;
+    margin-top: 88px;
+    background: white;
+    border-radius: 21px;
+    box-sizing: border-box;
+    padding: 9px 14px 9px 11px;
+    color: black;
+}
 
 
 /* myprofile dropdown css */
@@ -802,31 +810,39 @@ tbody {
 } */
 
 span#msg1 {
-    /* margin-top: 10px !important; */
+    margin-top: 18px !important;
     position: absolute;
-	top: 192px;
-    left: 250px;
+    top: 194px;
+    left: 249px;
 }
 .mb-2, .my-2 {
     margin-bottom: 2.5rem!important;
 }
-/* responsive */
+
+
+
+/* responsive for dashboard code start */
 
 @media screen and (max-width: 600px){
 .navbar{
 	background-color: rgb(255, 255, 255) !important;
 	text-align: center !important;
-	padding-top: 10px;
+	padding-top: 6px !important;
+	font-weight: 800;
 }
+
 .logo{
-	display: none;
+	/* display: none; */
+	position: absolute;
+    top: 20px;
+}
 }
 .navbar-toggler{
-	background-color: yellow !important;
+	display: block;
 	position: relative;
 	right: -305px;
 }
-}
+
 
 @media (max-width: 1150px){
 .home-content .sales-boxes .top-sales {
@@ -843,6 +859,9 @@ span#msg1 {
     /* background: #ff5500; */
 	margin-left: 1px;
 	/* height: 100%; */
+	border: none!important;
+    border-radius: 0px!important;
+	font-size: 20px;
 }
 }
 
@@ -873,18 +892,19 @@ span#msg1 {
 @media(max-width:400px){
 	.dropdown-menu.show{
 		float: none;
-		margin-left: 77px;
+		margin-left: 119px !important;
     width: 182px;
+	border: none;
 	
 
 	}
 }
 
-/* @media(max-width:400px){
+@media(max-width:400px){
 	.active{
-		margin-top: 12px;
+		/* margin-top: 12px; */
 	}
-} */
+}
 
 @media(max-width:400px){
 	#active1{
@@ -922,7 +942,7 @@ span#msg1 {
 @media (max-width: 400px){
 .bx-user {
     margin-top: -239px;
-    margin-left: 166px;
+    margin-left: 169px;
 }
 }
 
@@ -935,20 +955,183 @@ span#msg1 {
 
 @media (max-width: 400px){
 #Numb {
-    margin-top: -146px;
+    margin-top: -140px;
+}
+}
+@media (max-width: 400px){
+.recent-sales {
+    border: none!important;
+    border-radius: 0px!important;
 }
 }
 
-.number{
-	margin-left: -87px;
-    margin-top: 88px;
-    background: white;
-    border-radius: 21px;
-    box-sizing: border-box;
-    padding: 9px 14px 9px 11px;
-    color: black;
+
+
+ /* @media (max-width: 500px){
+.bx {
+    font-size: 37px !important;
 }
+} */
+
+/* @media (max-width: 400px){
+.links_name {
+    font-size: 20px !important;
+}
+}  */
+
+
+
+/* hide and show humbarger icon code  */
+
+
+/* [ON BIG SCREEN] */
+/* (A) WRAPPER */
+#hamnav {
+	/* width: 100%; */
+	/* background: #000; */
+  }
+  
+  /* (B) HORIZONTAL MENU ITEMS */
+  #hamitems { display: flex; }
+  #hamitems a {
+	flex-grow: 1;
+	flex-basis: 0;
+	padding: 10px;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+  }
+  /* #hamitems a:hover { background: #af0d0d; } */
+  
+  /* (C) HIDE HAMBURGER */
+  #hamnav label, #hamburger { display: none; }
+
+
+  /* [ON SMALL SCREENS] */
+@media screen and (max-width: 768px){
+	/* (A) BREAK INTO VERTICAL MENU */
+	#hamitems a {
+	  box-sizing: border-box;
+	  display: block;
+	  width: 100%;
+	  border-top: 1px solid #333;
+	}
+   
+	/* (B) SHOW HAMBURGER ICON */
+	#hamnav label { 
+	  display: inline-block; 
+	  color: rgb(6, 0, 0);
+	  /* background: #a02620; */
+	  font-style: normal;
+	  font-size: 2.4rem;
+	  padding-right: 25px;
+	}
+  
+	/* (C) TOGGLE SHOW/HIDE MENU */
+	#hamitems { display: none; }
+	#hamnav input:checked ~ #hamitems { display: block; }
+  }
+
+  button:focus {
+    /* outline: 1px dotted; */
+    outline: none !important;
+}
+
+
+
+/* view workorder responsive code */
+
+@media(max-width:400px){
+	h2.text-center.mb-2 {
+		padding-right: 45px;
+	}
+}
+
+/* @media(max-width:400px){
+	.span.font-weight-bold.display-6 {
+		padding: 0px 91px 9px 4px;
+		margin: 68px 2px 0px -16px;
+	}
+}
+
+@media(max-width:400px){
+	.span.select2.select2-container.select2-container--default {
+		margin-left: -38px;
+		margin-top: 10px;
+	}
+} */
+@media(max-width:500px){
+span.font-weight-bold.display-6 {
+  
+    padding: 96px 1px 0px 238px;
+  
+    margin-right: -179px;
+}
+}
+
+@media(max-width:500px){
+
+	.text-center.my-5 {
+		margin: 0px 196px 0px 0px;
+	}
+}
+@media(max-width:500px){
+	span.select2-dropdown.select2-dropdown--below {
+		width: 327.4px !important;
+	}
+}
+
+
+@media(max-width:400px){
+	.ul#select2-workorderids-results {
+	
+		margin: -3px -4px 8px 3px;
+	}
+}
+
+
+@media all and (max-width: 500px) {
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+	  display: block;
+	}
+}
+
+/* 
+	@media(max-width:768px){
+		.table thead{
+			display: none;
+		}
+		.table, .table tbody,.table tr,.table td{
+			display: block;
+			width:100%;
+		}
+		.table.tr{
+			margin-bottom: 15px !important;
+		}
+		.table tbody tr td{
+			text-align: right;
+			padding-left: 50%;
+			position: relative;
+		}
+		.table td:before{
+			content:attr(data-label);
+			position: absolute;
+			left: 0;
+			width: 50%;
+			padding-left: 15px;
+			text-align: left;
+		}
+	} */
 /* ========= AMRUTA CODE END======================== */
+
+
+
+
 
 /* =========================================   KAMAL CODE START   ================================= */
 
@@ -1035,8 +1218,8 @@ outline: none !important;
 } 
 #password4:focus{
 	outline: none;
-	box-shadow: 0px 0px 1px 3px #01e4e4d2;
-	 
+	box-shadow: 0px 0px 1px 3px #ced4da;
+	border:1px solid #ced4da !important;
 } 
 /* === client submit form === */
 #clientsubmit{
@@ -1115,7 +1298,7 @@ width: 32.7rem !important;
 }
 
 [aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
-	right:-20rem !important;
+	right: -19.6rem !important;
 	/* background-color: red !important;	 */
 }
 

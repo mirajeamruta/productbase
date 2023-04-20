@@ -187,7 +187,8 @@ class Main extends CI_Controller
 			//true
 			$balunand_id_no = $this->input->post('balunand_id_no');
 
-			$password = md5($this->input->post('password'));
+			// $password = md5($this->input->post('password'));
+			$password = ($this->input->post('password'));
 
 			//model function
 			$this->load->model('Main_model');

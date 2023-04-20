@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- dashboard   tmplte-->
-    <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css">
+
+    <!-- For Server  -->
+    <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
+
+    <!-- For Local   --> 
+    <link rel="stylesheet" href="style.css">
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
@@ -15,7 +21,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="<?= ("http://172.105.55.147/kriyasheela/stylesheets/style.css") ?>">
+
+     <!-- For Server  -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?= ("http://172.105.55.147/kriyasheela/stylesheets/style.css") ?>"> -->
+
+       <!-- For Local   -->
+     <link rel="stylesheet" type="text/css" href="<?= base_url("stylesheets/style.css") ?>">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -31,9 +43,18 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
     <!-- for password icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
-    <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" /> -->
+
+     <!-- DASHBOARD -->
+
+    <!-- For Server  -->
+    <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
+     <!-- For Local -->
+    <link rel="stylesheet" href="/kriyasheela-p2/kriyasheela/stylesheets/style.css">
+   
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
