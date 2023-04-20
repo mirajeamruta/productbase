@@ -242,7 +242,6 @@ select {
 	text-indent: 1px;
 	text-overflow: "";
 	height: calc(1.5em + 0.75rem + 2px) !important;
-
 }
 
 /* arrows */
@@ -260,8 +259,8 @@ select.classic {
 
 select.classic:focus {
 	background-image: linear-gradient(45deg, white 50%, transparent 50%),
-		linear-gradient(135deg, transparent 50%, white 50%),
-		linear-gradient(to right, gray, gray);
+					  linear-gradient(135deg, transparent 50%, white 50%),
+					  linear-gradient(to right, gray, gray);
 	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
 	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
 	background-repeat: no-repeat;
@@ -1145,15 +1144,13 @@ width: 32.7rem !important;
 /* ==== Client Form new code ==== */
 .uploadBtn{
 	position: absolute;
-	 top: 433px !important;
+	top: 435px !important;
     left: -298px !important;
-	height: 33px !important;
-	padding: 3px;
+	height: 35px !important;
+	padding: 6px;
+	width: 85px;
 }
-/* ==== Client Form Subit Button ==== */
-input#clientFormSubmit{
-	
-}
+
 
 /* === Upload CSV file label === */
 .uploadClientCSV{
@@ -1185,6 +1182,7 @@ input#clientFormSubmit{
 #section_clientform{
 	height: 600px !important;
 }
+
 /* === Selected CSV File Name (In client Form) ==== */
 #selectedFileName{
 	display: none;
@@ -1197,7 +1195,7 @@ input#clientFormSubmit{
 	font-size: 16px !important;
 	position: absolute;
 	top: -56px;
-	left: 124px;
+	left: -79px;
 	width: 300px;
 }
 /* === CSV File upload success message ==== */
@@ -1210,15 +1208,36 @@ input#clientFormSubmit{
 .bxs-plus-square{
 	display: none !important;
 }
+#dis_Select_File{
+	display: none;
+	cursor: pointer;
+	font-size: 31px;
+	position: absolute;
+	top: 107px;
+	left: 275px;
+}
+#dis_Select_File:hover{
+	color: red;
+}
+
+.user_details_lg{
+	display: block !important;
+}
+/* === VIEW USER TABLE SMALL SCREEN VERSION DISABLE IN BIG SCREEN === */
+#view_User_Table{
+	display: none !important;
+}
+.section_viewuser__header{
+	display: none;
+}
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px){
 	.container{
 		border: none !important;
 		box-shadow: none !important;
-		height: 1050px !important;
-		margin-right: 140px !important;
+		height: 1050px !important;	
 		width: 355px !important;
-		margin-left: 11px !important;
+		margin: 59px 140px 0 9px !important;
 		height: 1075px !important;
 
 	}
@@ -1275,14 +1294,193 @@ input#clientFormSubmit{
 	#btnAdd{
 		display: none;
 	}
+	
 	/* === Add more plus icon display in small screen === */
 .bxs-plus-square{
 	display: block !important;
 	font-size: 49px;
 	position: absolute !important;
 	top: -59px;
-	right: 3px;
+	right: -11px;
+}
+div#section_userform {
+    margin-left: -12px;
+	padding-top: 12px;
+}
+/* === Legal and Trade Name drop down === */
+.select2-dropdown--below {
+	width: 319px !important;
+}
+/* ==== WORKSHEET FORM ==== */
+#worksheet_Form{
+	height: 959px !important;
+}
+#section_userform1>#span{
+	padding-top: 18px;
+	margin: 81px 0 20px 33px !important;
+
+}
+#section_userform1{
+	margin-left: -13px !important;
+}
+/* --- Start and End Time -- */
+.input-group-text{
+   position: relative;
+   top: -38px;
+   right: -279px;
+   height: 38px;
+   z-index: 9999;
+}
+#datetimepicker{
+	width: 318px !important; 
+}
+#datetimepickerend{
+	width: 315px !important;
+}
+
+/* ==== CLIENT FORM ==== */
+#clientsubmit{
+	margin-left: 4px !important;
+	width: 100% !important;
+	
+}
+.uploadClientCSV{
+	top : 25px;
+	left: 52px;
+}
+.hr{
+	display: none !important;
+}
+.hr1{
+	display: none !important;
+}
+.or{
+	top: -7px;
+	right: 174px;
+}
+#section_clientform{
+	height: 975px !important;
+	margin-top: 80px !important;
+}
+#section_clientform span{
+	padding-top: 21px !important;
+}
+#clientFormSubmit{
+	margin-left: 111px !important;
+}
+
+/* === Client CSV file Submit === */
+.uploadBtn{
+left: -15px !important;
+top: 129px !important;
+}
+/* === Client CSV selected file === */
+#section_clientform span{
+	margin: -20px 0px 30px -3px;
+}
+/* === Dis Select Client CSV selected file === */
+#dis_Select_File{
+	top: 79px;
+	left: 228px;
+}
+/* ==== USER FORM ==== */
+#user_Form,#user_Form>#section_userform{
+	height: 1370px !important;
+}
+/* --- Header --- */
+#user_Form span{
+	margin: 6px 0px 30px 19px !important;
+}
+/* --- Password Eye Icon --- */
+.fa-eye{
+	position: absolute !important;
+	right: 13px !important;
+	top: 8px !important;
+}
+/* --- Password Input Field --- */
+#password4{
+	width: 19.70rem !important;
+}
+/* -- Type of User Input Field --- */
+#usertypeid{
+	width: 19.71rem !important;
+}
+/* === VIEW USER FORM === */
+#view_User_Table{
+	display: block !important;
+}
+#section_viewuser{
+	margin-top: 82px;
+}
+.section_viewuser__header
+{
+	display: block;
+	background-color: #0047FF;
+	color: #fff;
+	height: 45px;
+	text-align: center;
+	padding: 12px 0px;
+	width: 100%;
+}
+/* --- Table Header Background-color --- */
+#view_User_Table>thead th{
+	font-size: 12px !important;
+	background-color: #0047FF !important ;
+	text-align: center;
+	width: 600px;
+}
+#view_User_Table>tbody td{
+	font-size: 12px !important;
+}
+#view_User_Table>tbody td>.viewdetail{
+	background-color: transparent !important;
+	color: #0047FF !important;
+}
+/* === View User === */
+.user_details_lg{
+	display: none !important;
+}
+#view_User_Table_lg{
+	display: none !important;
+}
+/* --- Small Screen --- */
+.user_details_sm{
+	/* background-color: yellow; */
+	min-height: 500px;
+	margin-left: -15px;
+	width: 109%;
+}
+#view_user{
+	height: 573px !important;
+}
+/* --- Profile Picture --- */
+.user_details_sm__profile_Picture{
+	background-color: green;
+	border-radius: 50%;
+	height: 100px;
+	position: relative;
+	left: 123px;
+	top: 23px;
+	width: 100px;
+}
+/* --- User Name --- */
+.user_details_sm__user_Name{
+	min-height: 30px;
+	width: 101px;
+	text-align: center;
+	margin: 35px 0 0 126px;
+	word-wrap: break-word;
+}
+/* --- View User Table --- */
+.user_details_sm__table>tbody>tr{
+	text-align: left;
+}
+.user_details_sm__table>tbody>tr>td{
+    padding-left: 24px;
+    overflow-wrap: break-word;
+    padding-top: 16px;
 }
 }
+
 
 /* =========================================   KAMAL CODE END   ================================= */

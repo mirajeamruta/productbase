@@ -192,6 +192,7 @@ class User extends CI_Controller
         foreach ($data['userdetails'] as $user) {
             $data['userdetailsdata'][] = array(
                 'user_id' => $user['user_id'],
+                'balunand_id_no'=>$user['balunand_id_no'],
                 'user_type_id' => $user['user_type_id'],
                 'name' => $user['name'],
                 'student_reg_no' => $user['student_reg_no'],
