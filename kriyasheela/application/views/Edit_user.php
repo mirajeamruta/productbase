@@ -24,8 +24,8 @@
 					<div class="row mb-3" id="displayimage">
 						<label for="demo-date" class="col-sm-3">Profile photo</label>
 						<div class="col-sm-9">
-							<!-- <p><?php echo ('http://172.105.55.147/kriyasheela/photos/' . $row['image']) ?></p> -->
-							<img id="propileimage" src="<?php echo ('http://172.105.55.147/kriyasheela/photos/' . $row['image']) ?>" width="100px" height="100px" alt="your image" />
+							<!-- <p><?php echo ('http://172.105.55.147/kriyasheela/photos/http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?></p> -->
+							<img id="propileimage" src="<?php echo ('http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>" width="100px" height="100px" alt="your image" />
 						</div>
 					</div>
 					<div class="row mb-3">
@@ -97,7 +97,7 @@
 		?>
 	<!-- User Profile Picture -->
 	<div class="user_details_sm__profile_Picture">
-		<img src="<?php echo ('http/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>" alt="User Image">
+		<img src="<?php echo ('http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>" alt="User Image">
 	</div>
 	<!-- User Name -->
 	<p class="user_details_sm__user_Name"><?php echo $row['name'] ?></p>
@@ -107,48 +107,48 @@
 		<tbody>
 			<tr>
 				<td>ICAI Number</td>
-				<td>:</td>
-				<td><?php echo $row['ID'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['ID'] ?></td>
 		    </tr>
 			<tr>
 				<td>Start Date</td>
-				<td>:</td>
-				<td><?php echo $row['startdate'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['startdate'] ?></td>
 		    </tr>
 			<tr>
 				<td>End Date</td>
-				<td>:</td>
-				<td><?php echo $row['enddate'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['enddate'] ?></td>
 		    </tr>
 			<tr>
 				<td>Partner Under Whom Registered</td>
-				<td>:</td>
-				<td><?php echo $row['partner_under_whom_registered'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['partner_under_whom_registered'] ?></td>
 		    </tr>
 			<tr>
 				<td>Balunand Id</td>
-				<td>:</td>
-				<td><?php echo $row['balunand_id_no'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['balunand_id_no'] ?></td>
 		    </tr>
 			<tr>
 				<td>Personal Email</td>
-				<td>:</td>
-				<td><?php echo $row['personal_email'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['personal_email'] ?></td>
 		    </tr>
 			<tr>
 				<td>Official Email</td>
-				<td>:</td>
-				<td><?php echo $row['official_email'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['official_email'] ?></td>
 		    </tr>
 			<tr>
 				<td>Mobile Number</td>
-				<td>:</td>
-				<td><?php echo $row['mobile_no'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['mobile_no'] ?></td>
 		    </tr>
 			<tr>
 				<td>Blood Group</td>
-				<td>:</td>
-				<td><?php echo $row['bloodgroup'] ?></td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['bloodgroup'] ?></td>
 		    </tr>
 		</tbody>
 	</table>
