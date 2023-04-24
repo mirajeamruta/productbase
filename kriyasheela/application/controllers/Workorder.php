@@ -26,20 +26,71 @@ class Workorder extends CI_Controller
 					'name' =>   $assign_to['name']
 				);
 			}
-			$data['workordernumber'] = $this->Workorder_model->fetch_workorder_data();
-			foreach ($data['workordernumber']  as $worknumber) {
-				$workorder_no =   $worknumber['workorder_no'];
-			}
-			$data['workdata1'] = $workorder_no;
-			$data['workdata2'] = substr($workorder_no, 4);
-			// $data['workdata']
-			// $a['typework']=  $currentyear.$typeofworkorder['prefix'] ;
-			$data['workdata'] =  $data['workdata2'] + 1;
-			var_dump($data['workdata']);
-			//  type of work
 			$data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
-			// foreach ($data['typeofworkorder']  as $typeofworkorder) {
-			// 	$data['typeofworkorderdata'][] = array(
+			foreach ($data['typeofworkorder'] as $typeofworkorder) {
+				// 	$data['typeofworkorderdata'][] = array(
+				$type_of_work_id = $typeofworkorder['type_of_work_id'];
+			}
+			$data['workordernumber'] = $this->Workorder_model->fetch_workorder_data();
+			foreach ($data['workordernumber'] as $worknumber) {
+				$workorder_no = $worknumber['workorder_no'];
+			}
+			foreach ((array) $workorder_no as $workid) {
+				$data['work'] = substr($workid, 2, -1);
+				if ($data['work'] == 'EA') {
+					$data['EA'] = $workid;
+					//echo $data['EA'];
+
+				} else if ($data['work'] == 'IA') {
+					$data['IA'] = $workid;
+					//echo $data['IA'];
+				} else if ($data['work'] == 'TA') {
+					$data['TA'] = $workid;
+					//echo $data['TA'];
+				} else if ($data['work'] == 'RF') {
+					$data['RF'] = $workid;
+					//echo $data['RF'];
+				} else {
+					echo " Not a Match ";
+				}
+
+			}
+
+
+
+				//$data['workdata1'] = $workorder_no;
+				// $data['workdata2'] = substr($workid, 4);
+				// // $data['workdata']
+				// // $a['typework']=  $currentyear.$typeofworkorder['prefix'] ;
+				// $data['workdata'] = $data['workdata2'] + 1;
+				//var_dump($data['workdata']);
+				//  type of work
+
+
+
+				//print_r($data['typeofworkorder']);
+
+				if ($type_of_work_id == 1) {
+					$data['workdata1'] = substr($data['EA'], 4);
+					$data['workdata'] = $data['workdata1'] + 1;
+				} elseif ($type_of_work_id == 2) {
+					$data['workdata1'] = substr($data['IA'], 4);
+					$data['workdata'] = $data['workdata1'] + 1;
+				} elseif ($type_of_work_id == 3) {
+					$data['workdata1'] = substr($data['TA'], 4);
+					$data['workdata'] = $data['workdata1'] + 1;
+				} elseif($type_of_work_id == 4) {
+					$data['workdata1'] = substr($data['RF'], 4);
+					$data['workdata'] = $data['workdata1'] + 1;
+				}else{
+					"Not a match";
+				}
+			
+					
+				
+			
+			
+			
 			// 		'type_of_work_id' => $typeofworkorder['type_of_work_id'],
 			// 		'prefix' => $typeofworkorder['prefix']
 			// 	);
@@ -411,17 +462,17 @@ class Workorder extends CI_Controller
 	}
 	function registerNow()
 	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			//$this->form_validation->set_rules('workorder_no', 'Workorder No', 'required');
-			// $this->form_validation->set_rules( 'created_on', 'Created On', 'required' );
-			// $this->form_validation->set_rules( 'client_name', 'Name of the Client', 'required' );
-			// $this->form_validation->set_rules( 'type_of_work', 'Type of Work', 'required' );
-			// $this->form_validation->set_rules( 'partner_in_charge', 'Partner in Charge', 'required' );
-			// $this->form_validation->set_rules( 'start_date', 'Start Date', 'required' );
-			// $this->form_validation->set_rules( 'targetted_end_date', 'Targetted End Date', 'required' );
-			// $this->form_validation->set_rules( 'deadline', 'Deadline', 'required' );
-			// $this->form_validation->set_rules( 'assign_to', 'Assign To', 'required' );
-			// $this->form_validation->set_rules( 'remarks', 'Remarks', 'required' );
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['insert'])){
+			$this->form_validation->set_rules('workorder_no', 'Workorder No', 'required');
+			$this->form_validation->set_rules( 'created_on', 'Created On', 'required' );
+			$this->form_validation->set_rules( 'client_name', 'Name of the Client', 'required' );
+			$this->form_validation->set_rules( 'type_of_work', 'Type of Work', 'required' );
+			$this->form_validation->set_rules( 'partner_in_charge', 'Partner in Charge', 'required' );
+			$this->form_validation->set_rules( 'start_date', 'Start Date', 'required' );
+			$this->form_validation->set_rules( 'targetted_end_date', 'Targetted End Date', 'required' );
+			$this->form_validation->set_rules( 'deadline', 'Deadline', 'required' );
+			$this->form_validation->set_rules( 'assign_to', 'Assign To', 'required' );
+			$this->form_validation->set_rules( 'remarks', 'Remarks', 'required' );
 			if (
 				$this->form_validation->run() == true  ||
 				$this->form_validation->run() == false
@@ -456,6 +507,8 @@ class Workorder extends CI_Controller
 					'remarks' => $remarks,
 					'status' => 'open'
 				);
+
+			
 				// var_dump( $data);
 				$this->load->model('Workorder_model');
 				$this->load->model('main_model');
@@ -465,7 +518,8 @@ class Workorder extends CI_Controller
 
 
 				$this->session->set_flashdata('success', 'Successfully User Created');
-				redirect(base_url('Workorder/View_workorder'));
+				
+				redirect(base_url('Workorder/View_workorder/'. $workorder_no));
 			}
 		}
 	}

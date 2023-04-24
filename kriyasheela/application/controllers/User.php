@@ -135,7 +135,8 @@ class User extends CI_Controller
 
                 $hashpassword = md5($password);
 
-                // var_dump($hashpassword);
+                //var_dump($hashpassword);
+                //var_dump($password);
 
                 // return;
 
@@ -158,7 +159,7 @@ class User extends CI_Controller
                     'user_type_id' => $usertype,
                 );
 
-                //var_dump($data);
+                var_dump($data);
 
                 // return;
 
@@ -192,15 +193,24 @@ class User extends CI_Controller
         foreach ($data['userdetails'] as $user) {
             $data['userdetailsdata'][] = array(
                 'user_id' => $user['user_id'],
+                'balunand_id_no' => $user['balunand_id_no'],
                 'user_type_id' => $user['user_type_id'],
                 'name' => $user['name'],
                 'student_reg_no' => $user['student_reg_no'],
+                'password'=>$user['password'],
                 // 'employee_id' => $user['employee_id'],
                 'personal_email' => $user['personal_email'],
                 'mobile_no' => $user['mobile_no'],
                 'details' => $user['mobile_no'],
             );
+        
         }
+        // foreach($data['userdetailsdata'] as $user){
+        //     $password = $user['password'];
+        //     print_r(($user['password']));
+
+        // }
+        
 
         $this->load->view('template/header');
 
@@ -237,6 +247,7 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
@@ -259,6 +270,7 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
@@ -282,6 +294,7 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
@@ -325,6 +338,8 @@ class User extends CI_Controller
                     $newpassword = $this->input->post('newpassword');
 
                     $hashnewpassword = md5($newpassword);
+                    echo $newpassword;
+                    echo $hashnewpassword;
 
                     if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
 

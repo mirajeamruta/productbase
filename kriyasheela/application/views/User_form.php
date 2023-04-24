@@ -49,7 +49,8 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4">Name</label>
                 <div class="col-sm-8">
-                    <input type="text" name="username" id="username" class="form-control" id="inputPassword3" placeholder="Name">
+                    <input type="text" name="username" id="username" class="form-control" id="inputPassword3"
+                        placeholder="Name">
                 </div>
             </div>
             <div class="row mb-3" id="studentregno" style="display:none">
@@ -61,14 +62,15 @@
             <div class="row mb-3" id="employeeID">
                 <label for="inputPassword3" class="col-sm-4">ICAI Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="employee_id" id="employeeid" class="form-control" placeholder="ICAI Number">
+                    <input type="text" name="employee_id" id="employeeid" class="form-control"
+                        placeholder="ICAI Number">
                 </div>
             </div>
             <div class="row mb-3" id="Articleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Articleship</label>
                 <div class="col-sm-8">
-                    <input type="text" name="commencementofarticleship" id="date_picker4" placeholder="Select Date of Commencement of Articleship"
-                        class="form-control">
+                    <input type="text" name="commencementofarticleship" id="date_picker4"
+                        placeholder="Select Date of Commencement of Articleship" class="form-control">
                 </div>
             </div>
 
@@ -77,23 +79,23 @@
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Employment</label>
                 <div class="col-sm-8">
                     <h6 for="inputPassword3" class="col-sm-2" id="emplyomenterror"></h6>
-                    <input type="text" placeholder="Select Date of Commencement of Employment" name="commencementofemployment" id="date_picker1"
-                        class="form-control">
+                    <input type="text" placeholder="Select Date of Commencement of Employment"
+                        name="commencementofemployment" id="date_picker1" class="form-control">
                 </div>
             </div>
 
             <div class="row mb-3" id="completionArticleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Completion of Articleship</label>
                 <div class="col-sm-8">
-                    <input type="text" name="completionofarticleship" placeholder="Select Date of Completion of Articleship" class="form-control"
-                        id="date_picker3">
+                    <input type="text" name="completionofarticleship"
+                        placeholder="Select Date of Completion of Articleship" class="form-control" id="date_picker3">
                 </div>
             </div>
             <div class="row mb-3" id="completionEmployment">
                 <label for="inputPassword3" class="col-sm-4">Date of Completion of Employment</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Select Date of Completion of Employment" name="completionofemployment" id="date_picker2"
-                        class="form-control">
+                    <input type="text" placeholder="Select Date of Completion of Employment"
+                        name="completionofemployment" id="date_picker2" class="form-control">
                 </div>
             </div>
             <div class="row mb-3" id="partner">
@@ -111,26 +113,29 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4">Balu & Anand ID Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"  class="form-control">
+                    <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"
+                        class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Personal Email Address </label>
                 <div class="col-sm-8">
-                    <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address" class="form-control">
+                    <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address"
+                        class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Official Email Address </label>
                 <div class="col-sm-8">
-                    <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address" class="form-control">
+                    <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address"
+                        class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Mobile Number </label>
                 <div class="col-sm-8">
-                    <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10" placeholder="Mobile Number"
-                        title="10 digits Mobile Number" required>
+                    <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10"
+                        placeholder="Mobile Number" title="10 digits Mobile Number" required>
                 </div>
             </div>
 
@@ -138,8 +143,8 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8">
-                    <input type="password" name="password" id="password" onkeyup="validatePassword(this.value)" placeholder="Password"
- />
+                    <input type="password" name="password" id="password" onkeyup="validatePassword(this.value)"
+                        placeholder="Password" />
                     <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;
     line-height: 1; "></i>
 
@@ -152,8 +157,7 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Blood Group </label>
                 <div class="col-sm-8">
-                    <input type="text" name="bloodgroup" id="blood" class="form-control" placeholder="Blood Group"
->
+                    <input type="text" name="bloodgroup" id="blood" class="form-control" placeholder="Blood Group">
                 </div>
             </div>
 
@@ -387,7 +391,7 @@ function userfields(event) {
     document.getElementById('employeeID').style.display = 'flex';
     document.getElementById('CommencementEmployment').style.display = 'flex';
     document.getElementById('completionEmployment').style.display = 'flex';
-    document.getElementById('studentregno').style.display = 'flex';
+    //document.getElementById('studentregno').style.display = 'flex';
     document.getElementById('Articleship').style.display = 'flex';
     document.getElementById('completionArticleship').style.display = 'flex';
     document.getElementById('partner').style.display = 'flex';

@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-fixed-top mb-0 px-0">
         <div class="container-fluid">
             <div class="logo">
-                <a id="top" href="#"> <img src="<?= ("http://172.105.55.147/kriyasheela/images/ca_logo.png") ?>" width="91" height="30"></a>
+                <a id="top" href="#"> <img src="<?= ("http://172.105.55.147/kriyasheela/images/ca_logo.png") ?>"
+                        width="91" height="30"></a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

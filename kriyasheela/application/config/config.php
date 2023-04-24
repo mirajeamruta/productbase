@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://172.105.55.147/kriyasheela/index.php';
+$config['base_url'] = 'http://localhost/kriyasheela-p2/kriyasheela/index.php';
 
 
 

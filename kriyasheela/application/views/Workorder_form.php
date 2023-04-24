@@ -155,7 +155,9 @@
             <div class="row mb-3">
                 <div class="col-10 onlineform textcolor">
                     <input type="submit" name="insert" value="Submit" class="btn btn-info" />
+
                     <?php
+                    
                     echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>';
                     ?>
                 </div>
@@ -167,6 +169,8 @@
             <?php } ?>
         </form>
         </section>
+
+
         <!-- Begin Footer -->
         <script>
         function typeofwork() {
