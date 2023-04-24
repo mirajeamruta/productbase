@@ -186,16 +186,15 @@ class Main extends CI_Controller
 
 			//true
 			$balunand_id_no = $this->input->post('balunand_id_no');
-
-			// $password = md5($this->input->post('password'));
-	        $password = ($this->input->post('password'));
-			//model function
+			
+		 // $password = md5($this->input->post('password'));
+	       $password = ($this->input->post('password'));
 			$this->load->model('Main_model');
 
 			if ($this->Main_model->can_login($balunand_id_no, $password)) {
 
 				$record = $this->Main_model->can_login($balunand_id_no, $password);
-
+				// echo $password;
 				//var_dump($record);
 
 				// echo "<br>";

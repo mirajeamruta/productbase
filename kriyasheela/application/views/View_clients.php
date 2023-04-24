@@ -77,73 +77,51 @@
 
 
 	<!-- For Small Screen Version -->
-	<div class="client_Details_Collapsible">
-		<?php       
-			 if (count($clientdetailsdata) > 0) {
-			 foreach ($clientdetailsdata as $row) 
-			 {
-		 ?>
-		<section class='client_Details_Collapsible__Client'>
-			<input type='checkbox' id="client_Details_Collapsible__Collapse">
-			<h5 class='client_Details_Collapsible__Client__Name'>
-				<label for='client_Details_Collapsible__Collapse'><?php echo $row['name']; ?></label>
-	        </h5>
-			<i class='bx bx-chevron-down' id='client_Chevron_Down'></i>
-			<div class='client_Details_Collapsible__Content'>
-				<table class='client_Details_Collapsible__Content__Table'>
-					<tbody>
-						
+	<div class="view_Client_Container">
+  <table class="view_Client_Container_table"  style="text-align: center;">
+
+		<thead class="wkorderhead text-white">
+			<tr>
+				<th>Legal Name / Trade Name</th>
+				<th style="width: 131.0625px;">PAN Number</th>
+
+				<th style="width: 129.0625px;">GST Number</th>
+				<th style="width: 103.975px;">TAN Number</th>
+				<th style="width: 136.713px;">Aadhaar Number</th>
+				<th style="width: 120.812px;">Address</th>
+				<th style="width: 132.925px;">Person Incharge</th>
+				<th>Person To Be Contact</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php       
+			if (count($clientdetailsdata) > 0) {
+				foreach ($clientdetailsdata as $row) 
+				{
+			?>
 					<tr>
-						<td>Legal/Trade Name</td>
-						<td>:</td>
 						<td><?php echo $row['name']; ?></td>
-		            </tr>
-					<tr>
-						<td>PAN Number</td>
-						<td>:</td>
 						<td><?php echo $row['PAN']; ?></td>
-		            </tr>
-					<tr>
-						<td>GST Number</td>
-						<td>:</td>
 						<td><?php echo $row['GST']; ?></td>
-		            </tr>
-					<tr>
-						<td>TAN Number</td>
-						<td>:</td>
 						<td><?php echo $row['tan']; ?></td>
-		            </tr>
-					<tr>
-						<td>Adhaar Number</td>
-						<td>:</td>
 						<td><?php echo $row['aadhar']; ?></td>
-		            </tr>
-					<tr>
-						<td>Address</td>
-						<td>:</td>
 						<td><?php echo $row['address']; ?></td>
-		            </tr>
-					<tr>
-						<td>Person In Charge</td>
-						<td>:</td>
 						<td><?php echo $row['person_incharge']; ?></td>
-		            </tr>
-					<tr>
-						<td>Person To Be Contacted</td>
-						<td>:</td>
 						<td><?php echo $row['person_to_be_contact']; ?></td>
-		            </tr>
-					
-		        </tbody>
-		        </table>
-		    </div>
-		</section>
-    <?php
-	 }
-	 }
-	?>
-	
-	</div>
+					</tr>
+				<?php
+				}
+			} else {
+				?>
+				<tr>
+					<td colspan="8">No Data Found</td>
+				</tr>
+			<?php
+			}
+			?>
+		</tbody>
+	</table>
+	</div> 
 </div>
 
 

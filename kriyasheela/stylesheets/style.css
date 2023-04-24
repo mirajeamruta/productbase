@@ -1043,10 +1043,7 @@ outline: none !important;
 	margin-left: 3%;
 }
 
-/* === Previous and Next Button in view client === */
-.pagination>li>a{
-	color: red !important;
-}
+
 
 #section_userform1>#span{
 	margin-left: 248px !important;
@@ -1137,9 +1134,6 @@ width: 32.7rem !important;
 	right: 350px;
 	z-index: 1;
 }
-
-
-
 
 /* ==== Client Form new code ==== */
 .uploadBtn{
@@ -1233,6 +1227,15 @@ width: 32.7rem !important;
 /* === View User Mobile Version === */
 .user_details_sm{
   display: none;
+}
+/* === View Client Form Mobile Version === */
+
+.view_Client_Container{
+	display: none;
+}
+/* === View Client Header === */
+#section_clientlist__header{
+	display: none;
 }
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px){
@@ -1344,6 +1347,7 @@ width: 32.7rem !important;
    #datetimepicker
    {
 	 width: 318px !important; 
+	 margin-bottom: -32px;
    }
    #datetimepickerend
    {
@@ -1406,10 +1410,14 @@ width: 32.7rem !important;
 /* ==== USER FORM ==== */
 #user_Form,#user_Form>#section_userform{
 	height: 1370px !important;
+
+}
+#usersubmit {
+    margin-top: 36px !important;
 }
 /* --- Header --- */
 #user_Form span{
-	margin: 6px 0px 30px 19px !important;
+	margin: 6px 0px -7px 19px !important;
 }
 /* --- Password Eye Icon --- */
 .fa-eye{
@@ -1530,6 +1538,7 @@ width: 32.7rem !important;
   /* === VIEW CLIENT === */
   #clienttable{
 	display: none !important;
+	overflow-x: auto;
   }
 
   /* --- View Client Section ---  */
@@ -1546,106 +1555,106 @@ width: 32.7rem !important;
     height: 41px;
     align-items: center;
     justify-content: center;
-	margin-bottom: 20px;
+	margin-bottom: 12px;
   }
   /* --- Show Entries --- */
 
-/* select.form-control.input-sm {
-    width: 30px !important;
-    padding: 5px !important;
-    height: 30px !important;
-} */
-select.form-control.input-sm {
-    width: 35px !important;
+div.dataTables_length select{
+    width: 57px !important;
+    display: inline-block;
+    padding-left: 17px !important;
+    position: relative !important;
 }
 div#clienttable_length {
-    width: 35px;
-    position: relative;
-    left: 1px;
-    top: 4px;
-}
-/* --- Search --- */
-div#clienttable_filter {
+    font-size: 12px !important;
     position: relative !important;
-    top: -41px !important;
-	right: -174px !important;
-    width: 100px;
+    top: 4px !important;
+    left: -62px !important;
+}
+#clienttable_filter{
+	position: relative !important;
+    top: -42px !important;
+    right: -171px !important;
+    font-size: 12px !important;
+	width: 100px !important;
 }
 input.form-control.input-sm {
-    height: 35px;
-    width: 103px !important;
+    width: 117px !important;
 }
   /* --- Pagination -- */
-
 div#clienttable_info {
-	display: none;
-    margin-left: -193px;
+	font-size: 12px;
+    position: relative !important;
+    top: 564px;
+    left: 9px;
+    width: 100px;
 }
 div#clienttable_paginate {
-	display: none;
+	/* display: none; */
+	position: relative !important;
     margin-left: -488px;
+} 
+.pagination{
+	color: #000 !important;
+	font-size: 12px;
+    position: relative;
+    right: -23px;
+    top: 546px;
+	padding-left: 702px !important;
 }
-/* --- Client Full Details Collapsible --- */
-.client_Details_Collapsible {
-    margin-top: -29px;
+ 
+/* --- View Client Table --- */
+.view_Client_Container{
+	display: block;
+	/* background-color: yellow; */
+	min-height:480px;
+	overflow: hidden;
+	margin-top: -81px;
+	width: 100%;
 }
-  #client_Details_Collapsible__Collapse{
-	position: relative;
-    top: 26px;
-    left: 173px;
-  }
-  /* .client_Details_Collapsible__Client{
-	position: relative;
-  } */
-  .client_Details_Collapsible__Client__Name{
-	position: relative;
-    background: whitesmoke;
-    padding: 7px 0px 2px 11px;
-  }
-  /* --- Content --- */
-  .client_Details_Collapsible__Content{
-	height: 0;
-	overflow-y: hidden;
-	transition: height 1s ease;
-  }
-  input[type='checkbox']:checked ~ .client_Details_Collapsible__Content{
-	height: auto;
-	overflow: visible;
-	transition: height 1s ease;
-  }
-  /* --- Input is invisible --- */
-  input#client_Details_Collapsible__Collapse
-   {
-    width: 60px;
-    position: absolute;
-    top: 199px;
-    left: 307px;
-    z-index: 1;
-    opacity: 0;
-   }
+/* --- Table --- */
+.view_Client_Container_table{
+	/* overflow-x: auto; */
+	overflow-x: auto;
+    display: block;
+}
+/* --- Table Column Header ---- */
+.view_Client_Container_table>thead>tr>th{
+	background-color: #000AFF !important;
+	 font-size: 13px !important;
+	 padding: 4px;
+}
+/* --- Table Data(td) --- */
+.view_Client_Container_table>tbody>tr>td{
+	font-size: 12px !important;
+    padding: 13px !important;
+}
+/* === Previous and Next Button in view client === */
+.pagination>li>a{
+  padding-right: 10px;
+}
 
-   /* --- Collapsible Icon -- */
-   i#client_Chevron_Down {
-    /* color: red; */
-    font-size: 34px;
-    position: absolute;
-    right: 17px;
-    top: 206px;
-	transition: all 0.5s ease;
-   }
-    input[type='checkbox']:checked ~ #client_Chevron_Down{
-		transform: rotate(180deg);
-		transition: transform 0.5s ease;
-	}
-	/* --- Client Full Details --- */
-	.client_Details_Collapsible__Content__Table>tbody>tr>td
-	 {
-       padding-right: 12px;
-       font-size: 14px;
-       text-align: left;
-       padding-left: 10px;
-       padding-top: 9PX;
-	 }
+/* === CSV File upload Status === */
+.text-success {
+    margin-top: 12px !important;
+    margin-left: 16px !important;
+    width: 300px !important;
+}
+/* ==== User Form Password Eye Slash === */
+.fa-eye-slash{
+	margin-left: -50px;
+    position: relative;
+    right: -312px !important;
+    top: -46px !important;
+    cursor: pointer;
+    color: black;
+    vertical-align: text-bottom;
+    line-height: 2.7 !important;
+}
+.passTypeToggle{
+	/* display: none !important; */
+	height: 0 !important;
+}
 }
 
 
