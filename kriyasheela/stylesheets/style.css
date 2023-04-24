@@ -100,7 +100,7 @@ body {
 	padding: 25px;
 }
 .modal-login .form-group {
-	margin-bottom: 20px;
+	margin-bottom: 34px !important;
 }
 /* === In Client Form Choose file input button === */
 .form-group>#file-upload-button{
@@ -784,6 +784,8 @@ nav .profile-details i {
 }
 
 
+
+
 /* myprofile dropdown css */
 
 .dropdown-menu {
@@ -820,6 +822,9 @@ span#msg1 {
 }
 
 
+
+
+/* ======Responsive for website start code======= */
 
 /* responsive for dashboard code start */
 
@@ -901,24 +906,11 @@ span#msg1 {
 }
 
 @media(max-width:400px){
-	.active{
-		/* margin-top: 12px; */
-	}
-}
-
-@media(max-width:400px){
 	#active1{
 		padding-left: 164px;
         margin-top: -49px;
 	}
 }
-
-/* @media(max-width:400px){
-	.active2{
-		margin-left: 185px;
-		margin-top: -51px;
-	}
-} */
 
 @media (max-width: 400px){
 .home-content .recent-sales.box {
@@ -946,7 +938,6 @@ span#msg1 {
 }
 }
 
-
 @media(max-width:400px){
 	#links{
 		margin-top: -231px;
@@ -965,32 +956,12 @@ span#msg1 {
 }
 }
 
-
-
- /* @media (max-width: 500px){
-.bx {
-    font-size: 37px !important;
-}
-} */
-
-/* @media (max-width: 400px){
-.links_name {
-    font-size: 20px !important;
-}
-}  */
-
-
-
 /* hide and show humbarger icon code  */
 
 
 /* [ON BIG SCREEN] */
 /* (A) WRAPPER */
-#hamnav {
-	/* width: 100%; */
-	/* background: #000; */
-  }
-  
+
   /* (B) HORIZONTAL MENU ITEMS */
   #hamitems { display: flex; }
   #hamitems a {
@@ -1039,6 +1010,7 @@ span#msg1 {
 
 
 
+
 /* view workorder responsive code */
 
 @media(max-width:400px){
@@ -1047,19 +1019,6 @@ span#msg1 {
 	}
 }
 
-/* @media(max-width:400px){
-	.span.font-weight-bold.display-6 {
-		padding: 0px 91px 9px 4px;
-		margin: 68px 2px 0px -16px;
-	}
-}
-
-@media(max-width:400px){
-	.span.select2.select2-container.select2-container--default {
-		margin-left: -38px;
-		margin-top: 10px;
-	}
-} */
 @media(max-width:500px){
 span.font-weight-bold.display-6 {
   
@@ -1085,7 +1044,7 @@ span.font-weight-bold.display-6 {
 @media(max-width:400px){
 	.ul#select2-workorderids-results {
 	
-		margin: -3px -4px 8px 3px;
+		margin: -3px -4px 8px 3px !important;
 	}
 }
 
@@ -1097,37 +1056,77 @@ span.font-weight-bold.display-6 {
 	th,
 	td,
 	tr {
-	  display: block;
+	  display: block !important;
 	}
 }
 
-/* 
-	@media(max-width:768px){
-		.table thead{
-			display: none;
-		}
-		.table, .table tbody,.table tr,.table td{
-			display: block;
-			width:100%;
-		}
-		.table.tr{
-			margin-bottom: 15px !important;
-		}
-		.table tbody tr td{
-			text-align: right;
-			padding-left: 50%;
-			position: relative;
-		}
-		.table td:before{
-			content:attr(data-label);
-			position: absolute;
-			left: 0;
-			width: 50%;
-			padding-left: 15px;
-			text-align: left;
-		}
-	} */
-/* ========= AMRUTA CODE END======================== */
+
+
+/* responsive code for my profile login as a employe */
+
+@media(max-width:400px) {
+	.col-sm-9 {
+		/* margin-left: -76px; */
+		margin-top: 13px !important;
+	}
+}
+
+@media(max-width:500px){
+	.form {
+		margin-left: 15px !important;
+		width: 100% !important;
+		margin-top: -22px !important;
+	
+	}
+}
+
+
+@media(max-width:400px){
+	.col-sm-8 {
+	    margin-left: -238px !important;
+    width: 456px !important;
+	}
+}
+
+@media(max-width:400px){
+	.container.userform {
+		margin-top: 6rem !important;
+		position: fixed !important;
+	}
+}
+
+
+/* Responsive code for sign page */
+
+
+@media(max-width:500px){
+	.modal-dialog.modal-login {
+		margin-left: -15px;
+		margin-top: -82px !important;
+		position: fixed !important;
+	}
+}
+
+@media(max-width:500px){
+	input.form-control {
+		margin-top: -26px;
+		margin-left: 27px;
+	}
+}
+
+@media(max-width:500px){
+	button.btn.btn-primary.btn-lg {
+		margin-left: 66px;
+		margin-top: 14px !important;
+	}
+	}
+
+
+
+/* ======responsive for website code end======= */
+
+	
+/* ========= AMRUTA CSS CODE END======================== */
 
 
 

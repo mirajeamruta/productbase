@@ -264,7 +264,7 @@ class Main extends CI_Controller
 			echo '<label><a href="' . base_url() . 'Main/logout">Logout</a></label>';
 		} else {
 
-			redirect(base_url() . 'Main/login');
+			// redirect(base_url() . 'Main/login');
 		}
 	}
 

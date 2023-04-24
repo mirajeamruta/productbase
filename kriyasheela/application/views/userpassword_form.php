@@ -1,5 +1,5 @@
 <div class='container userform'>
-    <div id="section_userform" class="col-md-8 offset-md-1" style="margin-left: 25.333333%;">
+    <div id="section_userform" class="col-md-9 offset-md-2" style="">
         <div class="row mb-5 mt-5">
 
             <div class="col-sm-9" style="text-align: center;">
@@ -24,7 +24,7 @@
         </div>
 
 
-        <form class="" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('user/MyProfile') ?>" enctype='multipart/form-data'>
+        <form class="form" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('user/MyProfile') ?>" enctype='multipart/form-data'>
 
             <div class="row mb-2">
                 <label for="inputPassword3" class="col-sm-4"> Old Password: </label>
