@@ -115,11 +115,11 @@
 
         } else if (password.search(/[a-z]/) < 0) {
 
-            var error = ' Password must contain at least one lowercase letter';
+            var error = 'Password must contain at least one lowercase letter';
 
         } else if (password.search(/[A-Z]/) < 0) {
 
-            var error = '   Password must contain at least one uppercase letter ';
+            var error = 'Password must contain at least one uppercase letter';
 
         } else if (password.search(/[0-9]/) < 0) {
 
@@ -127,7 +127,7 @@
 
         } else if (password.search(/[*%]/) < 0) {
 
-            var error = ' Password must be contains at least  special characters';
+            var error = 'Password must be contains at least  special characters';
 
         } else {
 

@@ -20,6 +20,7 @@
                         <th>Completing On</th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     <td data-label=""><?php echo $row['name'] ?></td>
                     <td><?php echo $row['partner_under_whom_registered'] ?></td>
