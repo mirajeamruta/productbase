@@ -58,11 +58,11 @@ class Workorder extends CI_Controller
 
 
 
-				//$data['workdata1'] = $workorder_no;
-				// $data['workdata2'] = substr($workid, 4);
-				// // $data['workdata']
-				// // $a['typework']=  $currentyear.$typeofworkorder['prefix'] ;
-				// $data['workdata'] = $data['workdata2'] + 1;
+				$data['workdata1'] = $workorder_no;
+				$data['workdata2'] = substr($workid, 4);
+				// $data['workdata']
+				// $a['typework']=  $currentyear.$typeofworkorder['prefix'] ;
+				$data['workdata'] = $data['workdata2'] + 1;
 				//var_dump($data['workdata']);
 				//  type of work
 
@@ -70,21 +70,21 @@ class Workorder extends CI_Controller
 
 				//print_r($data['typeofworkorder']);
 
-				if ($type_of_work_id == 1) {
-					$data['workdata1'] = substr($data['EA'], 4);
-					$data['workdata'] = $data['workdata1'] + 1;
-				} elseif ($type_of_work_id == 2) {
-					$data['workdata1'] = substr($data['IA'], 4);
-					$data['workdata'] = $data['workdata1'] + 1;
-				} elseif ($type_of_work_id == 3) {
-					$data['workdata1'] = substr($data['TA'], 4);
-					$data['workdata'] = $data['workdata1'] + 1;
-				} elseif($type_of_work_id == 4) {
-					$data['workdata1'] = substr($data['RF'], 4);
-					$data['workdata'] = $data['workdata1'] + 1;
-				}else{
-					"Not a match";
-				}
+				// if ($type_of_work_id == 1) {
+				// 	$data['workdata1'] = substr($data['EA'], 4);
+				// 	$data['workdata'] = $data['workdata1'] + 1;
+				// } elseif ($type_of_work_id == 2) {
+				// 	$data['workdata1'] = substr($data['IA'], 4);
+				// 	$data['workdata'] = $data['workdata1'] + 1;
+				// } elseif ($type_of_work_id == 3) {
+				// 	$data['workdata1'] = substr($data['TA'], 4);
+				// 	$data['workdata'] = $data['workdata1'] + 1;
+				// } elseif($type_of_work_id == 4) {
+				// 	$data['workdata1'] = substr($data['RF'], 4);
+				// 	$data['workdata'] = $data['workdata1'] + 1;
+				// }else{
+				// 	"Not a match";
+				// }
 			
 					
 				

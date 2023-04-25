@@ -61,6 +61,22 @@ class User extends CI_Controller
 
     public function createUser()
     {
+        $loggedInEmployee = $this->session->userdata('username');
+
+		$loggedInUserId = $this->session->userdata('userId');
+
+		$user_info = $this->User_model->duplicateId($this->input->post('balunandno'));
+
+		var_dump($user_info);
+
+		// return;
+
+		if (count($user_info) > 0) {
+			$data['error'] = 'This Balunand ID is already assigned to a usser ';
+			$this->session->set_flashdata('error', 'This Balunand ID is already assigned to an user');
+
+			redirect(base_url('User/index'));
+		}
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             /*
@@ -134,6 +150,7 @@ class User extends CI_Controller
                 $password = $this->input->post('password');
 
                 $hashpassword = md5($password);
+                
 
                 //var_dump($hashpassword);
                 //var_dump($password);
@@ -158,6 +175,7 @@ class User extends CI_Controller
                     'password' => $hashpassword,
                     'user_type_id' => $usertype,
                 );
+                
 
                 var_dump($data);
 
@@ -170,6 +188,16 @@ class User extends CI_Controller
             }
         }
     }
+    public function validate()
+	{
+		if ($this->User_model->duplicateId($this->input->post('balunandno'))) {
+
+			$this->error = 'This Balunand Number is already assigned to a user ';
+
+			var_dump($this->error);
+			return !$this->error;
+		}
+	}
 
 
     public function allusers()
@@ -197,6 +225,7 @@ class User extends CI_Controller
                 'user_type_id' => $user['user_type_id'],
                 'name' => $user['name'],
                 'student_reg_no' => $user['student_reg_no'],
+                'partner_under_whom_registered' => $user['partner_under_whom_registered'],
                 'password'=>$user['password'],
                 // 'employee_id' => $user['employee_id'],
                 'personal_email' => $user['personal_email'],
@@ -251,6 +280,7 @@ class User extends CI_Controller
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
+                print_r($data['userdetailsdata']);
             }
 
             if ($user['user_type_id'] == 4) {
@@ -261,9 +291,9 @@ class User extends CI_Controller
                     'ID' => $user['student_reg_no'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
-                    'startdate' => $user['date_of_comencement_of_articleship'],
+                    'startdate' => $user['date_of_comencement_of_employment'],
 
-                    'enddate' => $user['date_of_completion_of_articleship'],
+                    'enddate' => $user['date_of_completion_of_employment'],
 
                     'partner_under_whom_registered' => $user['partner_under_whom_registered'],
                     'balunand_id_no' => $user['balunand_id_no'],
@@ -274,6 +304,7 @@ class User extends CI_Controller
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
+                //print_r($data['userdetailsdata']);
             }
 
             if ($user['user_type_id'] == 2  || $user['user_type_id'] == 1) {

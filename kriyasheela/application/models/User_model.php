@@ -13,7 +13,14 @@ class User_model extends CI_Model
 	{
 		$this->db->insert('tbl_users', $data);
 	}
+public function duplicateId($data)
+	{
+		$query = $this->db->query("SELECT * FROM tbl_users where balunand_id_no= '$data' ");
 
+		return $query->result_array();
+
+		//return true;
+	}
 
 
 	public function getAllUsersDetails()
@@ -76,4 +83,5 @@ class User_model extends CI_Model
 		$this->db->where('user_id ', $pass);
 		$this->db->update('tbl_users');
 	}
+	
 }
