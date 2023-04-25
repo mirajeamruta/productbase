@@ -88,7 +88,7 @@
 
 
             <div class="top-sales box">
-                <div class="title1" style="text-align: center;">Pending Workorders</div>
+                <div class="title1" style="text-align: center; margin-left: -47px;">Pending Workorders</div>
                 <ul class="top-sales-details" style="margin-left: 36px;">
 
                     <?php

@@ -8,7 +8,7 @@
 
             <div>
                 <?php if ($this->session->flashdata('passwordsuccess')) { ?>
-                    <p class="text-success col-sm-12">
+                    <p class="text-success col-sm-12">  
                         <?= $this->session->flashdata('passwordsuccess') ?>
                     </p>
                 <?php } ?>
@@ -21,8 +21,8 @@
                 you typed it in correctly.
             </div> -->
 
-        </div>
 
+        </div>
 
         <form class="form" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('user/MyProfile') ?>" enctype='multipart/form-data'>
 
@@ -32,7 +32,9 @@
                     <input type="password" name="oldpassword"  id="password" style="width: 93%;border-radius: 6px;height: 120%; border: 1px solid #ced4da; outline:none;" required />
                
                     <!-- <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i> -->
-                    <span class='passTypeToggle' title="Show" ><i class="fa-solid fa-eye" id="togglePassword"style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    <span class='passTypeToggle' title="Show" >
+                        
+                    <i class="fa-solid fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
                    
                   </div>
                   <span id="msg1"style="  margin: 0px 14px;"></span>
@@ -45,7 +47,8 @@
                 <div class="col-sm-6">
                     <input type="password"  class="oldPass" name="newpassword" id="password1" onkeyup="validatePassword(this.value)" style="width: 93%;border-radius: 6px;height: 120%; border: 1px solid #ced4da; outline:none; " required />
                     <!-- <i class="bi bi-eye-slash" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i> -->
-                    <span class='passTypeToggle' title="Show" ><i class="fa-solid fa-eye" id="togglePassword1"style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    <span class='passTypeToggle' title="Show">
+                    <i class="fa-solid fa-eye" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
                    
                     <span id="msg1" style="margin: 0px 14px;"></span>
                     <!-- <p> Your password must contain at least 8 characters.</p>
@@ -65,9 +68,11 @@
                 <div class="col-sm-6">
                     <input type="password" name="confirmpassword" id="password2" style="width: 93%; border-radius: 6px;border: 1px solid #ced4da; outline:none; height: 120%; );" required />
                     <!-- <i class="bi bi-eye-slash" id="togglePassword2" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i> -->
-                    <span class='passTypeToggle' title="Show" ><i class="fa-solid fa-eye" id="togglePassword2"style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    <span class='passTypeToggle' title="Show" >
                     
-                    <span id="msg2" style="  margin: 0px 14px;"></span>
+                    <i class="fa-solid fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    
+                    <span id="msg2" style=""></span>
 
                     <!-- <button type="submit" id="submit" class="submit"></button>  onkeyup="validatePassword(this.value)"-->
                 </div>
@@ -193,7 +198,6 @@
     const password1 = document.querySelector("#password1");
     const password2 = document.querySelector("#password2");
     const passTypeToggle = document.querySelector('.passTypeToggle')
-
     
 
         togglePassword.addEventListener("click", function() {
@@ -205,7 +209,7 @@
 
 
         // toggle the icon
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("fa-eye-slash");
     });
 
     togglePassword1.addEventListener("click", function() {
@@ -218,7 +222,7 @@
 
 
         // toggle the icon
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("fa-eye-slash");
     });
 
     togglePassword2.addEventListener("click", function() {
@@ -229,7 +233,7 @@
         password2.setAttribute("type", type2);
 
         // toggle the icon
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("fa-eye-slash");
     });
 
     passTypeToggle.addEventListener('click', e => {

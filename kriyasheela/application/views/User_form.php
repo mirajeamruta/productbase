@@ -181,7 +181,7 @@
 let input = document.querySelector('#password4')
 let formGroup = document.querySelector('.col-sm-8')
 let message = document.querySelector('.message')
-let passTypeToggle = document.querySelector('.passTypeToggle')
+let passTypeToggle = document.querySelector('.passTypeToggle i')
 let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
 let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
 
@@ -282,6 +282,8 @@ passTypeToggle.addEventListener('click', e => {
     document.querySelector('.passTypeToggle i').classList.toggle('fa-eye-slash')
 })
 </script>
+
+
 <script type="text/javascript">
 function readfile(input) {
     if (input.files && input.files[0]) {
