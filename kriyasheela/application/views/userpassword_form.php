@@ -1,5 +1,5 @@
 <div class='container userform'>
-    <div id="section_userform" class="col-md-8 offset-md-1" style="margin-left: 25.333333%;">
+    <div id="section_userform" class="col-md-9 offset-md-2" style="">
         <div class="row mb-5 mt-5">
 
             <div class="col-sm-9" style="text-align: center;">
@@ -8,7 +8,7 @@
 
             <div>
                 <?php if ($this->session->flashdata('passwordsuccess')) { ?>
-                    <p class="text-success col-sm-12">
+                    <p class="text-success col-sm-12">  
                         <?= $this->session->flashdata('passwordsuccess') ?>
                     </p>
                 <?php } ?>
@@ -21,10 +21,10 @@
                 you typed it in correctly.
             </div> -->
 
+
         </div>
 
-
-        <form class="" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('user/MyProfile') ?>" enctype='multipart/form-data'>
+        <form class="form" id="usersubmit" method="post" autocomplete="off" action="<?= base_url('user/MyProfile') ?>" enctype='multipart/form-data'>
 
             <div class="row mb-2">
                 <label for="inputPassword3" class="col-sm-4"> Old Password: </label>
@@ -32,7 +32,9 @@
                     <input type="password" name="oldpassword"  id="password" style="width: 93%;border-radius: 6px;height: 120%; border: 1px solid #ced4da; outline:none;" required />
                
                     <!-- <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i> -->
-                    <span class='passTypeToggle' title="Show" ><i class="fa-solid fa-eye" id="togglePassword"style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    <span class='passTypeToggle' title="Show" >
+                        
+                    <i class="fa-solid fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
                    
                   </div>
                   <span id="msg1"style="  margin: 0px 14px;"></span>
@@ -45,7 +47,8 @@
                 <div class="col-sm-6">
                     <input type="password"  class="oldPass" name="newpassword" id="password1" onkeyup="validatePassword(this.value)" style="width: 93%;border-radius: 6px;height: 120%; border: 1px solid #ced4da; outline:none; " required />
                     <!-- <i class="bi bi-eye-slash" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i> -->
-                    <span class='passTypeToggle' title="Show" ><i class="fa-solid fa-eye" id="togglePassword1"style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    <span class='passTypeToggle' title="Show">
+                    <i class="fa-solid fa-eye" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
                    
                     <span id="msg1" style="margin: 0px 14px;"></span>
                     <!-- <p> Your password must contain at least 8 characters.</p>
@@ -65,9 +68,11 @@
                 <div class="col-sm-6">
                     <input type="password" name="confirmpassword" id="password2" style="width: 93%; border-radius: 6px;border: 1px solid #ced4da; outline:none; height: 120%; );" required />
                     <!-- <i class="bi bi-eye-slash" id="togglePassword2" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i> -->
-                    <span class='passTypeToggle' title="Show" ><i class="fa-solid fa-eye" id="togglePassword2"style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    <span class='passTypeToggle' title="Show" >
                     
-                    <span id="msg2" style="  margin: 0px 14px;"></span>
+                    <i class="fa-solid fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
+                    
+                    <span id="msg2" style=""></span>
 
                     <!-- <button type="submit" id="submit" class="submit"></button>  onkeyup="validatePassword(this.value)"-->
                 </div>
@@ -115,11 +120,11 @@
 
         } else if (password.search(/[a-z]/) < 0) {
 
-            var error = ' Password must contain at least one lowercase letter';
+            var error = 'Password must contain at least one lowercase letter';
 
         } else if (password.search(/[A-Z]/) < 0) {
 
-            var error = '   Password must contain at least one uppercase letter ';
+            var error = 'Password must contain at least one uppercase letter';
 
         } else if (password.search(/[0-9]/) < 0) {
 
@@ -127,7 +132,7 @@
 
         } else if (password.search(/[*%]/) < 0) {
 
-            var error = ' Password must be contains at least  special characters';
+            var error = 'Password must be contains at least  special characters';
 
         } else {
 
@@ -193,7 +198,6 @@
     const password1 = document.querySelector("#password1");
     const password2 = document.querySelector("#password2");
     const passTypeToggle = document.querySelector('.passTypeToggle')
-
     
 
         togglePassword.addEventListener("click", function() {
@@ -205,7 +209,7 @@
 
 
         // toggle the icon
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("fa-eye-slash");
     });
 
     togglePassword1.addEventListener("click", function() {
@@ -218,7 +222,7 @@
 
 
         // toggle the icon
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("fa-eye-slash");
     });
 
     togglePassword2.addEventListener("click", function() {
@@ -229,7 +233,7 @@
         password2.setAttribute("type", type2);
 
         // toggle the icon
-        this.classList.toggle("bi-eye");
+        this.classList.toggle("fa-eye-slash");
     });
 
     passTypeToggle.addEventListener('click', e => {

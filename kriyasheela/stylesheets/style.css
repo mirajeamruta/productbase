@@ -100,7 +100,7 @@ body {
 	padding: 25px;
 }
 .modal-login .form-group {
-	margin-bottom: 20px;
+	margin-bottom: 34px !important;
 }
 /* === In Client Form Choose file input button === */
 .form-group>#file-upload-button{
@@ -363,7 +363,7 @@ select.classic:focus {
 	font-size: 14px;
 	font-weight: 400;
 	white-space: nowrap;
-	margin-left: -9px;
+	margin-left: 1px;
 }
 .sidebar .nav-links .log_out {
 	position: absolute;
@@ -705,6 +705,7 @@ nav .profile-details i {
 	.home-content .sales-boxes .sales-details {
 		width: 560px;
 		margin-top: -82px;
+		position:fixed;
 	}
 }
 @media (max-width: 550px) {
@@ -773,6 +774,16 @@ nav .profile-details i {
     height: 42px;
 }
 
+.number{
+	margin-left: -88px;
+    margin-top: 88px;
+    background: white;
+    border-radius: 21px;
+    box-sizing: border-box;
+    padding: 9px 14px 9px 14px;
+    color: black;
+}
+
 
 
 
@@ -802,153 +813,339 @@ tbody {
 } */
 
 span#msg1 {
-    /* margin-top: 10px !important; */
+    margin-top: 18px !important;
     position: absolute;
-	top: 192px;
-    left: 250px;
+    top: 194px;
+    left: 279px;
 }
 .mb-2, .my-2 {
     margin-bottom: 2.5rem!important;
 }
-/* responsive */
+
+
+
+
+/* ======Responsive for website start code======= */
+
+/* responsive for dashboard code start */
 
 @media screen and (max-width: 600px){
 .navbar{
 	background-color: rgb(255, 255, 255) !important;
 	text-align: center !important;
-	padding-top: 10px;
+	padding-top: 6px !important;
+	font-weight: 800;
 }
+
 .logo{
-	display: none;
+	/* display: none; */
+	position: absolute !important;
+    top: 20px;
+}
 }
 .navbar-toggler{
-	background-color: yellow !important;
-	position: relative;
-	right: -305px;
+	display: block !important;
+	position: relative !important;
+	right: -305px !important;
 }
-}
+
 
 @media (max-width: 1150px){
 .home-content .sales-boxes .top-sales {
-    margin: 0;
+	margin: -24px 0px 0px 0px;
     /* background: blue; */
 }
 }
 
 @media (max-width: 1150px){
 .home-content .sales-boxes .box {
-    width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 36px;
+    width: 100% !important;
+    overflow-x: scroll !important;
+    margin-bottom: 36px !important;
     /* background: #ff5500; */
-	margin-left: 1px;
+	margin-left: 1px !important;
 	/* height: 100%; */
+	border: none!important;
+    border-radius: 0px!important;
+	font-size: 20px !important;
 }
 }
 
 
 @media (max-width: 1150px){
 .home-content .sales-boxes {
-    flex-direction: column;
-    /* padding: 6px 1px 302px -12px; */
+    flex-direction: column !important;
+	position: fixed !important;
 }
 }
 
 @media (max-width: 400px){
 	.home-section {
-		width: 100%;
-		left: 0;
-		background: #0a2558;
+		width: 100% !important;
+		left: 0 !important;
+		background: #0a2558 !important;
 	}
 }
 
 @media (max-width: 400px){
 	.sidebar {
-		width: 0;
-		z-index: 1;
+		width: 0 !important;
+		z-index: 1 !important;
 	}
 }
 
+@media(max-width:400px){
+	div#navbarText {
+		text-align: left !important;
+		margin-left: 137px !important;
+	}
+}
 
 @media(max-width:400px){
 	.dropdown-menu.show{
-		float: none;
-		margin-left: 77px;
-    width: 182px;
+		float: none !important;
+		margin-left: 48px !important ;
+    width: 182px !important;
+	border: none !important;
 	
 
 	}
 }
 
-/* @media(max-width:400px){
-	.active{
-		margin-top: 12px;
-	}
-} */
-
 @media(max-width:400px){
 	#active1{
-		padding-left: 164px;
-        margin-top: -49px;
+		padding-left: 164px !important;
+        margin-top: -49px !important;
 	}
 }
 
-/* @media(max-width:400px){
-	.active2{
-		margin-left: 185px;
-		margin-top: -51px;
-	}
-} */
-
 @media (max-width: 400px){
 .home-content .recent-sales.box {
-	margin-top: 265px;
-    height: 123px;
+	margin-top: 279px !important;
+    height: 123px !important;
 }
 }
 
 @media(max-width:400px){
 	.active3{
-	    margin-top: 86px;
+	    margin-top: 86px !important;
 	}
 }
 
 @media (max-width: 400px){
 .title {
-    margin-left: -47px;
+    margin-left: -47px !important;
 }
 }
 
 @media (max-width: 400px){
 .bx-user {
-    margin-top: -239px;
-    margin-left: 166px;
+    margin-top: -239px !important;
+    margin-left: 170px !important;
 }
 }
-
 
 @media(max-width:400px){
 	#links{
-		margin-top: -231px;
+		margin-top: -236px !important;
 	}
 }
 
 @media (max-width: 400px){
 #Numb {
-    margin-top: -146px;
+    margin-top: -147px !important;
+}
+}
+@media (max-width: 400px){
+.recent-sales {
+    border: none!important;
+    border-radius: 0px!important;
 }
 }
 
-.number{
-	margin-left: -87px;
-    margin-top: 88px;
-    background: white;
-    border-radius: 21px;
-    box-sizing: border-box;
-    padding: 9px 14px 9px 11px;
-    color: black;
+/* hide and show humbarger icon code  */
+
+
+/* [ON BIG SCREEN] */
+/* (A) WRAPPER */
+
+  /* (B) HORIZONTAL MENU ITEMS */
+  #hamitems { display: flex !important; }
+  #hamitems a {
+	flex-grow: 1 !important;
+	flex-basis: 0 !important;
+	padding: 10px !important;
+	color: white !important;
+	text-decoration: none !important;
+	text-align: center !important;
+  }
+  /* #hamitems a:hover { background: #af0d0d; } */
+  
+  /* (C) HIDE HAMBURGER */
+  #hamnav label, #hamburger { display: none !important; }
+
+
+  /* [ON SMALL SCREENS] */
+@media screen and (max-width: 768px){
+	/* (A) BREAK INTO VERTICAL MENU */
+	#hamitems a {
+	  box-sizing: border-box !important;
+	  display: block !important;
+	  width: 100% !important;
+	  border-top: 1px solid #333 !important;
+	}
+   
+	/* (B) SHOW HAMBURGER ICON */
+	#hamnav label { 
+	  display: inline-block !important; 
+	  color: rgb(6, 0, 0) ;
+	  /* background: #a02620; */
+	  font-style: normal !important;
+	  font-size: 2.4rem !important;
+	  padding-right: 25px !important;
+	}
+  
+	/* (C) TOGGLE SHOW/HIDE MENU */
+	#hamitems { display: none !important; }
+	#hamnav input:checked ~ #hamitems { display: block !important; }
+  }
+
+  button:focus {
+    /* outline: 1px dotted; */
+    outline: none !important;
 }
-/* ========= AMRUTA CODE END======================== */
+
+
+
+
+/* view workorder responsive code */
+
+@media(max-width:400px){
+	h2.text-center.mb-2 {
+		padding-right: 45px !important;
+	}
+}
+
+@media(max-width:500px){
+span.font-weight-bold.display-6 {
+  
+    padding: 96px 0px 0px 259px !important;
+  
+    margin-right: -158px !important;
+}
+}
+
+@media(max-width:500px){
+
+	.text-center.my-5 {
+		margin: 0px 196px 0px 0px !important;
+	}
+}
+@media(max-width:500px){
+	span.select2-dropdown.select2-dropdown--below {
+		width: 321.4px !important;
+	}
+}
+
+
+@media(max-width:400px){
+	.ul#select2-workorderids-results {
+	
+		margin: -3px -4px 8px 3px !important;
+	}
+}
+
+
+@media all and (max-width: 500px) {
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+	  display: block !important;
+	}
+}
+
+
+
+/* responsive code for my profile login as a employe */
+
+@media(max-width:400px) {
+	.col-sm-9 {
+		/* margin-left: -76px; */
+		margin-top: 13px !important;
+	}
+}
+
+@media(max-width:500px){
+	.form {
+		margin-left: 15px !important;
+		width: 100% !important;
+		margin-top: -22px !important;
+	
+	}
+}
+
+@media(max-width:500px){
+	span#msg1 {
+		margin-top: 58px !important;
+		position: absolute;
+		top: 194px;
+		left: 12px;
+	}
+}
+
+@media(max-width:400px){
+	.col-sm-8 {
+	    margin-left: -238px !important;
+    width: 456px !important;
+	}
+}
+
+@media(max-width:400px){
+	.container.userform {
+		margin-top: 6rem !important;
+		position: fixed !important;
+	}
+}
+
+
+/* Responsive code for sign In page */
+
+
+@media(max-width:500px){
+	.modal-dialog.modal-login {
+		margin-left: -15px;
+		margin-top: -82px !important;
+		position: fixed !important;
+	}
+}
+
+@media(max-width:500px){
+	input.form-control {
+		margin-top: -26px !important;
+		margin-left: 27px !important;
+	}
+}
+
+@media(max-width:500px){
+	button.btn.btn-primary.btn-lg {
+		margin-left: 66px !important;
+		margin-top: 14px !important;
+	}
+	}
+
+
+
+/* ======responsive for website code end======= */
+
+	
+/* ========= AMRUTA CSS CODE END======================== */
+
+
+
+
 
 /* =========================================   KAMAL CODE START   ================================= */
 
@@ -1035,8 +1232,8 @@ outline: none !important;
 } 
 #password4:focus{
 	outline: none;
-	box-shadow: 0px 0px 1px 3px #01e4e4d2;
-	 
+	box-shadow: 0px 0px 1px 3px #ced4da;
+	border:1px solid #ced4da !important;
 } 
 /* === client submit form === */
 #clientsubmit{
@@ -1115,7 +1312,7 @@ width: 32.7rem !important;
 }
 
 [aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
-	right:-20rem !important;
+	right: -19.6rem !important;
 	/* background-color: red !important;	 */
 }
 

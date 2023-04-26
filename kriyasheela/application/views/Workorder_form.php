@@ -153,19 +153,18 @@
             <div class="row mb-3">
                 <div class="col-10 onlineform textcolor">
                     <input type="submit" name="insert" value="Submit" class="btn btn-info" />
-                    <?php
-                    echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>';
-                    ?>
+                    <?php echo '<label class="text-danger">'. $this->session->flashdata("error") . '</label>'; ?>
                 </div>
             </div>
             <?php
-            if ($this->session->flashdata('success')) {    ?>
-            <p class="text-success text-center" style="margin-top: 10px;"> <?= $this->session->flashdata('success') ?>
-            </p>
-            <?php } ?>
+            if ($this->session->flashdata('success')) { ?>
+            <p class="text-success text-center" style="margin-top: 10px;"> <?= $this->session->flashdata('success')?></p> <?php }?>
         </form>
         </section>
         <!-- Begin Footer -->
+
+
+        
         <script>
         function typeofwork() {
             const dummy = "<?php echo $workdata ?>";
@@ -185,8 +184,7 @@
 
                     var jsondata = JSON.parse(json);
 
-                    document.getElementById("workorder_no").value = CurrentYear + '' + jsondata[0].prefix +
-                        dummy;
+                    document.getElementById("workorder_no").value = CurrentYear + '' + jsondata[0].prefix + dummy;
 
                 },
                 error: function() {
@@ -203,6 +201,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+
         <script>
         $(document).ready(function() {
 
@@ -290,6 +290,9 @@
             $('#btnDel').attr('disabled', true)
         })
         </script>
+
+
+
         <script>
         $(document).ready(function() {
 

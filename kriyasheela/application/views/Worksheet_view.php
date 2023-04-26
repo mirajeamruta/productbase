@@ -20,8 +20,9 @@
                         <th>Completing On</th>
                     </tr>
                 </thead>
+                
                 <tbody>
-                    <td><?php echo $row['name'] ?></td>
+                    <td data-label=""><?php echo $row['name'] ?></td>
                     <td><?php echo $row['partner_under_whom_registered'] ?></td>
                     <td><?php echo $row['student_reg_no'] ?></td>
                     <td><?php echo $row['balunand_id_no'] ?></td>
@@ -36,7 +37,7 @@
                 <table class="table table-bordered my-5">
                     <thead>
                         <tr class="text-center text-white text-capitalize wksubhead2">
-                            <th>Date</th>
+                            <th data-label="Date">Date</th>
                             <th>Workorder No</th>
                             <th>Name Of Client </th>
                             <th>Description of work done</th>
