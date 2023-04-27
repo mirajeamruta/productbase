@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="demo-date" class="col-sm-4">Created on :</label>
+                <label for="demo-date" class="col-sm-4">Created on :</label>s
                 <div class="col-sm-8">
                     <input type="text" placeholder="Created on" name="created_on" class="form-control" id="date_picker"
                         aria-describedby="created_on">
@@ -111,9 +111,9 @@
                         <select name="assign_to[]" class="form-control classic" id="select"
                             aria-describedby="assign_to[]">
                             <option value="">Select</option>
-                            <?php foreach ($assign_to as $worksheetrecord) : ?>
+                            <?php foreach ($assign_to as $assign_to) : ?>
 
-                            <option value="<?= $worksheetrecord['user_id']; ?>"><?= $worksheetrecord['name']; ?>
+                            <option value="<?= $assign_to['user_id']; ?>"><?= $assign_to['name']; ?>
                             </option>
                             <?php endforeach; ?>
                         </select>

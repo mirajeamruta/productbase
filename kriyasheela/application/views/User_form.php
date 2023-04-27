@@ -391,20 +391,21 @@ function userfields(event) {
     document.getElementById('employeeID').style.display = 'flex';
     document.getElementById('CommencementEmployment').style.display = 'flex';
     document.getElementById('completionEmployment').style.display = 'flex';
-    //document.getElementById('studentregno').style.display = 'flex';
+    document.getElementById('studentregno').style.display = 'flex';
     document.getElementById('Articleship').style.display = 'flex';
     document.getElementById('completionArticleship').style.display = 'flex';
     document.getElementById('partner').style.display = 'flex';
     if (event.target.value == 3) {
-        document.getElementById('employeeID').style.display = 'none';
+
         document.getElementById('CommencementEmployment').style.display = 'none';
         document.getElementById('completionEmployment').style.display = 'none';
+        document.getElementById('employeeID').style.display = 'none';
     }
     if (event.target.value == 4) {
         document.getElementById('studentregno').style.display = 'none';
         document.getElementById('Articleship').style.display = 'none';
         document.getElementById('completionArticleship').style.display = 'none';
-        document.getElementById('partner').style.display = 'none';
+        //document.getElementById('partner').style.display = 'none';
     }
     if (event.target.value == 2) {
         document.getElementById('studentregno').style.display = 'none';

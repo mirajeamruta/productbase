@@ -159,9 +159,9 @@ class User extends CI_Controller
 
                 $data = array(
                     'name' => $username,
-                    'user_image' => $userimage,
-                    // 'employee_id'=>$employee_id,
+                    'user_image' => $userimage,                
                     'student_reg_no' => $reg_no,
+                    //'employee_id'=>$employee_id,
                     'date_of_comencement_of_articleship' => $commencementofarticleship,
                     'date_of_comencement_of_employment' => $commencementofemployment,
                     'date_of_completion_of_articleship' => $completionofarticleship,
@@ -227,7 +227,7 @@ class User extends CI_Controller
                 'student_reg_no' => $user['student_reg_no'],
                 'partner_under_whom_registered' => $user['partner_under_whom_registered'],
                 'password'=>$user['password'],
-                // 'employee_id' => $user['employee_id'],
+                 //'employee_id' => $user['employee_id'],
                 'personal_email' => $user['personal_email'],
                 'mobile_no' => $user['mobile_no'],
                 'details' => $user['mobile_no'],
@@ -313,7 +313,7 @@ class User extends CI_Controller
                 $data['userdetailsdata'][] = array(
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
-                    // 'sro_no'=>$user['student_reg_no'],
+                    //'sro_no'=>$user['student_reg_no'],
                     'image' => $user['user_image'],
                     'ID' => $user['student_reg_no'],
                     'startdate' => ($user['date_of_comencement_of_employment']),
