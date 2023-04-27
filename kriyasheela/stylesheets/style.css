@@ -363,7 +363,7 @@ select.classic:focus {
 	font-size: 14px;
 	font-weight: 400;
 	white-space: nowrap;
-	margin-left: 1px;
+	margin-left: -10px;
 }
 .sidebar .nav-links .log_out {
 	position: absolute;
@@ -863,7 +863,7 @@ span#msg1 {
     overflow-x: scroll !important;
     margin-bottom: 36px !important;
     /* background: #ff5500; */
-	margin-left: 1px !important;
+	margin-left: 0px !important;
 	/* height: 100%; */
 	border: none!important;
     border-radius: 0px!important;

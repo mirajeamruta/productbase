@@ -303,6 +303,7 @@ class User extends CI_Controller
         $this->load->view('template/footer');
     }
 
+
     public function MyProfile()
 
     {
