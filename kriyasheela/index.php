@@ -116,16 +116,7 @@ $system_path = 'system';
  *
  * NO TRAILING SLASH!
  */
-<<<<<<< HEAD
 $application_folder = 'application';
-=======
-//=== For Server ===//
- //	$application_folder = '/var/www/html/kriyasheela/application/';
-
-
- // === For Local ===//
-	$application_folder='application';
->>>>>>> 618d23ff6b8136c54dc4558cb44e61f98bdf2f8d
 
 /*
  *---------------------------------------------------------------

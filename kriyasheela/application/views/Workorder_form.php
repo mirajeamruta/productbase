@@ -6,16 +6,16 @@
         <form method="post" autocomplete="off" action="<?= base_url('Workorder/registerNow') ?>">
             <div class="row mb-3">
                 <label for="type_of_work" class="col-sm-4">Type of Work :</label>
-                <div class="col-sm-8">                    
-                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work"  class="classic"
+                <div class="col-sm-8">
+                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="classic"
                         aria-describedby="type_of_work" onchange="typeofwork();">
                         <option value="">Select</option>
                         <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
                         <option value="<?= $typeofworkorders['type_of_work_id'];?>">
                             <?= $typeofworkorders['type_of_work']; ?></option>
                         <?php endforeach; ?>
-                    </select>                      
-            
+                    </select>
+
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
             <div class="row mb-3">
                 <label for="client_name" class="col-sm-4">Legal Name / Trade Name :</label>
                 <div class="col-sm-6">
-                <select name="client_name" id='slct1' class="classic" aria-describedby="client_name" >
+                    <select name="client_name" id='slct1' class="classic" aria-describedby="client_name">
                         <option value="">Select</option>
                         <?php foreach ($clientname as $clientnamerecord) : ?>
                         <option value="<?= $clientnamerecord['name']; ?>"><?= $clientnamerecord['name']; ?>
@@ -106,8 +106,8 @@
                 <label for="demo-date" class="col-sm-4">Assign To :</label>
                 <div class="col-sm-5" style="max-width: 37.666667%;">
                     <div id="testingDiv1" class="mb-3 clonedInput">
-                        <select name="assign_to[]" class="form-control classic" id="select"
-                            aria-describedby="assign_to[]">
+                        <select name="assign_to2[]" class="form-control classic" id="select"
+                            aria-describedby="assign_to2[]">
                             <option value="">Select</option>
                             <?php foreach ($assign_to2 as $worksheetrecord) : ?>
                             <option value="<?= $worksheetrecord['user_id']; ?>"><?= $worksheetrecord['name']; ?>
@@ -132,7 +132,7 @@
 
                <!-- Assigned Person Name Display here(New Feature Added on 26-04-23) -->
                <ul id='assignedName'>
-        
+
 
                </ul>
             </div>
@@ -171,7 +171,7 @@
         <!-- Begin Footer -->
 
 
-        
+
         <script>
         function typeofwork() {
             const dummy = "<?php echo $workdata ?>";
@@ -250,8 +250,8 @@
         </script>
 
 
-        <script>   
-               
+        <script>
+
         $(document).ready(function() {
             $('.btnClick').click(function(e) {
                 e.preventDefault();
@@ -262,24 +262,24 @@
             let dropDown=document.getElementById('select');
             let dropDownData=dropDown.options[dropDown.selectedIndex].text;
             // Adding class
- 
+
             //creating textnode
             let textNode=document.createTextNode(dropDownData);
             li.appendChild(textNode);
             if(dropDownData!=' '&&dropDownData!='Select'){
-               // Adding selected data to list              
+               // Adding selected data to list
                document.getElementById('assignedName').appendChild(li);
                dropDown.value='';
             }else{
                 alert('Please assign to someone');
             }
-             
+
             let span=document.createElement('span');
             let closeIcon=document.createTextNode("\u00D7");
             span.className='assign_Close';
             span.appendChild(closeIcon);
             li.appendChild(span);
-         
+
             var closeItem=document.getElementsByClassName('assign_Close');
            var i;
             for(i=0; i<closeItem.length; i++){
@@ -287,10 +287,10 @@
                     let div=this.parentElement;
                     // div.style.display='none';
                     div.remove();
-                   
+
                 }
             }
-            
+
             })
          })
                 /*  Orginal Code-Previous Feature(dont delete this)
