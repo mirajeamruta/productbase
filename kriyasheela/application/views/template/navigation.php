@@ -14,7 +14,7 @@
              <!-- (B) THE HAMBURGER code start -->
 
             <div id="hamnav">
- 
+
   <label for="hamburger">&#9776;</label>
   <!-- <input type="checkbox" id="hamburger"/> -->
 

@@ -1,5 +1,4 @@
-
-<!-- 
+<!--
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <section class="top-nav">
     <div>
@@ -45,7 +44,7 @@
                 <!-- <a class="active3" style="margin-left: 10px;margin-top: 74px;"> -->
 				<i class=' bx bx-user-pin'></i>
 					<span class="links_name">Number of Clients</span>
-					<div class="number" style="margin-left: -93px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;"><?php echo $countclents; ?></div>	
+					<div class="number" style="margin-left: -93px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;"><?php echo $countclents; ?></div>
 				</a>
 			</li>
 			<li>
@@ -63,13 +62,12 @@
 	<section class="home-section" id="hom">
     <div class="home-content">
 
-        <div class="sales-boxes" style=""> 
+        <div class="sales-boxes" style="">
             <div class="recent-sales box" id="recent">
                 <div class="title" style="text-align: center;">Notifications</div>
-		
-				
-                <div class="sales-details" style="">
 
+
+                <div class="sales-details" style="">
                     <section id="section-dashboard" class="text-center">
                         <!-- <p><a>Workorder-150's</a> targeted end date has been revised.</p>
                         <p><a>Workorder-157's</a> targeted end date has been revised.</p>
@@ -80,7 +78,7 @@
                         <p>New User <a>Manoj</a> has been created.</p> -->
                     </section>
                 </div>
-<!-- 
+                <!--
                 <div class="button">
                     <a href="#">ViewAll</a>
                 </div> -->
@@ -116,6 +114,3 @@
         </div>
     </div>
 </section>
-
-
-	

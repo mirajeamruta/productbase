@@ -158,6 +158,11 @@
                 <div class="col-sm-8">
                     <input type="password4"  name="password4" id="password4" onkeyup="validatePassword(this.value)" placeholder="Password"/>
                     <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -50px; position: relative; right: -17px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i>
+                    <input type="password" name="password" id="password" onkeyup="validatePassword(this.value)"
+                        placeholder="Password" />
+                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;
+    line-height: 1; "></i>
+
 
                     <span id="msg" style="  margin: 0px 14px;"></span>
 
@@ -319,15 +324,16 @@ function userfields(event) {
     document.getElementById('completionArticleship').style.display = 'flex';
     document.getElementById('partner').style.display = 'flex';
     if (event.target.value == 3) {
-        document.getElementById('employeeID').style.display = 'none';
+
         document.getElementById('CommencementEmployment').style.display = 'none';
         document.getElementById('completionEmployment').style.display = 'none';
+        document.getElementById('employeeID').style.display = 'none';
     }
     if (event.target.value == 4) {
         document.getElementById('studentregno').style.display = 'none';
         document.getElementById('Articleship').style.display = 'none';
         document.getElementById('completionArticleship').style.display = 'none';
-        document.getElementById('partner').style.display = 'none';
+        //document.getElementById('partner').style.display = 'none';
     }
     if (event.target.value == 2) {
         document.getElementById('studentregno').style.display = 'none';

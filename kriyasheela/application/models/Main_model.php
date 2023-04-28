@@ -12,7 +12,7 @@ class Main_model extends CI_Model
 
           $query = $this->db->get('tbl_users');
 
-          // var_dump($query->row('balunand_id_no'));
+          var_dump($query->row('password'));
 
           //SELECT * FROM users WHERE username = '$username' AND password = '$password'  
           if ($query->num_rows() > 0) {

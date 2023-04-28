@@ -244,6 +244,92 @@
 				}
 			}
 			?>
+            if (count($userdetailsdata) > 0) {
+            foreach ($userdetailsdata as $row) {
+            ?>
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-3">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['name'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3" id="displayimage">
+                <label for="demo-date" class="col-sm-3">Profile photo</label>
+                <div class="col-sm-9">
+                    <!-- <p><?php echo ('http://172.105.55.147/kriyasheela/photos/' . $row['image']) ?></p> -->
+                    <img id="propileimage"
+                        src="<?php echo ('http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>"
+                        width="100px" height="100px" alt="your image" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">ICAI Number</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['ID'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Start Date </label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['startdate'] ?>" aria-describedby="created_on" disabled />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">End Date</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['enddate'] ?>" aria-describedby="created_on" disabled />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Partner Under Whom Registered </label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['partner_under_whom_registered'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Balunand Id Number</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['balunand_id_no'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Personal Email Address</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['personal_email'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Official Email Address</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['official_email'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Mobile Number </label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['mobile_no'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="demo-date" class="col-sm-3">Blood Group</label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" id="username"
+                        value="<?php echo $row['bloodgroup'] ?>" aria-describedby="created_on" />
+                </div>
+            </div>
+            <?php
+				}
+			}
+			?>
         </form>
     </div>
 </div>

@@ -28,6 +28,10 @@
                 <?php
                 if (!empty($oneworkorderdata)) {
                     foreach ($oneworkorderdata as $row) {
+                       // print_r(end($oneworkorderdata));
+                       // $workorder_no=$row['workorder_no'];
+                      //  print_r($workorder_no);
+                
                 ?>
                 <tr>
 
