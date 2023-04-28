@@ -1294,14 +1294,13 @@ width: 32.7rem !important;
 
 /* === View Workorder Drop Down === */
 [aria-labelledby="select2-workorderids-container"]{
+	position: relative !important;
 	width: 523px !important;
-		/* background-color:  green !important; */
-		position: relative !important;
+
 }
 
 /* === View Workorder Drop Down Arrow === */
-[aria-labelledby="select2-workorderids-container"] >.select2-selection__arrow{
-	
+[aria-labelledby="select2-workorderids-container"] >.select2-selection__arrow{	
 	right: 0px !important;
 	top: 0px !important;
 	
@@ -1433,6 +1432,41 @@ width: 32.7rem !important;
 /* === View Client Header === */
 #section_clientlist__header{
 	display: none;
+}
+
+/* --- workorder Form Assign to section --- */
+#assignedName{
+	position: relative;
+    left: 308px;
+    list-style-type: none;
+}
+#assignedName>li{
+	padding-top: 7px;
+}
+/* --- Assign Delete Button disable --- */
+.assignDeleteBtn{
+	display: none;
+}
+/* --- Close Icon --- */
+span.assign_Close {
+	cursor: pointer;
+    position: absolute;
+    font-size: 22px;
+    left: 361px;
+    font-size: 22px;
+}
+.Assign_Close:hover{
+	color: red;
+}
+/* --- Assign to input field --- */
+#select{
+	cursor: pointer;
+	width: 405px;
+}
+/* --- Add More Button --- */
+#btnAdd{
+	position: relative;
+	left: 106px;
 }
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px){
@@ -1846,11 +1880,23 @@ div#clienttable_paginate {
     cursor: pointer;
     color: black;
     vertical-align: text-bottom;
-    line-height: 2.7 !important;
+    line-height: 3.7 !important;
 }
 .passTypeToggle{
-	/* display: none !important; */
 	height: 0 !important;
+}
+/* --- Assign Section --- */
+#assignedName {
+    position: relative;
+    left: 30px;
+    list-style-type: none;
+}
+span.assign_Close{
+    cursor: pointer;
+    position: absolute;
+    font-size: 22px;
+    left: 274px;
+    font-size: 22px;
 }
 }
 

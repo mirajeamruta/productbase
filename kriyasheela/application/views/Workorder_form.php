@@ -106,12 +106,10 @@
                 <label for="demo-date" class="col-sm-4">Assign To :</label>
                 <div class="col-sm-5" style="max-width: 37.666667%;">
                     <div id="testingDiv1" class="mb-3 clonedInput">
-
                         <select name="assign_to[]" class="form-control classic" id="select"
                             aria-describedby="assign_to[]">
                             <option value="">Select</option>
                             <?php foreach ($assign_to2 as $worksheetrecord) : ?>
-
                             <option value="<?= $worksheetrecord['user_id']; ?>"><?= $worksheetrecord['name']; ?>
                             </option>
                             <?php endforeach; ?>
@@ -119,17 +117,24 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <button class='btn btn-success' id="btnAdd">
+                    <button class='btn btn-success btnClick' id="btnAdd">
                         Add More
                     </button>
-                    <i class='bx bxs-plus-square' style='color:#28a745'  ></i>
+                    <i class='bx bxs-plus-square btnClick' style='color:#28a745'></i>
                 </div>
+
+                <!-- Assigned Person Delete Button -->
                 <div class="col-sm-1">
-                    <button id="btnDel" class='btn btn-danger'>
+                    <button id="btnDel" class='btn btn-danger assignDeleteBtn'>
                         Delete
                     </button>
                 </div>
 
+               <!-- Assigned Person Name Display here(New Feature Added on 26-04-23) -->
+               <ul id='assignedName'>
+        
+
+               </ul>
             </div>
 
 
@@ -245,10 +250,50 @@
         </script>
 
 
-        <script>
+        <script>   
+               
         $(document).ready(function() {
-            $('#btnAdd').click(function(e) {
-                e.preventDefault()
+            $('.btnClick').click(function(e) {
+                e.preventDefault();
+
+             //Creating new li Element
+             let li=document.createElement('li');
+            //Getting data from dropdown
+            let dropDown=document.getElementById('select');
+            let dropDownData=dropDown.options[dropDown.selectedIndex].text;
+            // Adding class
+ 
+            //creating textnode
+            let textNode=document.createTextNode(dropDownData);
+            li.appendChild(textNode);
+            if(dropDownData!=' '&&dropDownData!='Select'){
+               // Adding selected data to list              
+               document.getElementById('assignedName').appendChild(li);
+               dropDown.value='';
+            }else{
+                alert('Please assign to someone');
+            }
+             
+            let span=document.createElement('span');
+            let closeIcon=document.createTextNode("\u00D7");
+            span.className='assign_Close';
+            span.appendChild(closeIcon);
+            li.appendChild(span);
+         
+            var closeItem=document.getElementsByClassName('assign_Close');
+           var i;
+            for(i=0; i<closeItem.length; i++){
+                closeItem[i].onclick=function(){
+                    let div=this.parentElement;
+                    // div.style.display='none';
+                    div.remove();
+                   
+                }
+            }
+            
+            })
+         })
+                /*  Orginal Code-Previous Feature(dont delete this)
                 var num = $('.clonedInput').length,
                     newNum = new Number(num + 1),
                     newElem = $('#testingDiv' + num)
@@ -291,6 +336,7 @@
             })
             $('#btnDel').attr('disabled', true)
         })
+        */
         </script>
 
 

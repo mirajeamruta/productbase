@@ -18,7 +18,7 @@
 					<div class="row mb-3" >
 						<label for="inputEmail3" class="col-sm-3">Name</label>
 						<div class="col-sm-9">
-							<input type="text" name="username" class="form-control" id="username" value="<?php echo $row['name'] ?>" aria-describedby="created_on" />
+							<input type="text" name="username" class="form-control" id="username" value="<?php echo $row['name'] ?>" aria-describedby="created_on"/>
 						</div>
 					</div>
 					<div class="row mb-3" id="displayimage">
