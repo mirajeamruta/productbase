@@ -204,7 +204,7 @@
         
         // toggle the type attribute
         const type = password.getAttribute("type") === "password" ? "text" : "password";
-
+          start=false;
         password.setAttribute("type", type);
 
 

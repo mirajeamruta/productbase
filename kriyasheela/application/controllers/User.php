@@ -258,6 +258,7 @@ class User extends CI_Controller
                     'balunand_id_no' => $user['balunand_id_no'],
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
+
                     'mobile_no' => $user['mobile_no'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
@@ -286,7 +287,7 @@ class User extends CI_Controller
                     //'details'=>$user['mobile_no'],
                 );
 
-                //  var_dump(	$data['userdetailsdata']);
+                //   var_dump(	$data['userdetailsdata']);
 
                 //return;
 
