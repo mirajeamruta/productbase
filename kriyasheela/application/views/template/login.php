@@ -28,7 +28,6 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 									<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-
 									<span class="text-danger"><?php echo form_error('password'); ?></span>
 
 								</div>
@@ -49,6 +48,7 @@
 				</div>
 			</div>
 		</div>
-
+      
 	</div>
+	
 </div>

@@ -242,7 +242,6 @@ select {
 	text-indent: 1px;
 	text-overflow: "";
 	height: calc(1.5em + 0.75rem + 2px) !important;
-
 }
 
 /* arrows */
@@ -260,8 +259,8 @@ select.classic {
 
 select.classic:focus {
 	background-image: linear-gradient(45deg, white 50%, transparent 50%),
-		linear-gradient(135deg, transparent 50%, white 50%),
-		linear-gradient(to right, gray, gray);
+					  linear-gradient(135deg, transparent 50%, white 50%),
+					  linear-gradient(to right, gray, gray);
 	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
 	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
 	background-repeat: no-repeat;
@@ -1241,10 +1240,7 @@ outline: none !important;
 	margin-left: 3%;
 }
 
-/* === Previous and Next Button in view client === */
-.pagination>li>a{
-	color: red !important;
-}
+
 
 #section_userform1>#span{
 	margin-left: 248px !important;
@@ -1336,21 +1332,16 @@ width: 32.7rem !important;
 	z-index: 1;
 }
 
-
-
-
 /* ==== Client Form new code ==== */
 .uploadBtn{
 	position: absolute;
-	 top: 433px !important;
+	top: 435px !important;
     left: -298px !important;
-	height: 33px !important;
-	padding: 3px;
+	height: 35px !important;
+	padding: 6px;
+	width: 85px;
 }
-/* ==== Client Form Subit Button ==== */
-input#clientFormSubmit{
-	
-}
+
 
 /* === Upload CSV file label === */
 .uploadClientCSV{
@@ -1382,6 +1373,7 @@ input#clientFormSubmit{
 #section_clientform{
 	height: 600px !important;
 }
+
 /* === Selected CSV File Name (In client Form) ==== */
 #selectedFileName{
 	display: none;
@@ -1394,7 +1386,7 @@ input#clientFormSubmit{
 	font-size: 16px !important;
 	position: absolute;
 	top: -56px;
-	left: 124px;
+	left: -79px;
 	width: 300px;
 }
 /* === CSV File upload success message ==== */
@@ -1407,15 +1399,49 @@ input#clientFormSubmit{
 .bxs-plus-square{
 	display: none !important;
 }
+#dis_Select_File{
+	display: none;
+	cursor: pointer;
+	font-size: 31px;
+	position: absolute;
+	top: 107px;
+	left: 275px;
+}
+#dis_Select_File:hover{
+	color: red;
+}
+
+.user_details_lg{
+	display: block !important;
+}
+/* === VIEW USER TABLE SMALL SCREEN VERSION DISABLE IN BIG SCREEN === */
+#view_User_Table{
+	display: none !important;
+}
+.section_viewuser__header{
+	display: none;
+}
+/* === View User Mobile Version === */
+.user_details_sm{
+  display: none;
+}
+/* === View Client Form Mobile Version === */
+
+.view_Client_Container{
+	display: none;
+}
+/* === View Client Header === */
+#section_clientlist__header{
+	display: none;
+}
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px){
 	.container{
 		border: none !important;
 		box-shadow: none !important;
-		height: 1050px !important;
-		margin-right: 140px !important;
+		height: 1050px !important;	
 		width: 355px !important;
-		margin-left: 11px !important;
+		margin: 59px 140px 0 9px !important;
 		height: 1075px !important;
 
 	}
@@ -1472,14 +1498,361 @@ input#clientFormSubmit{
 	#btnAdd{
 		display: none;
 	}
+	
 	/* === Add more plus icon display in small screen === */
-.bxs-plus-square{
-	display: block !important;
-	font-size: 49px;
+	.bxs-plus-square
+	  {
+	      display: block !important;
+	      font-size: 49px;
+	      position: absolute !important;
+	      top: -59px;
+	      right: -11px;
+      }
+    div#section_userform 
+	  {
+         margin-left: -12px;
+	     padding-top: 12px;
+      }
+/* === Legal and Trade Name drop down === */
+    .select2-dropdown--below 
+	 {
+	    width: 319px !important;
+     }
+/* ==== WORKSHEET FORM ==== */
+    #worksheet_Form
+	{
+	  height: 959px !important;
+    }
+    #section_userform1>#span
+	{
+	  padding-top: 18px;
+	  margin: 81px 0 20px 33px !important;
+    }
+    #section_userform1
+	{
+	  margin-left: -13px !important;
+    }
+/* --- Start and End Time -- */
+   .input-group-text
+   {
+     position: relative;
+     top: -38px;
+     right: -279px;
+     height: 38px;
+     z-index: 9999;
+   }
+   #datetimepicker
+   {
+	 width: 318px !important; 
+	 margin-bottom: -32px;
+   }
+   #datetimepickerend
+   {
+	 width: 315px !important;
+   }
+
+/* ==== CLIENT FORM ==== */
+   #clientsubmit
+   {
+	 margin-left: 4px !important;
+	 width: 100% !important;
+   }
+  .uploadClientCSV
+  {
+	 top : 25px;
+	 left: 52px;
+  }
+  .hr
+   {
+	 display: none !important;
+   }
+  .hr1
+   {
+	 display: none !important;
+   }
+  .or
+   {
+	 top: -7px;
+	 right: 174px;
+   }
+   #section_clientform
+    {
+	 height: 975px !important;
+	 margin-top: 80px !important;
+    }
+   #section_clientform span
+    {
+    padding-top: 21px !important;
+    }
+   #clientFormSubmit
+   {
+	margin-left: 111px !important;
+   }
+
+/* === Client CSV file Submit === */
+  .uploadBtn
+   {
+     left: -15px !important;
+     top: 129px !important;
+   }
+/* === Client CSV selected file === */
+#section_clientform span{
+	margin: -20px 0px 30px -3px;
+}
+/* === Dis Select Client CSV selected file === */
+#dis_Select_File{
+	top: 79px;
+	left: 228px;
+}
+/* ==== USER FORM ==== */
+#user_Form,#user_Form>#section_userform{
+	height: 1370px !important;
+
+}
+#usersubmit {
+    margin-top: 36px !important;
+}
+/* --- Header --- */
+#user_Form span{
+	margin: 6px 0px -7px 19px !important;
+}
+/* --- Password Eye Icon --- */
+.fa-eye{
 	position: absolute !important;
-	top: -59px;
-	right: 3px;
+	right: 13px !important;
+	top: 8px !important;
+}
+/* --- Password Input Field --- */
+#password4{
+	width: 19.70rem !important;
+}
+/* -- Type of User Input Field --- */
+#usertypeid{
+	width: 19.71rem !important;
+}
+/* === VIEW USER FORM === */
+#view_User_Table{
+	display: block !important;
+}
+#section_viewuser{
+	margin-top: 82px;
+}
+.section_viewuser__header
+{
+	display: block;
+	background-color: #0047FF;
+	color: #fff;
+	height: 45px;
+	text-align: center;
+	padding: 12px 0px;
+	width: 100%;
+}
+/* --- Table Header Background-color --- */
+#view_User_Table>thead th{
+	font-size: 12px !important;
+	background-color: #0047FF !important ;
+	text-align: center;
+	width: 600px;
+}
+#view_User_Table>tbody td{
+	font-size: 12px !important;
+}
+#view_User_Table>tbody td>.viewdetail{
+	background-color: transparent !important;
+	color: #0047FF !important;
+}
+/* === View User === */
+.user_details_lg{
+	display: none !important;
+}
+#view_User_Table_lg{
+	display: none !important;
+}
+/* --- Small Screen --- */
+.user_details_sm{
+  display: block !important;
+}
+.user_details_sm{
+	display: bock !important;
+	background-color: #eaeae8e0 !important;
+	min-height: 500px;
+	margin-left: -15px;
+	width: 109%;
+}
+#view_user{
+	height: 573px !important;
+}
+/* --- Profile Picture --- */
+.user_details_sm__profile_Picture{
+	background-color: green;
+	border-radius: 50%;
+	height: 100px;
+	position: relative;
+	left: 123px;
+	top: 23px;
+	width: 100px;
+}
+/* --- User Name --- */
+.user_details_sm__user_Name{
+	min-height: 30px;
+	width: 101px;
+	text-align: center;
+	margin: 35px 0 0 126px;
+	word-wrap: break-word;
+}
+/* --- View User Table --- */
+.user_details_sm__table{
+	display: block !important;
+}
+.user_details_sm__table>tbody>tr{
+	text-align: left;
+}
+.user_details_sm__table>tbody>tr>td{
+    padding-left: 18px;
+    overflow-wrap: break-word;
+    padding-top: 16px;
+}
+.user_details_sm__profile_Picture{
+	margin-top: 50px;
+}
+  .user_details_sm__profile_Picture>img
+  {
+    height: 89px;
+    width: 96px;
+    margin-top: 7px;
+    margin-left: 3px;
+    border-radius: 50%;
+  }
+  .user_data{
+    padding: 21px 26px 0px 5px !important;
+	overflow-wrap: break-word;
+	width: 50px;
+  }
+  .user_dots{
+  padding-left: 5px !important;
+  /* color: green; */
+  }
+  /* === VIEW CLIENT === */
+  #clienttable{
+	display: none !important;
+	overflow-x: auto;
+  }
+
+  /* --- View Client Section ---  */
+  #section_clientlist{
+	margin-top: 82px;
+  }
+
+  /* --- View Client Header --- */
+  div#section_clientlist__header 
+  {
+    display: flex;
+    background: #000AFF;
+	color: #fff;
+    height: 41px;
+    align-items: center;
+    justify-content: center;
+	margin-bottom: 12px;
+  }
+  /* --- Show Entries --- */
+
+div.dataTables_length select{
+    width: 57px !important;
+    display: inline-block;
+    padding-left: 17px !important;
+    position: relative !important;
+}
+div#clienttable_length {
+    font-size: 12px !important;
+    position: relative !important;
+    top: 4px !important;
+    left: -62px !important;
+}
+#clienttable_filter{
+	position: relative !important;
+    top: -42px !important;
+    right: -171px !important;
+    font-size: 12px !important;
+	width: 100px !important;
+}
+input.form-control.input-sm {
+    width: 117px !important;
+}
+  /* --- Pagination -- */
+div#clienttable_info {
+	font-size: 12px;
+    position: relative !important;
+    top: 564px;
+    left: 9px;
+    width: 100px;
+}
+div#clienttable_paginate {
+	/* display: none; */
+	position: relative !important;
+    margin-left: -488px;
+} 
+.pagination{
+	color: #000 !important;
+	font-size: 12px;
+    position: relative;
+    right: -23px;
+    top: 546px;
+	padding-left: 702px !important;
+}
+ 
+/* --- View Client Table --- */
+.view_Client_Container{
+	display: block;
+	/* background-color: yellow; */
+	min-height:480px;
+	overflow: hidden;
+	margin-top: -81px;
+	width: 100%;
+}
+/* --- Table --- */
+.view_Client_Container_table{
+	/* overflow-x: auto; */
+	overflow-x: auto;
+    display: block;
+}
+/* --- Table Column Header ---- */
+.view_Client_Container_table>thead>tr>th{
+	background-color: #000AFF !important;
+	 font-size: 13px !important;
+	 padding: 4px;
+}
+/* --- Table Data(td) --- */
+.view_Client_Container_table>tbody>tr>td{
+	font-size: 12px !important;
+    padding: 13px !important;
+}
+/* === Previous and Next Button in view client === */
+.pagination>li>a{
+  padding-right: 10px;
+}
+
+/* === CSV File upload Status === */
+.text-success {
+    margin-top: 12px !important;
+    margin-left: 16px !important;
+    width: 300px !important;
+}
+/* ==== User Form Password Eye Slash === */
+.fa-eye-slash{
+	margin-left: -50px;
+    position: relative;
+    right: -312px !important;
+    top: -46px !important;
+    cursor: pointer;
+    color: black;
+    vertical-align: text-bottom;
+    line-height: 2.7 !important;
+}
+.passTypeToggle{
+	/* display: none !important; */
+	height: 0 !important;
 }
 }
+
 
 /* =========================================   KAMAL CODE END   ================================= */

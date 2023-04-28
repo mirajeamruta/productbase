@@ -18,8 +18,8 @@ class Main extends CI_Controller
 
 		$this->load->model('Main_model');
 
-		// Load the todo model to make it available 
-		// to *all* of the controller's actions 
+		// Load the todo model to make it available
+		// to *all* of the controller's actions
 		$this->load->helper('url');
 	}
 
@@ -48,7 +48,7 @@ class Main extends CI_Controller
 	// 	$data['countworkorder']=$this->Main_model->countWorkorder();
 
     //    $data['countclents']=$this->Main_model->countclents();
-		
+
 	//    $data['countusers']=$this->Main_model->countusers();
 
 	//    $data['pendingWorkorders']=$this->Main_model->pendingWorkorder();
@@ -196,7 +196,7 @@ class Main extends CI_Controller
 			if ($this->Main_model->can_login($balunand_id_no, $password)) {
 
 				$record = $this->Main_model->can_login($balunand_id_no, $password);
-
+				// echo $password;
 				//var_dump($record);
 
 				// echo "<br>";
@@ -279,4 +279,3 @@ class Main extends CI_Controller
 		redirect(base_url() . 'Main/login');
 	}
 }
-

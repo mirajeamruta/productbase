@@ -1,10 +1,11 @@
-<div class='container userform'>
-	<div id="section_userform">
+<div class='container userform' id="view_user">
+
+	<div id="section_userform" class="user_details_lg">
 		<span style="position: relative;
     top: 20px;
     left: 510px;
     font-size: 20px;">USER DETAIL</span>
-		<form class="form col-md-8 offset-md-1" method="post" autocomplete="off" style="margin-top: 45px;">
+		<form class="form col-md-8 offset-md-1" method="post" autocomplete="off" style="margin-top: 45px;" >
 			<?php
 			/*
                   <td><a href="<?=base_url("User/editUserData")?><?php echo 'user_id='.$row['user_id'];?>">view
@@ -14,7 +15,7 @@
 			if (count($userdetailsdata) > 0) {
 				foreach ($userdetailsdata as $row) {
 			?>
-					<div class="row mb-3">
+					<div class="row mb-3" >
 						<label for="inputEmail3" class="col-sm-3">Name</label>
 						<div class="col-sm-9">
 							<input type="text" name="username" class="form-control" id="username" value="<?php echo $row['name'] ?>" aria-describedby="created_on" />
@@ -23,8 +24,8 @@
 					<div class="row mb-3" id="displayimage">
 						<label for="demo-date" class="col-sm-3">Profile photo</label>
 						<div class="col-sm-9">
-							<!-- <p><?php echo ('http://172.105.55.147/kriyasheela/photos/' . $row['image']) ?></p> -->
-							<img id="propileimage" src="<?php echo ('http://172.105.55.147/kriyasheela/photos/' . $row['image']) ?>" width="100px" height="100px" alt="your image" />
+							<!-- <p><?php echo ('http://172.105.55.147/kriyasheela/photos/http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?></p> -->
+							<img id="propileimage" src="<?php echo ('http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>" width="100px" height="100px" alt="your image" />
 						</div>
 					</div>
 					<div class="row mb-3">
@@ -87,6 +88,76 @@
 			?>
 		</form>
 	</div>
+
+	<!-- FOR SMALL SCREEN -->
+	<div class="user_details_sm">   
+	   <?php
+			if (count($userdetailsdata) > 0) {
+				foreach ($userdetailsdata as $row) {
+		?>
+	<!-- User Profile Picture -->
+	<div class="user_details_sm__profile_Picture">
+		<img src="<?php echo ('http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>" alt="User Image">
+	</div>
+	<!-- User Name -->
+	<p class="user_details_sm__user_Name"><?php echo $row['name'] ?></p>
+
+	<!-- User Details -->
+	<table class="user_details_sm__table">
+		<tbody>
+			<tr>
+				<td>ICAI Number</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['ID'] ?></td>
+		    </tr>
+			<tr>
+				<td>Start Date</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['startdate'] ?></td>
+		    </tr>
+			<tr>
+				<td>End Date</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['enddate'] ?></td>
+		    </tr>
+			<tr>
+				<td>Partner Under Whom Registered</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['partner_under_whom_registered'] ?></td>
+		    </tr>
+			<tr>
+				<td>Balunand Id</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['balunand_id_no'] ?></td>
+		    </tr>
+			<tr>
+				<td>Personal Email</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['personal_email'] ?></td>
+		    </tr>
+			<tr>
+				<td>Official Email</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['official_email'] ?></td>
+		    </tr>
+			<tr>
+				<td>Mobile Number</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['mobile_no'] ?></td>
+		    </tr>
+			<tr>
+				<td>Blood Group</td>
+				<td class="user_dots">:</td>
+				<td class="user_data"><?php echo $row['bloodgroup'] ?></td>
+		    </tr>
+		</tbody>
+	</table>
+    <?php
+				}
+			}
+			?>
+	</div>
+	
 </div>
 <script type="text/javascript">
 	function readfile(input) {

@@ -6,15 +6,16 @@
         <form method="post" autocomplete="off" action="<?= base_url('Workorder/registerNow') ?>">
             <div class="row mb-3">
                 <label for="type_of_work" class="col-sm-4">Type of Work :</label>
-                <div class="col-sm-8">
+                <div class="col-sm-8">                    
                     <select placeholder="Type of Work" name="type_of_work" id="type_of_work"  class="classic"
                         aria-describedby="type_of_work" onchange="typeofwork();">
                         <option value="">Select</option>
                         <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
-                        <option value="<?= $typeofworkorders['type_of_work_id']; ?>">
+                        <option value="<?= $typeofworkorders['type_of_work_id'];?>">
                             <?= $typeofworkorders['type_of_work']; ?></option>
                         <?php endforeach; ?>
-                    </select>
+                    </select>                      
+            
                 </div>
             </div>
 
@@ -121,6 +122,7 @@
                     <button class='btn btn-success' id="btnAdd">
                         Add More
                     </button>
+                    <i class='bx bxs-plus-square' style='color:#28a745'  ></i>
                 </div>
                 <div class="col-sm-1">
                     <button id="btnDel" class='btn btn-danger'>
