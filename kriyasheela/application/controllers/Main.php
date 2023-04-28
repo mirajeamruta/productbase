@@ -18,8 +18,8 @@ class Main extends CI_Controller
 
 		$this->load->model('Main_model');
 
-		// Load the todo model to make it available 
-		// to *all* of the controller's actions 
+		// Load the todo model to make it available
+		// to *all* of the controller's actions
 		$this->load->helper('url');
 	}
 
@@ -48,7 +48,7 @@ class Main extends CI_Controller
 	// 	$data['countworkorder']=$this->Main_model->countWorkorder();
 
     //    $data['countclents']=$this->Main_model->countclents();
-		
+
 	//    $data['countusers']=$this->Main_model->countusers();
 
 	//    $data['pendingWorkorders']=$this->Main_model->pendingWorkorder();
@@ -137,6 +137,7 @@ class Main extends CI_Controller
         $data['title'] = 'Balu & Anand, Chartered Accountants';
 
         if (isset($_SESSION['usertype'])) {
+
             $data['usertype'] = $_SESSION['usertype'];
             // echo "if";
 
@@ -187,15 +188,21 @@ class Main extends CI_Controller
 			//true
 			$balunand_id_no = $this->input->post('balunand_id_no');
 
-			// $password = md5($this->input->post('password'));
-			$password = ($this->input->post('password'));
+			$password =($this->input->post('password'));
+			//$Password=md5($password);
+
+			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
 			if ($this->Main_model->can_login($balunand_id_no, $password)) {
 
+				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
+
 				$record = $this->Main_model->can_login($balunand_id_no, $password);
+
+				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
 				//var_dump($record);
 
@@ -279,4 +286,3 @@ class Main extends CI_Controller
 		redirect(base_url() . 'Main/login');
 	}
 }
-

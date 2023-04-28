@@ -106,6 +106,8 @@ switch (ENVIRONMENT) {
  */
 $system_path = 'system';
 
+// === For Local ===//
+$system_path = 'system';
 /*
  *---------------------------------------------------------------
  * APPLICATION DIRECTORY NAME
@@ -121,8 +123,8 @@ $system_path = 'system';
  *
  * NO TRAILING SLASH!
  */
-$application_folder = 'application';
-
+// === For Local === //
+$application_folder ='application'
 /*
  *---------------------------------------------------------------
  * VIEW DIRECTORY NAME

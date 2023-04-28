@@ -9,8 +9,8 @@ class User extends CI_Controller
     {
         parent::__construct();
 
-        // Load the todo model to make it available 
-        // to *all* of the controller's actions 
+        // Load the todo model to make it available
+        // to *all* of the controller's actions
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');
@@ -61,6 +61,22 @@ class User extends CI_Controller
 
     public function createUser()
     {
+        $loggedInEmployee = $this->session->userdata('username');
+
+		$loggedInUserId = $this->session->userdata('userId');
+
+		$user_info = $this->User_model->duplicateId($this->input->post('balunandno'));
+
+		var_dump($user_info);
+
+		// return;
+
+		if (count($user_info) > 0) {
+			$data['error'] = 'This Balunand ID is already assigned to a usser ';
+			$this->session->set_flashdata('error', 'This Balunand ID is already assigned to an user');
+
+			redirect(base_url('User/index'));
+		}
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             /*
@@ -69,7 +85,7 @@ class User extends CI_Controller
             $this->form_validation->set_rules( 'reg_no', 'Reg_no', 'required' );
 
             $this->form_validation->set_rules( 'employee_id', 'Employee_id', 'required' );
-           
+
 			$this->form_validation->set_rules( 'partner_in_charge', 'Partner in Charge', 'required' );
             $this->form_validation->set_rules( 'start_date', 'Start Date', 'required' );
 
@@ -135,15 +151,17 @@ class User extends CI_Controller
 
                 $hashpassword = md5($password);
 
-                // var_dump($hashpassword);
+
+                //var_dump($hashpassword);
+                //var_dump($password);
 
                 // return;
 
                 $data = array(
                     'name' => $username,
                     'user_image' => $userimage,
-                    // 'employee_id'=>$employee_id,
                     'student_reg_no' => $reg_no,
+                    //'employee_id'=>$employee_id,
                     'date_of_comencement_of_articleship' => $commencementofarticleship,
                     'date_of_comencement_of_employment' => $commencementofemployment,
                     'date_of_completion_of_articleship' => $completionofarticleship,
@@ -158,7 +176,8 @@ class User extends CI_Controller
                     'user_type_id' => $usertype,
                 );
 
-                //var_dump($data);
+
+                var_dump($data);
 
                 // return;
 
@@ -169,6 +188,16 @@ class User extends CI_Controller
             }
         }
     }
+    public function validate()
+	{
+		if ($this->User_model->duplicateId($this->input->post('balunandno'))) {
+
+			$this->error = 'This Balunand Number is already assigned to a user ';
+
+			var_dump($this->error);
+			return !$this->error;
+		}
+	}
 
 
     public function allusers()
@@ -192,15 +221,25 @@ class User extends CI_Controller
         foreach ($data['userdetails'] as $user) {
             $data['userdetailsdata'][] = array(
                 'user_id' => $user['user_id'],
+                'balunand_id_no' => $user['balunand_id_no'],
                 'user_type_id' => $user['user_type_id'],
                 'name' => $user['name'],
                 'student_reg_no' => $user['student_reg_no'],
-                // 'employee_id' => $user['employee_id'],
+                'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                'password'=>$user['password'],
+                 //'employee_id' => $user['employee_id'],
                 'personal_email' => $user['personal_email'],
                 'mobile_no' => $user['mobile_no'],
                 'details' => $user['mobile_no'],
             );
+
         }
+        // foreach($data['userdetailsdata'] as $user){
+        //     $password = $user['password'];
+        //     print_r(($user['password']));
+
+        // }
+
 
         $this->load->view('template/header');
 
@@ -237,9 +276,11 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
+                print_r($data['userdetailsdata']);
             }
 
             if ($user['user_type_id'] == 4) {
@@ -250,9 +291,9 @@ class User extends CI_Controller
                     'ID' => $user['student_reg_no'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
-                    'startdate' => $user['date_of_comencement_of_articleship'],
+                    'startdate' => $user['date_of_comencement_of_employment'],
 
-                    'enddate' => $user['date_of_completion_of_articleship'],
+                    'enddate' => $user['date_of_completion_of_employment'],
 
                     'partner_under_whom_registered' => $user['partner_under_whom_registered'],
                     'balunand_id_no' => $user['balunand_id_no'],
@@ -260,9 +301,11 @@ class User extends CI_Controller
                     'official_email' => $user['official_email'],
 
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
+                //print_r($data['userdetailsdata']);
             }
 
             if ($user['user_type_id'] == 2  || $user['user_type_id'] == 1) {
@@ -271,7 +314,7 @@ class User extends CI_Controller
                 $data['userdetailsdata'][] = array(
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
-                    // 'sro_no'=>$user['student_reg_no'],
+                    //'sro_no'=>$user['student_reg_no'],
                     'image' => $user['user_image'],
                     'ID' => $user['student_reg_no'],
                     'startdate' => ($user['date_of_comencement_of_employment']),
@@ -283,6 +326,7 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
@@ -327,6 +371,8 @@ class User extends CI_Controller
                     $newpassword = $this->input->post('newpassword');
 
                     $hashnewpassword = md5($newpassword);
+                    echo $newpassword;
+                    echo $hashnewpassword;
 
                     if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
 

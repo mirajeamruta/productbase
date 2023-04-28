@@ -103,7 +103,7 @@ body {
 	margin-bottom: 34px !important;
 }
 /* === In Client Form Choose file input button === */
-.form-group>#file-upload-button{
+.form-group > #file-upload-button {
 	background-color: red !important ;
 }
 
@@ -199,7 +199,7 @@ body {
 	text-align: center;
 	margin: 30px 0px 30px 15px;
 }
-#section_userform>.span{
+#section_userform > .span {
 	margin-left: 210px;
 }
 
@@ -215,7 +215,7 @@ body {
 	border: 1px solid #40ab3e;
 }
 
- /* ============Amruta Code Start========================= */
+/* ============Amruta Code Start========================= */
 
 /* ==== Form which is common for workorder,worksheet,userform,client form ====*/
 .userform {
@@ -242,7 +242,6 @@ select {
 	text-indent: 1px;
 	text-overflow: "";
 	height: calc(1.5em + 0.75rem + 2px) !important;
-
 }
 
 /* arrows */
@@ -260,8 +259,8 @@ select.classic {
 
 select.classic:focus {
 	background-image: linear-gradient(45deg, white 50%, transparent 50%),
-		linear-gradient(135deg, transparent 50%, white 50%),
-		linear-gradient(to right, gray, gray);
+					  linear-gradient(135deg, transparent 50%, white 50%),
+					  linear-gradient(to right, gray, gray);
 	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
 	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
 	background-repeat: no-repeat;
@@ -556,7 +555,7 @@ nav .profile-details i {
 	justify-content: space-between;
 	/* padding: 0 20px; */
 	height: 630px;
-    margin-top: -34px;
+	margin-top: -34px;
 }
 
 /* left box */
@@ -742,9 +741,6 @@ nav .profile-details i {
 	}
 }
 
-
-
-
 /* notification css */
 
 .notification-icon {
@@ -762,18 +758,16 @@ nav .profile-details i {
 	color: white;
 }
 
-
 /* profile password change password button */
 
-.float-right{
+.float-right {
 	color: #fff;
-    background-color: #2b4cf1;
-    border: none;
-    border-radius: 6px;
-    width: 64%;
-    height: 42px;
+	background-color: #2b4cf1;
+	border: none;
+	border-radius: 6px;
+	width: 64%;
+	height: 42px;
 }
-
 .number{
 	margin-left: -88px;
     margin-top: 88px;
@@ -783,31 +777,27 @@ nav .profile-details i {
     padding: 9px 14px 9px 14px;
     color: black;
 }
-
-
-
-
 /* myprofile dropdown css */
 
 .dropdown-menu {
-    position: absolute;
-    /* right: -9px; */
-    margin-left: -42px;
+	position: absolute;
+	/* right: -9px; */
+	margin-left: -42px;
 }
 
 /* table for all text align  */
 
 tbody {
-    text-align: center;
+	text-align: center;
 }
 
 /* .oldPass{
-	
-	
+
+
 	height: 40px !important;
 }
 .oldPass:focus{
-	
+
 
 	height: 40px !important;
 } */
@@ -818,13 +808,10 @@ span#msg1 {
     top: 194px;
     left: 279px;
 }
-.mb-2, .my-2 {
-    margin-bottom: 2.5rem!important;
+.mb-2,
+.my-2 {
+	margin-bottom: 2.5rem !important;
 }
-
-
-
-
 /* ======Responsive for website start code======= */
 
 /* responsive for dashboard code start */
@@ -879,7 +866,7 @@ span#msg1 {
 }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
 	.home-section {
 		width: 100% !important;
 		left: 0 !important;
@@ -887,7 +874,7 @@ span#msg1 {
 	}
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
 	.sidebar {
 		width: 0 !important;
 		z-index: 1 !important;
@@ -907,7 +894,7 @@ span#msg1 {
 		margin-left: 48px !important ;
     width: 182px !important;
 	border: none !important;
-	
+
 
 	}
 }
@@ -980,7 +967,7 @@ span#msg1 {
 	text-align: center !important;
   }
   /* #hamitems a:hover { background: #af0d0d; } */
-  
+
   /* (C) HIDE HAMBURGER */
   #hamnav label, #hamburger { display: none !important; }
 
@@ -994,17 +981,17 @@ span#msg1 {
 	  width: 100% !important;
 	  border-top: 1px solid #333 !important;
 	}
-   
+
 	/* (B) SHOW HAMBURGER ICON */
-	#hamnav label { 
-	  display: inline-block !important; 
+	#hamnav label {
+	  display: inline-block !important;
 	  color: rgb(6, 0, 0) ;
 	  /* background: #a02620; */
 	  font-style: normal !important;
 	  font-size: 2.4rem !important;
 	  padding-right: 25px !important;
 	}
-  
+
 	/* (C) TOGGLE SHOW/HIDE MENU */
 	#hamitems { display: none !important; }
 	#hamnav input:checked ~ #hamitems { display: block !important; }
@@ -1013,6 +1000,82 @@ span#msg1 {
   button:focus {
     /* outline: 1px dotted; */
     outline: none !important;
+=======
+@media (max-width: 400px) {
+	.dropdown-menu.show {
+		float: none;
+		margin-left: 77px;
+		width: 182px;
+	}
+}
+
+/* @media(max-width:400px){
+	.active{
+		margin-top: 12px;
+	}
+} */
+
+@media (max-width: 400px) {
+	#active1 {
+		padding-left: 164px;
+		margin-top: -49px;
+	}
+}
+
+/* @media(max-width:400px){
+	.active2{
+		margin-left: 185px;
+		margin-top: -51px;
+	}
+} */
+
+@media (max-width: 400px) {
+	.home-content .recent-sales.box {
+		margin-top: 265px;
+		height: 123px;
+	}
+}
+
+@media (max-width: 400px) {
+	.active3 {
+		margin-top: 86px;
+	}
+}
+
+@media (max-width: 400px) {
+	.title {
+		margin-left: -47px;
+	}
+}
+
+@media (max-width: 400px) {
+	.bx-user {
+		margin-top: -239px;
+		margin-left: 166px;
+	}
+}
+
+@media (max-width: 400px) {
+	#links {
+		margin-top: -231px;
+	}
+}
+
+@media (max-width: 400px) {
+	#Numb {
+		margin-top: -146px;
+	}
+}
+
+.number {
+	margin-left: -87px;
+	margin-top: 88px;
+	background: white;
+	border-radius: 21px;
+	box-sizing: border-box;
+	padding: 9px 14px 9px 11px;
+	color: black;
+>>>>>>> ccec017ffb41e67e17897b0fc9ebe31ae03a81c7
 }
 
 
@@ -1028,9 +1091,9 @@ span#msg1 {
 
 @media(max-width:500px){
 span.font-weight-bold.display-6 {
-  
+
     padding: 96px 0px 0px 259px !important;
-  
+
     margin-right: -158px !important;
 }
 }
@@ -1050,7 +1113,7 @@ span.font-weight-bold.display-6 {
 
 @media(max-width:400px){
 	.ul#select2-workorderids-results {
-	
+
 		margin: -3px -4px 8px 3px !important;
 	}
 }
@@ -1083,7 +1146,7 @@ span.font-weight-bold.display-6 {
 		margin-left: 15px !important;
 		width: 100% !important;
 		margin-top: -22px !important;
-	
+
 	}
 }
 
@@ -1141,7 +1204,7 @@ span.font-weight-bold.display-6 {
 
 /* ======responsive for website code end======= */
 
-	
+
 /* ========= AMRUTA CSS CODE END======================== */
 
 
@@ -1151,7 +1214,7 @@ span.font-weight-bold.display-6 {
 /* =========================================   KAMAL CODE START   ================================= */
 
 /*  === Input field having file type ==== */
-input[type=file]::file-selector-button{
+input[type="file"]::file-selector-button {
 	background-color: #17a2b8;
 	border: none;
 	border-radius: 3px;
@@ -1160,12 +1223,12 @@ input[type=file]::file-selector-button{
 	height: 40px;
 	width: 140px;
 }
-input[type=file]::file-selector-button:hover{
+input[type="file"]::file-selector-button:hover {
 	background-color: #0294aa;
 }
 
 /* === Workorder input field - legal name === */
-.select2-selection{
+.select2-selection {
 	/* background-color: red !important; */
 	padding: 5px !important;
 	height: calc(1.5em + 0.75rem + 2px) !important;
@@ -1174,16 +1237,15 @@ input[type=file]::file-selector-button:hover{
 }
 
 /* === Partner in charge === */
-#Partner_in_charge{
-	
+#Partner_in_charge {
 	width: 32.7rem !important;
 }
-[aria-describedby="partner_in_charge"]{
-/* background-color: red !important; */
-width: 32.7rem !important;
+[aria-describedby="partner_in_charge"] {
+	/* background-color: red !important; */
+	width: 32.7rem !important;
 }
 
-.select2-selection__arrow{
+.select2-selection__arrow {
 	background-color: skyblue;
 	height: 36px !important;
 	width: 40px !important;
@@ -1194,122 +1256,121 @@ width: 32.7rem !important;
 	border-bottom-right-radius: 2px;
 	font-size: 20px !important;
 }
-.select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: blue transparent transparent transparent !important;   
+.select2-container--default
+	.select2-selection--single
+	.select2-selection__arrow
+	b {
+	border-color: blue transparent transparent transparent !important;
 }
-.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
-    border-color: transparent transparent blue transparent !important;
+.select2-container--default.select2-container--open
+	.select2-selection--single
+	.select2-selection__arrow
+	b {
+	border-color: transparent transparent blue transparent !important;
 }
-
 
 /* === Search Field Inside dropdown list === */
-.select2-search__field:focus{
-outline: none !important;
+.select2-search__field:focus {
+	outline: none !important;
 }
 
 /* ==== Calender === */
-.ui-datepicker-header{
+.ui-datepicker-header {
 	background: #8bcb48 !important;
 	border: none !important;
 }
 
 /* === Submit Button === */
-#clientFormSubmit{
+#clientFormSubmit {
 	border: none;
-    background-color: #049fb7 !important;
+	background-color: #049fb7 !important;
 	margin-left: 424px;
-    margin-top: 4px;
+	margin-top: 4px;
 }
-#clientFormSubmit:hover{
-	 background-color: #015967 !important;
+#clientFormSubmit:hover {
+	background-color: #015967 !important;
 }
 /* === Password input field in user form === */
-#password4{
-	
+#password4 {
 	border-radius: 0.25rem;
 	border: 1px solid #ced4da;
 	padding-left: 10px;
 	height: calc(1.5em + 0.75rem + 2px) !important;
-} 
-#password4:focus{
+}
+#password4:focus {
 	outline: none;
 	box-shadow: 0px 0px 1px 3px #ced4da;
 	border:1px solid #ced4da !important;
-} 
+}
 /* === client submit form === */
-#clientsubmit{
+#clientsubmit {
 	width: 700px !important;
 	margin-left: 3%;
 }
-
 /* === Previous and Next Button in view client === */
-.pagination>li>a{
+.pagination > li > a {
 	color: red !important;
 }
 
-#section_userform1>#span{
+#section_userform1 > #span {
 	margin-left: 248px !important;
 }
 
 /* === In Workorder Form - legal name input dropdown ==== */
-.select2-dropdown{
+.select2-dropdown {
 	width: 523.5px !important;
 }
 
 /* === Danger button(Delete) in assign to label === */
-.btn-danger{
-margin-left: -6px;
+.btn-danger {
+	margin-left: -6px;
 }
 
 /* === Workorder form - workorder number field === */
-#workorder_no{
+#workorder_no {
 	width: 523px !important;
 }
 /* === Workoder form - start and end date clock === */
-.fa-clock-o{
+.fa-clock-o {
 	color: rgba(0, 0, 255, 0.676) !important;
 }
-.input-group-text{
-  background-color: skyblue !important;
+.input-group-text {
+	background-color: skyblue !important;
 }
 /* === User Form === */
-#usertypeid{
-width: 32.7rem !important;
+#usertypeid {
+	width: 32.7rem !important;
 }
-#type_of_work{
+#type_of_work {
 	width: 32.7rem !important;
 }
 
 /* === Its was effecting with user profile forms so commented === */
-#password4{
+#password4 {
 	width: 32.7rem !important;
-} 
+}
 /* === View form Input field === */
 .font-weight-bold {
-   
-    margin-left: -340px;
-    margin-right: 10px;
+	margin-left: -340px;
+	margin-right: 10px;
 }
 
 /*=== View Workorder Header Text ===  */
-#section_viewworkorder>h2{
-	
+#section_viewworkorder > h2 {
 	margin-left: 46px;
 }
 
 /* === View Workorder Drop Down === */
 [aria-labelledby="select2-workorderids-container"]{
+	position: relative !important;
 	width: 523px !important;
-		/* background-color:  green !important; */
-		position: relative !important;
+
 }
 
 /* === View Workorder Drop Down Arrow === */
 [aria-labelledby="select2-workorderids-container"] >.select2-selection__arrow{
-	
 	right: 0px !important;
 	top: 0px !important;
-	
 }
 
 [aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
@@ -1322,13 +1383,12 @@ width: 32.7rem !important;
 }
 .container {
 	margin-top: 86px;
-    margin-left: 110px;
+	margin-left: 110px;
 	border-radius: 5px;
 }
 
-
 /* ==== Client Form - CSV File Upload Section ==== */
-.or{
+.or {
 	/* color: #fff; */
 	background-color: transparent;
 	position: absolute;
@@ -1337,24 +1397,19 @@ width: 32.7rem !important;
 	z-index: 1;
 }
 
-
-
-
 /* ==== Client Form new code ==== */
-.uploadBtn{
+.uploadBtn {
 	position: absolute;
-	 top: 433px !important;
+	top: 435px !important;
     left: -298px !important;
-	height: 33px !important;
-	padding: 3px;
+	height: 35px !important;
+	padding: 6px;
+	width: 85px;
 }
-/* ==== Client Form Subit Button ==== */
-input#clientFormSubmit{
-	
-}
+
 
 /* === Upload CSV file label === */
-.uploadClientCSV{
+.uploadClientCSV {
 	background-color: #17a2b8;
 	border-radius: 7px;
 	cursor: pointer;
@@ -1366,7 +1421,7 @@ input#clientFormSubmit{
 }
 
 /* === File input-It is hidden-getting control via label === */
-#chooseFile{
+#chooseFile {
 	position: absolute;
 	top: 185px;
 	left: 100px;
@@ -1376,111 +1431,548 @@ input#clientFormSubmit{
 }
 
 /* === Submit button of file === */
-#clientCSVSubmit{
+#clientCSVSubmit {
 	display: none;
 }
 /* === Client Form submit button === */
-#section_clientform{
+#section_clientform {
 	height: 600px !important;
 }
+
 /* === Selected CSV File Name (In client Form) ==== */
-#selectedFileName{
+#selectedFileName {
 	display: none;
 	position: absolute;
 	top: 142px;
 	left: 100px;
 }
-#fileName{
+#fileName {
 	display: none;
 	font-size: 16px !important;
 	position: absolute;
 	top: -56px;
-	left: 124px;
+	left: -79px;
 	width: 300px;
 }
 /* === CSV File upload success message ==== */
-.text-success{
+.text-success {
 	margin-top: -342px !important;
-    margin-left: 790px !important;
-    width: 300px !important;
+	margin-left: 790px !important;
+	width: 300px !important;
 }
 /* === Add more plus icon disapble in large screen === */
-.bxs-plus-square{
+.bxs-plus-square {
 	display: none !important;
 }
+#dis_Select_File{
+	display: none;
+	cursor: pointer;
+	font-size: 31px;
+	position: absolute;
+	top: 107px;
+	left: 275px;
+}
+#dis_Select_File:hover{
+	color: red;
+}
+
+.user_details_lg{
+	display: block !important;
+}
+/* === VIEW USER TABLE SMALL SCREEN VERSION DISABLE IN BIG SCREEN === */
+#view_User_Table{
+	display: none !important;
+}
+.section_viewuser__header{
+	display: none;
+}
+/* === View User Mobile Version === */
+.user_details_sm{
+  display: none;
+}
+/* === View Client Form Mobile Version === */
+
+.view_Client_Container{
+	display: none;
+}
+/* === View Client Header === */
+#section_clientlist__header{
+	display: none;
+}
+
+/* --- workorder Form Assign to section --- */
+#assignedName{
+	position: relative;
+    left: 308px;
+    list-style-type: none;
+}
+#assignedName>li{
+	padding-top: 7px;
+}
+/* --- Assign Delete Button disable --- */
+.assignDeleteBtn{
+	display: none;
+}
+/* --- Close Icon --- */
+span.assign_Close {
+	cursor: pointer;
+    position: absolute;
+    font-size: 22px;
+    left: 361px;
+    font-size: 22px;
+}
+.Assign_Close:hover{
+	color: red;
+}
+/* --- Assign to input field --- */
+#select{
+	cursor: pointer;
+	width: 405px;
+}
+/* --- Add More Button --- */
+#btnAdd{
+	position: relative;
+	left: 106px;
+}
 /* === Mobile Responsive === */
-@media screen and (max-width: 600px){
-	.container{
+@media screen and (max-width: 600px) {
+	.container {
 		border: none !important;
 		box-shadow: none !important;
 		height: 1050px !important;
-		margin-right: 140px !important;
 		width: 355px !important;
-		margin-left: 11px !important;
+		margin: 59px 140px 0 9px !important;
 		height: 1075px !important;
-
 	}
-	#workorder_form{
+	#workorder_form {
 		margin-left: -12px !important;
 	}
-	
+
 	/* === Workorder label - in create workorder number ==== */
-	#section_userform>.span{
+	#section_userform > .span {
 		margin: 10px 0px 0px 14px !important;
 		font-size: 18px;
 		padding-top: 15px !important;
 	}
 	/* === Workorder Submit button === */
-	.btn-info{
+	.btn-info {
 		margin: 4px 0 0 120px !important;
 	}
 	/* === Type of work === */
-	#type_of_work{
+	#type_of_work {
 		width: 20rem !important;
 	}
 	/* === Workorder number input field === */
-	#workorder_no{
-		width: 20rem!important;
+	#workorder_no {
+		width: 20rem !important;
 	}
 	/* === Created on Input field === */
-	.form-control{
+	.form-control {
 		width: 20rem !important;
 	}
 	/* === Legal and Trade Name === */
-	.select2-selection--single{
+	.select2-selection--single {
 		width: 20rem !important;
 	}
-	[aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
+	[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
 		right: -7.1rem !important;
 	}
-	span.select2-dropdown.select2-dropdown--above{
+	span.select2-dropdown.select2-dropdown--above {
 		width: 319px !important;
 	}
 	/* === Partner In Charge ===  */
-	#partner_in_charge{
+	#partner_in_charge {
 		width: 20rem !important;
 	}
 
 	/* === Asign to input field === */
-	select#select{
+	select#select {
 		width: 270px !important;
 	}
 	/* === Delete Buttom ==== */
-	.btn-danger{
+	.btn-danger {
 		display: none !important;
 	}
 	/* === Add More text button disable in mobile view === */
-	#btnAdd{
+	#btnAdd {
 		display: none;
 	}
+
 	/* === Add more plus icon display in small screen === */
-.bxs-plus-square{
-	display: block !important;
-	font-size: 49px;
+	.bxs-plus-square
+	  {
+	      display: block !important;
+	      font-size: 49px;
+	      position: absolute !important;
+	      top: -59px;
+	      right: -11px;
+      }
+    div#section_userform
+	  {
+         margin-left: -12px;
+	     padding-top: 12px;
+      }
+/* === Legal and Trade Name drop down === */
+    .select2-dropdown--below
+	 {
+	    width: 319px !important;
+     }
+/* ==== WORKSHEET FORM ==== */
+    #worksheet_Form
+	{
+	  height: 959px !important;
+    }
+    #section_userform1>#span
+	{
+	  padding-top: 18px;
+	  margin: 81px 0 20px 33px !important;
+    }
+    #section_userform1
+	{
+	  margin-left: -13px !important;
+    }
+/* --- Start and End Time -- */
+   .input-group-text
+   {
+     position: relative;
+     top: -38px;
+     right: -279px;
+     height: 38px;
+     z-index: 9999;
+   }
+   #datetimepicker
+   {
+	 width: 318px !important;
+	 margin-bottom: -32px;
+   }
+   #datetimepickerend
+   {
+	 width: 315px !important;
+   }
+
+/* ==== CLIENT FORM ==== */
+   #clientsubmit
+   {
+	 margin-left: 4px !important;
+	 width: 100% !important;
+   }
+  .uploadClientCSV
+  {
+	 top : 25px;
+	 left: 52px;
+  }
+  .hr
+   {
+	 display: none !important;
+   }
+  .hr1
+   {
+	 display: none !important;
+   }
+  .or
+   {
+	 top: -7px;
+	 right: 174px;
+   }
+   #section_clientform
+    {
+	 height: 975px !important;
+	 margin-top: 80px !important;
+    }
+   #section_clientform span
+    {
+    padding-top: 21px !important;
+    }
+   #clientFormSubmit
+   {
+	margin-left: 111px !important;
+   }
+
+/* === Client CSV file Submit === */
+  .uploadBtn
+   {
+     left: -15px !important;
+     top: 129px !important;
+   }
+/* === Client CSV selected file === */
+#section_clientform span{
+	margin: -20px 0px 30px -3px;
+}
+/* === Dis Select Client CSV selected file === */
+#dis_Select_File{
+	top: 79px;
+	left: 228px;
+}
+/* ==== USER FORM ==== */
+#user_Form,#user_Form>#section_userform{
+	height: 1370px !important;
+
+}
+#usersubmit {
+    margin-top: 36px !important;
+}
+/* --- Header --- */
+#user_Form span{
+	margin: 6px 0px -7px 19px !important;
+}
+/* --- Password Eye Icon --- */
+.fa-eye{
 	position: absolute !important;
-	top: -59px;
-	right: 3px;
+	right: 13px !important;
+	top: 8px !important;
+}
+/* --- Password Input Field --- */
+#password4{
+	width: 19.70rem !important;
+}
+/* -- Type of User Input Field --- */
+#usertypeid{
+	width: 19.71rem !important;
+}
+/* === VIEW USER FORM === */
+#view_User_Table{
+	display: block !important;
+}
+#section_viewuser{
+	margin-top: 82px;
+}
+.section_viewuser__header
+{
+	display: block;
+	background-color: #0047FF;
+	color: #fff;
+	height: 45px;
+	text-align: center;
+	padding: 12px 0px;
+	width: 100%;
+}
+/* --- Table Header Background-color --- */
+#view_User_Table>thead th{
+	font-size: 12px !important;
+	background-color: #0047FF !important ;
+	text-align: center;
+	width: 600px;
+}
+#view_User_Table>tbody td{
+	font-size: 12px !important;
+}
+#view_User_Table>tbody td>.viewdetail{
+	background-color: transparent !important;
+	color: #0047FF !important;
+}
+/* === View User === */
+.user_details_lg{
+	display: none !important;
+}
+#view_User_Table_lg{
+	display: none !important;
+}
+/* --- Small Screen --- */
+.user_details_sm{
+  display: block !important;
+}
+.user_details_sm{
+	display: bock !important;
+	background-color: #eaeae8e0 !important;
+	min-height: 500px;
+	margin-left: -15px;
+	width: 109%;
+}
+#view_user{
+	height: 573px !important;
+}
+/* --- Profile Picture --- */
+.user_details_sm__profile_Picture{
+	background-color: green;
+	border-radius: 50%;
+	height: 100px;
+	position: relative;
+	left: 123px;
+	top: 23px;
+	width: 100px;
+}
+/* --- User Name --- */
+.user_details_sm__user_Name{
+	min-height: 30px;
+	width: 101px;
+	text-align: center;
+	margin: 35px 0 0 126px;
+	word-wrap: break-word;
+}
+/* --- View User Table --- */
+.user_details_sm__table{
+	display: block !important;
+}
+.user_details_sm__table>tbody>tr{
+	text-align: left;
+}
+.user_details_sm__table>tbody>tr>td{
+    padding-left: 18px;
+    overflow-wrap: break-word;
+    padding-top: 16px;
+=======
+	.bxs-plus-square {
+		display: block !important;
+		font-size: 49px;
+		position: absolute !important;
+		top: -59px;
+		right: 3px;
+	}
+>>>>>>> ccec017ffb41e67e17897b0fc9ebe31ae03a81c7
+}
+.user_details_sm__profile_Picture{
+	margin-top: 50px;
+}
+  .user_details_sm__profile_Picture>img
+  {
+    height: 89px;
+    width: 96px;
+    margin-top: 7px;
+    margin-left: 3px;
+    border-radius: 50%;
+  }
+  .user_data{
+    padding: 21px 26px 0px 5px !important;
+	overflow-wrap: break-word;
+	width: 50px;
+  }
+  .user_dots{
+  padding-left: 5px !important;
+  /* color: green; */
+  }
+  /* === VIEW CLIENT === */
+  #clienttable{
+	display: none !important;
+	overflow-x: auto;
+  }
+
+  /* --- View Client Section ---  */
+  #section_clientlist{
+	margin-top: 82px;
+  }
+
+  /* --- View Client Header --- */
+  div#section_clientlist__header
+  {
+    display: flex;
+    background: #000AFF;
+	color: #fff;
+    height: 41px;
+    align-items: center;
+    justify-content: center;
+	margin-bottom: 12px;
+  }
+  /* --- Show Entries --- */
+
+div.dataTables_length select{
+    width: 57px !important;
+    display: inline-block;
+    padding-left: 17px !important;
+    position: relative !important;
+}
+div#clienttable_length {
+    font-size: 12px !important;
+    position: relative !important;
+    top: 4px !important;
+    left: -62px !important;
+}
+#clienttable_filter{
+	position: relative !important;
+    top: -42px !important;
+    right: -171px !important;
+    font-size: 12px !important;
+	width: 100px !important;
+}
+input.form-control.input-sm {
+    width: 117px !important;
+}
+  /* --- Pagination -- */
+div#clienttable_info {
+	font-size: 12px;
+    position: relative !important;
+    top: 564px;
+    left: 9px;
+    width: 100px;
+}
+div#clienttable_paginate {
+	/* display: none; */
+	position: relative !important;
+    margin-left: -488px;
+}
+.pagination{
+	color: #000 !important;
+	font-size: 12px;
+    position: relative;
+    right: -23px;
+    top: 546px;
+	padding-left: 702px !important;
+}
+
+/* --- View Client Table --- */
+.view_Client_Container{
+	display: block;
+	/* background-color: yellow; */
+	min-height:480px;
+	overflow: hidden;
+	margin-top: -81px;
+	width: 100%;
+}
+/* --- Table --- */
+.view_Client_Container_table{
+	/* overflow-x: auto; */
+	overflow-x: auto;
+    display: block;
+}
+/* --- Table Column Header ---- */
+.view_Client_Container_table>thead>tr>th{
+	background-color: #000AFF !important;
+	 font-size: 13px !important;
+	 padding: 4px;
+}
+/* --- Table Data(td) --- */
+.view_Client_Container_table>tbody>tr>td{
+	font-size: 12px !important;
+    padding: 13px !important;
+}
+/* === Previous and Next Button in view client === */
+.pagination>li>a{
+  padding-right: 10px;
+}
+
+/* === CSV File upload Status === */
+.text-success {
+    margin-top: 12px !important;
+    margin-left: 16px !important;
+    width: 300px !important;
+}
+/* ==== User Form Password Eye Slash === */
+.fa-eye-slash{
+	margin-left: -50px;
+    position: relative;
+    right: -312px !important;
+    top: -46px !important;
+    cursor: pointer;
+    color: black;
+    vertical-align: text-bottom;
+    line-height: 3.7 !important;
+}
+.passTypeToggle{
+	height: 0 !important;
+}
+/* --- Assign Section --- */
+#assignedName {
+    position: relative;
+    left: 30px;
+    list-style-type: none;
+}
+span.assign_Close{
+    cursor: pointer;
+    position: absolute;
+    font-size: 22px;
+    left: 274px;
+    font-size: 22px;
 }
 }
+
 
 /* =========================================   KAMAL CODE END   ================================= */

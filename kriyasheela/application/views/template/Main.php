@@ -1,5 +1,4 @@
-
- <?php  
+<?php  
  defined('BASEPATH') OR exit('No direct script access allowed');  
 
  
@@ -20,7 +19,8 @@
            {  
                 //true  
                 $student_reg_no = $this->input->post('student_reg_no');  
-                $password = $this->input->post('password');  
+                $password = $this->input->post('password');
+                print_r($password);
                 //model function  
                 $this->load->model('Main_model');  
                 if($this->Main_model->can_login($student_reg_no, $password))  

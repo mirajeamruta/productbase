@@ -77,7 +77,7 @@
         <hr class='hr' />
         <hr class='hr1' />       
         
-        <div class='col-md-4  offset-md-1' style="margin-left: 8.2%;">
+        <div class='col-md-4  offset-md-1' id="sDev"style="margin-left: 8.2%;">
 
         <p class="or">OR</p>
         <!--=== In Client Form - Upload excel sheet button  === -->
@@ -115,7 +115,10 @@
                 <input type="submit" name="submit" value="Submit" class="btn btn-info uploadBtn" id="clientCSVSubmit" />
                 <label class="uploadClientCSV" for="chooseFile" > Upload Client CSV File </label>
                 <!-- Selected File Name  -->
-               <p id='selectedFileName'><span id="fileName"></span></p>
+               <p id='selectedFileName'><span id="fileName"></span>
+              <p id="dis_Select_File">&times</p>
+               </p>
+               
                 <!-- <button id="closeUploadClient">Cancel</button> -->
                  <!-- </div> -->
             </form>
@@ -149,13 +152,26 @@ $('#chooseFile').bind('change', function() {
     const selectedFileName=document.getElementById('selectedFileName');
     const uploadCSVFileLabel=document.querySelector('.uploadClientCSV');
     const successMessage=document.querySelector('.text-success');
+
+    // === Dis select File === //
+    const disSelect=document.getElementById('dis_Select_File');
+
+    disSelect.addEventListener('click', function(){
+             fileUpload.value='';
+             selectedFileName.style.display="none"
+             clientCSVSubmit.style.display="none";
+              disSelect.style.display="none";
+             clientFormSubmit.style.display="block";
+    })
+
+   
     fileUpload.addEventListener('change',function(e){
       if(e.target.files[0]){
-   
+     
         // file path
         var path=fileUpload.value;
        // allow file type
-       let allowType=/(\.xls)/i;
+       let allowType=/(\.xls|\.csv)/i;
 
        if(!allowType.exec(path)){
         alert('Please Upload only CSV files');
@@ -164,7 +180,8 @@ $('#chooseFile').bind('change', function() {
         fileUpload='';
         return false;
        }else{
-         fileName.innerHTML="File Selected: "+fileUpload.files[0].name;         
+         fileName.innerHTML=fileUpload.files[0].name; 
+         disSelect.style.display="block";        
          clientCSVSubmit.style.display="block";
          selectedFileName.style.display="block";
          fileName.style.display="block";
@@ -173,8 +190,6 @@ $('#chooseFile').bind('change', function() {
      //  === File Upload Success Message disable after file upload === //
         successMessage.style.display="none";
        }
-         
-
       }
     })
 

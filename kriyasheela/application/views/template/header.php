@@ -11,7 +11,7 @@
     <!-- For Server  -->
     <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
 
-    <!-- For Local   --> 
+    <!-- For Local   -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Boxicons CDN Link -->
@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
     <!-- for password icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -54,7 +55,7 @@
     <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
      <!-- For Local -->
     <link rel="stylesheet" href="/kriyasheela-p2/kriyasheela/stylesheets/style.css">
-   
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
