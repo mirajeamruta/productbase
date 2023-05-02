@@ -1000,7 +1000,7 @@ span#msg1 {
   button:focus {
     /* outline: 1px dotted; */
     outline: none !important;
-=======
+  }
 @media (max-width: 400px) {
 	.dropdown-menu.show {
 		float: none;
@@ -1075,7 +1075,7 @@ span#msg1 {
 	box-sizing: border-box;
 	padding: 9px 14px 9px 11px;
 	color: black;
->>>>>>> ccec017ffb41e67e17897b0fc9ebe31ae03a81c7
+
 }
 
 
@@ -1157,7 +1157,16 @@ span.font-weight-bold.display-6 {
 		top: 194px;
 		left: 12px;
 	}
+	/* i#togglePassword {
+		right: 43px !important;
+	}
+	.fa-eye{
+		right: 0 !important;
+		top: 0 !important;
+	} */
 }
+
+
 
 @media(max-width:400px){
 	.col-sm-8 {
@@ -1169,7 +1178,7 @@ span.font-weight-bold.display-6 {
 @media(max-width:400px){
 	.container.userform {
 		margin-top: 6rem !important;
-		position: fixed !important;
+		/* position: fixed !important; */
 	}
 }
 
@@ -1285,7 +1294,7 @@ input[type="file"]::file-selector-button:hover {
 	border: none;
 	background-color: #049fb7 !important;
 	margin-left: 424px;
-	margin-top: 4px;
+	margin-top: 13px;
 }
 #clientFormSubmit:hover {
 	background-color: #015967 !important;
@@ -1493,11 +1502,11 @@ input[type="file"]::file-selector-button:hover {
 /* === View Client Form Mobile Version === */
 
 .view_Client_Container{
-	display: none;
+	display: block !important;
 }
 /* === View Client Header === */
 #section_clientlist__header{
-	display: none;
+	display: block !important;
 }
 
 /* --- workorder Form Assign to section --- */
@@ -1534,6 +1543,7 @@ span.assign_Close {
 	position: relative;
 	left: 106px;
 }
+
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px) {
 	.container {
@@ -1696,7 +1706,7 @@ span.assign_Close {
    }
 /* === Client CSV selected file === */
 #section_clientform span{
-	margin: -20px 0px 30px -3px;
+	margin: 5px 0px 12px -3px;
 }
 /* === Dis Select Client CSV selected file === */
 #dis_Select_File{
@@ -1810,16 +1820,16 @@ span.assign_Close {
     padding-left: 18px;
     overflow-wrap: break-word;
     padding-top: 16px;
-=======
+}
 	.bxs-plus-square {
 		display: block !important;
 		font-size: 49px;
 		position: absolute !important;
 		top: -59px;
-		right: 3px;
+		right: -10px;
 	}
->>>>>>> ccec017ffb41e67e17897b0fc9ebe31ae03a81c7
-}
+
+
 .user_details_sm__profile_Picture{
 	margin-top: 50px;
 }
@@ -1841,103 +1851,26 @@ span.assign_Close {
   /* color: green; */
   }
   /* === VIEW CLIENT === */
-  #clienttable{
-	display: none !important;
-	overflow-x: auto;
-  }
+  
 
   /* --- View Client Section ---  */
-  #section_clientlist{
-	margin-top: 82px;
-  }
+
 
   /* --- View Client Header --- */
-  div#section_clientlist__header
-  {
-    display: flex;
-    background: #000AFF;
-	color: #fff;
-    height: 41px;
-    align-items: center;
-    justify-content: center;
-	margin-bottom: 12px;
-  }
+
   /* --- Show Entries --- */
 
-div.dataTables_length select{
-    width: 57px !important;
-    display: inline-block;
-    padding-left: 17px !important;
-    position: relative !important;
-}
-div#clienttable_length {
-    font-size: 12px !important;
-    position: relative !important;
-    top: 4px !important;
-    left: -62px !important;
-}
-#clienttable_filter{
-	position: relative !important;
-    top: -42px !important;
-    right: -171px !important;
-    font-size: 12px !important;
-	width: 100px !important;
-}
-input.form-control.input-sm {
-    width: 117px !important;
-}
-  /* --- Pagination -- */
-div#clienttable_info {
-	font-size: 12px;
-    position: relative !important;
-    top: 564px;
-    left: 9px;
-    width: 100px;
-}
-div#clienttable_paginate {
-	/* display: none; */
-	position: relative !important;
-    margin-left: -488px;
-}
-.pagination{
-	color: #000 !important;
-	font-size: 12px;
-    position: relative;
-    right: -23px;
-    top: 546px;
-	padding-left: 702px !important;
-}
 
 /* --- View Client Table --- */
-.view_Client_Container{
-	display: block;
-	/* background-color: yellow; */
-	min-height:480px;
-	overflow: hidden;
-	margin-top: -81px;
-	width: 100%;
-}
+
 /* --- Table --- */
-.view_Client_Container_table{
-	/* overflow-x: auto; */
-	overflow-x: auto;
-    display: block;
-}
+
 /* --- Table Column Header ---- */
-.view_Client_Container_table>thead>tr>th{
-	background-color: #000AFF !important;
-	 font-size: 13px !important;
-	 padding: 4px;
-}
+
 /* --- Table Data(td) --- */
-.view_Client_Container_table>tbody>tr>td{
-	font-size: 12px !important;
-    padding: 13px !important;
-}
+
 /* === Previous and Next Button in view client === */
-.pagination>li>a{
-  padding-right: 10px;
-}
+
 
 /* === CSV File upload Status === */
 .text-success {
@@ -1972,7 +1905,64 @@ span.assign_Close{
     left: 274px;
     font-size: 22px;
 }
+/* === Workorder Form === */
+#workorder_no ,#type_of_work,#partner_in_charge,input#date_picker,input#date_picker1,input#date_picker2,input#date_picker3,textarea#remarks{
+
+	margin-left: 235px !important;
 }
 
+input#date_picker,#partner_in_charge,input#date_picker1,input#date_picker2,input#date_picker3 {
+ 
+  margin-top: 5px !important;
+}
+
+/* ====Worksheet Form===== */
+
+input#clientname,textarea#w3review,input#WorkGivenBy  {
+    margin-left: 234px !important;
+    margin-top: 1px !important;
+
+}
+
+
+input#WorkGivenBy {
+    
+        margin-top: 2px !important;
+}
+
+div#datetimepickerend,#datetimepicker {
+    margin-left: 208px !important;
+    top: 20px;
+	width: 309px !important;
+}
+
+input#formsubmit {
+    margin-left: 369px !important;
+}
+.input-group-append {
+    margin-left: 28px;
+}
+div#endtime {
+    margin-top: 35px !important;
+}
+
+/* =====Client Form==== */
+
+.col-sm-8.clientInput {
+    margin-left: -29px !important;
+    top: 35px;
+}
+input#clientname_legal{
+	margin-left: 26px !important;
+}
+label.clientLabel {
+    margin-top: 31px !important;
+    margin-bottom: 3px !important;
+}
+/* === Client form submit button === */
+#clientFormSubmit{
+	margin-top: 60px !important;
+}
+}
 
 /* =========================================   KAMAL CODE END   ================================= */

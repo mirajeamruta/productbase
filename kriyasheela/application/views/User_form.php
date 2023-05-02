@@ -145,7 +145,7 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8" data-placeholder="Password">
-                    <input type="password" id="password4" placeholder="Password"
+                    <input type="password" id="password4" name="password" placeholder="Password"
                         onkeyup='checkPasswordLength(this.value)'>
                     <span class='passTypeToggle' title="Show">
                         <i class="fa-solid fa-eye"
@@ -299,6 +299,84 @@ passTypeToggle.addEventListener('click', e => {
 </script>
 
 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
+<script type="text/javascript">
+function submituser() {
+    var submitdetails = document.getElementById('usersubmit');
+    //alert('vvvviiii');
+    submitdetails.addEventListener('submit', (event) => {
+        //alert('form submitted');
+
+        const empID = document.getElementById("usertypeid").value;
+
+        // alert(empID);
+
+        if (empID == 2) {
+            var username = document.getElementById("username").value;
+
+            if (username == '') {
+
+                document.getElementById('username').style.border = '3px solid red';
+                event.preventDefault();
+            }
+
+            var employementcommencement = document.getElementById("date_picker1").value;
+
+            if (employementcommencement == '') {
+
+                document.getElementById('date_picker1').style.border = '3px solid red';
+
+                // document.getElementById('emplyomenterror').textContent =
+                //     'Please Select Date Of Commencement Of Employment';
+                event.preventDefault();
+            }
+
+        }
+
+
+        if (empID == 3) {
+
+            // alert(true);
+            var articlecommencement = document.getElementById("date_picker4").value;
+
+
+            if (articlecommencement == '') {
+
+
+                document.getElementById('date_picker4').style.border = '3px solid red';
+                event.preventDefault();
+            }
+
+        }
+
+        if (document.getElementById("message").style.color == "red") {
+
+            //alert("yes cant");
+            event.preventDefault();
+
+        }
+
+        if (document.getElementById("password").value == '') {
+
+            //alert("yes cant");
+            event.preventDefault();
+
+        }
+
+
+
+    })
+}
+</script>
+
+
+
+
+
 <script type="text/javascript">
 function readfile(input) {
     if (input.files && input.files[0]) {
@@ -431,3 +509,6 @@ $(document).ready(function() {
     })
 })
 </script>
+
+
+

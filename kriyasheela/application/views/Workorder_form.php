@@ -257,6 +257,7 @@
         $(document).ready(function() {
             $('.btnClick').click(function(e) {
                 e.preventDefault();
+       /* --- New Assign to code 
 
              //Creating new li Element
              let li=document.createElement('li');
@@ -295,7 +296,9 @@
 
             })
          })
-                /*  Orginal Code-Previous Feature(dont delete this)
+
+         ---- End code */
+               
                 var num = $('.clonedInput').length,
                     newNum = new Number(num + 1),
                     newElem = $('#testingDiv' + num)
@@ -338,7 +341,7 @@
             })
             $('#btnDel').attr('disabled', true)
         })
-        */
+        
         </script>
 
 

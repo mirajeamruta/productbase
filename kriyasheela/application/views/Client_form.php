@@ -14,50 +14,50 @@
                                                                                     'Client/createClient'
                                                                                 ) ?>" enctype='multipart/form-data'>
                 <div class="row mb-3">
-                    <label for="inputEmail3" class="col-sm-4">Legal Name / Trade Name</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="clientname" class="form-control" id="clientname" placeholder="Legal Name / Trade Name">
+                    <label for="inputEmail3" class="col-sm-4 clientLabel">Legal Name / Trade Name</label>
+                    <div class="col-sm-8 clientInput">
+                        <input type="text" name="clientname" class="form-control clientLegalName" id="clientname_legal" placeholder="Legal Name / Trade Name">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 text-uppercase">Pan :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Pan :</label>
+                    <div class="col-sm-8 clientInput" >
                         <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 text-uppercase">GST :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">GST :</label>
+                    <div class="col-sm-8 clientInput" >
                         <input type="text" name="gst" id="gst" class="form-control" id="gst" placeholder="GST">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 text-uppercase">Tan :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Tan :</label>
+                    <div class="col-sm-8 clientInput">
                         <input type="text" name="tan" id="tan" class="form-control" id="gst" placeholder="TAN">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4">Aadhaar Number :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 clientLabel">Aadhaar Number :</label>
+                    <div class="col-sm-8 clientInput" >
                         <input type="text" name="aadhar" id="aadhar" class="form-control" id="gst" placeholder="Aadhaar Number">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4">Address :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 clientLabel">Address :</label>
+                    <div class="col-sm-8 clientInput">
                         <input type="text" name="address" id="address" class="form-control" id="gst" placeholder="Address">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4">Person Incharge :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 clientLabel">Person Incharge :</label>
+                    <div class="col-sm-8 clientInput">
                         <input type="text" name="person_incharge" id="person_incharge" class="form-control" id="gst" placeholder="Person Incharge">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4">Person To Be Contacted :</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword3" class="col-sm-4 clientLabel">Person To Be Contacted :</label>
+                    <div class="col-sm-8 clientInput">
                         <input type="text" name="person_to_be_contact" id="person_to_be_contact" class="form-control"
                             id="gst" placeholder="Person to be Contacted">
                     </div>

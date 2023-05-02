@@ -104,7 +104,7 @@
                         <p id="starttimedisplay"></p>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3" id="endtime">
                     <label for="demo-date" class="col-sm-4">End Time :</label>
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepickerend" data-target-input="nearest">
