@@ -34,7 +34,7 @@
     						</div>
     					</div> -->
                 <div class="row mb-3">
-                    <label for="workorder_no" class="col-sm-4">Workorder No :</label>
+                    <label for="workorder_no" class="col-sm-4" >Workorder No :</label>
                     <div class="col-sm-8">
                         <select name="workorder" class="classic" id="workorder_no" onchange="fetchworkorder()">
                             <option>Please Select Workorder Number</option>
@@ -51,7 +51,7 @@
                     <label for="client_name" class="col-sm-4">Name of the Client :</label>
                     <div class="col-sm-8">
                         <input type="text" placeholder="Name of the Client" name="client_name" id="clientname"
-                            class="form-control" aria-describedby="client_name">
+                            class="form-control" aria-describedby="client_name" required >
                     </div>
                 </div>
                 <!-- <div class="row mb-3">
@@ -63,26 +63,26 @@
                 <div class="row mb-3">
                     <label for="client_name" class="col-sm-4">Date :</label>
                     <div class="col-sm-8">
-                        <input type="text" name="date" id="date_picker" placeholder="Date" class="form-control">
+                        <input type="text" name="date" id="date_picker" placeholder="Date" class="form-control" >
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="type_of_work" class="col-sm-4">Description of Work Done :</label>
                     <div class="col-sm-8">
-                        <textarea id="w3review" name="Description" class="form-control" placeholder="Description of Work Done"></textarea>
+                        <textarea id="w3review" name="Description" class="form-control" placeholder="Description of Work Done" ></textarea>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="partner_in_charge" class="col-sm-4">Work Given By :</label>
                     <div class="col-sm-8">
-                        <input id="WorkGivenBy"placeholder="Work Given By"  type="text" name="WorkGiven" class="form-control" />
+                        <input id="WorkGivenBy"placeholder="Work Given By"  type="text" name="WorkGiven" class="form-control" required />
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="demo-date" class="col-sm-4">Remarks :</label>
                     <div class="col-sm-8">
                         <textarea id="w3review" name="remarks" aria-describedby="client_name"
-                            class="form-control" placeholder="Remarks"></textarea>
+                            class="form-control" placeholder="Remarks" required></textarea>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -90,7 +90,7 @@
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="start_time"
-                                data-target="#datetimepicker" placeholder="Enter Start Time"  />
+                                data-target="#datetimepicker" placeholder="Enter Start Time" required  />
                             <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
                             </div>
@@ -109,7 +109,7 @@
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepickerend" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="End_time"
-                                data-target="#datetimepickerend" placeholder="Enter End Time"/>
+                                data-target="#datetimepickerend" placeholder="Enter End Time" required/>
                             <div class="input-group-append" data-target="#datetimepickerend"
                                 data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
@@ -148,12 +148,12 @@
 
                 <div class="row mb-3">
                     <div class="col-sm-8">
-                        <input type="submit" value="Submit" class="btn btn-info" id="formsubmit" />
+                        <input type="submit" value="Submit" class="btn btn-info" id="formsubmit" required   />
                     </div>
                 </div>
                 <?php
                 if ($this->session->flashdata('success')) {    ?>
-                <p class="text-success text-center" style="margin-top: 10px;">
+                <p class="text-success text-center" style="margin-top: 10px;" >
                     <?= $this->session->flashdata('success') ?>
                 </p>
                 <?php } ?>
@@ -167,6 +167,7 @@
                 })
             })
             </script>
+
             <script>
             $('#datetimepicker').datetimepicker({
                 format: 'hh:mm:ss a',
@@ -181,6 +182,9 @@
                 format: 'hh:mm:ss a',
             });
             </script>
+
+
+
             <script type="text/javascript">
             function onselectingdate() {
                 const myTimeout = setTimeout(timecheck, 10000);
@@ -226,6 +230,8 @@
                 });
             }
             </script>
+
+            
             <script type="text/javascript">
             function fetchworkorder() {
                 var x = document.getElementById("workorder_no").value;

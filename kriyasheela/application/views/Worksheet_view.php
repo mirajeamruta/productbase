@@ -9,8 +9,8 @@
             if (count($workesheetuloginuserdetails) > 0) {
             foreach ($workesheetuloginuserdetails as $row) {
             ?>
-            <table class="table table-bordered my-4">
-                <thead>
+            <table class="table table-bordered my-4" id="worksheettable">
+                <thead  class="viewwork" id="tablehead">
                     <tr class="text-center text-white text-capitalize wkorderhead">
                         <th>Name of student</th>
                         <th>Partner in Charge</th>
@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 
-                <tbody>
+                <tbody class="worksheet" id="worksheetbody">
                     <td data-label=""><?php echo $row['name'] ?></td>
                     <td><?php echo $row['partner_under_whom_registered'] ?></td>
                     <td><?php echo $row['student_reg_no'] ?></td>
@@ -37,7 +37,7 @@
                 <table class="table table-bordered my-5">
                     <thead>
                         <tr class="text-center text-white text-capitalize wksubhead2">
-                            <th data-label="Date">Date</th>
+                            <th class="data1" data-label="Date">Date</th>
                             <th>Workorder No</th>
                             <th>Name Of Client </th>
                             <th>Description of work done</th>
@@ -62,8 +62,8 @@
                                 // $minutes = $worksheetrecord['spent_time'] % 60;
 
                         ?>
-                        <tr>
-                            <td><?php echo $worksheetrecord['date']; ?> </td>
+                        <tr id="totaldata">
+                            <td class="sheetdata"><?php echo $worksheetrecord['date']; ?> </td>
                             <td><?php echo $worksheetrecord['workorder_no']; ?> </td>
                             <td><?php echo $worksheetrecord['client_name']; ?> </td>
                             <td><?php echo $worksheetrecord['work_description']; ?> </td>

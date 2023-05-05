@@ -1085,18 +1085,28 @@ span#msg1 {
 
 @media(max-width:400px){
 	h2.text-center.mb-2 {
-		padding-right: 45px !important;
+		padding-right: 6px !important;
 	}
 }
 
-@media(max-width:500px){
-span.font-weight-bold.display-6 {
-
-    padding: 96px 0px 0px 259px !important;
-
-    margin-right: -158px !important;
+@media (max-width: 500px){
+	span.font-weight-bold {
+		margin: 20px -189px 0px -111px !important;
+	}
 }
+
+/* view workorder table */
+@media all and (max-width: 400px) {
+	.table-bordered,
+	.viewtable,
+	#viewbody,
+	.wkorderhead,
+	#tableviewdata,
+	.viewrow {
+	  /* display: block !important; */
+	}
 }
+
 
 @media(max-width:500px){
 
@@ -1110,6 +1120,11 @@ span.font-weight-bold.display-6 {
 	}
 }
 
+@media(max-width:500px){
+span.select2.select2-container.select2-container--default {
+    margin: 11px 0px -12px 2px;
+}
+}
 
 @media(max-width:400px){
 	.ul#select2-workorderids-results {
@@ -1119,16 +1134,34 @@ span.font-weight-bold.display-6 {
 }
 
 
+
+/* view worksheet responsive table code */
+
 @media all and (max-width: 500px) {
-	table,
-	thead,
-	tbody,
-	th,
-	td,
-	tr {
-	  display: block !important;
+	.table-bordered.my-5,
+	.viewwork,
+	.worksheet,
+	.data1,
+	.sheetdata,
+	#totaldata {
+	  /* display: block !important; */
 	}
 }
+
+
+
+/* view clients responsive table code */
+
+/* @media all and (max-width: 500px) {
+	#clienttable,
+	.text-white,
+	#bodytable,
+	.tablehead,
+	.tabledata,
+	.tablero {
+	  display: block !important;
+	}
+} */
 
 
 
@@ -1465,9 +1498,13 @@ input[type="file"]::file-selector-button:hover {
 }
 /* === CSV File upload success message ==== */
 .text-success {
-	margin-top: -342px !important;
+	/* margin-top: -342px !important;
 	margin-left: 790px !important;
-	width: 300px !important;
+	width: 300px !important; */
+
+	margin-left: 185px !important;
+    width: 300px !important;
+    margin-top: 20px !important;
 }
 /* === Add more plus icon disapble in large screen === */
 .bxs-plus-square {
@@ -1536,12 +1573,15 @@ span.assign_Close {
 /* --- Assign to input field --- */
 #select{
 	cursor: pointer;
-	width: 405px;
+	/* width: 405px; */
+    width: 292px;
+
 }
 /* --- Add More Button --- */
 #btnAdd{
 	position: relative;
-	left: 106px;
+	/* left: 106px; */
+	left: 9px;
 }
 
 /* === Mobile Responsive === */
@@ -1726,11 +1766,11 @@ span.assign_Close {
 	margin: 6px 0px -7px 19px !important;
 }
 /* --- Password Eye Icon --- */
-.fa-eye{
+/* .fa-eye{
 	position: absolute !important;
 	right: 13px !important;
 	top: 8px !important;
-}
+} */
 /* --- Password Input Field --- */
 #password4{
 	width: 19.70rem !important;
@@ -1879,7 +1919,7 @@ span.assign_Close {
     width: 300px !important;
 }
 /* ==== User Form Password Eye Slash === */
-.fa-eye-slash{
+/* .fa-eye-slash{
 	margin-left: -50px;
     position: relative;
     right: -312px !important;
@@ -1888,7 +1928,7 @@ span.assign_Close {
     color: black;
     vertical-align: text-bottom;
     line-height: 3.7 !important;
-}
+} */
 .passTypeToggle{
 	height: 0 !important;
 }
@@ -1963,6 +2003,47 @@ label.clientLabel {
 #clientFormSubmit{
 	margin-top: 60px !important;
 }
+
+/* =====user form===== */
+
+div#user {
+    margin-left: 1px !important;
+}
+
+input#profilephoto {
+    margin-left: 239px !important;
+}
+
+input#username {
+    margin-left: 236px !important;
+    margin-top: 0px !important;
+}
+
+input#employeeid {
+    margin-left: 234px !important;
+    margin-top: 0px !important;
+}
+
+input#balunandno,input#personalmail,input#officialemail,input#mobile,input#password4,input#blood {
+    margin-left: 237px !important;
+    margin-top: 0px !important;
+}
+
+div#btnsubmit {
+    margin-left: 10px !important;
+    margin-top: 30px;
+}
+
+i#fa-passicon {
+    margin-top: -25px !important;
+    right: 20;
+    /* margin-right: -166px !important; */
+}
+span.passmsg {
+   
+    padding-top: 91px !important;
+}
+
 }
 
 /* =========================================   KAMAL CODE END   ================================= */

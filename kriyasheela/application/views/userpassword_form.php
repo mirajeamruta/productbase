@@ -37,7 +37,7 @@
                     <i class="fa-solid fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
                    
                   </div>
-                  <span id="msg1"style="  margin: 0px 14px;"></span>
+                  <span class="passmsg" id="msg1"style="  margin: 0px 14px;"></span>
                
             </div>
             <hr>
@@ -50,7 +50,7 @@
                     <span class='passTypeToggle' title="Show">
                     <i class="fa-solid fa-eye" id="togglePassword1" style="margin-left: -30px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1; "></i></span>
                    
-                    <span id="msg1" style="margin: 0px 14px;"></span>
+                    <span  id="msg1" style="margin: 0px 14px;"></span>
                     <!-- <p> Your password must contain at least 8 characters.</p>
                     <p>Your password can’t be a commonly used password.</p>
                     <p>Your password can’t be entirely numeric.</p> -->

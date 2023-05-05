@@ -149,6 +149,8 @@ class User extends CI_Controller
                 $bloodgroup = $this->input->post('bloodgroup');
                 $password = $this->input->post('password');
 
+                $icai_Number=$this->input->post('icai_number');
+
                 $hashpassword = md5($password);
 
 
@@ -161,6 +163,7 @@ class User extends CI_Controller
                     'name' => $username,
                     'user_image' => $userimage,
                     'student_reg_no' => $reg_no,
+                    'icai'=> $icai_Number,
                     //'employee_id'=>$employee_id,
                     'date_of_comencement_of_articleship' => $commencementofarticleship,
                     'date_of_comencement_of_employment' => $commencementofemployment,
@@ -264,6 +267,7 @@ class User extends CI_Controller
                 $data['userdetailsdata'][] = array(
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
+                    
                     'ID' => $user['student_reg_no'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
@@ -288,7 +292,7 @@ class User extends CI_Controller
                 $data['userdetailsdata'][] = array(
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
-                    'ID' => $user['student_reg_no'],
+                    'ID' => $user['icai'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
                     'startdate' => $user['date_of_comencement_of_employment'],
@@ -308,7 +312,37 @@ class User extends CI_Controller
                 //print_r($data['userdetailsdata']);
             }
 
-            if ($user['user_type_id'] == 2  || $user['user_type_id'] == 1) {
+            // Tesinging start
+
+            if ($user['user_type_id'] == 2) {
+
+               
+                $data['userdetailsdata'][] = array(
+                    'user_id' => $user['user_id'],
+                    'name' => $user['name'],
+                    'ID' => $user['icai'],
+                    'image' => $user['user_image'],
+                    //'employee_id'=>$user['employee_id'],
+                    'startdate' => $user['date_of_comencement_of_employment'],
+
+                    'enddate' => $user['date_of_completion_of_employment'],
+
+                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                    'balunand_id_no' => $user['balunand_id_no'],
+                    'personal_email' => $user['personal_email'],
+                    'official_email' => $user['official_email'],
+
+                    'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
+                    'bloodgroup' => $user['bloodgroup'],
+                    //'details'=>$user['mobile_no'],
+                );
+                //print_r($data['userdetailsdata']);
+            }
+
+             // Tesinging end
+
+            if ( $user['user_type_id'] == 1) {
 
                 echo 2;
                 $data['userdetailsdata'][] = array(
@@ -316,7 +350,7 @@ class User extends CI_Controller
                     'name' => $user['name'],
                     //'sro_no'=>$user['student_reg_no'],
                     'image' => $user['user_image'],
-                    'ID' => $user['student_reg_no'],
+                    'ID' => $user['icai'],
                     'startdate' => ($user['date_of_comencement_of_employment']),
 
                     'enddate' => ($user['date_of_completion_of_employment']),
@@ -390,7 +424,7 @@ class User extends CI_Controller
                         $this->session->set_flashdata('passwordsuccess', 'password and confirm password should be same');
                     }
                 } else {
-                    $this->session->set_flashdata('passwordsuccess', '<h6 style="color:red">Your old password was entered incorrectly. Please enter it again. </h6> ');
+                    $this->session->set_flashdata('passwordsuccess', '<h6 style="color:red; margin-left: 61px; " > </h6> ');
                 }
             }
 

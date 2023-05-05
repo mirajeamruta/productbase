@@ -23,22 +23,22 @@
                 <label for="workorder_no" class="col-sm-4">Workorder No :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control"
-                        id="workorder_no" aria-describedby="workorder_no">
+                        id="workorder_no" aria-describedby="workorder_no" required >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Created On :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
-                        aria-describedby="created_on">
+                        aria-describedby="created_on" required>
                 </div>
             </div>
 
 
             <div class="row mb-3">
-                <label for="client_name" class="col-sm-4">Legal Name / Trade Name :</label>
+                <label for="client_name" class="col-sm-4" required>Legal Name / Trade Name :</label>
                 <div class="col-sm-6">
-                    <select name="client_name" id='slct1' class="classic" aria-describedby="client_name">
+                    <select name="client_name" id='slct1' class="classic" aria-describedby="client_name" >
                         <option value="">Select</option>
                         <?php foreach ($clientname as $clientnamerecord) : ?>
                         <option value="<?= $clientnamerecord['name']; ?>"><?= $clientnamerecord['name']; ?>
@@ -50,7 +50,7 @@
 
 
             <div class="row mb-3">
-                <label for="partner_in_charge" class="col-sm-4">Partner in Charge :</label>
+                <label for="partner_in_charge" class="col-sm-4" required>Partner in Charge :</label>
                 <div class="col-sm-8">
                     <select placeholder="Partner_in_charge" name="partner_in_charge" id="partner_in_charge"
                         class="classic" aria-describedby="partner_in_charge">
@@ -66,21 +66,21 @@
                 <label for="demo-date" class="col-sm-4">Start Date :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Start Date" name="start_date" id="date_picker1" size=9
-                        class="form-control" aria-describedby="start_date">
+                        class="form-control" aria-describedby="start_date" required>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Targetted End Date :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Targetted End Date" name="targetted_end_date" id="date_picker2"
-                        class="form-control" aria-describedby="targetted_end_date" size=9>
+                        class="form-control" aria-describedby="targetted_end_date" size=9 required>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Deadline :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Deadline" name="deadline" id="date_picker3" class="form-control"
-                        aria-describedby="deadline" size=9>
+                        aria-describedby="deadline" size=9 required>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
 
 
             <div class="row mb-3">
-                <label for="demo-date" class="col-sm-4">Assign To :</label>
+                <label for="demo-date" class="col-sm-4" required>Assign To :</label>
                 <div class="col-sm-5" style="max-width: 37.666667%;">
                     <div id="testingDiv1" class="mb-3 clonedInput">
                         <select name="assign_to2[]" class="form-control classic" id="select"
@@ -125,7 +125,7 @@
 
                 <!-- Assigned Person Delete Button -->
                 <div class="col-sm-1">
-                    <button id="btnDel" class='btn btn-danger assignDeleteBtn'>
+                    <button id="btnDel" class='btn btn-danger'>
                         Delete
                     </button>
                 </div>
@@ -145,7 +145,7 @@
                 <label for="remarks" class="col-sm-4">Remarks :</label>
                 <div class="col-sm-8">
                     <textarea type="text" placeholder="Remarks" class="form-control" name="remarks" id="remarks"
-                        col="50" row="50"></textarea>
+                        col="50" row="50" required></textarea>
                 </div>
             </div>
             <!-- <div class="row">
@@ -159,7 +159,7 @@
             <!-- CB Megallaa -->
             <div class="row mb-3">
                 <div class="col-10 onlineform textcolor">
-                    <input type="submit" name="insert" value="Submit" class="btn btn-info" />
+                    <input type="submit" name="insert" value="Submit" class="btn btn-info" required />
                     <?php echo '<label class="text-danger">'. $this->session->flashdata("error") . '</label>'; ?>
                 </div>
             </div>
@@ -200,6 +200,7 @@
                     alert('Not Found ');
                 }
             });
+
             //alert(date);
         }
         </script>

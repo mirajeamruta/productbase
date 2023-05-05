@@ -35,7 +35,7 @@
 
 		<thead class="wkorderhead text-white">
 			<tr>
-				<th>Legal Name / Trade Name</th>
+				<th class="tablehead"> Legal Name / Trade Name</th>
 				<th style="width: 131.0625px;">PAN Number</th>
 
 				<th style="width: 129.0625px;">GST Number</th>
@@ -46,14 +46,14 @@
 				<th>Person To Be Contact</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="tablebody" id="bodytable">
 			<?php       
 			if (count($clientdetailsdata) > 0) {
 				foreach ($clientdetailsdata as $row) 
 				{
 			?>
 					<tr>
-						<td><?php echo $row['name']; ?></td>
+						<td class="tabledata"><?php echo $row['name']; ?></td>
 						<td><?php echo $row['PAN']; ?></td>
 						<td><?php echo $row['GST']; ?></td>
 						<td><?php echo $row['tan']; ?></td>
@@ -66,7 +66,7 @@
 				}
 			} else {
 				?>
-				<tr>
+				<tr class="tablero">
 					<td colspan="8">No Data Found</td>
 				</tr>
 			<?php

@@ -16,55 +16,55 @@
                 <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-4 clientLabel">Legal Name / Trade Name</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="clientname" class="form-control clientLegalName" id="clientname_legal" placeholder="Legal Name / Trade Name">
+                        <input type="text" name="clientname" class="form-control clientLegalName" id="clientname_legal" placeholder="Legal Name / Trade Name" required >
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Pan :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN">
+                        <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">GST :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="gst" id="gst" class="form-control" id="gst" placeholder="GST">
+                        <input type="text" name="gst" id="gst" class="form-control" id="gst" placeholder="GST" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Tan :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="tan" id="tan" class="form-control" id="gst" placeholder="TAN">
+                        <input type="text" name="tan" id="tan" class="form-control" id="gst" placeholder="TAN" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Aadhaar Number :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="aadhar" id="aadhar" class="form-control" id="gst" placeholder="Aadhaar Number">
+                        <input type="text" name="aadhar" id="aadhar" class="form-control" id="gst" placeholder="Aadhaar Number" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Address :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="address" id="address" class="form-control" id="gst" placeholder="Address">
+                        <input type="text" name="address" id="address" class="form-control" id="gst" placeholder="Address" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Person Incharge :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="person_incharge" id="person_incharge" class="form-control" id="gst" placeholder="Person Incharge">
+                        <input type="text" name="person_incharge" id="person_incharge" class="form-control" id="gst" placeholder="Person Incharge" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Person To Be Contacted :</label>
                     <div class="col-sm-8 clientInput">
                         <input type="text" name="person_to_be_contact" id="person_to_be_contact" class="form-control"
-                            id="gst" placeholder="Person to be Contacted">
+                            id="gst" placeholder="Person to be Contacted" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-4">
-                        <input type="submit" name="insert" value="Submit" id="clientFormSubmit"class="btn btn-primary" />
+                        <input type="submit" name="insert" value="Submit" id="clientFormSubmit"class="btn btn-primary" required />
                     </div>
                 </div>
             </form>
@@ -100,7 +100,7 @@
                <!-- <div class="uploadCSVContainer"> -->
                 <div class="form-group">
 
-                    <input type="file" name="userfile" id="chooseFile" class="filestyle" data-icon="false">
+                    <input type="file" name="userfile" id="chooseFile" class="filestyle" data-icon="false" required>
 
                 </div>
                 <!-- <div class="file-upload">
@@ -112,7 +112,7 @@
                 </div> -->
 
                 <!-- <p class="file-upload1">Please Upload Client CSV File</p> -->
-                <input type="submit" name="submit" value="Submit" class="btn btn-info uploadBtn" id="clientCSVSubmit" />
+                <input type="submit" name="submit" value="Submit" class="btn btn-info uploadBtn" id="clientCSVSubmit" required />
                 <label class="uploadClientCSV" for="chooseFile" > Upload Client CSV File </label>
                 <!-- Selected File Name  -->
                <p id='selectedFileName'><span id="fileName"></span>

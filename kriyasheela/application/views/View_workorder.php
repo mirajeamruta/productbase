@@ -5,7 +5,7 @@
             <!-- <span>Select Workorder Number</span> -->
             <span class="font-weight-bold display-6">Select Workorder Number</span>
 
-            <select name="workorder" id="workorderids" class="filter-handle" onchange="myfunction()">
+            <select name="workorder" id="workorderids" class="filter-handle" onchange="myfunction()" style="width:305px;">
                 <?php
                 foreach ($workorderdetails as $workid) {
                     // var_dump($zones);
@@ -19,12 +19,12 @@
 
         </div>
         <table class="table table-bordered my-5">
-            <thead>
+            <thead class="viewtable">
                 <tr class="text-center text-white text-capitalize">
                     <th class="wkorderhead" colspan="8">Name</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="viewbody">
                 <?php
                 if (!empty($oneworkorderdata)) {
                     foreach ($oneworkorderdata as $row) {
@@ -33,7 +33,7 @@
                       //  print_r($workorder_no);
                 
                 ?>
-                <tr>
+                <tr class="viewrow">
 
                     <input type="text" value=" <?php echo $row['workorder_no']; ?> " id="workno" hidden />
                     <input type="text" value=" <?php echo $row['client_name']; ?> " id="workclnt" hidden />
@@ -108,7 +108,7 @@
                         if ($key > 0) {
                 ?>
                 <tr>
-                    <th colspan="2" class="wksubhead">Others </th>
+                    <th id="viewhead" colspan="2" class="wksubhead">Others </th>
                     <td colspan="2"><?php echo $row['balunand_id_no'];
                                                 $key ?></td>
                     <td colspan="2"><?php echo $row['student_reg_no']; ?></td>
@@ -143,7 +143,7 @@
                     foreach ($workesheetdata as $row) {
                 ?>
                 <tr>
-                    <td><?php echo $row['name_of_employee']; ?></td>
+                    <td id="tableviewdata"><?php echo $row['name_of_employee']; ?></td>
                     <td> <?php echo $row['date']; ?> </td>
                     <td colspan="2"> <?php echo $row['work_description']; ?></td>
                     <td><?php echo $row['start_time']; ?></td>

@@ -13,7 +13,7 @@
             <div class="row mb-3">
 
                 <label for="inputEmail3" class="col-sm-4">Type of User</label>
-                <div class="col-sm-8">
+                <div class="col-sm-8" id="user">
 
                     <select name="usertype" class="classic" id="usertypeid" onchange="userfields(event)">
                         <option value="">Select</option>
@@ -34,46 +34,45 @@
 
 
                     <input type="file" name="profilephoto" class="chooseFile" id="profilephoto"
-                        onchange="readfile(this)" />
+                        onchange="readfile(this)"/>
 
                     <!--
                             <input type="file" name="chooseFile" id="chooseFile">
                     -->
-
 
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-sm-8" id="displayimage">
-                    <img id="propileimage" src="#" alt="your image" name="img" style="display:none" />
+                    <img id="propileimage" src="#" alt="your image" name="img" style="display:none"  />
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4">Name</label>
                 <div class="col-sm-8">
                     <input type="text" name="username" id="username" class="form-control" id="inputPassword3"
-                        placeholder="Name">
+                        placeholder="Name"  >
                 </div>
             </div>
             <div class="row mb-3" id="studentregno" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Student Reg Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="reg_no" id="srono" class="form-control">
+                    <input type="text" name="reg_no" id="srono" class="form-control" >
                 </div>
             </div>
             <div class="row mb-3" id="employeeID">
                 <label for="inputPassword3" class="col-sm-4">ICAI Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="employee_id" id="employeeid" class="form-control"
-                        placeholder="ICAI Number">
+                    <input type="text" name="icai_number" id="employeeid" class="form-control"
+                        placeholder="ICAI Number" >
                 </div>
             </div>
             <div class="row mb-3" id="Articleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Articleship</label>
                 <div class="col-sm-8">
                     <input type="text" name="commencementofarticleship" id="date_picker4"
-                        placeholder="Select Date of Commencement of Articleship" class="form-control">
+                        placeholder="Select Date of Commencement of Articleship" class="form-control" >
                 </div>
             </div>
 
@@ -117,28 +116,28 @@
                 <label for="inputPassword3" class="col-sm-4">Balu & Anand ID Number</label>
                 <div class="col-sm-8">
                     <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"
-                        class="form-control">
+                        class="form-control" >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Personal Email Address </label>
                 <div class="col-sm-8">
                     <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address"
-                        class="form-control">
+                        class="form-control" >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Official Email Address </label>
                 <div class="col-sm-8">
                     <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address"
-                        class="form-control">
+                        class="form-control" >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Mobile Number </label>
                 <div class="col-sm-8">
                     <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10"
-                        placeholder="Mobile Number" title="10 digits Mobile Number" required>
+                        placeholder="Mobile Number" title="10 digits Mobile Number" >
                 </div>
             </div>
 
@@ -148,7 +147,7 @@
                     <input type="password" id="password4" name="password" placeholder="Password"
                         onkeyup='checkPasswordLength(this.value)'>
                     <span class='passTypeToggle' title="Show">
-                        <i class="fa-solid fa-eye"
+                        <i class="fa-solid fa-eye" id="fa-passicon"
                             style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>
                 </div>
                 <span class="message" id="message" style="margin: -21px 295px;"></span>
@@ -179,7 +178,7 @@
 
 
             <div class="row mb-3">
-                <div class="col-sm-8">
+                <div class="col-sm-8" id="btnsubmit">
                     <input type="submit" name="insert" value="Submit" class="btn btn-info" onclick="submituser()" />
                 </div>
             </div>
@@ -353,7 +352,7 @@ function submituser() {
 
         }
 
-        if (document.getElementById("message").style.color == "red") {
+        if (document.getElementById("msg").style.color == "red") {
 
             //alert("yes cant");
             event.preventDefault();
@@ -471,7 +470,7 @@ $('#frm_registration').validate({
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-    $('select').find('option[value=2]').attr('selected', 'selected');
+    $('select').find('option[value=0]').attr('selected', 'selected');
 });
 </script>
 <!-- Javascript -->
@@ -508,6 +507,11 @@ $(document).ready(function() {
         $("#date_picker4").datepicker("option", "maxDate", endDate);
     })
 })
+
+ document.getElementById('usertypeid').addEventListener('change',function(){
+    console.log(document.getElementById('usertypeid').value);
+ })
+
 </script>
 
 
