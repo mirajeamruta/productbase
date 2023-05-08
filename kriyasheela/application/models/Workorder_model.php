@@ -95,12 +95,24 @@ class Workorder_model extends CI_Model
 	function fetch_workorder_data()
 	{
 		//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
-		$query = $this->db->query('SELECT workorder_no  FROM tbl_workorder ORDER BY workorder_no DESC LIMIT 1');
+		$query = $this->db->query('SELECT *  FROM tbl_workorder order by workorder_no ');
 		//var_dump($query );
 
 
 		return $query->result_array();
 	}
+
+	// function fetch_workorder_data()
+	// {
+	// 	//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
+	// 	$query = $this->db->query('SELECT workorder_no  FROM tbl_workorder ORDER BY workorder_no DESC LIMIT 1');
+	// 	//var_dump($query );
+
+
+	// 	return $query->result_array();
+	// }
+
+
 
 	public function getUsers()
 	{

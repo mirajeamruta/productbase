@@ -8,7 +8,7 @@
                 <label for="type_of_work" class="col-sm-4">Type of Work :</label>
                 <div class="col-sm-8">
                     <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="classic"
-                        aria-describedby="type_of_work" onchange="typeofwork();">
+                        aria-describedby="type_of_work" onchange="typeofwork();" >
                         <option value="">Select</option>
                         <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
                         <option value="<?= $typeofworkorders['type_of_work_id'];?>">
@@ -22,8 +22,8 @@
             <div class="row mb-3">
                 <label for="workorder_no" class="col-sm-4">Workorder No :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control"
-                        id="workorder_no" aria-describedby="workorder_no" required >
+                    <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control" readonly
+                        id="workorder_no" aria-describedby="workorder_no" required>
                 </div>
             </div>
             <div class="row mb-3">
@@ -66,14 +66,14 @@
                 <label for="demo-date" class="col-sm-4">Start Date :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Start Date" name="start_date" id="date_picker1" size=9
-                        class="form-control" aria-describedby="start_date" required>
+                        class="form-control" aria-describedby="start_date" required >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Targetted End Date :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Targetted End Date" name="targetted_end_date" id="date_picker2"
-                        class="form-control" aria-describedby="targetted_end_date" size=9 required>
+                        class="form-control" aria-describedby="targetted_end_date" size=9 >
                 </div>
             </div>
             <div class="row mb-3">
@@ -159,8 +159,8 @@
             <!-- CB Megallaa -->
             <div class="row mb-3">
                 <div class="col-10 onlineform textcolor">
-                    <input type="submit" name="insert" value="Submit" class="btn btn-info" required />
-                    <?php echo '<label class="text-danger">'. $this->session->flashdata("error") . '</label>'; ?>
+                    <input type="submit" name="insert" value="Submit" class="btn btn-info"  />
+                    <?php echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>'; ?>
                 </div>
             </div>
             <?php
@@ -172,38 +172,54 @@
 
         <!-- Begin Footer -->
 
-
-
         <script>
         function typeofwork() {
-            const dummy = "<?php echo $workdata ?>";
+
             // alert(dummy);
             var CurrentYear = new Date().getFullYear().toString().substr(-2);
             //  alert(CurrentYear);
             var workorder_no = document.getElementById("workorder_no").value;
             //  alert(workorder_no);
-            var date = document.getElementById("type_of_work").value;
+            var type_Of_Work = document.getElementById("type_of_work").value;
+
+            if (type_Of_Work == 1) {
+                var dummy = "<?php echo $work_order_last_number_ea ?>";
+            } else if (type_Of_Work == 2) {
+                var dummy = "<?php echo $work_order_last_number_ia ?>";
+            } else if (type_Of_Work == 3) {
+                var dummy = "<?php echo $work_order_last_number_ta ?>";
+            } else if (type_Of_Work == 4) {
+                var dummy = "<?php echo $work_order_last_number_rf ?>";
+            } else {
+                console.log("not a type")
+            }
+
             $.ajax({
                 url: "<?php echo base_url('Workorder/ajaxworkorder') ?>",
                 type: 'post',
                 data: {
-                    typeofworkid: date,
+                    typeofworkid: type_Of_Work,
                 },
                 success: function(json) {
 
                     var jsondata = JSON.parse(json);
 
-                    document.getElementById("workorder_no").value = CurrentYear + '' + jsondata[0].prefix + dummy;
+                    document.getElementById("workorder_no").value = CurrentYear + '' + jsondata[0].prefix +
+                        dummy;
 
                 },
                 error: function() {
                     alert('Not Found ');
                 }
             });
-
             //alert(date);
         }
         </script>
+
+
+
+
+
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <link href="https://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css" rel="stylesheet">
