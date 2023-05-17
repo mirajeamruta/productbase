@@ -405,8 +405,8 @@ class User extends CI_Controller
                     $newpassword = $this->input->post('newpassword');
 
                     $hashnewpassword = md5($newpassword);
-                    echo $newpassword;
-                    echo $hashnewpassword;
+                    // echo $newpassword;
+                    // echo $hashnewpassword;
 
                     if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
 

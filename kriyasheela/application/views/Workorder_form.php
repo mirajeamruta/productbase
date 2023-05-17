@@ -128,12 +128,11 @@
                     <button id="btnDel" class='btn btn-danger'>
                         Delete
                     </button>
+
                 </div>
 
                <!-- Assigned Person Name Display here(New Feature Added on 26-04-23) -->
                <ul id='assignedName'>
-
-
                </ul>
             </div>
 

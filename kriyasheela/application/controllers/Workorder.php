@@ -73,7 +73,7 @@ class Workorder extends CI_Controller
                                                         //echo $data['RF'];
 
                                                 } else {
-                                                        echo " Not a Match ";
+                                                        // echo " Not a Match ";
                                                 }
                                         }
                                 }
@@ -103,7 +103,7 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
                                                                 //        echo $data['year_typeOfWork'];
                                                                 // final workorder number
                                                                 $final_workorder_number = $type_Of_Work . $workdata_ea;
-                                                                echo $final_workorder_number;
+                                                               // echo $final_workorder_number;
 
 
                                                                 echo "<br/>";
@@ -123,7 +123,7 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
                                                                 //        echo $data['year_typeOfWork'];
                                                                 // final workorder number
                                                                 $final_workorder_number = $type_Of_Work . $workdata_ia;
-                                                                echo $final_workorder_number;
+                                                               // echo $final_workorder_number;
                                                                 echo "<br/>";
 
                                                         }
@@ -141,7 +141,7 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
                                                                 //        echo $data['year_typeOfWork'];
                                                                 // final workorder number
                                                                 $final_workorder_number = $type_Of_Work . $workdata_ta;
-                                                                echo $final_workorder_number;
+                                                              //  echo $final_workorder_number;
                                                                 echo "<br/>";
                                                         }
                                                         break;
@@ -158,7 +158,7 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
                                                                 //        echo $data['year_typeOfWork'];
                                                                 // final workorder number
                                                                 $final_workorder_number = $type_Of_Work . $workdata_rf;
-                                                                echo $final_workorder_number;
+                                                               // echo $final_workorder_number;
                                                                 echo "<br/>";
                                                         }
                                                         break;

@@ -50,6 +50,20 @@ class Main_model extends CI_Model
      }
 
 
+     public function notifyNewUser()
+     {
+          $query=$this->db->query("SELECT * FROM tbl_users ");
+          return $query->result_array();
+     }
+
+     public function notifyNewClient()
+     {
+          $query=$this->db->query("SELECT * FROM tbl_clients ");
+          return $query->result_array();
+     }
+
+
+
      public function countWorkorder()
      {
           $query = $this->db->query("SELECT COUNT(`workorder_no`) AS woirknumber FROM tbl_workorder ");

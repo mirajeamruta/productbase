@@ -32,6 +32,7 @@ class Main extends CI_Controller
 		$this->load->view('template/navigation1');
 
 		$this->load->view('template/login');
+		 
 	}
 
 	// public   function dashboard()
@@ -97,6 +98,9 @@ class Main extends CI_Controller
 
         $data['pendingWorkorderDetails1'] = $this->Main_model->pendingWorkorderDetails();
 
+		$data['notifyNewUser1']=$this->Main_model->notifyNewUser();
+
+		$data['notifyNewClient1']=$this->Main_model->notifyNewClient();	
 
 		$this->load->view('template/header');
 
@@ -130,7 +134,22 @@ class Main extends CI_Controller
 
             $count++;
         }
-
+		if ($this->session->userdata('usertype') == 'admin') {
+			foreach ($data['notifyNewUser1'] as $user) {
+				//print_r($data['notifyNewUser1']);
+				$data['notifyNewUser2'][] = array(
+					'uid' => $user['user_id'],
+					'name' => $user['name'],
+				);
+				//print_r($data['notifyNewUser2']);
+			}
+			foreach ($data['notifyNewClient1'] as $client) {
+				$data['notifyNewClient2'][] = array(
+					'cid' => $client['client_id'],
+					'name' => $client['name'],
+				);
+			}
+		}
         //  var_dump($data['pendingWorkorderDetails']);
 
         //http://localhost/tutorial/codeigniter/Main/dashboard

@@ -50,7 +50,7 @@ a.nav-link,
 #section_viewworkorder,
 #section_clientlist,
 #section_viewuser {
-	margin-top: 100px;
+	margin-top: 99px;
 }
 .footer {
 	width: 100%;
@@ -60,6 +60,11 @@ a.nav-link,
 	margin-top: 50px;
 	margin-bottom: 10px;
 	text-align: center;
+}
+
+section#section-dashboard {
+    margin-top: 11px;
+	margin-left: 82px !important;
 }
 
 /* login style */
@@ -471,7 +476,7 @@ nav .profile-details i {
 }
 .home-section .home-content {
 	position: relative;
-	padding-top: 104px;
+	padding-top: 118px;
 }
 .home-content .overview-boxes {
 	display: flex;
@@ -554,16 +559,16 @@ nav .profile-details i {
 	display: flex;
 	justify-content: space-between;
 	/* padding: 0 20px; */
-	height: 630px;
-	margin-top: -34px;
+	height: 834px;
+	margin-top: -17px;
 }
 
 /* left box */
 .home-content .sales-boxes .recent-sales {
 	width: 65%;
 	background: #eaeae8a9;
-	padding: 19px 187px;
-	margin: 0 11px;
+	padding: 18px 177px;
+	margin: -15px 12px;
 	border-radius: 12px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -573,7 +578,7 @@ nav .profile-details i {
 	justify-content: space-between;
 }
 .sales-boxes .box .title {
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 500;
 	/* color: darkblue; */
 	/* margin-bottom: 10px; */
@@ -615,8 +620,8 @@ nav .profile-details i {
 .home-content .sales-boxes .top-sales {
 	width: 35%;
 	background: #eaeae8a9;
-	padding: 31px 85px;
-	margin: 0 12px 0 0;
+	padding: 23px 94px;
+	margin: -15px 12px 0 0;
 	border-radius: 12px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -741,22 +746,7 @@ nav .profile-details i {
 	}
 }
 
-/* notification css */
 
-.notification-icon {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-}
-.badge {
-	position: absolute;
-	top: -10px;
-	right: -10px;
-	padding: 5px 10px;
-	border-radius: 50%;
-	background-color: red;
-	color: white;
-}
 
 /* profile password change password button */
 
@@ -1242,10 +1232,145 @@ span.select2.select2-container.select2-container--default {
 	}
 	}
 
+	
 
 
 /* ======responsive for website code end======= */
 
+
+
+
+
+
+/* notification css */
+
+/* .notification-icon {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+} */
+/* .badge {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	padding: 5px 10px;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+} */
+
+.button_notify {
+    margin-left: 170px;
+}
+.show_button {
+    border-radius: 6px;
+    width: 100px;
+    height: 34px;
+    background: #2b4cf1;
+    border-color: #2b4cf1;
+    color: white;
+}
+
+
+
+
+/* notification table  CSS*/
+
+
+
+#iconnotify {
+	/* background-color: #555;  */
+    color: black;
+    text-decoration: none;
+    padding: 5px -10px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+  /* #iconnotify{
+	background: red;
+  } */
+  
+.badge1 {
+	position: absolute;
+	top: -32px;
+    right: -9px;
+    padding: 0px 8px !important;
+    border-radius: 58%;
+    background: red;
+    color: white;
+  }
+
+  span.badge1.badge2 {
+    position: absolute;
+    top: -61px;
+    right: -121px;
+    padding: 0px 8px !important;
+    border-radius: 58%;
+    background: red;
+    color: white;
+}
+
+.notificationtable,th,td{
+	font-family: arial, sans-serif;
+	/* width: 100%; */margin-left: -97px;
+	border: 1px solid #dddddd;
+	padding-top: 13px;
+	/* margin-top: 108px !important; */
+	
+  }
+  table#notificationdata1 {
+   
+    border-collapse: collapse !important;
+}
+  
+  .notifycalender {
+	margin:-506px 0px 0px 1017px!important; 
+  }
+
+#date {
+	color: whitesmoke;
+    border: none;
+    background: #73bac5;
+    border-radius: 4px;
+    border-color: #b1eaf3 !important;
+    height: 35px;
+    padding: 11px;
+}
+
+#fristhead {
+    margin-top: 17px !important;
+	margin-left: 283px;
+}
+
+input#myInput1 {
+    margin-top: 93px;
+    margin-left: 208px !important;
+    width: 235px;
+    height: 33px;
+	border-color: #bdaeae !important;
+
+}
+input[type=text] {
+	/* border: none;  */
+	padding: 4px 8px;       
+	border-radius: 6px; /* Sadly outline does not round! therefore...*/
+  }
+  input[type=text]:focus{
+	outline: none;      /* Remove default outline and use border or box-shadow */
+	box-shadow: 0 0 0 2px rgb(234, 226, 213); /* Full freedom. (works also with border-radius) */
+  }
+	  
+#cancelbtn{
+	display: none;
+}
+
+.btn12{    
+	margin-top: -29px ;
+    margin-left: 424px;
+
+}
 
 /* ========= AMRUTA CSS CODE END======================== */
 
