@@ -80,6 +80,7 @@ class Client extends CI_Controller
 		if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
 			$clientname = $this->input->post('clientname');
+			$tradename=$this->input->post('tradename');
 			$pan = $this->input->post('pan');
 			$gst = $this->input->post('gst');
 			$tan = $this->input->post('tan');
@@ -92,6 +93,7 @@ class Client extends CI_Controller
 
 			$data = array(
 				'name' => $clientname,
+				'Trade_Name'=>$tradename,
 				'PAN' => $pan,
 				'gst' => $gst,
 				'tan' => $tan,
@@ -194,6 +196,7 @@ class Client extends CI_Controller
 							//return;
 							$insert_data = array(
 								'name' => $row['name'],
+								'Trade_Name'=>$row['Trade_Name'],
 								'PAN' => $row['PAN'],
 								'GST' => $row['GST'],
 								'tan' => $row['tan'],
@@ -232,6 +235,7 @@ class Client extends CI_Controller
 				'client_id ' => $client['client_id'],
 
 				'name' => $client['name'],
+				'Trade_Name'=>$client['Trade_Name'],
 				'PAN' => $client['PAN'],
 				'GST' => $client['GST'],
 				'tan' => $client['tan'],

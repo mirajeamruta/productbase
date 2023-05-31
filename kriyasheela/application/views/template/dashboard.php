@@ -145,6 +145,7 @@
 
                     if (!empty($pendingWorkorderDetails2)) {
 
+//print_r($pendingWorkorderDetails2);
                         foreach ($pendingWorkorderDetails2  as $dataworkorder) {
 
                             $key = $dataworkorder['workordernumber'];

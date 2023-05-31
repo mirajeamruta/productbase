@@ -35,7 +35,8 @@
 
 		<thead class="wkorderhead text-white">
 			<tr>
-				<th class="tablehead"> Legal Name / Trade Name</th>
+				<th class="tablehead"> Legal Name</th>
+				<th class="tablehead"> Trade Name</th>
 				<th style="width: 131.0625px;">PAN Number</th>
 
 				<th style="width: 129.0625px;">GST Number</th>
@@ -54,6 +55,7 @@
 			?>
 					<tr>
 						<td class="tabledata"><?php echo $row['name']; ?></td>
+						<td><?php echo $row['Trade_Name']; ?></td>
 						<td><?php echo $row['PAN']; ?></td>
 						<td><?php echo $row['GST']; ?></td>
 						<td><?php echo $row['tan']; ?></td>
@@ -63,7 +65,7 @@
 						<td><?php echo $row['person_to_be_contact']; ?></td>
 					</tr>
 				<?php
-				}
+				} 
 			} else {
 				?>
 				<tr class="tablero">

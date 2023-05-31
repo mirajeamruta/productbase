@@ -124,7 +124,7 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
                                                                 // final workorder number
                                                                 $final_workorder_number = $type_Of_Work . $workdata_ia;
                                                                // echo $final_workorder_number;
-                                                                echo "<br/>";
+                                                                //echo "<br/>";
 
                                                         }
                                                         break;
@@ -564,7 +564,8 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
 				$assign_to = $this->input->post('assign_to');
 				$assign_tojson = json_encode($assign_to);
 				// $assign_to['assign_to'] = array();
-				//   var_dump(  $assign_tojson);
+				//    var_dump(  $assign_tojson);
+                                echo json_encode($assign_tojson);
 				//  var_dump(  $assign_to );
 				// return; 
 				//
@@ -581,7 +582,8 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
 					'assign_to' => $assign_tojson,
 					//$data['assign_to'] = array();
 					'remarks' => $remarks,
-					'status' => 'open'
+					'status' => 'open',
+                                        
 				);
 				// var_dump( $data);
 				$this->load->model('Workorder_model');

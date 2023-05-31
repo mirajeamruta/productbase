@@ -1372,6 +1372,39 @@ input[type=text] {
 
 }
 
+
+
+/* Report css code */
+
+
+.tablereport{
+	background: mediumturquoise;
+	color: white;
+}
+
+.activity{
+	text-align: center;
+	font-size: 22px;
+	height: 50px;
+	padding-top: 3px;
+}
+
+.reportdata{
+	background: mediumturquoise;
+	color: white;
+	height: 45px;
+}
+
+.excelbutton {
+    margin-top: 20px;
+    background: #3232d0;
+    color: white;
+    border-radius: 6px;
+    border-color: #3232d0;
+    padding: 7px;
+}
+
+
 /* ========= AMRUTA CSS CODE END======================== */
 
 
@@ -1603,7 +1636,7 @@ input[type="file"]::file-selector-button:hover {
 }
 /* === Client Form submit button === */
 #section_clientform {
-	height: 600px !important;
+	height: 708px !important;
 }
 
 /* === Selected CSV File Name (In client Form) ==== */
@@ -1708,6 +1741,110 @@ span.assign_Close {
 	/* left: 106px; */
 	left: 9px;
 }
+
+
+/* Bulk Work order */
+#bulk_workorder_container{
+	background-color: #eaeae8a9 !important;
+	border-radius: 3px;
+    height: 500px;
+	text-align: center;
+    margin-top: 90px;
+    width: 600px;
+    margin-left: 396px;
+}
+/* Header */
+.bulk_workorder_container__header{
+    
+	position: relative;
+	top: 40px;
+}
+
+/* Choose file */
+.bulk_workorder_container__choose_bulk_file{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 250px;
+}
+.bulk_workorder_container__choose_bulk_file>input{
+	background-color: transparent;
+	width: 0;
+	opacity: 0;
+	z-index:-1;
+}
+.bulk_workorder_label,#bulk_workorder_submit{
+	background-color: #00A3FF;
+	border-radius: 26px;
+	cursor: pointer;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	/* margin-top: -222px !important; */
+    width: 135px;
+}
+/* CSV upload Failed Message */
+span.sunny {
+    position: absolute;
+    top: 311px;
+    left: 480px;
+}
+#bulk_workorder_submit{
+	border: none;
+	display: none;
+	position: absolute !important;
+    top: 382px;
+    left: 627px;
+}
+/* Selected File Name */
+#bulk_workder_selected_File_Name{
+	cursor: pointer;
+	background-color: #E34BB9;
+	border-radius: 3px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	position: absolute;
+	top: 259px;
+    left: 594px;
+	width: 200px;
+	min-height: 30px;
+	overflow-wrap: break-word;
+}
+
+
+/* Close selected Bulk order File */
+#close_bulk_workorder{
+	/* display: none !important; */
+	/* background-color: red; */
+	border-radius: 50%;
+	/* color: #fff; */
+	cursor: pointer;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	font-size: 25px;
+	position: absolute;
+	top: 254px;
+    left: 798px;
+	height: 25px;
+	width: 25px;
+}
+/* bulk_order file upload success */
+p.bulk_workorder_success {
+    position: ABSOLUTE;
+    top: 201px;
+    left: 574px;
+}
+p#csv_upload_failed {
+    margin-top: 79px !important;
+}
+
 
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px) {

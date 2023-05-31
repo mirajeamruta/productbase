@@ -103,6 +103,7 @@
             <div class="row mb-3" id="partner">
                 <label for="inputPassword3" class="col-sm-4">Partner Under Whom Registered </label>
                 <div class="col-sm-8">
+                      <!-- <input type="text" name="partner_registered" id="type_of_work" class="form-control" aria-describedby="type_of_work"> -->
                     <select name="partner_registered" id="type_of_work" class="classic" aria-describedby="type_of_work">
                         <option value="">Select</option>
                         <option value="REB">REB</option>
@@ -172,7 +173,18 @@
             <div class="row mb-3" style="margin-top: -8px;">
                 <label for="inputPassword3" class="col-sm-4"> Blood Group </label>
                 <div class="col-sm-8">
-                    <input type="text" name="bloodgroup" id="blood" class="form-control" placeholder="Blood Group">
+                <select name="bloodgroup" type="text" id="blood" class="classic" style="width: 32.7rem !important;">
+                        <option value="">Select</option>
+                        <option value="O +ve">O +Ve</option>
+                        <option value="O -ve">O -Ve</option>
+                        <option value="A -ve">A -Ve</option>
+                        <option value="A +ve">A +Ve</option>
+                        <option value="B -ve">B -Ve</option>
+                        <option value="B +ve">B +Ve</option>
+                        <option value="AB -ve">AB -Ve</option>
+                        <option value="AB +ve">AB +Ve</option>
+                    </select>
+                    <!-- <input type="text" name="bloodgroup" id="blood" class="form-control" placeholder="Blood Group"> -->
                 </div>
             </div>
 
@@ -516,3 +528,32 @@ $(document).ready(function() {
 
 
 
+<!-- name validation -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function() {
+
+$('#username').keydown(function (e) {
+
+  if (e.shiftKey || e.ctrlKey || e.altKey) {
+  
+    e.preventDefault();
+    
+  } else {
+  
+    var key = e.keyCode;
+    
+    if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+    
+      e.preventDefault();
+      
+    }
+
+  }
+  
+});
+
+});
+</script>

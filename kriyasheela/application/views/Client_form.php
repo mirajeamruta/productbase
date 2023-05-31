@@ -1,3 +1,9 @@
+
+<style type="text/css">
+    body { font-family: Arial; font-size: 10pt; }
+    .error { color: Red; }
+    .gst { text-transform: uppercase; }
+</style>
 <div class='container userform' id="section_clientform">
     <span>Client Form</span>
     <div class='row'>
@@ -14,39 +20,48 @@
                                                                                     'Client/createClient'
                                                                                 ) ?>" enctype='multipart/form-data'>
                 <div class="row mb-3">
-                    <label for="inputEmail3" class="col-sm-4 clientLabel">Legal Name / Trade Name</label>
+                    <label for="inputEmail3" class="col-sm-4 clientLabel">Legal Name :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="clientname" class="form-control clientLegalName" id="clientname_legal" placeholder="Legal Name / Trade Name" required >
+                        <input type="text" name="clientname" class="form-control clientLegalName" id="clientname_legal" placeholder="Legal Name" size="50" required >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-4 clientLabel">Trade Name :</label>
+                    <div class="col-sm-8 clientInput">
+                        <input type="text" name="tradename" class="form-control clientLegalName" id="clientname_legal1" placeholder="Trade Name"  required >
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Pan :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN" required>
+                        <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN" maxlength="10" pattern="[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}"  required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">GST :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="gst" id="gst" class="form-control" id="gst" placeholder="GST" required>
+                   
+                        <input type="text" name="gst" id="txtGSTNumber" class="form-control" id="gst" placeholder="GST" MaxLength="15" onclick="ValidateGSTNumber()">
+                        <span id="lblError" class="error" style="font-size: 13px; font-family: Arial; color: Red; margin-top: 4px;margin-left: -320px;"></span>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3" style="margin-top: -26px;">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Tan :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="tan" id="tan" class="form-control" id="gst" placeholder="TAN" required>
+                        <input type="text" name="tan" id="txtTANNumber" class="form-control" id="gst" placeholder="TAN" MaxLength="10" onclick="ValidateTANNumber()">
+                        <span id="lblError1" class="error1" style="font-size: 13px; font-family: Arial; color: Red; margin-top: 4px;margin-left: -320px;"></span>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3" style="margin-top: -26px;">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Aadhaar Number :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="aadhar" id="aadhar" class="form-control" id="gst" placeholder="Aadhaar Number" required>
+                        <input type="text" name="aadhar" id="txtAadhaar" class="form-control" id="gst"  data-type="adhaarnumber" placeholder="Aadhaar Number" maxlength="14" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Address :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="address" id="address" class="form-control" id="gst" placeholder="Address" required>
+                        <input type="text" name="address" id="address" class="form-control" id="gst" placeholder="Address"  required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -193,4 +208,116 @@ $('#chooseFile').bind('change', function() {
       }
     })
 
+</script>
+
+ 
+
+
+<!-- Aadhar validation  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+$('[data-type="adhaarnumber"]').keyup(function() {
+  var value = $(this).val();
+  value = value.replace(/\D/g, "").split(/(?:([\d]{4}))/g).filter(s => s.length > 0).join(" ");
+  $(this).val(value);
+});
+
+$('[data-type="adhaarnumber"]').on("change, blur", function() {
+  var value = $(this).val();
+  var maxLength = $(this).attr("maxLength");
+  if (value.length != maxLength) {
+    $(this).addClass("highlight-error");
+  } else {
+    $(this).removeClass("highlight-error");
+  }
+});
+
+</script>
+
+
+
+<!-- name validation -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function() {
+
+$('#clientname_legal').keydown(function (e) {
+
+  if (e.shiftKey || e.ctrlKey || e.altKey) {
+  
+    e.preventDefault();
+    
+  } else {
+  
+    var key = e.keyCode;
+    
+    if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+    
+      e.preventDefault();
+      
+    }
+
+  }
+  
+});
+
+});
+</script>
+
+
+<script>
+
+$(function() {
+
+$('#clientname_legal1').keydown(function (e) {
+
+  if (e.shiftKey || e.ctrlKey || e.altKey) {
+  
+    e.preventDefault();
+    
+  } else {
+  
+    var key = e.keyCode;
+    
+    if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+    
+      e.preventDefault();
+      
+    }
+
+  }
+  
+});
+
+});
+</script>
+
+
+<!-- gst validation -->
+<script type="text/javascript">
+    function ValidateGSTNumber() {
+        var gstNumber = document.getElementById("txtGSTNumber").value;
+        var lblError = document.getElementById("lblError");
+        lblError.innerHTML = "";
+        var expr = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+        if (!expr.test(gstNumber)) {
+            lblError.innerHTML = "Invalid GST Number.";
+        }
+    }
+</script>
+
+
+<script type="text/javascript">
+    function ValidateTANNumber() {
+        var tanNumber = document.getElementById("txtTANNumber").value;
+        var lblError1 = document.getElementById("lblError1");
+        lblError1.innerHTML = "";
+        var expr = /(?:(?=(^[a-zA-Z]{5}\d{4}[a-zA-Z]{1}$))|(?=(^[a-zA-Z]{4}[0-9]{5}[a-zA-Z]{1}?$)))/gmi
+        if (!expr.test(tanNumber)) {
+            lblError1.innerHTML = "Invalid TAN Number.";
+        }
+    }
 </script>

@@ -105,8 +105,11 @@ class Worksheet extends CI_Controller
 
 				$workorder = $this->input->post('workorder');
 				$date = $this->input->post('date');
+				$formatedDate=date('Y-m-d',strtotime($date));
 				$clientname = $this->input->post('client_name');
 				$Description = $this->input->post('Description');
+
+				//echo $date;
 
 				//$WorkGiven = $this->input->post('WorkGiven');
 				$remarks = $this->input->post('remarks');
@@ -130,7 +133,7 @@ class Worksheet extends CI_Controller
 					'workorder_no' => $workorder,
 					'employee_name' => $loggedInEmployee,
 					'user_id' => $loggedInUserId,
-					'Date' => $date,
+					'date' => $formatedDate,
 					'work_description' => $Description,
 					//'work_given_by'=>$WorkGiven,
 					'remarks' => $remarks,

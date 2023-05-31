@@ -67,7 +67,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Bulk Workorders</a>
+                        <a class="nav-link" href="<?= base_url("Bulk_Workorder_Controller/bulk_workorder") ?>">Bulk Workorders</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -95,7 +95,7 @@
                         
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reports</a>
+                        <a class="nav-link" href="<?= base_url("Report_Controller/report") ?>">Reports</a>
                     </li>
                     <li class="nav-item dropdown last">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -151,7 +151,7 @@
                         <!-- <a class="nav-link" href="<?= base_url("Notification") ?>">Notification</a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reports</a>
+                        <a class="nav-link" href="<?= base_url("Report_Controller/report") ?>">Reports</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"

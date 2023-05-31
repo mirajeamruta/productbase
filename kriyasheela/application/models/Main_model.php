@@ -88,6 +88,13 @@ class Main_model extends CI_Model
           return $query->result_array();
      }
 
+     // public function pendingWorkorderDetails()
+     // {
+     //      $query = $this->db->query("SELECT `workorder_no` ,`assign_to`FROM `tbl_workorder`WHERE `status` = 'open'ORDER BY `created_on` DESC");
+
+
+     //      return $query->result_array();
+     // }
 
 
      public function countclents()

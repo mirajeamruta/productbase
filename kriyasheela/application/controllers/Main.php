@@ -118,6 +118,7 @@ class Main extends CI_Controller
                 $data['pendingWorkorderDetails2'][] = array(
                     'workordernumber' => $worknumber['workorder_no']
                 );
+				// print_r($data['pendingWorkorderDetails2']);
             }
             //  else {
 
