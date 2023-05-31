@@ -1,7 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+// $fromLocal=localStorage.getItem('name');
+// echo $fromLocal;
 class Workorder extends CI_Controller
 {
+
 	function workorderform()
 	{
 		//http://localhost/tutorial/codeigniter/main/login
@@ -35,9 +38,9 @@ class Workorder extends CI_Controller
 			// $data['workdata']
 			// $a['typework']=  $currentyear.$typeofworkorder['prefix'] ;
 			$data['workdata'] =  $data['workdata2'] + 1;
-			var_dump($data['workdata']);
+			//var_dump($data['workdata']);
 			//  type of work
-			$data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
+			$data['typeofworkorder'] = $this->Workorder_model-> getTypeofWork();
 			// foreach ($data['typeofworkorder']  as $typeofworkorder) {
 			// 	$data['typeofworkorderdata'][] = array(
 			// 		'type_of_work_id' => $typeofworkorder['type_of_work_id'],
@@ -52,6 +55,9 @@ class Workorder extends CI_Controller
 	}
 	public function view_workorder($workidnumber = null)
 	{
+
+		 $data=$this->input->post('data');
+		 echo $data;
 		if ($this->session->userdata('balunand_id_no') == '') {
 			redirect(base_url() . 'main/login');
 		} else {
@@ -411,6 +417,9 @@ class Workorder extends CI_Controller
 	}
 	function registerNow()
 	{
+
+ 
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			//$this->form_validation->set_rules('workorder_no', 'Workorder No', 'required');
 			// $this->form_validation->set_rules( 'created_on', 'Created On', 'required' );
@@ -428,6 +437,8 @@ class Workorder extends CI_Controller
 			) {
 				$workorder_no = $this->input->post('workorder_no');
 				$created_on = $this->input->post('created_on');
+				//echo $created_on;
+				//$foratedDate=date('Y-m-d',strtotime($created_on));
 				$client_name = $this->input->post('client_name');
 				$type_of_work = $this->input->post('type_of_work');
 				$partner_in_charge = $this->input->post('partner_in_charge');
@@ -435,23 +446,31 @@ class Workorder extends CI_Controller
 				$targetted_end_date = $this->input->post('targetted_end_date');
 				$deadline = $this->input->post('deadline');
 				$assign_to = $this->input->post('assign_to');
-				$assign_tojson = json_encode($assign_to);
+			
+               $assign_tojson =json_encode($assign_to) ;
+			    // exit;
+              // header('Content-Type: application/json');
+                
+				//exit;
+				//var_dump($assign_tojson);
+			
 				// $assign_to['assign_to'] = array();
 				//   var_dump(  $assign_tojson);
 				//  var_dump(  $assign_to );
 				// return; 
 				//
+			
 				$remarks = $this->input->post('remarks');
 				$data = array(
 					'workorder_no' => $workorder_no,
-					'created_on' => $created_on,
+					'created_on'=>$created_on,
 					'client_name' => $client_name,
 					'type_of_work' => $type_of_work,
 					'partner_in_charge' => $partner_in_charge,
 					'start_date' => $start_date,
 					'targetted_end_date' => $targetted_end_date,
 					'deadline' => $deadline,
-					'assign_to' => $assign_tojson,
+					'assign_to' =>  $assign_tojson,
 					//$data['assign_to'] = array();
 					'remarks' => $remarks,
 					'status' => 'open'
@@ -461,12 +480,12 @@ class Workorder extends CI_Controller
 				$this->load->model('main_model');
 				$this->Workorder_model->insertuser($data);
 
-
-
-
 				$this->session->set_flashdata('success', 'Successfully User Created');
 				redirect(base_url('Workorder/View_workorder'));
+			
 			}
 		}
 	}
+
+	
 }

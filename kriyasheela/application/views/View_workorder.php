@@ -21,8 +21,15 @@
         <table class="table table-bordered my-5">
             <thead>
                 <tr class="text-center text-white text-capitalize">
-                    <th class="wkorderhead" colspan="8">Name</th>
+                    <th class="wkorderhead" colspan="8">Name 
+                    <i class='bx bxs-message-square-edit' id='workorder_edit_btn' ><p>Edit</p></i>
+                     <button id="save_workorder_btn"><i class='bx bxs-save'></i><span>Save</span></button>
+
+                    </th> 
+                   
+
                 </tr>
+              
             </thead>
             <tbody>
                 <?php
@@ -55,10 +62,43 @@
                 <tr>
                     <td class="wksubhead">Start Date </td>
                     <td><?php echo $row['start_date']; ?> </td>
-                    <td colspan="2" class="wksubhead">Targetted End Date </td>
-                    <td> <?php echo $row['targetted_end_date']; ?> </td>
+
+                    <td colspan="2" class="wksubhead" >Targetted End Date </td>
+                    <!-- Testing  -->
+                        <!-- Edited Data  -->
+                  
+
+                    <td>
+                         <input
+                           type="date"
+                           class="view_workorder_editable"
+                           id="targeted_date" 
+                           name="targeted_date"
+                           value="<?php echo $row['targetted_end_date']; ?>"  
+                           min="<?php echo date("Y-m-d") ?>"
+                           data-date-format="DD MMMM YYYY"
+                           readonly                         
+                          />
+                    </td>
+                   <!-- Old Code-don't delete know untill new one working properly -->
+                   <!-- <td> <?php echo $row['targetted_end_date']; ?> </td>  -->
+
                     <td class="wksubhead" colspan="2">Deadline</td>
-                    <td><?php echo $row['deadline']; ?> </td>
+                    <td>
+                        <input 
+                        type="date" 
+                        class="view_workorder_editable" 
+                        id="deadline_date"
+                        name="deadline_date"
+                        value="<?php echo $row['deadline']; ?>"
+                        min="<?php echo date("Y-m-d") ?>"
+                        readonly
+                        />
+                
+                
+                   </td>
+                    
+                    <!-- <td><?php echo $row['deadline']; ?> </td> -->
                 </tr>
                 <?php
                     }
@@ -159,12 +199,29 @@
                 ?>
             </tbody>
         </table>
-    </div>
 
-    <?php
-    
-    ?>
+
+    </div>
 </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+   
+
+    var name=['naki','nuka'];
+    $(".saveMe").click(function(){
+      
+        var name=$("#name").val();
+        $.post(
+            "../test.php",
+            {name: name},
+            function(response){
+                $("#res").html("response");
+            }
+        );
+    })
+
+
+</script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
@@ -192,7 +249,7 @@ data.map((e) => {
     // const select = document.querySelector('select');
     // select.add(newOption, otherOption);
 })
-console.log(newData);
+// console.log(newData);
 
 
 
@@ -233,8 +290,8 @@ jQuery(document).ready(function($) {
         // console.log(element.e1)
         var pending = workOrder;
         var d = element.e1;
-        console.log(d)
-        console.log(pending)
+        // console.log(d)
+        // console.log(pending)
         var output = [];
 
         // $.each(newData, function(element, value) {
@@ -261,7 +318,7 @@ jQuery(document).ready(function($) {
                 }
             })
             $('#workorderids').html(output.join(" "));
-            console.log(output)
+           // console.log(output)
         }
         // console.log(newArray)
         // }
@@ -324,3 +381,55 @@ $(document).ready(function() {
     $(".filter-handle").select2();
 });
 </script>
+
+<script>
+    let view_workorder_editable=document.querySelector('.view_workorder_editable');
+    let work_order_edit_btn=document.getElementById('workorder_edit_btn');
+
+
+    //View Workorder Edit button
+     work_order_edit_btn.addEventListener('click', function(){
+        // Tageted Date
+        view_workorder_editable.removeAttribute('readonly'); 
+        view_workorder_editable.style.border="1px solid black";
+        //Deadline Date
+        document.getElementById('deadline_date').removeAttribute('readonly');
+        document.getElementById('deadline_date').style.border="1px solid black";      
+        // edit button
+        work_order_edit_btn.style.display="none";
+        // save button
+        document.getElementById('save_workorder_btn').style.display="block";
+   
+     })
+ // View workorder Save button
+       let save_workorder_btn= document.getElementById('save_workorder_btn')
+          save_workorder_btn.addEventListener('click',function(){
+                // Targeted Date
+                view_workorder_editable.setAttribute('readonly','readonly'); 
+                view_workorder_editable.style.border="0px" 
+                //Deadline Date
+                document.getElementById('deadline_date').setAttribute('readonly','readonly');
+                document.getElementById('deadline_date').style.border="0px";
+                //Edit button
+                work_order_edit_btn.style.display="block";
+                // Save Button
+                save_workorder_btn.style.display="none";
+               // alert('Save Success Fully');
+               let deadline_date= document.getElementById('deadline_date').value;
+               let targeted_date=document.getElementById('targeted_date').value;
+            //   let editedDataArray=[];
+            //   editedDataArray.push(deadline_date);
+            //   editedDataArray.push(targeted_date);
+            //   console.log(editedDataArray);
+             
+            //    document.getElementById('targeted_date_data').value=targeted_date;
+            //    document.getElementById('deadline_date_data').value=deadline_date;
+               
+        
+           })
+
+  
+
+
+</script>
+

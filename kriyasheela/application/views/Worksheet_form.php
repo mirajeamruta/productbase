@@ -90,9 +90,9 @@
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="start_time"
-                                data-target="#datetimepicker" placeholder="Enter Start Time"  />
-                            <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                                data-target="#datetimepicker" placeholder="Enter Start Time" id="start_time"  />
+                            <div class="input-group-append"  data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-clock-o" id="startTimeBtn"></i></div>
                             </div>
                         </div>
                     </div>
@@ -110,8 +110,7 @@
                         <div class="input-group date" id="datetimepickerend" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="End_time"
                                 data-target="#datetimepickerend" placeholder="Enter End Time"/>
-                            <div class="input-group-append" data-target="#datetimepickerend"
-                                data-toggle="datetimepicker">
+                            <div class="input-group-append" data-target="#datetimepickerend">
                                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
                             </div>
                         </div>
@@ -168,27 +167,31 @@
             })
             </script>
             <script>
-            $('#datetimepicker').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            $('#datetimepickerend').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            $('#datetimepickerbreak1').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            $('#datetimepickerbreak2').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            </script>
+
+            // Start and End Time
+            // $('#datetimepicker').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerend').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+           
+            // // Break Time
+            // $('#datetimepickerbreak1').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerbreak2').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // </script>
             <script type="text/javascript">
             function onselectingdate() {
                 const myTimeout = setTimeout(timecheck, 10000);
             }
 
             function timecheck() {
-                //alert("yyyesss");
-                var date = document.getElementById("date_time_set").value;
+                // alert("yyyesss");
+                var date = document.getElementById("date_picker").value;
                 var starttime = document.getElementById("starttime").value;
                 //alert('start time is ' + starttime);
                 var endtime = document.getElementById("endtime").value;
@@ -253,4 +256,14 @@
                     }
                 });
             }
+
+           
             </script>
+
+
+<script>
+  document.getElementById('startTimeBtn').addEventListener('click',function()=>{
+    alert('Hel')
+   })
+
+</script>

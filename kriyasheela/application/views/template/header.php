@@ -9,7 +9,8 @@
     <!-- dashboard   tmplte-->
     <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
     <!-- Local -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 

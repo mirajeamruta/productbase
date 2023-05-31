@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-fixed-top mb-0 px-0">
         <div class="container-fluid">
             <div class="logo">
-                <a id="top" href="#"> <img src="<?= ("http://172.105.55.147/kriyasheela/images/ca_logo.png") ?>" width="91" height="30"></a>
+                <a id="top" href="#"> <img src="<?= ("http://localhost/kriyasheela-p2/kriyasheela/images/ca_logo.png") ?>" width="91" height="30"></a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bulk Workorders</a>
+                        <a class="nav-link" href="<?= base_url("Bulk_Workorder_Controller/bulk_workorder") ?>">Bulk Workorders</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -66,7 +66,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notification
+                        <a class="nav-link" href="<?= base_url("Notification_Controller/notification")?>">Notification
                             <!-- <?php echo  $this->session->userdata('countnotify'); ?> -->
                         </a>
                     </li>
@@ -115,7 +115,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notification</a>
+                        <a class="nav-link" href="<?= base_url('Notification_Controller/notification')?>">Notification</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reports</a>

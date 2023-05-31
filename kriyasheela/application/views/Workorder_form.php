@@ -23,17 +23,16 @@
                 <label for="workorder_no" class="col-sm-4">Workorder No :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control"
-                        id="workorder_no" aria-describedby="workorder_no">
+                        id="workorder_no" aria-describedby="workorder_no" >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Created On :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
-                        aria-describedby="created_on">
+                    <input type="date" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
+                        aria-describedby="created_on" readonly value="<?php echo date('d-m-y'); ?>">
                 </div>
             </div>
-
 
             <div class="row mb-3">
                 <label for="client_name" class="col-sm-4">Legal Name / Trade Name :</label>
@@ -65,22 +64,22 @@
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Start Date :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Start Date" name="start_date" id="date_picker1" size=9
+                    <input type="date" placeholder="Start Date" name="start_date" id="date_picker1" size=9
                         class="form-control" aria-describedby="start_date">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Targetted End Date :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Targetted End Date" name="targetted_end_date" id="date_picker2"
+                    <input type="date" placeholder="Targetted End Date"  name="targetted_end_date" id="date_picker2"
                         class="form-control" aria-describedby="targetted_end_date" size=9>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Deadline :</label>
                 <div class="col-sm-8">
-                    <input type="text" placeholder="Deadline" name="deadline" id="date_picker3" class="form-control"
-                        aria-describedby="deadline" size=9>
+                    <input type="date" placeholder="Deadline" name="deadline" id="date_picker3" class="form-control"
+                        aria-describedby="deadline" data-date-format="DD MMMM YYYY"size=9>
                 </div>
             </div>
 
@@ -100,13 +99,14 @@
 					<input type="button" class="btn btn-primary add" value="+"> Add More
 				</div>
 			</div> -->
-
-
+           
+          
+    
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Assign To :</label>
                 <div class="col-sm-5" style="max-width: 37.666667%;">
                     <div id="testingDiv1" class="mb-3 clonedInput">
-                        <select name="assign_to[]" class="form-control classic" id="select"
+                        <select class="form-control classic" id="select"
                             aria-describedby="assign_to[]">
                             <option value="">Select</option>
                             <?php foreach ($assign_to2 as $worksheetrecord) : ?>
@@ -116,8 +116,9 @@
                         </select>
                     </div>
                 </div>
+         
                 <div class="col-sm-2">
-                    <button class='btn btn-success btnClick' id="btnAdd">
+                    <button class=' btn btn-success btnClick' id="btnAdd" >
                         Add More
                     </button>
                     <i class='bx bxs-plus-square btnClick' style='color:#28a745'></i>
@@ -137,6 +138,11 @@
                </ul>
             </div>
 
+       <!-- Testing start -->             
+           <select id="selected_Assigned_Name"  name="assign_to[]">
+                  <!-- <option>select</option> -->
+            </select>
+       <!-- Testing End -->
 
             <div style="display: flex;">
 
@@ -145,7 +151,7 @@
                 <label for="remarks" class="col-sm-4">Remarks :</label>
                 <div class="col-sm-8">
                     <textarea type="text" placeholder="Remarks" class="form-control" name="remarks" id="remarks"
-                        col="50" row="50"></textarea>
+                        col="50" row="50" required></textarea>
                 </div>
             </div>
             <!-- <div class="row">
@@ -174,6 +180,8 @@
         </section>
         <!-- Begin Footer -->
         <script>
+
+            
         function typeofwork() {
             const dummy = "<?php echo $workdata ?>";
             // alert(dummy);
@@ -195,9 +203,11 @@
                     document.getElementById("workorder_no").value = CurrentYear + '' + jsondata[0].prefix +
                         dummy;
 
+                    
                 },
                 error: function() {
                     alert('Not Found ');
+                    
                 }
             });
             //alert(date);
@@ -221,9 +231,7 @@
             $("#date_picker1").datepicker({
                 dateFormat: 'dd-mm-yy'
             })
-            $("#date_picker").datepicker({
-                dateFormat: 'dd-mm-yy'
-            })
+          
 
             $("#date_picker2").datepicker({
                 dateFormat: 'dd-mm-yy'
@@ -232,68 +240,120 @@
                 dateFormat: 'dd-mm-yy'
             });
 
-            $('#date_picker1').change(function() {
-                startDate = $(this).datepicker('getDate');
-                $("#date_picker2").datepicker("option", "minDate", startDate);
-            })
+//     $('#date_picker1').change(function() {
+//     var startDate = $(this).datepicker('getDate');
+//     if (startDate) {
+//         $("#date_picker2").datepicker("option", "minDate", startDate);
+//         $("#date_picker2").datepicker("refresh");
+//     }
+// });
 
-            $('#date_picker2').change(function() {
-                endDate = $(this).datepicker('getDate');
-                $("#date_picker1").datepicker("option", "maxDate", endDate);
-            })
-            $('#date_picker3').change(function() {
-                endDate2 = $(this).datepicker('getDate');
-                $("#date_picker2").datepicker("option", "maxDate", endDate2);
-            })
+// $("#date_picker2").datepicker({
+//     beforeShowDay: function(date) {
+//         var startDate = $("#date_picker1").datepicker('getDate');
+//         return [date >= startDate];
+//     }
+// });
 
-        })
+
+//             $('#date_picker2').change(function() {
+//                 endDate = $(this).datepicker('getDate');
+//                 $("#date_picker1").datepicker("option", "maxDate", endDate);
+//             })
+//             $('#date_picker3').change(function() {
+//                 endDate2 = $(this).datepicker('getDate');
+//                 $("#date_picker2").datepicker("option", "maxDate", endDate2);
+//             })
+
+//         })
         </script>
 
 
         <script>   
                
         $(document).ready(function() {
+            var selectedData=[];
+           
             $('.btnClick').click(function(e) {
-                e.preventDefault();
+                e.preventDefault();                
+                //Creating new li Element
+                let li=document.createElement('li');
+                //Getting data from dropdown
+                let dropDown=document.getElementById('select');
+                let dropDownData=dropDown.options[dropDown.selectedIndex].text;
+                // Adding id to li
+                var id_Number=0;
+                if(!li.id)
+                 { 
+                    li.id=id_Number;
+                    id_Number++;               
+                 }
+               //creating textnode
+               let textNode=document.createTextNode(dropDownData);           
+               li.appendChild(textNode);
+               if(dropDownData!=' '&&dropDownData!='Select'){
+                  // Adding selected data to list            
+                  document.getElementById('assignedName').appendChild(li);
+                  selectedData.push(dropDown.options[dropDown.selectedIndex].value);
+                   // Removing Value from dropdown
+                  dropDown.options[dropDown.selectedIndex].style.display="none";
+                  // Adding value to selectedData array
+                  li.value=dropDown.options[dropDown.selectedIndex].value;
+                  // After value is pushed to array we making it empty
+                  dropDown.value='';
+                  // Deleting added value from drop down
+                 
+               }else{
+                  alert('Please assign to someone');
+               }
+               // Creating span and cross icon to assign each item of li so that we can delete using that icon
+               let span=document.createElement('span');
+               let closeIcon=document.createTextNode("\u00D7");
+               span.className='assign_Close';
+               span.appendChild(closeIcon);
+               li.appendChild(span);
+               //Accessing all the item with className 'assign_Close'
+               var closeItem=document.getElementsByClassName('assign_Close');
+               var i;
+               for(i=0; i<closeItem.length; i++)
+                {                
+                   closeItem[i].onclick=function(){
+                   let div=this.parentElement;                 
+                   let id_To_Delete=div.id;
 
-             //Creating new li Element
-             let li=document.createElement('li');
-            //Getting data from dropdown
-            let dropDown=document.getElementById('select');
-            let dropDownData=dropDown.options[dropDown.selectedIndex].text;
-            // Adding class
- 
-            //creating textnode
-            let textNode=document.createTextNode(dropDownData);
-            li.appendChild(textNode);
-            if(dropDownData!=' '&&dropDownData!='Select'){
-               // Adding selected data to list              
-               document.getElementById('assignedName').appendChild(li);
-               dropDown.value='';
-            }else{
-                alert('Please assign to someone');
-            }
-             
-            let span=document.createElement('span');
-            let closeIcon=document.createTextNode("\u00D7");
-            span.className='assign_Close';
-            span.appendChild(closeIcon);
-            li.appendChild(span);
-         
-            var closeItem=document.getElementsByClassName('assign_Close');
-           var i;
-            for(i=0; i<closeItem.length; i++){
-                closeItem[i].onclick=function(){
-                    let div=this.parentElement;
-                    // div.style.display='none';
-                    div.remove();
-                   
+                  
+                   //Getting index value of deleted item
+                   let deleted_Item_Index=selectedData.indexOf(div.value.toString());
+                   console.log('Index is: '+ deleted_Item_Index);
+                   selectedData.splice(deleted_Item_Index,1);   
+                 
+                   //Calling assignFun function here - we will pass array after delete item
+                   assginFun(selectedData);
+                   // removing item from selectedData array
+                   div.remove();  
+                    //Adding removed item back to drop down list
+                   let dropDown=document.getElementById('select');
+                   dropDown.options[dropDown.options.value=`${div.value}`].style.display="block";
+                  }               
                 }
-            }
-            
-            })
-         })
-                /*  Orginal Code-Previous Feature(dont delete this)
+               //We are calling assignFun here if no Item is deleted from array
+
+               assginFun(selectedData) ;       
+               // Assign to function
+               function assginFun(assignedNames)
+                {
+                  let selected_Assigned_Name=document.getElementById('selected_Assigned_Name');
+                  let newOption=new Option(assignedNames);
+                  selected_Assigned_Name.add(newOption,undefined);       
+                  for(let i=0; i<selected_Assigned_Name.options.length;i++)
+                  {
+                     selected_Assigned_Name.options[i].selected=true;
+                  } 
+                }        
+            })         
+        })
+       
+         /*  Orginal Code-Previous Feature(dont delete this)
                 var num = $('.clonedInput').length,
                     newNum = new Number(num + 1),
                     newElem = $('#testingDiv' + num)
@@ -336,12 +396,59 @@
             })
             $('#btnDel').attr('disabled', true)
         })
+       
         */
-        </script>
-        <script>
-        $(document).ready(function() {
 
-            //change selectboxes to selectize mode to be searchable
-            $("#slct1").select2();
-        });
-        </script>
+     
+    
+  
+   
+       </script>
+
+       <script>
+        var today=new Date();
+        var dd= today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy=today.getFullYear();
+
+        if(dd<10)
+        {
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+        today=yyyy+'-'+mm+'-'+dd
+     
+      
+
+         document.getElementById('date_picker').value=today
+         //document.getElementById('date_picker')..setAttribute("min",today)
+          document.getElementById('date_picker1').setAttribute("min",today) //start date
+          document.getElementById('date_picker2').setAttribute("min",today) // targetted date
+          document.getElementById('date_picker3').setAttribute("min",today) // deadline date
+          
+
+          let startDateValue=''
+         document.getElementById('date_picker1').addEventListener('change',()=>{
+            startDateValue= document.getElementById('date_picker1').value
+        
+            document.getElementById('date_picker3').setAttribute("min",startDateValue) // Deadline date
+        document.getElementById('date_picker2').setAttribute("min",startDateValue)
+         })
+         let deadline_date=""
+        document.getElementById('date_picker3').addEventListener('change',()=>{
+            
+            deadline_date=document.getElementById('date_picker3').value
+            // alert(deadline_date)
+              if(document.getElementById('date_picker2').value>document.getElementById('date_picker3').value)
+              {
+                alert('Targetted Date Must between Start Date and Deadline Date')
+                document.getElementById('date_picker2').value=document.getElementById('date_picker1').value
+              }
+            document.getElementById('date_picker2').setAttribute("max",deadline_date)
+        })
+
+
+      
+       </script>
