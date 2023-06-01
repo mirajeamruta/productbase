@@ -161,9 +161,4 @@ class Workorder_model extends CI_Model
 		//return $query->result_array();
 		return $query->row('prefix');
 	}
-<<<<<<< HEAD
 }
-=======
-	
-}
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40

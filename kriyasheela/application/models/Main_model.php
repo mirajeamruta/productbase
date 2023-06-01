@@ -46,7 +46,7 @@ class Main_model extends CI_Model
      }
 
 
-     public function notifyNewUser()
+	public function notifyNewUser()
      {
           $query=$this->db->query("SELECT * FROM tbl_users ");
           return $query->result_array();

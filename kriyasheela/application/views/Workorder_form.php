@@ -6,48 +6,38 @@
         <form method="post" autocomplete="off" action="<?= base_url('Workorder/registerNow') ?>">
             <div class="row mb-3">
                 <label for="type_of_work" class="col-sm-4">Type of Work :</label>
-                <div class="col-sm-8">
-                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="classic"
-                        aria-describedby="type_of_work" onchange="typeofwork();" >
+                <div class="col-sm-8">                    
+                    <select placeholder="Type of Work" name="type_of_work" id="type_of_work"  class="classic"
+                        aria-describedby="type_of_work" onchange="typeofwork();">
                         <option value="">Select</option>
                         <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
                         <option value="<?= $typeofworkorders['type_of_work_id'];?>">
                             <?= $typeofworkorders['type_of_work']; ?></option>
                         <?php endforeach; ?>
-                    </select>
-
+                    </select>                      
+            
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label for="workorder_no" class="col-sm-4">Workorder No :</label>
                 <div class="col-sm-8">
-<<<<<<< HEAD
-                    <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control" readonly
-                        id="workorder_no" aria-describedby="workorder_no" required>
-=======
                     <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control"
                         id="workorder_no" aria-describedby="workorder_no" >
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Created On :</label>
                 <div class="col-sm-8">
-<<<<<<< HEAD
-                    <input type="text" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
-                        aria-describedby="created_on" required>
-=======
                     <input type="date" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
                         aria-describedby="created_on" readonly value="<?php echo date('d-m-y'); ?>">
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="client_name" class="col-sm-4" required>Legal Name / Trade Name :</label>
+                <label for="client_name" class="col-sm-4">Legal Name / Trade Name :</label>
                 <div class="col-sm-6">
-                    <select name="client_name" id='slct1' class="classic" aria-describedby="client_name" >
+                <select name="client_name" id='slct1' class="classic" aria-describedby="client_name" >
                         <option value="">Select</option>
                         <?php foreach ($clientname as $clientnamerecord) : ?>
                         <option value="<?= $clientnamerecord['name']; ?>"><?= $clientnamerecord['name']; ?>
@@ -59,7 +49,7 @@
 
 
             <div class="row mb-3">
-                <label for="partner_in_charge" class="col-sm-4" required>Partner in Charge :</label>
+                <label for="partner_in_charge" class="col-sm-4">Partner in Charge :</label>
                 <div class="col-sm-8">
                     <select placeholder="Partner_in_charge" name="partner_in_charge" id="partner_in_charge"
                         class="classic" aria-describedby="partner_in_charge">
@@ -74,37 +64,22 @@
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Start Date :</label>
                 <div class="col-sm-8">
-<<<<<<< HEAD
-                    <input type="text" placeholder="Start Date" name="start_date" id="date_picker1" size=9
-                        class="form-control" aria-describedby="start_date" required >
-=======
                     <input type="date" placeholder="Start Date" name="start_date" id="date_picker1" size=9
                         class="form-control" aria-describedby="start_date">
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Targetted End Date :</label>
                 <div class="col-sm-8">
-<<<<<<< HEAD
-                    <input type="text" placeholder="Targetted End Date" name="targetted_end_date" id="date_picker2"
-                        class="form-control" aria-describedby="targetted_end_date" size=9 >
-=======
                     <input type="date" placeholder="Targetted End Date"  name="targetted_end_date" id="date_picker2"
                         class="form-control" aria-describedby="targetted_end_date" size=9>
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Deadline :</label>
                 <div class="col-sm-8">
-<<<<<<< HEAD
-                    <input type="text" placeholder="Deadline" name="deadline" id="date_picker3" class="form-control"
-                        aria-describedby="deadline" size=9 required>
-=======
                     <input type="date" placeholder="Deadline" name="deadline" id="date_picker3" class="form-control"
                         aria-describedby="deadline" data-date-format="DD MMMM YYYY"size=9>
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                 </div>
             </div>
 
@@ -128,16 +103,11 @@
           
     
             <div class="row mb-3">
-                <label for="demo-date" class="col-sm-4" required>Assign To :</label>
+                <label for="demo-date" class="col-sm-4">Assign To :</label>
                 <div class="col-sm-5" style="max-width: 37.666667%;">
                     <div id="testingDiv1" class="mb-3 clonedInput">
-<<<<<<< HEAD
-                        <select name="assign_to2[]" class="form-control classic" id="select"
-                            aria-describedby="assign_to2[]">
-=======
                         <select class="form-control classic" id="select"
                             aria-describedby="assign_to[]">
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                             <option value="">Select</option>
                             <?php foreach ($assign_to2 as $worksheetrecord) : ?>
                             <option value="<?= $worksheetrecord['user_id']; ?>"><?= $worksheetrecord['name']; ?>
@@ -156,14 +126,15 @@
 
                 <!-- Assigned Person Delete Button -->
                 <div class="col-sm-1">
-                    <button id="btnDel" class='btn btn-danger'>
+                    <button id="btnDel" class='btn btn-danger assignDeleteBtn'>
                         Delete
                     </button>
-
                 </div>
 
                <!-- Assigned Person Name Display here(New Feature Added on 26-04-23) -->
                <ul id='assignedName'>
+        
+
                </ul>
             </div>
 
@@ -194,22 +165,21 @@
             <!-- CB Megallaa -->
             <div class="row mb-3">
                 <div class="col-10 onlineform textcolor">
-                    <input type="submit" name="insert" value="Submit" class="btn btn-info"  />
-                    <?php echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>'; ?>
+                    <input type="submit" name="insert" value="Submit" class="btn btn-info" />
+                    <?php
+                    echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>';
+                    ?>
                 </div>
             </div>
             <?php
-            if ($this->session->flashdata('success')) { ?>
-            <p class="text-success text-center" style="margin-top: 10px;"> <?= $this->session->flashdata('success')?></p> <?php }?>
+            if ($this->session->flashdata('success')) {    ?>
+            <p class="text-success text-center" style="margin-top: 10px;"> <?= $this->session->flashdata('success') ?>
+            </p>
+            <?php } ?>
         </form>
         </section>
-
-
         <!-- Begin Footer -->
-
         <script>
-
-            
         function typeofwork() {
 
             // alert(dummy);
@@ -244,21 +214,14 @@
                     document.getElementById("workorder_no").value = CurrentYear + '' + jsondata[0].prefix +
                         dummy;
 
-                    
                 },
                 error: function() {
                     alert('Not Found ');
-                    
                 }
             });
             //alert(date);
         }
         </script>
-
-
-
-
-
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <link href="https://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css" rel="stylesheet">
@@ -266,8 +229,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-
-
         <script>
         $(document).ready(function() {
 
@@ -317,57 +278,12 @@
         </script>
 
 
-        <script>
-
+        <script>   
+               
         $(document).ready(function() {
             var selectedData=[];
            
             $('.btnClick').click(function(e) {
-<<<<<<< HEAD
-                e.preventDefault();
-       /* --- New Assign to code 
-
-             //Creating new li Element
-             let li=document.createElement('li');
-            //Getting data from dropdown
-            let dropDown=document.getElementById('select');
-            let dropDownData=dropDown.options[dropDown.selectedIndex].text;
-            // Adding class
-
-            //creating textnode
-            let textNode=document.createTextNode(dropDownData);
-            li.appendChild(textNode);
-            if(dropDownData!=' '&&dropDownData!='Select'){
-               // Adding selected data to list
-               document.getElementById('assignedName').appendChild(li);
-               dropDown.value='';
-            }else{
-                alert('Please assign to someone');
-            }
-
-            let span=document.createElement('span');
-            let closeIcon=document.createTextNode("\u00D7");
-            span.className='assign_Close';
-            span.appendChild(closeIcon);
-            li.appendChild(span);
-
-            var closeItem=document.getElementsByClassName('assign_Close');
-           var i;
-            for(i=0; i<closeItem.length; i++){
-                closeItem[i].onclick=function(){
-                    let div=this.parentElement;
-                    // div.style.display='none';
-                    div.remove();
-
-                }
-            }
-
-            })
-         })
-
-         ---- End code */
-               
-=======
                 e.preventDefault();                
                 //Creating new li Element
                 let li=document.createElement('li');
@@ -447,7 +363,6 @@
         })
        
          /*  Orginal Code-Previous Feature(dont delete this)
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                 var num = $('.clonedInput').length,
                     newNum = new Number(num + 1),
                     newElem = $('#testingDiv' + num)
@@ -490,20 +405,6 @@
             })
             $('#btnDel').attr('disabled', true)
         })
-<<<<<<< HEAD
-        
-        </script>
-
-
-
-        <script>
-        $(document).ready(function() {
-
-            //change selectboxes to selectize mode to be searchable
-            $("#slct1").select2();
-        });
-        </script>
-=======
        
         */
 
@@ -528,10 +429,7 @@
         }
         today=yyyy+'-'+mm+'-'+dd
      
-      
-
-         document.getElementById('date_picker').value=today
-         //document.getElementById('date_picker')..setAttribute("min",today)
+          document.getElementById('date_picker').value=today
           document.getElementById('date_picker1').setAttribute("min",today) //start date
           document.getElementById('date_picker2').setAttribute("min",today) // targetted date
           document.getElementById('date_picker3').setAttribute("min",today) // deadline date
@@ -560,4 +458,3 @@
 
       
        </script>
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40

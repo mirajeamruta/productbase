@@ -18,8 +18,8 @@ class Main extends CI_Controller
 
 		$this->load->model('Main_model');
 
-		// Load the todo model to make it available
-		// to *all* of the controller's actions
+		// Load the todo model to make it available 
+		// to *all* of the controller's actions 
 		$this->load->helper('url');
 	}
 
@@ -32,7 +32,6 @@ class Main extends CI_Controller
 		$this->load->view('template/navigation1');
 
 		$this->load->view('template/login');
-		 
 	}
 
 	// public   function dashboard()
@@ -49,7 +48,7 @@ class Main extends CI_Controller
 	// 	$data['countworkorder']=$this->Main_model->countWorkorder();
 
     //    $data['countclents']=$this->Main_model->countclents();
-
+		
 	//    $data['countusers']=$this->Main_model->countusers();
 
 	//    $data['pendingWorkorders']=$this->Main_model->pendingWorkorder();
@@ -97,10 +96,9 @@ class Main extends CI_Controller
         $data['pendingWorkorders'] = $this->Main_model->pendingWorkorder();
 
         $data['pendingWorkorderDetails1'] = $this->Main_model->pendingWorkorderDetails();
-
 		$data['notifyNewUser1']=$this->Main_model->notifyNewUser();
 
-		$data['notifyNewClient1']=$this->Main_model->notifyNewClient();	
+		$data['notifyNewClient1']=$this->Main_model->notifyNewClient();
 
 		$this->load->view('template/header');
 
@@ -118,7 +116,6 @@ class Main extends CI_Controller
                 $data['pendingWorkorderDetails2'][] = array(
                     'workordernumber' => $worknumber['workorder_no']
                 );
-				// print_r($data['pendingWorkorderDetails2']);
             }
             //  else {
 
@@ -151,17 +148,13 @@ class Main extends CI_Controller
 				);
 			}
 		}
+
         //  var_dump($data['pendingWorkorderDetails']);
 
         //http://localhost/tutorial/codeigniter/Main/dashboard
         $data['title'] = 'Balu & Anand, Chartered Accountants';
 
         if (isset($_SESSION['usertype'])) {
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
             $data['usertype'] = $_SESSION['usertype'];
             // echo "if";
 
@@ -213,18 +206,13 @@ class Main extends CI_Controller
 			$balunand_id_no = $this->input->post('balunand_id_no');
 
 			$password =($this->input->post('password'));
-<<<<<<< HEAD
 			$Password=md5($password);
-=======
-			//$Password=md5($password);
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 
 			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
-<<<<<<< HEAD
 			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
 				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
@@ -233,16 +221,8 @@ class Main extends CI_Controller
 
 				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
-=======
-			//if ($this->Main_model->can_login($balunand_id_no, $password)) {
-
-				if ($this->Main_model->can_login($balunand_id_no, $password)) {
-
-				//$record = $this->Main_model->can_login($balunand_id_no, $password);
-				
-				$record = $this->Main_model->can_login($balunand_id_no, $password);
-				
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
+				$record = $this->Main_model->can_login($balunand_id_no, $Password);
+				// echo $password;
 				//var_dump($record);
 
 				// echo "<br>";
@@ -310,7 +290,7 @@ class Main extends CI_Controller
 			echo '<label><a href="' . base_url() . 'Main/logout">Logout</a></label>';
 		} else {
 
-			// redirect(base_url() . 'Main/login');
+			redirect(base_url() . 'Main/login');
 		}
 	}
 
@@ -324,8 +304,5 @@ class Main extends CI_Controller
 
 		redirect(base_url() . 'Main/login');
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
+

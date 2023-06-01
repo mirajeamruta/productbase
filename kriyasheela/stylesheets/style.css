@@ -1415,8 +1415,9 @@ input[type=text] {
 
 /* =========================================   KAMAL CODE START   ================================= */
 
+
 /*  === Input field having file type ==== */
-input[type="file"]::file-selector-button {
+input[type=file]::file-selector-button {
 	background-color: #17a2b8;
 	border: none;
 	border-radius: 3px;
@@ -1425,9 +1426,10 @@ input[type="file"]::file-selector-button {
 	height: 40px;
 	width: 140px;
 }
-input[type="file"]::file-selector-button:hover {
-	background-color: #0294aa;
-}
+
+	input[type=file]::file-selector-button:hover {
+		background-color: #0294aa;
+	}
 
 /* === Workorder input field - legal name === */
 .select2-selection {
@@ -1442,6 +1444,7 @@ input[type="file"]::file-selector-button:hover {
 #Partner_in_charge {
 	width: 32.7rem !important;
 }
+
 [aria-describedby="partner_in_charge"] {
 	/* background-color: red !important; */
 	width: 32.7rem !important;
@@ -1458,18 +1461,15 @@ input[type="file"]::file-selector-button:hover {
 	border-bottom-right-radius: 2px;
 	font-size: 20px !important;
 }
-.select2-container--default
-	.select2-selection--single
-	.select2-selection__arrow
-	b {
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
 	border-color: blue transparent transparent transparent !important;
 }
-.select2-container--default.select2-container--open
-	.select2-selection--single
-	.select2-selection__arrow
-	b {
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
 	border-color: transparent transparent blue transparent !important;
 }
+
 
 /* === Search Field Inside dropdown list === */
 .select2-search__field:focus {
@@ -1487,11 +1487,12 @@ input[type="file"]::file-selector-button:hover {
 	border: none;
 	background-color: #049fb7 !important;
 	margin-left: 424px;
-	margin-top: 13px;
+	margin-top: 4px;
 }
-#clientFormSubmit:hover {
-	background-color: #015967 !important;
-}
+
+	#clientFormSubmit:hover {
+		background-color: #015967 !important;
+	}
 /* === Password input field in user form === */
 #password4 {
 	border-radius: 0.25rem;
@@ -1499,26 +1500,18 @@ input[type="file"]::file-selector-button:hover {
 	padding-left: 10px;
 	height: calc(1.5em + 0.75rem + 2px) !important;
 }
-#password4:focus {
-	outline: none;
-	box-shadow: 0px 0px 1px 3px #ced4da;
-	border:1px solid #ced4da !important;
-}
+
+	#password4:focus {
+		outline: none;
+		box-shadow: 0px 0px 1px 3px #01e4e4d2;
+	}
 /* === client submit form === */
 #clientsubmit {
 	width: 700px !important;
 	margin-left: 3%;
 }
-<<<<<<< HEAD
-/* === Previous and Next Button in view client === */
-.pagination > li > a {
-	color: red !important;
-}
 
 #section_userform1 > #span {
-=======
-#section_userform1>#span{
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 	margin-left: 248px !important;
 }
 
@@ -1540,6 +1533,7 @@ input[type="file"]::file-selector-button:hover {
 .fa-clock-o {
 	color: rgba(0, 0, 255, 0.676) !important;
 }
+
 .input-group-text {
 	background-color: skyblue !important;
 }
@@ -1547,6 +1541,7 @@ input[type="file"]::file-selector-button:hover {
 #usertypeid {
 	width: 32.7rem !important;
 }
+
 #type_of_work {
 	width: 32.7rem !important;
 }
@@ -1562,40 +1557,37 @@ input[type="file"]::file-selector-button:hover {
 }
 
 /*=== View Workorder Header Text ===  */
-<<<<<<< HEAD
 #section_viewworkorder > h2 {
-=======
-#section_viewworkorder>h2{
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 	margin-left: 46px;
 }
 
 /* === View Workorder Drop Down === */
-[aria-labelledby="select2-workorderids-container"]{
+[aria-labelledby="select2-workorderids-container"] {
 	position: relative !important;
 	width: 523px !important;
-
 }
 
-/* === View Workorder Drop Down Arrow === */
-[aria-labelledby="select2-workorderids-container"] >.select2-selection__arrow{
-	right: 0px !important;
-	top: 0px !important;
-}
+	/* === View Workorder Drop Down Arrow === */
+	[aria-labelledby="select2-workorderids-container"] > .select2-selection__arrow {
+		right: 0px !important;
+		top: 0px !important;
+	}
 
-[aria-labelledby="select2-slct1-container"]>.select2-selection__arrow{
-	right: -19.6rem !important;
+[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
+	right: -20rem !important;
 	/* background-color: red !important;	 */
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
 	padding-right: 171px !important;
 }
+
 .container {
 	margin-top: 86px;
 	margin-left: 110px;
 	border-radius: 5px;
 }
+
 
 /* ==== Client Form - CSV File Upload Section ==== */
 .or {
@@ -1611,7 +1603,7 @@ input[type="file"]::file-selector-button:hover {
 .uploadBtn {
 	position: absolute;
 	top: 435px !important;
-    left: -298px !important;
+	left: -298px !important;
 	height: 35px !important;
 	padding: 6px;
 	width: 85px;
@@ -1646,7 +1638,7 @@ input[type="file"]::file-selector-button:hover {
 }
 /* === Client Form submit button === */
 #section_clientform {
-	height: 708px !important;
+	height: 600px !important;
 }
 
 /* === Selected CSV File Name (In client Form) ==== */
@@ -1656,6 +1648,7 @@ input[type="file"]::file-selector-button:hover {
 	top: 142px;
 	left: 100px;
 }
+
 #fileName {
 	display: none;
 	font-size: 16px !important;
@@ -1666,19 +1659,16 @@ input[type="file"]::file-selector-button:hover {
 }
 /* === CSV File upload success message ==== */
 .text-success {
-	/* margin-top: -342px !important;
+	margin-top: -342px !important;
 	margin-left: 790px !important;
-	width: 300px !important; */
-
-	margin-left: 185px !important;
-    width: 300px !important;
-    margin-top: 20px !important;
+	width: 300px !important;
 }
 /* === Add more plus icon disapble in large screen === */
 .bxs-plus-square {
 	display: none !important;
 }
-#dis_Select_File{
+
+#dis_Select_File {
 	display: none;
 	cursor: pointer;
 	font-size: 31px;
@@ -1686,76 +1676,77 @@ input[type="file"]::file-selector-button:hover {
 	top: 107px;
 	left: 275px;
 }
-#dis_Select_File:hover{
-	color: red;
-}
 
-.user_details_lg{
+	#dis_Select_File:hover {
+		color: red;
+	}
+
+.user_details_lg {
 	display: block !important;
 }
 /* === VIEW USER TABLE SMALL SCREEN VERSION DISABLE IN BIG SCREEN === */
-#view_User_Table{
+#view_User_Table {
 	display: none !important;
 }
-.section_viewuser__header{
+
+.section_viewuser__header {
 	display: none;
 }
 /* === View User Mobile Version === */
-.user_details_sm{
-  display: none;
+.user_details_sm {
+	display: none;
 }
 /* === View Client Form Mobile Version === */
 
-.view_Client_Container{
-	display: block !important;
+.view_Client_Container {
+	display: none;
 }
 /* === View Client Header === */
-#section_clientlist__header{
-	display: block !important;
+#section_clientlist__header {
+	display: none;
 }
 
 /* --- workorder Form Assign to section --- */
-#assignedName{
+#assignedName {
 	position: relative;
-    left: 292px;
-    list-style-type: none;
+	left: 292px;
+	list-style-type: none;
 	/* text-align: center; */
-	
 }
-#assignedName>li{
-	background: #19A7CE;
-	border-radius: 2px;
-	color: #fff;
-	font-size: 20px;
-	width: 523px;
-	padding: 2px 0px 0px 20px;
-	position:relative;
-	margin-top: 10px;
-}
+
+	#assignedName > li {
+		background: #19A7CE;
+		border-radius: 2px;
+		color: #fff;
+		font-size: 20px;
+		width: 523px;
+		padding: 2px 0px 0px 20px;
+		position: relative;
+		margin-top: 10px;
+	}
 /* --- Assign Delete Button disable --- */
-.assignDeleteBtn{
+.assignDeleteBtn {
 	display: none;
 }
 /* --- Close Icon --- */
 span.assign_Close {
 	cursor: pointer;
-    position: absolute;
-    font-size: 36px;
-    left: 483px;
-    top: -9px;
+	position: absolute;
+	font-size: 36px;
+	left: 483px;
+	top: -9px;
 }
-.Assign_Close:hover{
+
+.Assign_Close:hover {
 	color: red;
 }
 /* --- Assign to input field --- */
-#select{
+#select {
 	cursor: pointer;
-	/* width: 405px; */
-    width: 292px;
-
+	width: 405px;
 }
 /* --- Add More Button --- */
-#btnAdd{
+#btnAdd {
 	position: absolute;
 	left: 113px;
 	width: 111px;
@@ -1767,59 +1758,58 @@ span.assign_Close {
 
 
 select#slct1 {
-    width: 522px;
+	width: 522px;
 }
 
 /* --- Assigned Name box(Not visible) --- */
 select#selected_Assigned_Name {
-    border: none;
-    background: transparent;
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
+	border: none;
+	background: transparent;
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
 }
 /* Edit Button in View Workorder */
-.bxs-message-square-edit{
+.bxs-message-square-edit {
 	display: block;
 	cursor: pointer;
-    font-size: 20px;
-    position: absolute;
-    top: 285px;
-    right: 135px;
+	font-size: 20px;
+	position: absolute;
+	top: 285px;
+	right: 135px;
 }
 
 
-.bxs-message-square-edit>p{
-	display: inline;
-    font-size: 16px !important;
-    padding-left: 5px;
-    position: relative;
-    top: -2px;
-}
+	.bxs-message-square-edit > p {
+		display: inline;
+		font-size: 16px !important;
+		padding-left: 5px;
+		position: relative;
+		top: -2px;
+	}
 /* Save Button in View Workorder  */
 
-#save_workorder_btn {   
-    background: transparent;
-    border: none;
+#save_workorder_btn {
+	background: transparent;
+	border: none;
 	color: #fff;
-    display: none;
-    position: absolute;
-    top: 287.5px;
-    right: 135px;
+	display: none;
+	position: absolute;
+	top: 287.5px;
+	right: 135px;
 }
-#save_workorder_btn:focus{
-	outline: none;
-}
-.bxs-save{
+
+	#save_workorder_btn:focus {
+		outline: none;
+	}
+
+.bxs-save {
 	font-size: 19px;
 }
-#save_workorder_btn>span{
+
+#save_workorder_btn > span {
 	font-size: 15px !important;
 	position: relative;
-<<<<<<< HEAD
-	/* left: 106px; */
-	left: 9px;
-=======
 	top: -2px;
 	left: 3px;
 }
@@ -1828,51 +1818,51 @@ select#selected_Assigned_Name {
 
 /* Target Date */
 input.view_workorder_editable {
-    border: 1px solid transparent;
-    cursor: pointer;
+	border: 1px solid transparent;
+	cursor: pointer;
 }
-input.view_workorder_editable:focus{
-	outline: none;
-}
+
+	input.view_workorder_editable:focus {
+		outline: none;
+	}
 
 /* edited data */
-#targeted_date_data{
-	
-	
+#targeted_date_data {
 }
 
 /* Bulk Work order */
-#bulk_workorder_container{
+#bulk_workorder_container {
 	background-color: #eaeae8a9 !important;
 	border-radius: 3px;
-    height: 500px;
+	height: 500px;
 	text-align: center;
-    margin-top: 90px;
-    width: 600px;
-    margin-left: 396px;
+	margin-top: 90px;
+	width: 600px;
+	margin-left: 396px;
 }
 /* Header */
-.bulk_workorder_container__header{
-    
+.bulk_workorder_container__header {
 	position: relative;
 	top: 40px;
 }
 
 /* Choose file */
-.bulk_workorder_container__choose_bulk_file{
+.bulk_workorder_container__choose_bulk_file {
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	top: 250px;
 }
-.bulk_workorder_container__choose_bulk_file>input{
-	background-color: transparent;
-	width: 0;
-	opacity: 0;
-	z-index:-1;
-}
-.bulk_workorder_label,#bulk_workorder_submit{
+
+	.bulk_workorder_container__choose_bulk_file > input {
+		background-color: transparent;
+		width: 0;
+		opacity: 0;
+		z-index: -1;
+	}
+
+.bulk_workorder_label, #bulk_workorder_submit {
 	background-color: #00A3FF;
 	border-radius: 26px;
 	cursor: pointer;
@@ -1882,23 +1872,24 @@ input.view_workorder_editable:focus{
 	justify-content: center;
 	height: 46px;
 	/* margin-top: -222px !important; */
-    width: 135px;
+	width: 135px;
 }
 /* CSV upload Failed Message */
 span.sunny {
-    position: absolute;
-    top: 311px;
-    left: 480px;
+	position: absolute;
+	top: 311px;
+	left: 480px;
 }
-#bulk_workorder_submit{
+
+#bulk_workorder_submit {
 	border: none;
 	display: none;
 	position: absolute !important;
-    top: 382px;
-    left: 627px;
+	top: 382px;
+	left: 627px;
 }
 /* Selected File Name */
-#bulk_workder_selected_File_Name{
+#bulk_workder_selected_File_Name {
 	cursor: pointer;
 	background-color: #E34BB9;
 	border-radius: 3px;
@@ -1909,7 +1900,7 @@ span.sunny {
 	padding: 10px;
 	position: absolute;
 	top: 259px;
-    left: 594px;
+	left: 594px;
 	width: 200px;
 	min-height: 30px;
 	overflow-wrap: break-word;
@@ -1917,7 +1908,7 @@ span.sunny {
 
 
 /* Close selected Bulk order File */
-#close_bulk_workorder{
+#close_bulk_workorder {
 	/* display: none !important; */
 	/* background-color: red; */
 	border-radius: 50%;
@@ -1929,125 +1920,20 @@ span.sunny {
 	font-size: 25px;
 	position: absolute;
 	top: 254px;
-    left: 798px;
+	left: 798px;
 	height: 25px;
 	width: 25px;
 }
 /* bulk_order file upload success */
 p.bulk_workorder_success {
-    position: ABSOLUTE;
-    top: 201px;
-    left: 574px;
+	position: ABSOLUTE;
+	top: 201px;
+	left: 574px;
 }
+
 p#csv_upload_failed {
-    margin-top: 79px !important;
->>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
+	margin-top: 79px !important;
 }
-
-
-/* Bulk Work order */
-#bulk_workorder_container{
-	background-color: #eaeae8a9 !important;
-	border-radius: 3px;
-    height: 500px;
-	text-align: center;
-    margin-top: 90px;
-    width: 600px;
-    margin-left: 396px;
-}
-/* Header */
-.bulk_workorder_container__header{
-    
-	position: relative;
-	top: 40px;
-}
-
-/* Choose file */
-.bulk_workorder_container__choose_bulk_file{
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	top: 250px;
-}
-.bulk_workorder_container__choose_bulk_file>input{
-	background-color: transparent;
-	width: 0;
-	opacity: 0;
-	z-index:-1;
-}
-.bulk_workorder_label,#bulk_workorder_submit{
-	background-color: #00A3FF;
-	border-radius: 26px;
-	cursor: pointer;
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 46px;
-	/* margin-top: -222px !important; */
-    width: 135px;
-}
-/* CSV upload Failed Message */
-span.sunny {
-    position: absolute;
-    top: 311px;
-    left: 480px;
-}
-#bulk_workorder_submit{
-	border: none;
-	display: none;
-	position: absolute !important;
-    top: 382px;
-    left: 627px;
-}
-/* Selected File Name */
-#bulk_workder_selected_File_Name{
-	cursor: pointer;
-	background-color: #E34BB9;
-	border-radius: 3px;
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px;
-	position: absolute;
-	top: 259px;
-    left: 594px;
-	width: 200px;
-	min-height: 30px;
-	overflow-wrap: break-word;
-}
-
-
-/* Close selected Bulk order File */
-#close_bulk_workorder{
-	/* display: none !important; */
-	/* background-color: red; */
-	border-radius: 50%;
-	/* color: #fff; */
-	cursor: pointer;
-	display: none;
-	align-items: center;
-	justify-content: center;
-	font-size: 25px;
-	position: absolute;
-	top: 254px;
-    left: 798px;
-	height: 25px;
-	width: 25px;
-}
-/* bulk_order file upload success */
-p.bulk_workorder_success {
-    position: ABSOLUTE;
-    top: 201px;
-    left: 574px;
-}
-p#csv_upload_failed {
-    margin-top: 79px !important;
-}
-
-
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px) {
 	.container {
@@ -2058,6 +1944,7 @@ p#csv_upload_failed {
 		margin: 59px 140px 0 9px !important;
 		height: 1075px !important;
 	}
+
 	#workorder_form {
 		margin-left: -12px !important;
 	}
@@ -2088,9 +1975,11 @@ p#csv_upload_failed {
 	.select2-selection--single {
 		width: 20rem !important;
 	}
+
 	[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
 		right: -7.1rem !important;
 	}
+
 	span.select2-dropdown.select2-dropdown--above {
 		width: 319px !important;
 	}
@@ -2113,410 +2002,392 @@ p#csv_upload_failed {
 	}
 
 	/* === Add more plus icon display in small screen === */
-	.bxs-plus-square
-	  {
-	      display: block !important;
-	      font-size: 49px;
-	      position: absolute !important;
-	      top: -59px;
-	      right: -11px;
-      }
-    div#section_userform
-	  {
-         margin-left: -12px;
-	     padding-top: 12px;
-      }
-/* === Legal and Trade Name drop down === */
-    .select2-dropdown--below
-	 {
-	    width: 319px !important;
-     }
-/* ==== WORKSHEET FORM ==== */
-    #worksheet_Form
-	{
-	  height: 959px !important;
-    }
-    #section_userform1>#span
-	{
-	  padding-top: 18px;
-	  margin: 81px 0 20px 33px !important;
-    }
-    #section_userform1
-	{
-	  margin-left: -13px !important;
-    }
-/* --- Start and End Time -- */
-   .input-group-text
-   {
-     position: relative;
-     top: -38px;
-     right: -279px;
-     height: 38px;
-     z-index: 9999;
-   }
-   #datetimepicker
-   {
-	 width: 318px !important;
-	 margin-bottom: -32px;
-   }
-   #datetimepickerend
-   {
-	 width: 315px !important;
-   }
-
-/* ==== CLIENT FORM ==== */
-   #clientsubmit
-   {
-	 margin-left: 4px !important;
-	 width: 100% !important;
-   }
-  .uploadClientCSV
-  {
-	 top : 25px;
-	 left: 52px;
-  }
-  .hr
-   {
-	 display: none !important;
-   }
-  .hr1
-   {
-	 display: none !important;
-   }
-  .or
-   {
-	 top: -7px;
-	 right: 174px;
-   }
-   #section_clientform
-    {
-	 height: 975px !important;
-	 margin-top: 80px !important;
-    }
-   #section_clientform span
-    {
-    padding-top: 21px !important;
-    }
-   #clientFormSubmit
-   {
-	margin-left: 111px !important;
-   }
-
-/* === Client CSV file Submit === */
-  .uploadBtn
-   {
-     left: -15px !important;
-     top: 129px !important;
-   }
-/* === Client CSV selected file === */
-#section_clientform span{
-	margin: 5px 0px 12px -3px;
-}
-/* === Dis Select Client CSV selected file === */
-#dis_Select_File{
-	top: 79px;
-	left: 228px;
-}
-/* ==== USER FORM ==== */
-#user_Form,#user_Form>#section_userform{
-	height: 1370px !important;
-
-}
-#usersubmit {
-    margin-top: 36px !important;
-}
-/* --- Header --- */
-#user_Form span{
-	margin: 6px 0px -7px 19px !important;
-}
-/* --- Password Eye Icon --- */
-/* .fa-eye{
-	position: absolute !important;
-	right: 13px !important;
-	top: 8px !important;
-} */
-/* --- Password Input Field --- */
-#password4{
-	width: 19.70rem !important;
-}
-/* -- Type of User Input Field --- */
-#usertypeid{
-	width: 19.71rem !important;
-}
-/* === VIEW USER FORM === */
-#view_User_Table{
-	display: block !important;
-}
-#section_viewuser{
-	margin-top: 82px;
-}
-.section_viewuser__header
-{
-	display: block;
-	background-color: #0047FF;
-	color: #fff;
-	height: 45px;
-	text-align: center;
-	padding: 12px 0px;
-	width: 100%;
-}
-/* --- Table Header Background-color --- */
-#view_User_Table>thead th{
-	font-size: 12px !important;
-	background-color: #0047FF !important ;
-	text-align: center;
-	width: 600px;
-}
-#view_User_Table>tbody td{
-	font-size: 12px !important;
-}
-#view_User_Table>tbody td>.viewdetail{
-	background-color: transparent !important;
-	color: #0047FF !important;
-}
-/* === View User === */
-.user_details_lg{
-	display: none !important;
-}
-#view_User_Table_lg{
-	display: none !important;
-}
-/* --- Small Screen --- */
-.user_details_sm{
-  display: block !important;
-}
-.user_details_sm{
-	display: bock !important;
-	background-color: #eaeae8e0 !important;
-	min-height: 500px;
-	margin-left: -15px;
-	width: 109%;
-}
-#view_user{
-	height: 573px !important;
-}
-/* --- Profile Picture --- */
-.user_details_sm__profile_Picture{
-	background-color: green;
-	border-radius: 50%;
-	height: 100px;
-	position: relative;
-	left: 123px;
-	top: 23px;
-	width: 100px;
-}
-/* --- User Name --- */
-.user_details_sm__user_Name{
-	min-height: 30px;
-	width: 101px;
-	text-align: center;
-	margin: 35px 0 0 126px;
-	word-wrap: break-word;
-}
-/* --- View User Table --- */
-.user_details_sm__table{
-	display: block !important;
-}
-.user_details_sm__table>tbody>tr{
-	text-align: left;
-}
-.user_details_sm__table>tbody>tr>td{
-    padding-left: 18px;
-    overflow-wrap: break-word;
-    padding-top: 16px;
-}
 	.bxs-plus-square {
 		display: block !important;
 		font-size: 49px;
 		position: absolute !important;
 		top: -59px;
-		right: -10px;
+		right: -11px;
 	}
 
+	div#section_userform {
+		margin-left: -12px;
+		padding-top: 12px;
+	}
+	/* === Legal and Trade Name drop down === */
+	.select2-dropdown--below {
+		width: 319px !important;
+	}
+	/* ==== WORKSHEET FORM ==== */
+	#worksheet_Form {
+		height: 959px !important;
+	}
 
-.user_details_sm__profile_Picture{
-	margin-top: 50px;
+	#section_userform1 > #span {
+		padding-top: 18px;
+		margin: 81px 0 20px 33px !important;
+	}
+
+	#section_userform1 {
+		margin-left: -13px !important;
+	}
+	/* --- Start and End Time -- */
+	.input-group-text {
+		position: relative;
+		top: -38px;
+		right: -279px;
+		height: 38px;
+		z-index: 9999;
+	}
+
+	#datetimepicker {
+		width: 318px !important;
+		margin-bottom: -32px;
+	}
+
+	#datetimepickerend {
+		width: 315px !important;
+	}
+
+	/* ==== CLIENT FORM ==== */
+	#clientsubmit {
+		margin-left: 4px !important;
+		width: 100% !important;
+	}
+
+	.uploadClientCSV {
+		top: 25px;
+		left: 52px;
+	}
+
+	.hr {
+		display: none !important;
+	}
+
+	.hr1 {
+		display: none !important;
+	}
+
+	.or {
+		top: -7px;
+		right: 174px;
+	}
+
+	#section_clientform {
+		height: 975px !important;
+		margin-top: 80px !important;
+	}
+
+		#section_clientform span {
+			padding-top: 21px !important;
+		}
+
+	#clientFormSubmit {
+		margin-left: 111px !important;
+	}
+
+	/* === Client CSV file Submit === */
+	.uploadBtn {
+		left: -15px !important;
+		top: 129px !important;
+	}
+	/* === Client CSV selected file === */
+	#section_clientform span {
+		margin: -20px 0px 30px -3px;
+	}
+	/* === Dis Select Client CSV selected file === */
+	#dis_Select_File {
+		top: 79px;
+		left: 228px;
+	}
+	/* ==== USER FORM ==== */
+	#user_Form, #user_Form > #section_userform {
+		height: 1370px !important;
+	}
+
+	#usersubmit {
+		margin-top: 36px !important;
+	}
+	/* --- Header --- */
+	#user_Form span {
+		margin: 6px 0px -7px 19px !important;
+	}
+	/* --- Password Eye Icon --- */
+	.fa-eye {
+		position: absolute !important;
+		right: 13px !important;
+		top: 8px !important;
+	}
+	/* --- Password Input Field --- */
+	#password4 {
+		width: 19.70rem !important;
+	}
+	/* -- Type of User Input Field --- */
+	#usertypeid {
+		width: 19.71rem !important;
+	}
+	/* === VIEW USER FORM === */
+	#view_User_Table {
+		display: block !important;
+	}
+
+	#section_viewuser {
+		margin-top: 82px;
+	}
+
+	.section_viewuser__header {
+		display: block;
+		background-color: #0047FF;
+		color: #fff;
+		height: 45px;
+		text-align: center;
+		padding: 12px 0px;
+		width: 100%;
+	}
+	/* --- Table Header Background-color --- */
+	#view_User_Table > thead th {
+		font-size: 12px !important;
+		background-color: #0047FF !important;
+		text-align: center;
+		width: 600px;
+	}
+
+	#view_User_Table > tbody td {
+		font-size: 12px !important;
+	}
+
+		#view_User_Table > tbody td > .viewdetail {
+			background-color: transparent !important;
+			color: #0047FF !important;
+		}
+	/* === View User === */
+	.user_details_lg {
+		display: none !important;
+	}
+
+	#view_User_Table_lg {
+		display: none !important;
+	}
+	/* --- Small Screen --- */
+	.user_details_sm {
+		display: block !important;
+	}
+
+	.user_details_sm {
+		display: bock !important;
+		background-color: #eaeae8e0 !important;
+		min-height: 500px;
+		margin-left: -15px;
+		width: 109%;
+	}
+
+	#view_user {
+		height: 573px !important;
+	}
+	/* --- Profile Picture --- */
+	.user_details_sm__profile_Picture {
+		background-color: green;
+		border-radius: 50%;
+		height: 100px;
+		position: relative;
+		left: 123px;
+		top: 23px;
+		width: 100px;
+	}
+	/* --- User Name --- */
+	.user_details_sm__user_Name {
+		min-height: 30px;
+		width: 101px;
+		text-align: center;
+		margin: 35px 0 0 126px;
+		word-wrap: break-word;
+	}
+	/* --- View User Table --- */
+	.user_details_sm__table {
+		display: block !important;
+	}
+
+		.user_details_sm__table > tbody > tr {
+			text-align: left;
+		}
+
+			.user_details_sm__table > tbody > tr > td {
+				padding-left: 18px;
+				overflow-wrap: break-word;
+				padding-top: 16px;
+			}
+
+	.user_details_sm__profile_Picture {
+		margin-top: 50px;
+	}
+
+		.user_details_sm__profile_Picture > img {
+			height: 89px;
+			width: 96px;
+			margin-top: 7px;
+			margin-left: 3px;
+			border-radius: 50%;
+		}
+
+	.user_data {
+		padding: 21px 26px 0px 5px !important;
+		overflow-wrap: break-word;
+		width: 50px;
+	}
+
+	.user_dots {
+		padding-left: 5px !important;
+		/* color: green; */
+	}
+	/* === VIEW CLIENT === */
+	#clienttable {
+		display: none !important;
+		overflow-x: auto;
+	}
+
+	/* --- View Client Section ---  */
+	#section_clientlist {
+		margin-top: 82px;
+	}
+
+	/* --- View Client Header --- */
+	div#section_clientlist__header {
+		display: flex;
+		background: #000AFF;
+		color: #fff;
+		height: 41px;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 12px;
+	}
+	/* --- Show Entries --- */
+
+	div.dataTables_length select {
+		width: 57px !important;
+		display: inline-block;
+		padding-left: 17px !important;
+		position: relative !important;
+	}
+
+	div#clienttable_length {
+		font-size: 12px !important;
+		position: relative !important;
+		top: 4px !important;
+		left: -62px !important;
+	}
+
+	#clienttable_filter {
+		position: relative !important;
+		top: -42px !important;
+		right: -171px !important;
+		font-size: 12px !important;
+		width: 100px !important;
+	}
+
+	input.form-control.input-sm {
+		width: 117px !important;
+	}
+	/* --- Pagination -- */
+	div#clienttable_info {
+		font-size: 12px;
+		position: relative !important;
+		top: 564px;
+		left: 9px;
+		width: 100px;
+	}
+
+	div#clienttable_paginate {
+		/* display: none; */
+		position: relative !important;
+		margin-left: -488px;
+	}
+
+	.pagination {
+		color: #000 !important;
+		font-size: 12px;
+		position: relative;
+		right: -23px;
+		top: 546px;
+		padding-left: 702px !important;
+	}
+
+	/* --- View Client Table --- */
+	.view_Client_Container {
+		display: block;
+		/* background-color: yellow; */
+		min-height: 480px;
+		overflow: hidden;
+		margin-top: -81px;
+		width: 100%;
+	}
+	/* --- Table --- */
+	.view_Client_Container_table {
+		/* overflow-x: auto; */
+		overflow-x: auto;
+		display: block;
+	}
+		/* --- Table Column Header ---- */
+		.view_Client_Container_table > thead > tr > th {
+			background-color: #000AFF !important;
+			font-size: 13px !important;
+			padding: 4px;
+		}
+		/* --- Table Data(td) --- */
+		.view_Client_Container_table > tbody > tr > td {
+			font-size: 12px !important;
+			padding: 13px !important;
+		}
+	/* === Previous and Next Button in view client === */
+	.pagination > li > a {
+		padding-right: 10px;
+	}
+
+	/* === CSV File upload Status === */
+	.text-success {
+		margin-top: 12px !important;
+		margin-left: 16px !important;
+		width: 300px !important;
+	}
+	/* ==== User Form Password Eye Slash === */
+	.fa-eye-slash {
+		margin-left: -50px;
+		position: relative;
+		right: -312px !important;
+		top: -46px !important;
+		cursor: pointer;
+		color: black;
+		vertical-align: text-bottom;
+		line-height: 3.7 !important;
+	}
+
+	.passTypeToggle {
+		height: 0 !important;
+	}
+	/* --- Assign Section --- */
+	#assignedName {
+		position: relative !important;
+		left: 16px !important;
+		list-style-type: none;
+	}
+
+		#assignedName > li {
+			position: relative !important;
+			padding-left: 12px !important;
+			width: 315px !important;
+		}
+
+	span.assign_Close {
+		cursor: pointer;
+		position: absolute !important;
+		top: -10px !important;
+		left: 285px !important;
+	}
+
+	#slct1 {
+		width: 319px !important;
+	}
 }
-  .user_details_sm__profile_Picture>img
-  {
-    height: 89px;
-    width: 96px;
-    margin-top: 7px;
-    margin-left: 3px;
-    border-radius: 50%;
-  }
-  .user_data{
-    padding: 21px 26px 0px 5px !important;
-	overflow-wrap: break-word;
-	width: 50px;
-  }
-  .user_dots{
-  padding-left: 5px !important;
-  /* color: green; */
-  }
-  /* === VIEW CLIENT === */
-  
-
-  /* --- View Client Section ---  */
 
 
-  /* --- View Client Header --- */
-
-  /* --- Show Entries --- */
-
-
-/* --- View Client Table --- */
-
-/* --- Table --- */
-
-/* --- Table Column Header ---- */
-
-/* --- Table Data(td) --- */
-
-/* === Previous and Next Button in view client === */
-
-
-/* === CSV File upload Status === */
-.text-success {
-    margin-top: 12px !important;
-    margin-left: 16px !important;
-    width: 300px !important;
-}
-/* ==== User Form Password Eye Slash === */
-/* .fa-eye-slash{
-	margin-left: -50px;
-    position: relative;
-    right: -312px !important;
-    top: -46px !important;
-    cursor: pointer;
-    color: black;
-    vertical-align: text-bottom;
-    line-height: 3.7 !important;
-} */
-.passTypeToggle{
-	height: 0 !important;
-}
-/* --- Assign Section --- */
-#assignedName {
-    position: relative !important;
-    left: 16px !important;
-    list-style-type: none;
-}
-#assignedName>li{
-	position: relative !important;
-	padding-left: 12px !important;
-	width: 315px !important;
-}
-span.assign_Close{
-    cursor: pointer;
-    position: absolute !important;
-	top: -10px !important;
-    left: 285px !important;
-    
-}
-
-#slct1 {
-    width: 319px !important;
-}
-/* === Workorder Form === */
-#workorder_no ,#type_of_work,#partner_in_charge,input#date_picker,input#date_picker1,input#date_picker2,input#date_picker3,textarea#remarks{
-
-	margin-left: 235px !important;
-}
-
-input#date_picker,#partner_in_charge,input#date_picker1,input#date_picker2,input#date_picker3 {
- 
-  margin-top: 5px !important;
-}
-
-/* ====Worksheet Form===== */
-
-input#clientname,textarea#w3review,input#WorkGivenBy  {
-    margin-left: 234px !important;
-    margin-top: 1px !important;
-
-}
-
-
-input#WorkGivenBy {
-    
-        margin-top: 2px !important;
-}
-
-div#datetimepickerend,#datetimepicker {
-    margin-left: 208px !important;
-    top: 20px;
-	width: 309px !important;
-}
-
-input#formsubmit {
-    margin-left: 369px !important;
-}
-.input-group-append {
-    margin-left: 28px;
-}
-div#endtime {
-    margin-top: 35px !important;
-}
-
-/* =====Client Form==== */
-
-.col-sm-8.clientInput {
-    margin-left: -29px !important;
-    top: 35px;
-}
-input#clientname_legal{
-	margin-left: 26px !important;
-}
-label.clientLabel {
-    margin-top: 31px !important;
-    margin-bottom: 3px !important;
-}
-/* === Client form submit button === */
-#clientFormSubmit{
-	margin-top: 60px !important;
-}
-
-/* =====user form===== */
-
-div#user {
-    margin-left: 1px !important;
-}
-
-input#profilephoto {
-    margin-left: 239px !important;
-}
-
-input#username {
-    margin-left: 236px !important;
-    margin-top: 0px !important;
-}
-
-input#employeeid {
-    margin-left: 234px !important;
-    margin-top: 0px !important;
-}
-
-input#balunandno,input#personalmail,input#officialemail,input#mobile,input#password4,input#blood {
-    margin-left: 237px !important;
-    margin-top: 0px !important;
-}
-
-div#btnsubmit {
-    margin-left: 10px !important;
-    margin-top: 30px;
-}
-
-i#fa-passicon {
-    margin-top: -25px !important;
-    right: 20;
-    /* margin-right: -166px !important; */
-}
-span.passmsg {
-   
-    padding-top: 91px !important;
-}
-
-}
 
 /* =========================================   KAMAL CODE END   ================================= */
