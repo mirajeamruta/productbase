@@ -90,9 +90,15 @@
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="start_time"
+<<<<<<< HEAD
                                 data-target="#datetimepicker" placeholder="Enter Start Time" required  />
                             <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+=======
+                                data-target="#datetimepicker" placeholder="Enter Start Time" id="start_time"  />
+                            <div class="input-group-append"  data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-clock-o" id="startTimeBtn"></i></div>
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                             </div>
                         </div>
                     </div>
@@ -109,9 +115,14 @@
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepickerend" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input" name="End_time"
+<<<<<<< HEAD
                                 data-target="#datetimepickerend" placeholder="Enter End Time" required/>
                             <div class="input-group-append" data-target="#datetimepickerend"
                                 data-toggle="datetimepicker">
+=======
+                                data-target="#datetimepickerend" placeholder="Enter End Time"/>
+                            <div class="input-group-append" data-target="#datetimepickerend">
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
                             </div>
                         </div>
@@ -169,6 +180,7 @@
             </script>
 
             <script>
+<<<<<<< HEAD
             $('#datetimepicker').datetimepicker({
                 format: 'hh:mm:ss a',
             });
@@ -185,14 +197,33 @@
 
 
 
+=======
+
+            // Start and End Time
+            // $('#datetimepicker').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerend').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+           
+            // // Break Time
+            // $('#datetimepickerbreak1').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerbreak2').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // </script>
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
             <script type="text/javascript">
             function onselectingdate() {
                 const myTimeout = setTimeout(timecheck, 10000);
             }
 
             function timecheck() {
-                //alert("yyyesss");
-                var date = document.getElementById("date_time_set").value;
+                // alert("yyyesss");
+                var date = document.getElementById("date_picker").value;
                 var starttime = document.getElementById("starttime").value;
                 //alert('start time is ' + starttime);
                 var endtime = document.getElementById("endtime").value;
@@ -260,5 +291,18 @@
                 });
             }
 
+<<<<<<< HEAD
             
             </script>
+=======
+           
+            </script>
+
+
+<script>
+  document.getElementById('startTimeBtn').addEventListener('click',function()=>{
+    alert('Hel')
+   })
+
+</script>
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40

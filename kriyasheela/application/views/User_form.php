@@ -143,6 +143,7 @@
             </div>
 
             <div class="row mb-3">
+<<<<<<< HEAD
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8" data-placeholder="Password">
                     <input type="password" id="password4" name="password" placeholder="Password"
@@ -153,6 +154,16 @@
                 </div>
                 <span class="message" id="message" style="margin: -21px 295px;"></span>
             </div>
+=======
+            <label for="inputPassword3" class="col-sm-4"> Password </label>
+        <div class="col-sm-8" data-placeholder="Password">
+            <input type="password" id="password4" name="password" placeholder="Password" onkeyup='checkPasswordLength(this.value)'>
+            <span class='passTypeToggle' title="Show" >
+            <i class="fa-solid fa-eye"style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>
+        </div>
+        <span class="message" id="message" style="margin: -21px 295px;" ></span>
+    </div>
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
             <!-- <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8">

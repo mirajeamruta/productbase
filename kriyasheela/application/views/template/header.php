@@ -10,10 +10,16 @@
 
     <!-- For Server  -->
     <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
+<<<<<<< HEAD
 
     <!-- For Local   -->
     <link rel="stylesheet" href="style.css">
 
+=======
+    <!-- Local -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 

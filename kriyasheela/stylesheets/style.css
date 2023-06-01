@@ -1,3 +1,5 @@
+
+
 h1 {
 	font-family: "Droid Sans", arial, serif;
 }
@@ -1507,12 +1509,16 @@ input[type="file"]::file-selector-button:hover {
 	width: 700px !important;
 	margin-left: 3%;
 }
+<<<<<<< HEAD
 /* === Previous and Next Button in view client === */
 .pagination > li > a {
 	color: red !important;
 }
 
 #section_userform1 > #span {
+=======
+#section_userform1>#span{
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 	margin-left: 248px !important;
 }
 
@@ -1556,7 +1562,11 @@ input[type="file"]::file-selector-button:hover {
 }
 
 /*=== View Workorder Header Text ===  */
+<<<<<<< HEAD
 #section_viewworkorder > h2 {
+=======
+#section_viewworkorder>h2{
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 	margin-left: 46px;
 }
 
@@ -1707,11 +1717,20 @@ input[type="file"]::file-selector-button:hover {
 /* --- workorder Form Assign to section --- */
 #assignedName{
 	position: relative;
-    left: 308px;
+    left: 292px;
     list-style-type: none;
+	/* text-align: center; */
+	
 }
 #assignedName>li{
-	padding-top: 7px;
+	background: #19A7CE;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 20px;
+	width: 523px;
+	padding: 2px 0px 0px 20px;
+	position:relative;
+	margin-top: 10px;
 }
 /* --- Assign Delete Button disable --- */
 .assignDeleteBtn{
@@ -1721,9 +1740,9 @@ input[type="file"]::file-selector-button:hover {
 span.assign_Close {
 	cursor: pointer;
     position: absolute;
-    font-size: 22px;
-    left: 361px;
-    font-size: 22px;
+    font-size: 36px;
+    left: 483px;
+    top: -9px;
 }
 .Assign_Close:hover{
 	color: red;
@@ -1737,9 +1756,192 @@ span.assign_Close {
 }
 /* --- Add More Button --- */
 #btnAdd{
+	position: absolute;
+	left: 113px;
+	width: 111px;
+	z-index: 99999999999;
+}
+
+
+
+
+
+select#slct1 {
+    width: 522px;
+}
+
+/* --- Assigned Name box(Not visible) --- */
+select#selected_Assigned_Name {
+    border: none;
+    background: transparent;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+/* Edit Button in View Workorder */
+.bxs-message-square-edit{
+	display: block;
+	cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 285px;
+    right: 135px;
+}
+
+
+.bxs-message-square-edit>p{
+	display: inline;
+    font-size: 16px !important;
+    padding-left: 5px;
+    position: relative;
+    top: -2px;
+}
+/* Save Button in View Workorder  */
+
+#save_workorder_btn {   
+    background: transparent;
+    border: none;
+	color: #fff;
+    display: none;
+    position: absolute;
+    top: 287.5px;
+    right: 135px;
+}
+#save_workorder_btn:focus{
+	outline: none;
+}
+.bxs-save{
+	font-size: 19px;
+}
+#save_workorder_btn>span{
+	font-size: 15px !important;
 	position: relative;
+<<<<<<< HEAD
 	/* left: 106px; */
 	left: 9px;
+=======
+	top: -2px;
+	left: 3px;
+}
+
+/* View Workorder Form - Editable */
+
+/* Target Date */
+input.view_workorder_editable {
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+input.view_workorder_editable:focus{
+	outline: none;
+}
+
+/* edited data */
+#targeted_date_data{
+	
+	
+}
+
+/* Bulk Work order */
+#bulk_workorder_container{
+	background-color: #eaeae8a9 !important;
+	border-radius: 3px;
+    height: 500px;
+	text-align: center;
+    margin-top: 90px;
+    width: 600px;
+    margin-left: 396px;
+}
+/* Header */
+.bulk_workorder_container__header{
+    
+	position: relative;
+	top: 40px;
+}
+
+/* Choose file */
+.bulk_workorder_container__choose_bulk_file{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 250px;
+}
+.bulk_workorder_container__choose_bulk_file>input{
+	background-color: transparent;
+	width: 0;
+	opacity: 0;
+	z-index:-1;
+}
+.bulk_workorder_label,#bulk_workorder_submit{
+	background-color: #00A3FF;
+	border-radius: 26px;
+	cursor: pointer;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	/* margin-top: -222px !important; */
+    width: 135px;
+}
+/* CSV upload Failed Message */
+span.sunny {
+    position: absolute;
+    top: 311px;
+    left: 480px;
+}
+#bulk_workorder_submit{
+	border: none;
+	display: none;
+	position: absolute !important;
+    top: 382px;
+    left: 627px;
+}
+/* Selected File Name */
+#bulk_workder_selected_File_Name{
+	cursor: pointer;
+	background-color: #E34BB9;
+	border-radius: 3px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	position: absolute;
+	top: 259px;
+    left: 594px;
+	width: 200px;
+	min-height: 30px;
+	overflow-wrap: break-word;
+}
+
+
+/* Close selected Bulk order File */
+#close_bulk_workorder{
+	/* display: none !important; */
+	/* background-color: red; */
+	border-radius: 50%;
+	/* color: #fff; */
+	cursor: pointer;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	font-size: 25px;
+	position: absolute;
+	top: 254px;
+    left: 798px;
+	height: 25px;
+	width: 25px;
+}
+/* bulk_order file upload success */
+p.bulk_workorder_success {
+    position: ABSOLUTE;
+    top: 201px;
+    left: 574px;
+}
+p#csv_upload_failed {
+    margin-top: 79px !important;
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 }
 
 
@@ -2196,16 +2398,25 @@ p#csv_upload_failed {
 }
 /* --- Assign Section --- */
 #assignedName {
-    position: relative;
-    left: 30px;
+    position: relative !important;
+    left: 16px !important;
     list-style-type: none;
+}
+#assignedName>li{
+	position: relative !important;
+	padding-left: 12px !important;
+	width: 315px !important;
 }
 span.assign_Close{
     cursor: pointer;
-    position: absolute;
-    font-size: 22px;
-    left: 274px;
-    font-size: 22px;
+    position: absolute !important;
+	top: -10px !important;
+    left: 285px !important;
+    
+}
+
+#slct1 {
+    width: 319px !important;
 }
 /* === Workorder Form === */
 #workorder_no ,#type_of_work,#partner_in_charge,input#date_picker,input#date_picker1,input#date_picker2,input#date_picker3,textarea#remarks{

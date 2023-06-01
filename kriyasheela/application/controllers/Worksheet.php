@@ -8,7 +8,7 @@ class Worksheet extends CI_Controller
 	/**
 	 * Index Page for this controller.
 	 *
-	 * Maps to the following URL
+	 * Maps to the following URL   
 	 * 		http://example.com/index.php/welcome
 	 *	- or -
 	 * 		http://example.com/index.php/welcome/index
@@ -105,7 +105,12 @@ class Worksheet extends CI_Controller
 
 				$workorder = $this->input->post('workorder');
 				$date = $this->input->post('date');
+<<<<<<< HEAD
 				$formatedDate=date('Y-m-d',strtotime($date));
+=======
+               $formattedDate = date('Y-m-d', strtotime($date));
+				// $date='1999-02-06';
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 				$clientname = $this->input->post('client_name');
 				$Description = $this->input->post('Description');
 
@@ -133,7 +138,11 @@ class Worksheet extends CI_Controller
 					'workorder_no' => $workorder,
 					'employee_name' => $loggedInEmployee,
 					'user_id' => $loggedInUserId,
+<<<<<<< HEAD
 					'date' => $formatedDate,
+=======
+					'date' => $formattedDate,
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 					'work_description' => $Description,
 					//'work_given_by'=>$WorkGiven,
 					'remarks' => $remarks,

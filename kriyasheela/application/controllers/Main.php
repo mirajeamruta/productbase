@@ -111,7 +111,7 @@ class Main extends CI_Controller
             $array['number2'] = str_replace(']', '',    $array['number1']);
             $array['number3'] = str_replace('[', '',    $array['number2']);
             $array['number4'] = explode(',',  $array['number3']);
-
+           
             if (in_array($loggedInUserId, $array['number4'])) {
 
 
@@ -157,7 +157,11 @@ class Main extends CI_Controller
         $data['title'] = 'Balu & Anand, Chartered Accountants';
 
         if (isset($_SESSION['usertype'])) {
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
             $data['usertype'] = $_SESSION['usertype'];
             // echo "if";
 
@@ -209,13 +213,18 @@ class Main extends CI_Controller
 			$balunand_id_no = $this->input->post('balunand_id_no');
 
 			$password =($this->input->post('password'));
+<<<<<<< HEAD
 			$Password=md5($password);
+=======
+			//$Password=md5($password);
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 
 			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
+<<<<<<< HEAD
 			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
 				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
@@ -224,6 +233,16 @@ class Main extends CI_Controller
 
 				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
+=======
+			//if ($this->Main_model->can_login($balunand_id_no, $password)) {
+
+				if ($this->Main_model->can_login($balunand_id_no, $password)) {
+
+				//$record = $this->Main_model->can_login($balunand_id_no, $password);
+				
+				$record = $this->Main_model->can_login($balunand_id_no, $password);
+				
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 				//var_dump($record);
 
 				// echo "<br>";
@@ -305,4 +324,8 @@ class Main extends CI_Controller
 
 		redirect(base_url() . 'Main/login');
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40

@@ -1,7 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+// $fromLocal=localStorage.getItem('name');
+// echo $fromLocal;
 class Workorder extends CI_Controller
 {
+<<<<<<< HEAD
         function workorderform()
         {
                 //http://localhost/tutorial/codeigniter/main/login
@@ -52,6 +55,89 @@ class Workorder extends CI_Controller
                                         $workorder_no = $worknumber['workorder_no'];
                                 //        $type_Of_Work=$worknumber['type_of_work'];
                                         //echo $workorder_no;
+=======
+
+	function workorderform()
+	{
+		//http://localhost/tutorial/codeigniter/main/login
+		$data['title'] = 'CodeIgniter Simple Login Form With Sessions';
+		if ($this->session->userdata('balunand_id_no') == '') {
+			redirect(base_url() . 'main/login');
+		} else {
+			$this->load->model('Workorder_model');
+			$data['name'] = $this->Workorder_model->getClientName();
+			foreach ($data['name']  as $name) {
+				$data['clientname'][] = array(
+					//'workorder_no'=>$userdetails['workorder_no'],
+					'name' => $name['name']
+				);
+			}
+			//   var_dump($data['clientname'] );
+			$data['assign_to'] = $this->Workorder_model->getUsers();
+			// var_dump($data['assign_to'] );
+			foreach ($data['assign_to']  as $assign_to) {
+				$data['assign_to2'][] = array(
+					'user_id' =>  $assign_to['user_id'],
+					'name' =>   $assign_to['name']
+				);
+			}
+			$data['workordernumber'] = $this->Workorder_model->fetch_workorder_data();
+			foreach ($data['workordernumber']  as $worknumber) {
+				$workorder_no =   $worknumber['workorder_no'];
+			}
+			$data['workdata1'] = $workorder_no;
+			$data['workdata2'] = substr($workorder_no, 4);
+			// $data['workdata']
+			// $a['typework']=  $currentyear.$typeofworkorder['prefix'] ;
+			$data['workdata'] =  $data['workdata2'] + 1;
+			//var_dump($data['workdata']);
+			//  type of work
+			$data['typeofworkorder'] = $this->Workorder_model-> getTypeofWork();
+			// foreach ($data['typeofworkorder']  as $typeofworkorder) {
+			// 	$data['typeofworkorderdata'][] = array(
+			// 		'type_of_work_id' => $typeofworkorder['type_of_work_id'],
+			// 		'prefix' => $typeofworkorder['prefix']
+			// 	);
+			// }
+			$this->load->view('template/header');
+			$this->load->view('template/navigation');
+			$this->load->view('Workorder_form', $data);
+			$this->load->view('template/footer');
+		}
+	}
+	public function view_workorder($workidnumber = null)
+	{
+
+		 $data=$this->input->post('data');
+		 echo $data;
+		if ($this->session->userdata('balunand_id_no') == '') {
+			redirect(base_url() . 'main/login');
+		} else {
+			$this->load->model('Workorder_model');
+			$this->load->model('user_model');
+			$loggedInUserId = $this->session->userdata('userId');
+			//  echo $loggedInUserId;
+			$usertype = $this->user_model->getUsersType($loggedInUserId);
+			if ($workidnumber == null) {
+				if ($usertype == 1) {
+					$data['workorderno'] = $this->Workorder_model->getWorkOrderNo();
+					foreach ($data['workorderno'] as $worksheet) {
+						$data['workorderdetails'][] = array(
+							'workorder_no' => $worksheet['workorder_no'],
+							'client_name' => $worksheet['client_name'],
+							'created_on' => $worksheet['created_on'],
+							'assign_to' => $worksheet['assign_to'],
+							'type_of_work' => $worksheet['type_of_work'],
+							'partner_in_charge' => $worksheet['partner_in_charge'],
+							'start_date' => $worksheet['start_date'],
+							'targetted_end_date' => $worksheet['targetted_end_date'],
+							'deadline' => $worksheet['deadline'],
+						);
+						//return;
+					}
+					/// to fetch work order number
+					$data['assignworkorderno'] = $this->Workorder_model->getAssignToWorkOrderNo();
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 
                                         foreach ((array) $workorder_no as $workid) {
                                                 //echo $workid;
@@ -538,6 +624,9 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
 
 		function registerNow()
 	{
+
+ 
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			//$this->form_validation->set_rules('workorder_no', 'Workorder No', 'required');
 			// $this->form_validation->set_rules( 'created_on', 'Created On', 'required' );
@@ -555,6 +644,8 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
 			) {
 				$workorder_no = $this->input->post('workorder_no');
 				$created_on = $this->input->post('created_on');
+				//echo $created_on;
+				//$foratedDate=date('Y-m-d',strtotime($created_on));
 				$client_name = $this->input->post('client_name');
 				$type_of_work = $this->input->post('type_of_work');
 				$partner_in_charge = $this->input->post('partner_in_charge');
@@ -562,24 +653,32 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
 				$targetted_end_date = $this->input->post('targetted_end_date');
 				$deadline = $this->input->post('deadline');
 				$assign_to = $this->input->post('assign_to');
-				$assign_tojson = json_encode($assign_to);
+			
+               $assign_tojson =json_encode($assign_to) ;
+			    // exit;
+              // header('Content-Type: application/json');
+                
+				//exit;
+				//var_dump($assign_tojson);
+			
 				// $assign_to['assign_to'] = array();
 				//    var_dump(  $assign_tojson);
                                 echo json_encode($assign_tojson);
 				//  var_dump(  $assign_to );
 				// return; 
 				//
+			
 				$remarks = $this->input->post('remarks');
 				$data = array(
 					'workorder_no' => $workorder_no,
-					'created_on' => $created_on,
+					'created_on'=>$created_on,
 					'client_name' => $client_name,
 					'type_of_work' => $type_of_work,
 					'partner_in_charge' => $partner_in_charge,
 					'start_date' => $start_date,
 					'targetted_end_date' => $targetted_end_date,
 					'deadline' => $deadline,
-					'assign_to' => $assign_tojson,
+					'assign_to' =>  $assign_tojson,
 					//$data['assign_to'] = array();
 					'remarks' => $remarks,
 					'status' => 'open',
@@ -590,12 +689,16 @@ $data['typeofworkorder'] = $this->Workorder_model->getTypeofWork();
 				$this->load->model('main_model');
 				$this->Workorder_model->insertuser($data);
 
-
-
-
 				$this->session->set_flashdata('success', 'Successfully User Created');
+<<<<<<< HEAD
 				redirect(base_url('Workorder/View_workorder/'. $workorder_no));
+=======
+				redirect(base_url('Workorder/View_workorder'));
+			
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
 			}
 		}
 	}
+
+	
 }

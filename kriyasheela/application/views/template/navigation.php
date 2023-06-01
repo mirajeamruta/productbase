@@ -2,7 +2,11 @@
     <nav class="navbar navbar-expand-lg navbar-fixed-top mb-0 px-0">
         <div class="container-fluid">
             <div class="logo">
+<<<<<<< HEAD
                 <a id="top" href="#"> <img src="<?= ("http://localhost/kriyasheela-p2/kriyasheela/images/ca_logo.png") ?>" width="91"  height="30"></a>
+=======
+                <a id="top" href="#"> <img src="<?= ("http://localhost/kriyasheela-p2/kriyasheela/images/ca_logo.png") ?>" width="91" height="30"></a>
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,10 +84,15 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" id="iconnotify"  href="<?= base_url("Notification_Controller/notification") ?>">
                             Notification
                             <!-- <span>Inbox</span> -->
                    
+=======
+                        <a class="nav-link" href="<?= base_url("Notification_Controller/notification")?>">Notification
+                            <!-- <?php echo  $this->session->userdata('countnotify'); ?> -->
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                         </a>
                         <a href="#" class="" id="iconnotify">
                          <span></span>
@@ -139,6 +148,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link "  href="<?= base_url("Notification_Controller/notification") ?>">
                             Notification
                             <!-- <span>Inbox</span> -->
@@ -149,6 +159,9 @@
                       
                         <!-- <?php echo  $this->session->userdata('countnotify'); ?> -->
                         <!-- <a class="nav-link" href="<?= base_url("Notification") ?>">Notification</a> -->
+=======
+                        <a class="nav-link" href="<?= base_url('Notification_Controller/notification')?>">Notification</a>
+>>>>>>> 8687718e6cfb6b82b75e5e3a2cd0887645ef7c40
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url("Report_Controller/report") ?>">Reports</a>
