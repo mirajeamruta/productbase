@@ -54,7 +54,7 @@
     <!-- For Server  -->
     <!-- <link rel="stylesheet" href="http://172.105.55.147/kriyasheela/stylesheets/style.css"> -->
      <!-- For Local -->
-    <link rel="stylesheet" href="http://localhost/balunand/kriyasheela-p2/kriyasheela/stylesheets/style.css">
+    <link rel="stylesheet" href="http://localhost/kriyasheela-p2/kriyasheela/stylesheets/style.css">
 
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>

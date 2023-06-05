@@ -1,9 +1,12 @@
 <style>
 	.pagination {
 
-		padding-left: 810px;
+		padding-left: 766px;
 
 	}
+	a {
+    margin-left: 6px;
+}
 
 	.col-sm-12 {
 		padding-top: 15px;
@@ -26,6 +29,14 @@
     margin-left: 10px;
 	margin-right: 10px;
     padding-left: 24px;
+}
+
+li#clienttable_previous {
+    margin-right: 8px;
+}
+
+li#clienttable_next {
+    margin-left: 10px;
 }
 </style>
 

@@ -28,27 +28,27 @@
                 <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-4 clientLabel">Trade Name :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="tradename" class="form-control clientLegalName" id="clientname_legal1" placeholder="Trade Name"  required >
+                        <input type="text" name="tradename" class="form-control clientLegalName" id="clientname_legal1" placeholder="Trade Name" >
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Pan :</label>
                     <div class="col-sm-8 clientInput" >
-                        <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN" maxlength="10" pattern="[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}"  required>
+                        <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN" maxlength="10" onblur="ValidatePAN(this);" style="text-transform: uppercase;"  required>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3">  
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">GST :</label>
                     <div class="col-sm-8 clientInput" >
                    
-                        <input type="text" name="gst" id="txtGSTNumber" class="form-control" id="gst" placeholder="GST" MaxLength="15" onclick="ValidateGSTNumber()">
+                        <input type="text" name="gst" id="txtGSTNumber" class="form-control" id="" placeholder="GST" MaxLength="15" style="text-transform: uppercase;"  onblur="ValidateGSTNumber(this);">
                         <span id="lblError" class="error" style="font-size: 13px; font-family: Arial; color: Red; margin-top: 4px;margin-left: -320px;"></span>
                     </div>
                 </div>
                 <div class="row mb-3" style="margin-top: -26px;">
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Tan :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="tan" id="txtTANNumber" class="form-control" id="gst" placeholder="TAN" MaxLength="10" onclick="ValidateTANNumber()">
+                        <input type="text" name="tan" id="txtTANNumber" class="form-control" id="" placeholder="TAN" MaxLength="10" style="text-transform: uppercase;" onclick="ValidateTANNumber()">
                         <span id="lblError1" class="error1" style="font-size: 13px; font-family: Arial; color: Red; margin-top: 4px;margin-left: -320px;"></span>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div class="row mb-3">
                     <label for="inputPassword3" class="col-sm-4 clientLabel">Person Incharge :</label>
                     <div class="col-sm-8 clientInput">
-                        <input type="text" name="person_incharge" id="person_incharge" class="form-control" id="gst" placeholder="Person Incharge" required>
+                        <input type="text" name="person_incharge" id="person_incharge" class="form-control" size="50" id="gst" placeholder="Person Incharge" required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -127,7 +127,7 @@
                 </div> -->
 
                 <!-- <p class="file-upload1">Please Upload Client CSV File</p> -->
-                <input type="submit" name="submit" value="Submit" class="btn btn-info uploadBtn" id="clientCSVSubmit" required />
+                <input type="submit" name="submit" value="Submit" class="btn btn-info uploadBtn" id="clientCSVSubmit"  />
                 <label class="uploadClientCSV" for="chooseFile" > Upload Client CSV File </label>
                 <!-- Selected File Name  -->
                <p id='selectedFileName'><span id="fileName"></span>
@@ -211,6 +211,27 @@ $('#chooseFile').bind('change', function() {
 </script>
 
  
+<!-- Pan Validation -->
+<script>
+
+function ValidatePAN() { 
+  var Obj = document.getElementById("inputPassword3");
+        if (Obj.value != "") {
+            ObjVal = Obj.value;
+            var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+            if (ObjVal.search(panPat) == -1) {
+                alert("Invalid Pan No format should be(AAAAA2345A)");
+                // Obj.focus();
+                return false;
+            }
+          else
+            {
+              alert("Valid Pan No");
+              }
+        }
+  } 
+
+</script>
 
 
 <!-- Aadhar validation  -->
@@ -297,27 +318,75 @@ $('#clientname_legal1').keydown(function (e) {
 
 
 <!-- gst validation -->
-<script type="text/javascript">
-    function ValidateGSTNumber() {
-        var gstNumber = document.getElementById("txtGSTNumber").value;
-        var lblError = document.getElementById("lblError");
-        lblError.innerHTML = "";
-        var expr = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
-        if (!expr.test(gstNumber)) {
-            lblError.innerHTML = "Invalid GST Number.";
+
+<script>
+function ValidateGSTNumber() { 
+  var Obj = document.getElementById("txtGSTNumber");
+        if (Obj.value != "") {
+            ObjVal = Obj.value;
+            var expr = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+            if (ObjVal.search(expr) == -1) {
+                alert("Invalid GST No format should be(99AAAAA9999A9A)");
+                // Obj.focus();
+                return false;
+            }
+          else
+            {
+              alert("Valid GST No");
+              }
         }
-    }
+  }
+</script>
+
+<!-- TAN validation -->
+
+
+<script>
+function ValidateTANNumber() { 
+  var Obj = document.getElementById("txtTANNumber");
+        if (Obj.value != "") {
+            ObjVal = Obj.value;
+            var expr = /(?:(?=(^[a-zA-Z]{5}\d{4}[a-zA-Z]{1}$))|(?=(^[a-zA-Z]{4}[0-9]{5}[a-zA-Z]{1}?$)))/;
+            if (ObjVal.search(expr) == -1) {
+                alert("Invalid TAN No format should be(AAAAA9999A9A)");
+                // Obj.focus();
+                return false;
+            }
+          else
+            {
+              alert("Valid TAN No");
+              }
+        }
+  }
 </script>
 
 
-<script type="text/javascript">
-    function ValidateTANNumber() {
-        var tanNumber = document.getElementById("txtTANNumber").value;
-        var lblError1 = document.getElementById("lblError1");
-        lblError1.innerHTML = "";
-        var expr = /(?:(?=(^[a-zA-Z]{5}\d{4}[a-zA-Z]{1}$))|(?=(^[a-zA-Z]{4}[0-9]{5}[a-zA-Z]{1}?$)))/gmi
-        if (!expr.test(tanNumber)) {
-            lblError1.innerHTML = "Invalid TAN Number.";
-        }
+<!-- validation for person incharge -->
+
+
+<script>
+
+$(function() {
+
+$('#person_incharge').keydown(function (e) {
+
+  if (e.shiftKey || e.ctrlKey || e.altKey) {
+  
+    e.preventDefault();
+    
+  } else {
+  
+    var key = e.keyCode;
+    
+    if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+    
+      e.preventDefault();
+      
     }
+
+  }
+  
+});
+
+});
 </script>

@@ -51,6 +51,15 @@ class Worksheet extends CI_Controller
 
 			$data['workGiven'] = $this->Worksheet_model->getUsers();
 
+			$data['typeofworkorder'] = $this->Worksheet_model->getTypeofWork();
+				foreach ($data['typeofworkorder'] as $typeofworkorder) {
+					$data['typeofworkorderdata'][] = array(
+						'type_of_work_id' => $typeofworkorder['type_of_work_id'],
+						'type_of_work' => $typeofworkorder['type_of_work'],
+						'prefix' => $typeofworkorder['prefix']
+					);
+				}
+
 			foreach ($data['workorder'] as $workId) {
 
 				$array['number1'] = str_replace('"', '',  $workId['assign_to']);
@@ -104,6 +113,7 @@ class Worksheet extends CI_Controller
 				//echo "true";
 
 				$workorder = $this->input->post('workorder');
+				$typeofwork= $this->input->post('type_of_work');
 				$date = $this->input->post('date');
 				$formatedDate=date('Y-m-d',strtotime($date));
 				$clientname = $this->input->post('client_name');
@@ -131,6 +141,7 @@ class Worksheet extends CI_Controller
 
 				$data = array(
 					'workorder_no' => $workorder,
+					'type_of_work'=> $typeofwork,
 					'employee_name' => $loggedInEmployee,
 					'user_id' => $loggedInUserId,
 					'date' => $formatedDate,
@@ -252,6 +263,7 @@ class Worksheet extends CI_Controller
 				//echo "www";
 				$data['workesheetdata'][] = array(
 					'workorder_no' => $worksheet['workorder_no'],
+					'type_of_work' => $worksheet['type_of_work'],
 					'client_name' => $worksheet['client_name'],
 					'date' => $worksheet['date'],
 					'work_description' => $worksheet['work_description'],

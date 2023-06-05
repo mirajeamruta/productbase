@@ -23,9 +23,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php
+	      <?php
 			if (count($userdetailsdata) > 0) {
-				foreach ($userdetailsdata as $row) {
+                $userdetail=array_reverse($userdetailsdata);
+				foreach ($userdetail as $row) {
 			?>
 					<tr>
 						<td><?php echo $row['name']; ?> </td>

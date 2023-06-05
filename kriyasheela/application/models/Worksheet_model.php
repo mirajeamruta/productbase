@@ -54,6 +54,14 @@ class Worksheet_model extends CI_Model
 		return $query->row();
 	}
 
+	public function getTypeofWork()
+	{
+		$query = $this->db->query('SELECT * FROM tbl_typeofwork');
+
+		return $query->result_array();
+	}
+
+
 
 	public function getWorkOrderClientName($id)
 	{

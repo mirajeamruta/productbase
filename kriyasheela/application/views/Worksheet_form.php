@@ -19,6 +19,21 @@
 
             <span id="span">Worksheet Form </span>
             <form class="" method="post" autocomplete="off" action="<?= base_url('Worksheet/createWorksheet'); ?>">
+            <div class="row mb-3">
+                    <label for="type_of_work" class="col-sm-4">Type of Work :</label>
+                    <div class="col-sm-8">
+                        <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="classic"
+                            aria-describedby="type_of_work" onchange="typeofwork();">
+                            <option value="">Select</option>
+                            <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
+                            <option value="<?= $typeofworkorders['type_of_work_id'];?>">
+                                <?= $typeofworkorders['type_of_work']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+
+                    </div>
+                </div>
+
                 <!-- <div class="row mb-3">
     						<label for="workorder_no" class="col-sm-4">Workorder No:</label>
     						<div class="col-sm-8">
@@ -40,9 +55,33 @@
                             <option>Please Select Workorder Number</option>
                             <?php
                             foreach ($workerorderno as $id) {
-                                // var_dump($zones);
-                                echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
-                            }
+                                $type = substr($id, 2, 2);
+                                $var = $_GET['type_of_work'];
+                                echo $var;
+                                switch($var){
+                                    case 1:
+                                if ($type == 'EA') {
+                                    echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                } 
+                                break;
+                                case 2:
+                                if ($type == 'IA') {
+                                     echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                } 
+                                break;
+                                case 3:
+                                if ($type == 'TA') {
+                                    echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                } 
+                                break;
+                                case 4:
+                                if ($type == 'RF') {
+                                    echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                }
+                                        break;
+                                        default:
+                                }
+                                }
                             ?>
                         </select>
                     </div>
@@ -63,7 +102,8 @@
                 <div class="row mb-3">
                     <label for="client_name" class="col-sm-4">Date :</label>
                     <div class="col-sm-8">
-                        <input type="text" name="date" id="date_picker" placeholder="Date" class="form-control" >
+                        <input type="date" name="date" id="date_picker" placeholder="Date" class="form-control" >
+                        <input type="text" id="dateAtWokrsheet" readonly value="DD / MM / YYYY"/>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -87,13 +127,16 @@
                 </div>
                 <div class="row mb-3">
                     <label for="demo-date" class="col-sm-4">Start Time :</label>
-                    <div class="col-sm-8 time">
+                    <div class="col-sm-8">
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" name="start_time"
-                                data-target="#datetimepicker" placeholder="Enter Start Time" required  />
-                            <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-                            </div>
+
+                        <input type="time" name="start_time" id="startTime"/>
+                        <!-- Don't delete Below commented line until new one is working properly -->
+                            <!-- <input type="time" class="form-control datetimepicker-input" name="start_time"
+                                data-target="#datetimepicker" id="startTime"placeholder="Enter Start Time" required  /> -->
+                            <!-- <div id="startTimeClock" class="input-group-append" >
+                                <div class="input-group-text"><i class="fa fa-clock-o" ></i></div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -108,12 +151,14 @@
                     <label for="demo-date" class="col-sm-4">End Time :</label>
                     <div class="col-sm-8 time">
                         <div class="input-group date" id="datetimepickerend" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" name="End_time"
-                                data-target="#datetimepickerend" placeholder="Enter End Time" required/>
-                            <div class="input-group-append" data-target="#datetimepickerend"
+                            <input type="time" id="endTime" name="End_time"/>  
+                            <!-- Don't delete Below commented line until new one is working properly --> 
+                        <!-- <input type="text" class="form-control datetimepicker-input" id="endTime"name="End_time"
+                                data-target="#datetimepickerend" placeholder="Enter End Time" />
+                            <div class="input-group-append" id="endTimeClock"
                                 data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -161,26 +206,26 @@
 
             <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
             <script>
-            $(document).ready(function() {
-                $("#date_picker").datepicker({
-                    dateFormat: 'dd-mm-yy'
-                })
-            })
+            // $(document).ready(function() {
+            //     $("#date_picker").datepicker({
+            //         dateFormat: 'dd-mm-yy'
+            //     })
+            // })
             </script>
 
             <script>
-            $('#datetimepicker').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            $('#datetimepickerend').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            $('#datetimepickerbreak1').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
-            $('#datetimepickerbreak2').datetimepicker({
-                format: 'hh:mm:ss a',
-            });
+            // $('#datetimepicker').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerend').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerbreak1').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
+            // $('#datetimepickerbreak2').datetimepicker({
+            //     format: 'hh:mm:ss a',
+            // });
             </script>
 
 
@@ -261,4 +306,35 @@
             }
 
             
+            </script>
+
+            <script>
+
+                document.getElementById('date_picker').addEventListener('change',function(){
+                    let currentDate=document.getElementById('date_picker').value;
+                    document.getElementById('dateAtWokrsheet').value=formatDate(currentDate);
+                })
+                  //Date Foramtting
+         //Function to add zero for single number
+        function addZero(num)
+         {
+           return num.toString().padStart(2,'0')
+         }
+         function formatDate(currentDate){
+              // Now we are formatting in DD/MM/YYYY
+            let day=addZero(new Date(currentDate).getDate())
+            let month=addZero(new Date(currentDate).getMonth()+1)
+            let year=new Date(currentDate).getFullYear()
+            let todayDate=day+' / '+month+' / '+year;
+            return todayDate;   
+         }
+    </script>
+
+
+
+           <script>
+            document.getElementById('type_of_work').addEventListener('change', function() {
+                typeofwork = document.getElementById('type_of_work').value
+                alert(typeofwork)
+            })
             </script>

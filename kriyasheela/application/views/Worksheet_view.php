@@ -39,6 +39,7 @@
                         <tr class="text-center text-white text-capitalize wksubhead2">
                             <th class="data1" data-label="Date">Date</th>
                             <th>Workorder No</th>
+                            <th>Type Of Work</th>
                             <th>Name Of Client </th>
                             <th>Description of work done</th>
                             <th>Work Given By</th>
@@ -65,6 +66,7 @@
                         <tr id="totaldata">
                             <td class="sheetdata"><?php echo $worksheetrecord['date']; ?> </td>
                             <td><?php echo $worksheetrecord['workorder_no']; ?> </td>
+                            <td><?php echo $worksheetrecord['type_of_work']; ?></td>
                             <td><?php echo $worksheetrecord['client_name']; ?> </td>
                             <td><?php echo $worksheetrecord['work_description']; ?> </td>
                             <td><?php echo $worksheetrecord['work_given_by']; ?></td>

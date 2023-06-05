@@ -25,7 +25,7 @@ class Client_model extends CI_Model
 
 	public function allClients()
 	{
-		$query = $this->db->query('SELECT * FROM tbl_clients');
+		$query = $this->db->query("SELECT * FROM `tbl_clients` ORDER BY `client_id` DESC");
 
 		return $query->result_array();
 	}

@@ -23,14 +23,15 @@
                 <label for="workorder_no" class="col-sm-4">Workorder No :</label>
                 <div class="col-sm-8">
                     <input type="text" placeholder="Workorder No" name="workorder_no" class=" form-control"
-                        id="workorder_no" aria-describedby="workorder_no" >
+                        id="workorder_no" aria-describedby="workorder_no" readonly >
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Created On :</label>
                 <div class="col-sm-8">
                     <input type="date" placeholder="Created On" name="created_on" class="form-control" id="date_picker"
-                        aria-describedby="created_on" readonly value="<?php echo date('d-m-y'); ?>">
+                        aria-describedby="created_on" readonly>
+                        <input type="text" id="createdOn"  value="DD / MM / YYYY" readonly/>
                 </div>
             </div>
 
@@ -54,32 +55,36 @@
                     <select placeholder="Partner_in_charge" name="partner_in_charge" id="partner_in_charge"
                         class="classic" aria-describedby="partner_in_charge">
                         <option value="">Select</option>
-                        <option value="REB">REB</option>
-                        <option value="AVM">AVM</option>
-                        <option value="NKSB">NKSB</option>
-                        <option value="ASN">ASN</option>
+                        <option value="R.E. Balasubramanyam">R.E. Balasubramanyam</option>
+                        <option value="A.V. Muralisharan">A.V. Muralisharan</option>
+                        <option value="N.K.S. Bharath">N.K.S. Bharath</option>
+                        <option value="Ashok S Navalgund">Ashok S Navalgund</option>
                     </select>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Start Date :</label>
                 <div class="col-sm-8">
-                    <input type="date" placeholder="Start Date" name="start_date" id="date_picker1" size=9
+
+                    <input type="date" placeholder="Start Date" name="start_date"  id="date_picker1" size=9
                         class="form-control" aria-describedby="start_date">
+                        <input type="text" id="startDateValue"  value="DD / MM / YYYY" readonly/>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Targetted End Date :</label>
                 <div class="col-sm-8">
-                    <input type="date" placeholder="Targetted End Date"  name="targetted_end_date" id="date_picker2"
+                    <input type="date" placeholder="Targetted End Date" name="targetted_end_date"  id="date_picker2"
                         class="form-control" aria-describedby="targetted_end_date" size=9>
+                        <input type="text" id="targettedDateValue"  value="DD / MM / YYYY" readonly/>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-4">Deadline :</label>
                 <div class="col-sm-8">
-                    <input type="date" placeholder="Deadline" name="deadline" id="date_picker3" class="form-control"
+                    <input type="date" placeholder="Deadline" id="date_picker3" name="deadline" class="form-control"
                         aria-describedby="deadline" data-date-format="DD MMMM YYYY"size=9>
+                         <input type="text" id="deadlineDateValue"  value="DD / MM / YYYY" readonly/>
                 </div>
             </div>
 
@@ -119,7 +124,7 @@
          
                 <div class="col-sm-2">
                     <button class=' btn btn-success btnClick' id="btnAdd" >
-                        Add More
+                        Add
                     </button>
                     <i class='bx bxs-plus-square btnClick' style='color:#28a745'></i>
                 </div>
@@ -279,11 +284,14 @@
 
 
         <script>   
-               
+            
+        // document.getElementById('select').addEventListener('change',()=>{
+        //     alert('Hi from select')
+        // })
         $(document).ready(function() {
             var selectedData=[];
            
-            $('.btnClick').click(function(e) {
+            $('.btnClick').click(function(e) { // add more btn start
                 e.preventDefault();                
                 //Creating new li Element
                 let li=document.createElement('li');
@@ -311,6 +319,15 @@
                   // After value is pushed to array we making it empty
                   dropDown.value='';
                   // Deleting added value from drop down
+                //   if(selectedData.length()>1){
+                //     alert("One data is there")
+                //   }
+               if(selectedData.length>0){
+               document.getElementById('btnAdd').innerHTML="Add More"
+               }else{    
+               document.getElementById('btnAdd').innerHTML="Add"
+ 
+               }
                  
                }else{
                   alert('Please assign to someone');
@@ -334,7 +351,11 @@
                    //Getting index value of deleted item
                    let deleted_Item_Index=selectedData.indexOf(div.value.toString());
                    console.log('Index is: '+ deleted_Item_Index);
-                   selectedData.splice(deleted_Item_Index,1);   
+                   selectedData.splice(deleted_Item_Index,1);
+                   //add more btn text changes when no data is selected
+                    if(selectedData.length<1){
+                      document.getElementById('btnAdd').innerHTML="Add"               
+                   }    
                  
                    //Calling assignFun function here - we will pass array after delete item
                    assginFun(selectedData);
@@ -343,7 +364,8 @@
                     //Adding removed item back to drop down list
                    let dropDown=document.getElementById('select');
                    dropDown.options[dropDown.options.value=`${div.value}`].style.display="block";
-                  }               
+                  
+                }               
                 }
                //We are calling assignFun here if no Item is deleted from array
 
@@ -359,7 +381,7 @@
                      selected_Assigned_Name.options[i].selected=true;
                   } 
                 }        
-            })         
+            })  // add more btn end       
         })
        
          /*  Orginal Code-Previous Feature(dont delete this)
@@ -429,7 +451,10 @@
         }
         today=yyyy+'-'+mm+'-'+dd
      
-          document.getElementById('date_picker').value=today
+         let createDate=document.getElementById('date_picker').value=today
+         document.getElementById('createdOn').value=formatDate(createDate)
+         
+
           document.getElementById('date_picker1').setAttribute("min",today) //start date
           document.getElementById('date_picker2').setAttribute("min",today) // targetted date
           document.getElementById('date_picker3').setAttribute("min",today) // deadline date
@@ -442,19 +467,61 @@
             document.getElementById('date_picker3').setAttribute("min",startDateValue) // Deadline date
         document.getElementById('date_picker2').setAttribute("min",startDateValue)
          })
-         let deadline_date=""
-        document.getElementById('date_picker3').addEventListener('change',()=>{
+
+          
+      
             
-            deadline_date=document.getElementById('date_picker3').value
-            // alert(deadline_date)
-              if(document.getElementById('date_picker2').value>document.getElementById('date_picker3').value)
-              {
-                alert('Targetted Date Must between Start Date and Deadline Date')
-                document.getElementById('date_picker2').value=document.getElementById('date_picker1').value
-              }
-            document.getElementById('date_picker2').setAttribute("max",deadline_date)
+          // Targetted Date
+          document.getElementById('date_picker2').addEventListener('change',()=>{
+            
+          let targetted_date=document.getElementById('date_picker2').value;
+   
+          document.getElementById('date_picker3').setAttribute('min',targetted_date)
         })
 
+         //Date Foramtting
+         //Function to add zero for single number
+        function addZero(num)
+         {
+           return num.toString().padStart(2,'0')
+         }
+         function formatDate(currentDate){
+              // Now we are formatting in DD/MM/YYYY
+            let day=addZero(new Date(currentDate).getDate())
+            let month=addZero(new Date(currentDate).getMonth()+1)
+            let year=new Date(currentDate).getFullYear()
+            let todayDate=day+' / '+month+' / '+year;
+            return todayDate;   
+         }
+        //  Start Date
+       document.getElementById('date_picker1').addEventListener('change',function()
+         {            
+            // Getting selected Date
+            let currentDate= document.getElementById('date_picker1').value;
+            // Adding value to new input filed because default format is bit hard to change
+            document.getElementById('startDateValue').value=formatDate(currentDate);
+           
+             currentDate.value=formatDate(currentDate);
+         })
+         
+         //Targetted Date
+          document.getElementById('date_picker2').addEventListener('change',function()
+         {            
+            // Getting selected Date
+            let currentDate= document.getElementById('date_picker2').value;
+            // Adding value to new input filed because default format is bit hard to change
+            document.getElementById('targettedDateValue').value=formatDate(currentDate);
+           currentDate.value=formatDate(currentDate);
+         })
+         //Deadline Date
+          document.getElementById('date_picker3').addEventListener('change',function()
+         {            
+            // Getting selected Date
+            let currentDate= document.getElementById('date_picker3').value;
+            // Adding value to new input filed because default format is bit hard to change
+            document.getElementById('deadlineDateValue').value=formatDate(currentDate)
+            currentDate.value=formatDate(currentDate);
+         })
 
-      
+       
        </script>

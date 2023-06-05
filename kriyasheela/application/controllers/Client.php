@@ -82,8 +82,10 @@ class Client extends CI_Controller
 			$clientname = $this->input->post('clientname');
 			$tradename=$this->input->post('tradename');
 			$pan = $this->input->post('pan');
+			$PAN=strtoupper($pan);
 			$gst = $this->input->post('gst');
 			$tan = $this->input->post('tan');
+			$TAN=strtoupper($tan);
 
 			$aadhar = $this->input->post('aadhar');
 			$address = $this->input->post('address');
@@ -94,9 +96,9 @@ class Client extends CI_Controller
 			$data = array(
 				'name' => $clientname,
 				'Trade_Name'=>$tradename,
-				'PAN' => $pan,
+				'PAN' => $PAN,
 				'gst' => $gst,
-				'tan' => $tan,
+				'tan' => $TAN,
 				'aadhar' => $aadhar,
 				'address' => $address,
 				'person_incharge' => $person_incharge,

@@ -773,8 +773,8 @@ nav .profile-details i {
 
 .dropdown-menu {
 	position: absolute;
-	/* right: -9px; */
-	margin-left: -42px;
+	margin-top: 10px !important;
+    margin-left: -22px !important;
 }
 
 /* table for all text align  */
@@ -1638,7 +1638,8 @@ input[type=file]::file-selector-button {
 }
 /* === Client Form submit button === */
 #section_clientform {
-	height: 600px !important;
+	/* height: 600px !important; */
+	min-height: 666px !important;
 }
 
 /* === Selected CSV File Name (In client Form) ==== */
@@ -1934,6 +1935,69 @@ p.bulk_workorder_success {
 p#csv_upload_failed {
 	margin-top: 79px !important;
 }
+
+/* Date Formatting  */
+input#date_picker,input#date_picker2,input#date_picker3 {
+    color: transparent;
+}
+input#date_picker {
+    background: #fff;
+}
+input#createdOn {    
+    width: 521px;
+    margin-left: -2px;
+    height: 35px;
+}
+
+input#targettedDateValue,
+input#startDateValue,
+input#deadlineDateValue,
+input#createdOn,
+input#dateAtWokrsheet,
+input#date_Of_Employement_Value,
+input#dateOfCompletionOfEmployementValue,
+input#commencement_of_articleship_value,
+input#completion_Of_Articleship_Value
+{
+  color: rgb(125, 125, 125);
+  position: absolute;
+  border: none;
+  left: 18px;
+  height: 36px;
+   top: 1px; 
+   
+}
+
+/* Worksheet Start and EndTime */
+#startTime,#endTime{
+    border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	padding-left: 15px;
+	height: 40px;
+	width: 522px
+}
+input[type='time']::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator
+{
+	/* background: none; */
+	cursor: pointer;
+	font-size: 20px;
+	padding-right: 10px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+	padding-right: 0px !important;
+}
+#startTime:focus,#endTime:focus{
+	outline: none;
+}
+/* User Form Dates */
+input#date_Of_Employement_Value{
+	height: 30px;
+	top: 11px;
+
+}
+ 
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px) {
 	.container {
@@ -2386,8 +2450,12 @@ p#csv_upload_failed {
 	#slct1 {
 		width: 319px !important;
 	}
+
+
 }
 
 
 
 /* =========================================   KAMAL CODE END   ================================= */
+
+

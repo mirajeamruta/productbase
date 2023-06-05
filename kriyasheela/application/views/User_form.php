@@ -58,7 +58,7 @@
             <div class="row mb-3" id="studentregno" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Student Reg Number</label>
                 <div class="col-sm-8">
-                    <input type="text" name="reg_no" id="srono" class="form-control" >
+                    <input type="text" name="reg_no" id="srono" class="form-control" MaxLength="10" style="text-transform: uppercase;" onclick="ValidatestudentregNumber()" >
                 </div>
             </div>
             <div class="row mb-3" id="employeeID">
@@ -68,7 +68,47 @@
                         placeholder="ICAI Number" >
                 </div>
             </div>
+
+
             <div class="row mb-3" id="Articleship" style="display:none">
+                <label for="inputPassword3" class="col-sm-4">Date of Commencement of Articleship</label>
+                <div class="col-sm-8">
+                    <input type="date" name="commencementofarticleship" id="commencement_of_articleship"
+                        placeholder="Select Date of Commencement of Articleship" class="form-control" >
+                        <input type="text" value="DD / MM / YYYY" id="commencement_of_articleship_value"/>
+                </div>
+            </div>
+
+            <div class="row mb-3" id="CommencementEmployment">
+
+                <label for="inputPassword3" class="col-sm-4">Date of Commencement of Employment</label>
+                <div class="col-sm-8">
+                    <h6 for="inputPassword3" class="col-sm-2" id="emplyomenterror"></h6>
+                    <input type="date" placeholder="Select Date of Commencement of Employment"
+                        name="commencementofemployment" id="date_Of_Employement" class="form-control">
+                        <input type="text" value="DD / MM / YYYY" id="date_Of_Employement_Value" readonly/>
+                </div>
+            </div>
+
+            <div class="row mb-3" id="completionArticleship" style="display:none">
+                <label for="inputPassword3" class="col-sm-4">Date of Completion of Articleship</label>
+                <div class="col-sm-8">
+                    <input type="date" name="completionofarticleship"
+                        placeholder="Select Date of Completion of Articleship"  class="form-control" id="completion_Of_Articleship">
+                        <input type="text" value="DD / MM YYYY" id="completion_Of_Articleship_Value"/>
+                </div>
+            </div>
+            <div class="row mb-3" id="completionEmployment">
+                <label for="inputPassword3" class="col-sm-4">Date of Completion of Employment</label>
+                <div class="col-sm-8">
+                    <input type="date" placeholder="Select Date of Completion of Employment"
+                        name="completionofemployment" class="form-control" id="dateOfCompletionOfEmployement" >
+                        <input type="text" id="dateOfCompletionOfEmployementValue" value="DD / MM / YYYY" readonly/>
+                </div>
+            </div>
+
+
+            <!-- <div class="row mb-3" id="Articleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Articleship</label>
                 <div class="col-sm-8">
                     <input type="text" name="commencementofarticleship" id="date_picker4"
@@ -99,17 +139,18 @@
                     <input type="text" placeholder="Select Date of Completion of Employment"
                         name="completionofemployment" id="date_picker2" class="form-control">
                 </div>
-            </div>
+            </div> -->
             <div class="row mb-3" id="partner">
                 <label for="inputPassword3" class="col-sm-4">Partner Under Whom Registered </label>
                 <div class="col-sm-8">
                       <!-- <input type="text" name="partner_registered" id="type_of_work" class="form-control" aria-describedby="type_of_work"> -->
                     <select name="partner_registered" id="type_of_work" class="classic" aria-describedby="type_of_work">
                         <option value="">Select</option>
-                        <option value="REB">REB</option>
-                        <option value="AVM">AVM</option>
-                        <option value="NKSB">NKSB</option>
-                        <option value="ASN">ASN</option>
+                        <option value="R.E. Balasubramanyam">R.E. Balasubramanyam</option>
+                        <option value="A.V. Muralisharan">A.V. Muralisharan</option>
+                        <option value="N.K.S. Bharath">N.K.S. Bharath</option>
+                        <option value="Ashok S Navalgund">Ashok S Navalgund</option>
+
                     </select>
                 </div>
             </div>
@@ -455,13 +496,16 @@ emailAddress.oninput = function() {
 }
 </script>
 
+
+
 <script>
+
 $.validator.addMethod(
     "tendigits",
     function(value, element) {
         if (value == "")
             return false;
-        return value.match(/^\d{10}$/);
+        return value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
     },
     "Please enter 10 digits Contact # (No spaces or dash)"
 );
@@ -476,6 +520,8 @@ $('#frm_registration').validate({
     }
 
 });
+
+
 </script>
 
 
@@ -557,3 +603,81 @@ $('#username').keydown(function (e) {
 
 });
 </script>
+
+
+
+
+<!-- student number validation -->
+<script>
+function ValidatestudentregNumber() { 
+  var Obj = document.getElementById("srono");
+        if (Obj.value != "") {
+            ObjVal = Obj.value;
+            // var expr=/[A-Z][0-9]{8}/;
+            var expr = /(?:(?=(^[a-zA-Z]{3}\d{4}[a-zA-Z]{1}$))|(?=(^[a-zA-Z]{4}[0-9]{5}[a-zA-Z]{1}?$)))/;
+            if (ObjVal.search(expr) == -1) {
+                alert("Invalid student Number format should be(AAA0000000)");
+                // Obj.focus();
+                return false;
+            }
+          else
+            {
+              alert("Valid student Number");
+              }
+        }
+  }
+</script>
+
+
+<script>
+
+    function addZero(num){
+        return num.toString().padStart(2,'0')
+    }
+
+    function formatDate(date){
+        return[
+            addZero(date.getDate()),
+            addZero(date.getMonth()+1),
+            date.getFullYear()
+        ].join('/')
+    }
+
+    let today= new Date()
+    let dd=addZero(today.getDate())
+    let mm=addZero(today.getMonth()+1)
+    let yyyy=today.getFullYear() 
+    today=yyyy+'-'+mm+'-'+dd
+    // Setting  minimum date
+    document.getElementById('date_Of_Employement').setAttribute("min",today)
+    document.getElementById('commencement_of_articleship').setAttribute("min",today)
+    
+    // Adding value to date_Of_Employement
+    document.getElementById('date_Of_Employement').addEventListener('change',function(){
+       let currentDate=document.getElementById('date_Of_Employement').value;
+       //alert(currentDate)
+       document.getElementById('date_Of_Employement_Value').value=formatDate(new Date(currentDate));
+    })
+    // Setting dateOfCompletionOfEmployement minimum date
+   document.getElementById('date_Of_Employement').addEventListener('change',function(){
+    let date_Of_Employement= document.getElementById('date_Of_Employement').value
+    document.getElementById('dateOfCompletionOfEmployement').setAttribute('min',date_Of_Employement)
+   })
+    // Adding value to date_Of_Employement
+     document.getElementById('dateOfCompletionOfEmployement').addEventListener('change',function(){
+         let currentDate=document.getElementById('dateOfCompletionOfEmployement').value
+         document.getElementById('dateOfCompletionOfEmployementValue').value=formatDate(new Date(currentDate))
+     })
+  
+    // Articleship
+document.getElementById('commencement_of_articleship').addEventListener('change',function(){
+    let currentDate=document.getElementById('commencement_of_articleship').value
+    document.getElementById('completion_Of_Articleship').setAttribute("min",currentDate)
+    document.getElementById('commencement_of_articleship_value').value=formatDate(new Date(currentDate))
+})
+ document.getElementById('completion_Of_Articleship').addEventListener('change',function(){
+     let currentDate=document.getElementById('completion_Of_Articleship').value
+     document.getElementById('completion_Of_Articleship_Value').value=formatDate(new Date(currentDate))
+ })
+</script>
+

@@ -133,6 +133,7 @@ class User extends CI_Controller
                 //var_dump($username);
 
                 $reg_no = $this->input->post('reg_no');
+                $REG_NO = strtoupper($reg_no);
                 $employee_id = $this->input->post('employee_id');
 
                 $commencementofarticleship = $this->input->post('commencementofarticleship');
@@ -162,7 +163,7 @@ class User extends CI_Controller
                 $data = array(
                     'name' => $username,
                     'user_image' => $userimage,
-                    'student_reg_no' => $reg_no,
+                    'student_reg_no' => $REG_NO,
                     'icai'=> $icai_Number,
                     //'employee_id'=>$employee_id,
                     'date_of_comencement_of_articleship' => $commencementofarticleship,
@@ -284,7 +285,7 @@ class User extends CI_Controller
                     'bloodgroup' => $user['bloodgroup'],
                     //'details'=>$user['mobile_no'],
                 );
-                print_r($data['userdetailsdata']);
+                // print_r($data['userdetailsdata']);
             }
 
             if ($user['user_type_id'] == 4) {
