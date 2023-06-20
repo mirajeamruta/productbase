@@ -19,7 +19,7 @@
 				<th hidden>usertype</th>
 				<th>Email</th>
 				<th>Mobile Number</th>
-				<th></th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>

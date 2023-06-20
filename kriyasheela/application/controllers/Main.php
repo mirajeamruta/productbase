@@ -18,6 +18,10 @@ class Main extends CI_Controller
 
 		$this->load->model('Main_model');
 
+		$this->load->model('Workorder_model');
+
+		$this->load->model('Notification_Model');
+
 		// Load the todo model to make it available 
 		// to *all* of the controller's actions 
 		$this->load->helper('url');
@@ -26,7 +30,7 @@ class Main extends CI_Controller
 	function login()
 	{
 
-
+        
 		$this->load->view('template/header');
 
 		$this->load->view('template/navigation1');
@@ -95,7 +99,10 @@ class Main extends CI_Controller
 
         $data['pendingWorkorders'] = $this->Main_model->pendingWorkorder();
 
+		$data['notifications'] = $this->Notification_Model->getNotifications();
+
         $data['pendingWorkorderDetails1'] = $this->Main_model->pendingWorkorderDetails();
+		
 		$data['notifyNewUser1']=$this->Main_model->notifyNewUser();
 
 		$data['notifyNewClient1']=$this->Main_model->notifyNewClient();
@@ -180,7 +187,6 @@ class Main extends CI_Controller
 
 		$data = array(
 			'name' => $this->input->post('firstname'),
-			'email' => $this->input->post('email'),
 			'subject' => $this->input->post('subject'),
 			'organization' => $this->input->post('organization'),
 			'message' =>  nl2br($this->input->post('message')),
@@ -200,6 +206,8 @@ class Main extends CI_Controller
 
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
+		$this->form_validation->set_rules('official_email', 'official_email', 'required');
+
 		if ($this->form_validation->run()) {
 
 			//true
@@ -207,21 +215,22 @@ class Main extends CI_Controller
 
 			$password =($this->input->post('password'));
 			$Password=md5($password);
+			$official_email=$this->input->post('official_email');
 
 			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
-			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
+			if ($this->Main_model->can_login($balunand_id_no, $Password, $official_email)) {
 
 				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
-				$record = $this->Main_model->can_login($balunand_id_no, $Password);
+				$record = $this->Main_model->can_login($balunand_id_no, $Password, $official_email);
 
 				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
-				$record = $this->Main_model->can_login($balunand_id_no, $Password);
+				$record = $this->Main_model->can_login($balunand_id_no, $Password, $official_email);
 				// echo $password;
 				//var_dump($record);
 
@@ -246,6 +255,7 @@ class Main extends CI_Controller
 					//'student_reg_no'=> $student_reg_no,
 					'usertype'     => $usertype,
 					'username'     => $username,
+					'official_email'=> $official_email,
 					'userId' => $record
 
 				);
@@ -260,6 +270,7 @@ class Main extends CI_Controller
 
 				// var_dump( $_SESSION['usertype']);
 
+
 				//return;
 
 				$this->session->set_userdata($session_data);
@@ -269,10 +280,11 @@ class Main extends CI_Controller
 				//redirect('https://aaplweb.co.in/balunand/kriyasheela/Main/dashboard');
 			} else {
 
-				$this->session->set_flashdata('error', 'Invalid balunand_id_no and Password');
+				$this->session->set_flashdata('error', 'Invalid balunand_id_no and Password and Emailid');
 
 				redirect(base_url() . 'Main/login');
 			}
+			
 		} else {
 
 			//false
@@ -300,6 +312,7 @@ class Main extends CI_Controller
 		$this->session->unset_userdata('balunand_id_no');
 		$this->session->unset_userdata('usertype');
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('official_email');
 		$this->session->unset_userdata('userId');
 
 		redirect(base_url() . 'Main/login');

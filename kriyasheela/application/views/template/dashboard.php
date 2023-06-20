@@ -45,95 +45,127 @@
         <div class="sales-boxes" style="">
             <div class="recent-sales box" id="recent">
                 <div class="title" style="text-align: center;">Notifications</div>
-
-
-
-
-                <div class="sales-details" style="">
-
-
-                    <section id="section-dashboard" class="text-center">
+                <div class="sales-details" style="margin-left: 95px;">
+                <section id="section-dashboard" class="text-center">
                         <ul class="test">
-                            <?php
 
-                            if (!empty($notifyNewUser2)) {
-                                foreach ($notifyNewUser2 as $newUser) {
-                                    //print_r($notifyNewUser2);
-                                    $a = $newUser['uid'];
+                           
+<?php
+            $notfications = array_slice($this->Notification_Model->getNotifications(), 0, 10);
+            // $notfications = $this->Notification_Model->getNotifications();
+            $loggedInUserId = $this->session->userdata('userId');
+             foreach ($notfications as $notfication) {
+                if ($this->session->userdata('usertype') == 'admin') {
+                 ?>
+            <tr>
 
+                <?php if ($notfication["type"] == "updatedates") { ?>
+                <td>
+                    <h6> Target date and deadline for workorder no <a
+                            href="<?= base_url("workorder/view_workorder/".$notfication["workorder_no"]) ?>"><?php echo $notfication['workorder_no'] ?>
+                        </a> has been revised <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php } else if ($notfication["type"] == "workorder") {?>
+                <td>
+                    <h6> New workorder <a
+                            href="<?= base_url("workorder/view_workorder/".$notfication["workorder_no"]) ?>"><?php echo $notfication["workorder_no"] ?>
+                        </a> assigned to you <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php } else if ($notfication["type"] == "client") { ?>
+                <td>
+                    <h6>New client <a href="<?= base_url("client/clientList") ?>"><?php echo $notfication['name']; ?>
+                        </a> has been created <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
 
-                            ?>
+                <?php } else if ($notfication["type"]=="editclient") { ?>
+                <td>
+                    <h6> Client <a
+                            href="<?= base_url("Client/editClientData/".$notfication["client_id"]) ?>"><?php echo $notfication['name']; ?>
+                        </a> has been updated <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php } else if ($notfication["type"]=="user") { ?>
+                <td>
+                    <h6> New user <a href="<?= base_url("user/allusers") ?>"><?php echo $notfication['user_name']; ?>
+                        </a> has been created <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php } else if ($notfication["type"]=="edituser") { ?>
+                <td>
+                    <h6> User <a
+                            href="<?= base_url("User/editUserData/".$notfication["user_id"]) ?>"><?php echo $notfication['user_name']; ?>
+                        </a> has been updated <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php } ?>
+            </tr>
+            <?php
+        } else {
+      ?>
+            <tr>
+                <?php if ($notfication["type"] == "updatedates") {
+                   $assign_to = $this->Workorder_model->getAssignToForWorkOrderNo($notfication['workorder_no'])[0]['assign_to'];
+					$array['number1'] = str_replace('"', '', $assign_to);
+					$array['number2'] = str_replace(']', '', $array['number1']);
+					$array['number3'] = str_replace('[', '', $array['number2']);
+					$array['number4'] = explode(',', $array['number3']);
 
-                                    <p>New user <a href="<?= base_url("User/editUserData/$a") ?>"><?php echo $newUser['name'] ?>
-                                        </a> has been created </p>
-                            <?php
-                                }
-                            }
+                    if (in_array($loggedInUserId, $array['number4'])) {
+                        ?>
+                <td>
+                    <h6> Target date and deadline for workorder no <a
+                            href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>"><?php echo $notfication['workorder_no'] ?>
+                        </a> has been revised <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php }
+                }else if ($notfication["type"] == "workorder") {
+                    $array['number1'] = str_replace('"', '', $notfication['assign_to']);
+                    $array['number2'] = str_replace(']', '', $array['number1']);
+                    $array['number3'] = str_replace('[', '', $array['number2']);
+                    $array['number4'] = explode(',', $array['number3']);
+                    if (in_array($loggedInUserId, $array['number4'])) {
+                        ?>
+                <td>
+                    <h6> New workorder <a
+                            href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>"><?php echo $notfication["workorder_no"] ?>
+                        </a> assigned to you <br></h6>
+                    <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
+                        value="<?= $notfication["date"] ?>" />
+                </td>
+                <?php }
+                }
+        }
+    }
+    ?>
 
-                            ?>
-                            <?php
+            </tr>
 
-                            if (!empty($pendingWorkorderDetails2)) {
-
-                                foreach ($pendingWorkorderDetails2  as $dataworkorder) {
-
-                                    $key = $dataworkorder['workordernumber'];
-                            ?>
-
-                                    <p> New workorder <a href="<?= base_url("workorder/view_workorder/$key") ?>"><?php echo $dataworkorder['workordernumber'] ?>
-                                        </a> assigned to you </p>
-
-                            <?php
-
-                                }
-                            }
-
-                            ?>
-                            <?php
-                            if (!empty($notifyNewClient2)) {
-                                foreach ($notifyNewClient2 as $newClient) {
-                                    $c = $newClient['cid'];
-                            ?>
-
-                                    <p> New client <a href="<?= base_url("Client/ClientList") ?>">
-                                            <?php echo $newClient['name'] ?></a>
-                                        created </p>
-                            <?php
-                                }
-                            }
-                            ?>
                         </ul>
+                        <div class="button_notify">
+                        <button class="show_button"> <a href="<?= base_url("Notification_Controller/notification") ?>"style="color:whitesmoke">View More</a></button>
+                        </div>
                     </section>
 
+                    
 
-                    <!-- <section id="section-dashboard" class="text-center">
-
-
-                        <ul class="test">
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                            <p>workorder number er1223 targeted end date has been revised</p>
-                        </ul>
-                    </section> -->
+                   
                 </div>
 
 
 
 
 
-                <div class="button_notify">
-                    <button class="show_button"><a href="<?= base_url("Notification_Controller/notification") ?>" tite="" style="color:whitesmoke"> View More</a>
-                    </button>
-                </div>
             </div>
 
 
@@ -141,28 +173,35 @@
                 <div class="title1" style="text-align: center; margin-left: -47px; font-size:20px">Pending Workorders</div>
                 <ul class="top-sales-details" style="margin-left: 36px;">
 
-                    <?php
+                <?php
+                    foreach ($notfications as $notfication) {
+                        if ($notfication["type"] == "workorder") { ?>
 
-                    if (!empty($pendingWorkorderDetails2)) {
-
-//print_r($pendingWorkorderDetails2);
-                        foreach ($pendingWorkorderDetails2  as $dataworkorder) {
-
-                            $key = $dataworkorder['workordernumber'];
-                    ?>
-                            <li style="color:blue"> <a href="<?= base_url("workorder/view_workorder/$key") ?>">
-                                    Workorder-<?php echo $dataworkorder['workordernumber'] ?> </a>
-                            </li>
+                    <li style="color:blue"> <a
+                            href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>">
+                            Workorder-<?php echo $notfication["workorder_no"] ?>
+                        </a>
+                    </li>
 
                     <?php
-
                         }
                     }
-
                     ?>
 
 
                 </ul>
+
+
+
+                <div id="recently_close_pending_workorder">
+                   <p id="recent_close_header">Recently Closed Workorder</p>
+                      <ul id="close_items">             
+                        <li>23RF19 is completed</li>
+                        <li>23RF19 is completed</li>
+                        <li>23RF19 is completed</li>                     
+                      </ul>
+</div>
+
             </div>
         </div>
     </div>
@@ -171,14 +210,14 @@
 
 <!-- Notification -->
 <script>
-    $('ul.test p:gt(2)').hide();
+    $('ul.test p:gt(12)').hide();
     var l = $('.test p').length;
     if (l > 10) {
-        $('button').show();
+        $('#show_button').show();
     } else {
-        $('button').hide();
+        $('#show_button').hide();
     }
-    $('.show_button').click(function() {
-        $('ul.test p:gt(2)').toggle('');
+    $('.').click(function() {
+        $('ul.test p:gt(12)').toggle('');
     });
 </script>

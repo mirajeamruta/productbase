@@ -3,27 +3,31 @@
   
 <body bgcolor="lightblue">
     <center>
-    <table border="1" cellspacing="5" bgcolor="white" style="margin-top:  71px; width: 78%;" id="tblData">
+    <table border="1" cellspacing="5" bgcolor="white" style="margin-top:95px; width: 78%;" id="tblData">
         <!-- <caption><b>Input Marks</b></caption> -->
         
         <tr class="tablereport">
             <!-- <th rowspan="2">Name</th> -->
-            <th class="activity"  colspan="6" >Daily Activity Report</th>
+            <th class="activity"  colspan="11" >Daily Activity Report</th>
   
         </tr>
         <tr>
             <th  colspan="2" >Beginning of Year 1:</th>
             <th>26-2-22</th>
-            <th>End of Year 1:</th>
-            <th>27-3-23</th>
-        
+            <th colspan="3"> End of Year 1:</th>
+            <th colspan="">27-3-23</th>
         </tr>
         <tr class="reportdata" >
             <th>Sl. No.</th>
             <th>Date</th>
-            <th>Name of Client</th>
-            <th>Field of Work</th>
+            <th colspan="">Name of Client</th>
+            <th>Work given By</th>
             <th>Description of Work</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Partner Incharge</th>
+            <th>Status</th>
+              
         </tr>
        
         <?php
@@ -36,6 +40,11 @@
                 <td><?php echo $worksheetrecord['client_name']; ?> </td>
                 <td><?php echo $worksheetrecord['workorder_no']; ?> </td>
                 <td><?php echo $worksheetrecord['work_description']; ?> </td>
+                <td><?php echo $worksheetrecord['start_time']; ?></td>
+                <td><?php echo $worksheetrecord['end_time']; ?></td>
+                <td><?php echo $worksheetrecord['partner_in_charge']; ?></td>
+                <td>Pending</td>
+                
             </tbody>
 
             <?php 

@@ -19,6 +19,8 @@
                 </div>
             </div>
 
+            
+
             <div class="row mb-3">
                 <label for="workorder_no" class="col-sm-4">Workorder No :</label>
                 <div class="col-sm-8">
@@ -521,7 +523,32 @@
             // Adding value to new input filed because default format is bit hard to change
             document.getElementById('deadlineDateValue').value=formatDate(currentDate)
             currentDate.value=formatDate(currentDate);
+            document.getElementById('date_picker2').setAttribute('max',currentDate)
          })
 
+       document.getElementById('date_picker1').addEventListener('change',function(){
        
+         let start_date=document.getElementById('date_picker1').value;
+         let targetted_date=document.getElementById('date_picker2').value;
+         
+         let deadline_date=document.getElementById('date_picker3').value;
+    // alert(targetted_date)
+         if(!targetted_date==''&&targetted_date<start_date || !deadline_date==''&& deadline_date<start_date ){
+
+            alert("Targetted or Deadline Date cannot be Smaller then Start Date")
+            //location.reload()
+    
+         }   
+
+       })
+       document.getElementById('date_picker2').addEventListener('change',function(){
+         let targetted_date=document.getElementById('date_picker2').value;
+         
+         let deadline_date=document.getElementById('date_picker3').value;
+         if(!targetted_date==''&&!deadline_date==''&&targetted_date>deadline_date){
+            alert('Targetted Date cannot be grater then deadline')
+             //location.reload()
+            deadline_date=""
+         }
+       })
        </script>

@@ -91,6 +91,13 @@ class Worksheet extends CI_Controller
 		}
 	}
 
+	function typeOfWork() {
+		$selected_value = $this->input->get('selectedValue');
+		$this->session->set_userdata('selectedValue', $selected_value);
+		echo $selected_value;
+	}
+
+
 	function createWorksheet()
 	{
 		//echo "<h1>www</h1>";

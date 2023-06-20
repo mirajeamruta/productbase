@@ -22,11 +22,13 @@
             <div class="row mb-3">
                     <label for="type_of_work" class="col-sm-4">Type of Work :</label>
                     <div class="col-sm-8">
+                    <?php $selectedValue = $this->session->userdata('selectedValue', 0); ?>
                         <select placeholder="Type of Work" name="type_of_work" id="type_of_work" class="classic"
-                            aria-describedby="type_of_work" onchange="typeofwork();">
+                            aria-describedby="type_of_work">
                             <option value="">Select</option>
                             <?php foreach ($typeofworkorder as $typeofworkorders) : ?>
-                            <option value="<?= $typeofworkorders['type_of_work_id'];?>">
+                            <option value="<?= $typeofworkorders['type_of_work_id'];?>"
+                                <?= ($typeofworkorders['type_of_work_id'] == $selectedValue) ? 'selected' : ''?>>
                                 <?= $typeofworkorders['type_of_work']; ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -54,35 +56,40 @@
                         <select name="workorder" class="classic" id="workorder_no" onchange="fetchworkorder()">
                             <option>Please Select Workorder Number</option>
                             <?php
+                            if ($selectedValue) {
+                                    // $selectedValue = intval($_POST['selectedValue']);
                             foreach ($workerorderno as $id) {
-                                $type = substr($id, 2, 2);
-                                $var = $_GET['type_of_work'];
-                                echo $var;
-                                switch($var){
-                                    case 1:
-                                if ($type == 'EA') {
-                                    echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
-                                } 
-                                break;
-                                case 2:
-                                if ($type == 'IA') {
-                                     echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
-                                } 
-                                break;
-                                case 3:
-                                if ($type == 'TA') {
-                                    echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
-                                } 
-                                break;
-                                case 4:
-                                if ($type == 'RF') {
-                                    echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
-                                }
-                                        break;
+                                $type = substr($id['id'], 2, 2);
+                                //echo $_POST['selectedValue'];    
+                                
+                                    switch ($selectedValue) {
+                                        case 1:
+                                            if ($type == 'EA') {
+                                                echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                            }
+                                            break;
+                                        case 2:
+                                            if ($type == 'IA') {
+                                                echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                            }
+                                            break;
+                                        case 3:
+                                            if ($type == 'TA') {
+                                                echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                            }
+                                            break;
+                                        case 4:
+                                            if ($type == 'RF') {
+                                                echo '<option value="' . $id['id'] . '">' . $id['id'] . '</option>';
+                                            }
+                                            break;
                                         default:
+                                    }
                                 }
-                                }
-                            ?>
+                            }
+                                   
+?>
+                            
                         </select>
                     </div>
                 </div>
@@ -332,9 +339,30 @@
 
 
 
+
+<!-- Dropdown type of work function -->
            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Your code here
+                console.log('Document loaded');
+            });
+
+            // JavaScript code
             document.getElementById('type_of_work').addEventListener('change', function() {
-                typeofwork = document.getElementById('type_of_work').value
-                alert(typeofwork)
-            })
+                var selectedValue = this.value;
+                // Send the selected value to a PHP variable using AJAX
+                $.ajax({
+                    url: "<?php echo base_url('Worksheet/typeOfWork'); ?>" + "?selectedValue=" +
+                        selectedValue,
+                    type: 'GET',
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function() {
+
+                    }
+                });
+            });
             </script>
+
+

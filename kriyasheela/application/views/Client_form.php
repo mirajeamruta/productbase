@@ -41,7 +41,7 @@
                     <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">GST :</label>
                     <div class="col-sm-8 clientInput" >
                    
-                        <input type="text" name="gst" id="txtGSTNumber" class="form-control" id="" placeholder="GST" MaxLength="15" style="text-transform: uppercase;"  onblur="ValidateGSTNumber(this);">
+                        <input type="text" name="gst" id="txtGSTNumber" class="form-control" id="" placeholder="GST" MaxLength="15" style="text-transform: uppercase;"  onblur="ValidateGSTNumber();">
                         <span id="lblError" class="error" style="font-size: 13px; font-family: Arial; color: Red; margin-top: 4px;margin-left: -320px;"></span>
                     </div>
                 </div>
@@ -226,7 +226,7 @@ function ValidatePAN() {
             }
           else
             {
-              alert("Valid Pan No");
+              // alert("Valid Pan No");
               }
         }
   } 
@@ -326,13 +326,13 @@ function ValidateGSTNumber() {
             ObjVal = Obj.value;
             var expr = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
             if (ObjVal.search(expr) == -1) {
-                alert("Invalid GST No format should be(99AAAAA9999A9A)");
+                alert("Invalid GST No format should be(18AABCU9603R1ZM)");
                 // Obj.focus();
                 return false;
             }
           else
             {
-              alert("Valid GST No");
+              // alert("Valid GST No");
               }
         }
   }
@@ -346,15 +346,15 @@ function ValidateTANNumber() {
   var Obj = document.getElementById("txtTANNumber");
         if (Obj.value != "") {
             ObjVal = Obj.value;
-            var expr = /(?:(?=(^[a-zA-Z]{5}\d{4}[a-zA-Z]{1}$))|(?=(^[a-zA-Z]{4}[0-9]{5}[a-zA-Z]{1}?$)))/;
-            if (ObjVal.search(expr) == -1) {
+            var expr = /^S4[0-9]{5}$^S1/;
+            if (ObjVal.search(expr) ==-1) {
                 alert("Invalid TAN No format should be(AAAAA9999A9A)");
                 // Obj.focus();
                 return false;
             }
           else
             {
-              alert("Valid TAN No");
+              // alert("Valid TAN No");
               }
         }
   }

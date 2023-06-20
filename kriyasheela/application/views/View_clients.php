@@ -1,7 +1,7 @@
 <style>
 	.pagination {
 
-		padding-left: 766px;
+		padding-left: 734px;
 
 	}
 	a {
@@ -47,15 +47,16 @@ li#clienttable_next {
 		<thead class="wkorderhead text-white">
 			<tr>
 				<th class="tablehead"> Legal Name</th>
+				<th hidden>Client ID</th>
 				<th class="tablehead"> Trade Name</th>
 				<th style="width: 131.0625px;">PAN Number</th>
-
-				<th style="width: 129.0625px;">GST Number</th>
+                <th style="width: 129.0625px;">GST Number</th>
 				<th style="width: 103.975px;">TAN Number</th>
 				<th style="width: 136.713px;">Aadhaar Number</th>
 				<th style="width: 120.812px;">Address</th>
 				<th style="width: 132.925px;">Person Incharge</th>
 				<th>Person To Be Contact</th>
+				<th> Action </th>
 			</tr>
 		</thead>
 		<tbody class="tablebody" id="bodytable">
@@ -66,6 +67,7 @@ li#clienttable_next {
 			?>
 					<tr>
 						<td class="tabledata"><?php echo $row['name']; ?></td>
+						<td hidden><?php echo $row['client_id']; ?> </td>
 						<td><?php echo $row['Trade_Name']; ?></td>
 						<td><?php echo $row['PAN']; ?></td>
 						<td><?php echo $row['GST']; ?></td>
@@ -74,6 +76,18 @@ li#clienttable_next {
 						<td><?php echo $row['address']; ?></td>
 						<td><?php echo $row['person_incharge']; ?></td>
 						<td><?php echo $row['person_to_be_contact']; ?></td>
+					
+
+						<td style="margin-left: -8px " >
+							<a class="view_clientdeatils"  href="<?= base_url("Client/editClientData") ?>/
+						
+							<?php echo $row['client_id']; ?>"
+							
+							>
+							
+							View Details					
+					    </a>
+                      </td>
 					</tr>
 				<?php
 				} 

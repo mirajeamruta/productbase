@@ -187,6 +187,19 @@ class User extends CI_Controller
 
                 $this->load->model('User_model');
                 $this->User_model->insertUsers($data);
+
+                $notification_data = array(
+                    'user_name' => $username,
+                    //'user_id' => $lastInsertedID,
+                    'type' => 'user',
+                    'status' => '0',
+                    'date' => date('Y-m-d H:i:s')
+                    );
+                
+                
+                                $this->load->model('Notification_Model');
+                                $this->Notification_Model->insertnotification($notification_data);
+                
                 $this->session->set_flashdata('success', 'New user created successfully');
                 redirect(base_url('User/allusers'));
             }
@@ -383,6 +396,36 @@ class User extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function EditUser(){
+        $userid = $this->input->post('user_id');
+         $data=array(
+             'name' => $_POST['name'],
+             'student_reg_no' => $_POST['ID'],
+            // 'icai'=>$_POST['icai'],
+             'partner_under_whom_registered'=>$_POST['partner_under_whom_registered'],
+             'balunand_id_no'=>$_POST['balunand_id_no'],
+             'personal_email'=>$_POST['personal_email'],
+             'official_email'=>$_POST['official_email'],
+             'mobile_no'=>$_POST['mobile_no'],
+             'bloodgroup'=>$_POST['bloodgroup']     
+         );
+         $this->load->model('User_model');
+         $this->User_model->EditUserInfo($data,$userid);
+
+         $notification_data = array(
+            'user_name'=>$_POST['name'],
+            'user_id'=>$userid,
+            'type'=>'edituser',
+            'status'=>0,
+            'date'=>date('Y-m-d H:i:s')
+        );
+
+        $this->load->model('Notification_Model');
+        $this->Notification_Model->insertnotification($notification_data);
+ $this->session->set_flashdata('success', 'Successfully Updated');
+                 redirect(base_url('User/editUserData/'.$userid));
+         
+     }
 
     public function MyProfile()
 
@@ -418,14 +461,14 @@ class User extends CI_Controller
 
                             $this->User_model->updatePassword($pass, $hashnewpassword);
 
-                            $this->session->set_flashdata('passwordsuccess', 'Your Password has been updated');
+                            $this->session->set_flashdata('passwordsuccess', ' <h6 class="sucessmsg" style="margin-top: 363px !important; margin-left: 203px !important; color: green;">Your Password has been updated</h6>');
                         }
                     } elseif ($this->input->post('newpassword') != $this->input->post('confirmpassword')) {
 
                         $this->session->set_flashdata('passwordsuccess', 'password and confirm password should be same');
                     }
                 } else {
-                    $this->session->set_flashdata('passwordsuccess', '<h6 style="color:red; margin-left: 61px; " > </h6> ');
+                   $this->session->set_flashdata('passwordfail', '<h6 style="color:red;margin-top: 353px;margin-left: 107px;">Your old password was entered incorrectly. Please enter it again. </h6> ');
                 }
             }
 

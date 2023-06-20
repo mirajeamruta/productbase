@@ -83,5 +83,13 @@ public function duplicateId($data)
 		$this->db->where('user_id ', $pass);
 		$this->db->update('tbl_users');
 	}
+
+	public function EditUserInfo($data,$userid)
+	{
+		$this->db->where('user_id', $userid);
+		
+		$this->db->update('tbl_users', $data);
+	}
+
 	
 }

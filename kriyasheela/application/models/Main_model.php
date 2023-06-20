@@ -2,10 +2,12 @@
 class Main_model extends CI_Model
 {
 
-     public   function can_login($balunand_id_no, $password)
+     public   function can_login($balunand_id_no, $password, $official_email)
      {
           $this->db->where('balunand_id_no', $balunand_id_no);
           $this->db->where('password', $password);
+          $this->db->where('official_email', $official_email);
+
           $query = $this->db->get('tbl_users');
 
           var_dump($query->row('password'));
@@ -109,4 +111,11 @@ class Main_model extends CI_Model
 
           return $query->row('workusernumber');
      }
+
+     public  function getAssignToForWorkOrderNo($workorder_no)
+	{
+		$query = $this->db->query("SELECT * FROM tbl_workorder WHERE workorder_no = '$workorder_no'");
+
+		return $query->result_array();
+	}
 }

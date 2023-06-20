@@ -111,6 +111,17 @@ class Client extends CI_Controller
 			//return;
 
 			$this->Client_model->insertClient($data);
+			$notification_data = array(
+				'name' => $clientname,
+				'status' => 0,
+				'type' => 'client',
+				'date' => date('Y-m-d H:i:s')
+
+			);
+
+			$this->load->model('Notification_Model');
+			$this->Notification_Model->insertnotification($notification_data);
+
 
 			$this->session->set_flashdata('success', 'Successfully client Created');
 
@@ -208,6 +219,17 @@ class Client extends CI_Controller
 								'person_to_be_contact' => $row['person_to_be_contact'],
 							);
 							$this->Client_model->insert_csv($insert_data);
+							
+
+$notification_data = array(
+	'name' => $row['name'],
+	'status' => 0,
+	'type' => 'client',
+	'date' => date('Y-m-d H:i:s')
+);
+$this->load->model('Notification_Model');
+$this->Notification_Model->insertnotification($notification_data);
+
 						}
 					}
 				}
@@ -234,7 +256,7 @@ class Client extends CI_Controller
 
 		foreach ($data['clientdetails'] as $client) {
 			$data['clientdetailsdata'][] = array(
-				'client_id ' => $client['client_id'],
+				'client_id' => $client['client_id'],
 
 				'name' => $client['name'],
 				'Trade_Name'=>$client['Trade_Name'],
@@ -259,4 +281,73 @@ class Client extends CI_Controller
 
 		$this->load->view('View_clients', $data);
 	}
+
+
+	public function editClientData($clientid)
+        {
+                $this->load->model('Client_model');
+
+                $data['clientdetails'] = $this->Client_model->editClientData($clientid);
+
+                foreach ($data['clientdetails'] as $client) {
+                        $data['clientdetailsdata'][] = array(
+                                'client_id' => $client['client_id'],
+                                'name' => $client['name'],
+                                'Trade_Name' => $client['Trade_Name'],
+                                'PAN' => $client['PAN'],
+                                'GST' => $client['GST'],
+                                'tan' => $client['tan'],
+                                'aadhar' => $client['aadhar'],
+                                'address' => $client['address'],
+                                'person_incharge' => $client['person_incharge'],
+                                'person_to_be_contact' => $client['person_to_be_contact'],
+
+                        );
+
+                        //https://www.youtube.com/watch?v=LxddgOvMrwY https://www.youtube.com/watch?v=sDw9tyDbEV4  https://www.codexworld.com/codeigniter-import-csv-file-data-into-mysql-database/fgetcsv()
+                }
+                
+                $this->load->view('template/header');
+
+                $this->load->view('template/navigation');
+
+                $this->load->view('Edit_client', $data);
+
+                $this->load->view('template/footer');
+
+                
+        }
+
+        public function EditClient()
+        {
+                $clientid=$this->input->post('client_id');
+                $data = array(
+                'name'=>$_POST['clientname'],
+                'Trade_Name'=>$_POST['tradename'],
+                'PAN'=>$_POST['pan'],
+                'GST'=>$_POST['gst'],
+                'tan'=>$_POST['tan'],
+                'aadhar'=>$_POST['aadhar'],
+                'address'=>$_POST['address'],
+                'person_incharge'=>$_POST['person_incharge'],
+                'person_to_be_contact'=>$_POST['person_to_be_contact']
+                );
+
+                $this->load->model('Client_model');
+                $this->Client_model->EditClientInfo($data, $clientid);
+
+				$notification_data = array(
+					'name' => $_POST['clientname'],
+					'client_id' => $clientid,
+					'type'=>'editclient',
+					'status' => 0,
+					'date' => date('Y-m-d H:i:s')
+				);
+		
+				$this->load->model('Notification_Model');
+				$this->Notification_Model->insertnotification($notification_data);
+
+$this->session->set_flashdata('success', 'Successfully Updated');
+                                redirect(base_url('Client/editClientData/'.$clientid));
+        }
 }

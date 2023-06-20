@@ -153,6 +153,35 @@ class Workorder extends CI_Controller
 			$this->load->view('template/footer');
 		}
 	}
+
+public function update_date(){
+				$workorder_no = $this->input->get('workorder_no');
+				$targeted_date = $this->input->get('targeted_date');
+				$deadline_date = $this->input->get('deadline_date');
+
+				$data = array(
+					'workorder_no' => $workorder_no,
+					'targetted_end_date' => $targeted_date,
+					'deadline' => $deadline_date
+				);
+
+				$this->load->model('Workorder_model');
+				$this->Workorder_model->updateentitydate($data);
+				$notification_data = array(
+					'workorder_no' => $workorder_no,
+					'targetted_end_date' => $targeted_date,
+					'deadline' => $deadline_date,
+					'status' => 0,
+					'type' => 'updatedates',
+					'date' => date('Y-m-d H:i:s')
+				);
+
+				$this->load->model('Notification_Model');
+				$this->Notification_Model->insertnotification($notification_data);
+				$this->session->set_flashdata('success', 'Date is updated successfully');
+}
+
+
 	public function view_workorder($workidnumber = null)
 	{
 
@@ -579,6 +608,17 @@ class Workorder extends CI_Controller
 				$this->load->model('Workorder_model');
 				$this->load->model('main_model');
 				$this->Workorder_model->insertuser($data);
+
+				$notification_data = array(
+					'assign_to' => $assign_tojson,
+					'workorder_no' => $workorder_no,
+					'status' => 0,
+					'type' => 'workorder',
+					'date' => date('Y-m-d H:i:s')
+				);
+
+				$this->load->model('Notification_Model');
+				$this->Notification_Model->insertnotification($notification_data);
 
 				$this->session->set_flashdata('success', 'Successfully User Created');
 				redirect(base_url('Workorder/View_workorder/'.$workorder_no));

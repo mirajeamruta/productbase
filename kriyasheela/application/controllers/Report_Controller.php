@@ -36,6 +36,9 @@ class Report_Controller extends CI_Controller
 						'client_name' => $worksheet['client_name'],
 						'date' => $worksheet['date'],
 						'work_description' => $worksheet['work_description'],
+						'start_time'=>$worksheet['start_time'],
+						'end_time'=>$worksheet['end_time'],
+						'partner_in_charge'=>$worksheet['partner_in_charge'],
 					);
 					// $sr_number++;
 					// echo $sr_number;
@@ -54,6 +57,9 @@ class Report_Controller extends CI_Controller
 						'client_name' => $worksheet['client_name'],
 						'date' => $worksheet['date'],
 						'work_description' => $worksheet['work_description'],
+						'start_time'=>$worksheet['start_time'],
+						'end_time'=>$worksheet['end_time'],
+						'partner_in_charge'=>$worksheet['partner_in_charge'],
 					);
 					// $sr_number++;
 					// echo $sr_number;

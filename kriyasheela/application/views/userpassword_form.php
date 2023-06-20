@@ -1,4 +1,4 @@
-<div class='container userform'>
+<div class='container userform' style="margin-top: 164px;">
     <div id="section_userform" class="col-md-9 offset-md-2" style="">
         <div class="row mb-5 mt-5">
 
@@ -10,6 +10,14 @@
                 <?php if ($this->session->flashdata('passwordsuccess')) { ?>
                     <p class="text-success col-sm-12">  
                         <?= $this->session->flashdata('passwordsuccess') ?>
+                    </p>
+                <?php } ?>
+                
+            </div>
+            <div>
+            <?php if ($this->session->flashdata('passwordfail')) { ?>
+                    <p class="text-success col-sm-12">  
+                        <?= $this->session->flashdata('passwordfail') ?>
                     </p>
                 <?php } ?>
             </div>
@@ -80,7 +88,7 @@
 
             <div class="row mb-2">
                 <div class="col-sm-8">
-                    <input type="submit" name="insert" value="CHANGE PASSWORD" class="float-right" style="background-color: #3581dc; border: none; border-radius: 6px; width: 46%; height: 44px; margin: 5px -50px;"  />
+                    <input type="submit" name="insert" value="CHANGE PASSWORD" class="float-right" style="background-color: #3581dc; border: none; border-radius: 6px; width: 46%; height: 44px; margin: 31px -46px;"  />
                 </div>
             </div>
 

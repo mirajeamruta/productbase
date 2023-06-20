@@ -31,7 +31,9 @@ h1 {
 }
 .navbar-nav li.last .dropdown-menu[data-bs-popper] {
 	right: 0;
-	left: auto;
+    left: -45px;
+    margin-top: 26px;
+    margin-top: 13px !important;
 }
 a.nav-link,
 .navbar-nav .dropdown-item {
@@ -65,8 +67,8 @@ a.nav-link,
 }
 
 section#section-dashboard {
-    margin-top: 11px;
-	margin-left: 82px !important;
+	margin-top: 17px;
+    margin-left: -22px !important;
 }
 
 /* login style */
@@ -561,18 +563,18 @@ nav .profile-details i {
 	display: flex;
 	justify-content: space-between;
 	/* padding: 0 20px; */
-	height: 834px;
-	margin-top: -17px;
+	height: 630px;
+	margin-top: -20px;
 }
 
 /* left box */
 .home-content .sales-boxes .recent-sales {
 	width: 65%;
-	background: #eaeae8a9;
-	padding: 18px 177px;
-	margin: -15px 12px;
-	border-radius: 12px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background: #eaeae8a9;
+    padding: 18px 177px;
+    margin: -22px 12px;
+    border-radius: -5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .home-content .sales-boxes .sales-details {
 	display: flex;
@@ -618,14 +620,19 @@ nav .profile-details i {
 	background: #0d3073;
 }
 
+.table-bordered thead td, .table-bordered thead th{
+	text-align: center;
+}
+
 /* Right box */
 .home-content .sales-boxes .top-sales {
 	width: 35%;
-	background: #eaeae8a9;
-	padding: 23px 94px;
-	margin: -15px 12px 0 0;
-	border-radius: 12px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background: #eaeae8a9;
+    padding: 23px 94px;
+    margin: -23px 12px 0 0;
+height: 673px;
+    border-radius: -1px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .sales-boxes .top-sales li {
 	display: flex;
@@ -773,8 +780,8 @@ nav .profile-details i {
 
 .dropdown-menu {
 	position: absolute;
-	margin-top: 10px !important;
-    margin-left: -22px !important;
+	/* margin-top: -26px !important; */
+    margin-left: -31px !important;
 }
 
 /* table for all text align  */
@@ -1234,8 +1241,6 @@ span.select2.select2-container.select2-container--default {
 	}
 	}
 
-	
-
 
 /* ======responsive for website code end======= */
 
@@ -1262,7 +1267,8 @@ span.select2.select2-container.select2-container--default {
 } */
 
 .button_notify {
-    margin-left: 170px;
+    margin-left: 12px;
+	margin-top: 36px;
 }
 .show_button {
     border-radius: 6px;
@@ -1306,7 +1312,7 @@ span.select2.select2-container.select2-container--default {
 
   span.badge1.badge2 {
     position: absolute;
-    top: -61px;
+    top: -59px;
     right: -121px;
     padding: 0px 8px !important;
     border-radius: 58%;
@@ -1328,7 +1334,10 @@ span.select2.select2-container.select2-container--default {
 }
   
   .notifycalender {
-	margin:-506px 0px 0px 1017px!important; 
+	position: absolute;
+    top: 93px;
+    /* right: 382px; */
+    left: 1017px;
   }
 
 #date {
@@ -1405,6 +1414,15 @@ input[type=text] {
     border-color: #3232d0;
     padding: 7px;
 }
+
+#UPdatebtn{
+	display: none;
+}
+
+/* Reset password for CSS */
+
+
+
 
 
 /* ========= AMRUTA CSS CODE END======================== */
@@ -1509,6 +1527,7 @@ input[type=file]::file-selector-button {
 #clientsubmit {
 	width: 700px !important;
 	margin-left: 3%;
+	font-size: 15px;
 }
 
 #section_userform1 > #span {
@@ -1602,7 +1621,7 @@ input[type=file]::file-selector-button {
 /* ==== Client Form new code ==== */
 .uploadBtn {
 	position: absolute;
-	top: 435px !important;
+	top: 511px !important;
 	left: -298px !important;
 	height: 35px !important;
 	padding: 6px;
@@ -1612,14 +1631,15 @@ input[type=file]::file-selector-button {
 
 /* === Upload CSV file label === */
 .uploadClientCSV {
-	background-color: #17a2b8;
-	border-radius: 7px;
-	cursor: pointer;
-	color: #fff;
-	position: absolute;
-	top: 185px;
-	left: 100px;
-	padding: 10px;
+    background-color: #17a2b8;
+    border-radius: 7px;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    top: 239px;
+    left: 115px;
+    padding: 10px;
+	font-size: 16px;
 }
 
 /* === File input-It is hidden-getting control via label === */
@@ -1772,14 +1792,13 @@ select#selected_Assigned_Name {
 }
 /* Edit Button in View Workorder */
 .bxs-message-square-edit {
-	display: block;
-	cursor: pointer;
-	font-size: 20px;
-	position: absolute;
-	top: 285px;
-	right: 135px;
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 285px;
+    right: 231px;
 }
-
 
 	.bxs-message-square-edit > p {
 		display: inline;
@@ -1791,13 +1810,13 @@ select#selected_Assigned_Name {
 /* Save Button in View Workorder  */
 
 #save_workorder_btn {
-	background: transparent;
-	border: none;
-	color: #fff;
-	display: none;
-	position: absolute;
-	top: 287.5px;
-	right: 135px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: none;
+    position: absolute;
+    top: 287.5px;
+	right: 231px;
 }
 
 	#save_workorder_btn:focus {
@@ -1996,6 +2015,118 @@ input#date_Of_Employement_Value{
 	height: 30px;
 	top: 11px;
 
+}
+
+
+* --- recently Close workorder --- */
+div#recently_close_pending_workorder {
+    width: 307px;
+    margin-left: -19px;
+    height: 195px;
+    overflow-y: auto;
+   
+
+}
+#recently_close_pending_workorder{
+	margin-top: 92px !important;
+	position: relative;	
+}
+p#recent_close_header {
+	background: #f3f3f3f0;
+	font-size: 20px;
+    /* position: fixed;     */
+    z-index: 1;
+}
+#close_items>li{
+	color: blue;
+	cursor: pointer;
+}
+#close_items{
+	margin-left: 36px;
+}
+
+/* View Workorder Form - Editable */
+
+/* Target Date */
+input.view_workorder_editable {
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+	input.view_workorder_editable:focus {
+		outline: none;
+	}
+
+/* edited data */
+#targeted_date_data {
+}
+
+/* Workorder close request button */
+button#close_workorder {
+    height: 35px;
+    border: none;
+    background: #17a2b8;
+    color: #fff;
+    border-radius: 3px;
+    width: 160px;
+    left: 504px;
+    position: relative;
+    bottom: 20px;
+}
+
+/* --- Edit User --- */
+input#username {
+    border: none;
+    background: transparent;
+	outline: none;
+    width: 200px;
+    margin-left: 169px;
+}
+input#username:focus{
+	outline: none !important ;
+}
+#edit_user_form{
+	 margin-top: 68px;
+    margin-left: 272px;
+}
+img#propileimage {
+    margin-left: 174px;
+}
+
+/* Edit User Btn */
+button#edit_user_btn, #save_user_btn {
+    border: none;
+    background: blue;
+    color: #fff;
+    height: 29px;
+    position: absolute;
+    right: 206px;
+    top: 127px;
+    width: 75px;
+}
+#save_user_btn{
+	display: none;
+}
+#edit_user_pic_btn {
+    display: none;
+    margin-left: 370px;
+    margin-top: 12px;
+}
+.edit_user_from{
+	border: 1px solid rgb(255, 4, 4);
+	background-color: red;
+}
+input#userupdate {
+    border-radius: 0px;
+    border: none;
+    background: blue;
+    color: #fff;
+	display: none;
+    height: 33px;
+    position: absolute;
+    top: -817px;
+    right: -523px;
+    width: 75px;
 }
  
 /* === Mobile Responsive === */

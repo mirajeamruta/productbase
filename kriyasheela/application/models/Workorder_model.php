@@ -145,7 +145,15 @@ class Workorder_model extends CI_Model
 	}
 
 
+public function updateentitydate($data)
+    {
+		$workorder_no = $data['workorder_no'];
+		unset($data['workorder_no']);
+		$this->db->where('workorder_no', $workorder_no);
+		$this->db->update('tbl_workorder', $data);
 
+        return $id;
+    }
 
 	public function getTypeofWork()
 	{
@@ -161,4 +169,13 @@ class Workorder_model extends CI_Model
 		//return $query->result_array();
 		return $query->row('prefix');
 	}
+
+
+	public  function getAssignToForWorkOrderNo($workorder_no)
+	{
+		$query = $this->db->query("SELECT * FROM tbl_workorder WHERE workorder_no = '$workorder_no'");
+
+		return $query->result_array();
+	}
+
 }

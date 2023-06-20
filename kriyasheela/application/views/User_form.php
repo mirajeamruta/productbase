@@ -51,7 +51,7 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4">Name</label>
                 <div class="col-sm-8">
-                    <input type="text" name="username" id="username" class="form-control" id="inputPassword3"
+                    <input type="text" name="username" id="username1" class="form-control" id="inputPassword3"
                         placeholder="Name"  >
                 </div>
             </div>
@@ -186,8 +186,7 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Password </label>
                 <div class="col-sm-8" data-placeholder="Password">
-                    <input type="password" id="password4" name="password" placeholder="Password"
-                        onkeyup='checkPasswordLength(this.value)'>
+                    <input type="password" id="password4" name="password" placeholder="Password" onkeyup='checkPasswordLength(this.value)'>
                     <span class='passTypeToggle' title="Show">
                         <i class="fa-solid fa-eye" id="fa-passicon"
                             style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>
