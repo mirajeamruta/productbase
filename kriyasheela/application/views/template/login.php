@@ -125,13 +125,14 @@
         <div class="modal-body1">
         </div>
 
-        <form onsubmit="return false;" method="post">
+        <form onsubmit="return false;" method="post" id="resetForm">
         <div class="form-group">
          <label for="name" id="reset_email_label">Email</label>
           <input
             type="email"
             class="form-control"
             id="rest_Email"
+            name="rest_Email"
             placeholder="Enter your email">
         </div>
         <p style="color:green; margin-left: 90px; display:none" id="reset_password_success">Password reset link has be sent Successfully in your Email.</p>
@@ -145,7 +146,7 @@
           type="submit"
           id="reset_password_btn1">
           
-      <a href="<?= base_url("Resetpassword_Controller/Resetpassword") ?>"> OK</a>      
+      <a style="color: ghostwhite;" href="<?= base_url("Resetpassword_Controller/Resetpassword") ?>"> OK</a>      
         </button>
     </div>
     </form>
@@ -181,11 +182,6 @@
 </script>
 
 
-<!-- <script>
-    document.getElementById('forgot').addEventListener('click',()=>{
-        // alert('Donkey Fellow')
-    })
-</script> -->
 
 <script>
 
@@ -206,3 +202,53 @@
     })
 </script>
 
+
+<script>
+
+
+
+document.getElementById("resetForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get the entered email
+  var email = document.getElementById("rest_Email").value;
+
+  // Call a function to send the password reset email
+  sendPasswordResetEmail(rest_Email);
+});
+</script>
+
+<script>
+function sendPasswordResetEmail(rest_Email) {
+  // You can use an API or a server-side script to send the email
+  // Here's a simplified example using the 'fetch' function:
+  
+  // Replace 'YOUR_SERVER_ENDPOINT' with the actual endpoint on your server
+  var url = 'YOUR_SERVER_ENDPOINT';
+
+  // Create the request payload
+  var payload = {
+    rest_Email: rest_Email
+  };
+
+  // Send a POST request to your server
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(function(response) {
+    if (response.ok) {
+      alert("Password reset email sent!");
+    } else {
+      alert("Failed to send password reset email.");
+    }
+  })
+  .catch(function(error) {
+    console.error("Error:", error);
+    alert("An error occurred while sending the password reset email.");
+  });
+}
+</script>

@@ -20,6 +20,35 @@ class Main_model extends CI_Model
                return false;
           }
      }
+     public function getUserId($balunand_id_no, $password){
+          
+          $this->db->where('balunand_id_no', $balunand_id_no);
+          $this->db->where('password', $password);
+          $query = $this->db->get('tbl_users');
+
+         // var_dump($query->row('password'));
+
+          //SELECT * FROM users WHERE username = '$username' AND password = '$password'  
+          if ($query->num_rows() > 0) {
+               //return true;
+               return $query->row('user_id');
+          } else {
+               return false;
+          }
+      }
+
+      public function get_User_Type($balunand_id_no, $password){
+          
+          $this->db->where('balunand_id_no', $balunand_id_no);
+          $this->db->where('password', $password);
+          $query = $this->db->get('tbl_users');
+
+          if ($query->num_rows() > 0) {
+               return $query->row('user_type_id');
+          } else {
+               return false;
+          }
+      }
 
 
      public function getUsersType($userid)

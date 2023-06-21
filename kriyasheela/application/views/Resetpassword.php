@@ -42,6 +42,7 @@
     font-weight: 500;
     font-style: normal;
     font-family: sans-serif;
+    margin-top: 14px;
 }
 
 .resetmodal{
@@ -65,18 +66,21 @@
 
 <label><h3 style="margin-left: 13px; font-family: sans-serif;">Set New Password</h3></label>
 <br></br>
-    <label id="form-label"  class="align">  New Password</label>
+    <label id="form-label"  class="align">  New Password :</label>
     <div>
-        <input type="password" name="n-password" id="inputfield1" class="confirm" required>
+        <input type="password" name="n-password" id="inputfield1" class="confirm"  onkeyup="validatePassword(this.value);" required>
+     
         <i class="far fa-eye" id="togglePassword1" style="margin-left: -30px; cursor: pointer;"></i>
+        <span id="pwdmsg" style=" position: absolute;top: 379px; right: 769px;"></span>
+
     </div>
-    <label id="form-label" class="align1"> Repeat Password</label>
+    <label id="form-label" class="align1"> Repeat Password :</label>
     <div>
         <input type="password" name="c-password" id="inputfield2" class="confirm" onkeyup="validate_password()" required>
         <i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i>
     </div>
     <span id="wrong_pass_alert" style="margin-left: 37px;margin-top: -9px;"></span>
-   <p> <input type="submit" value="Submit" name="reset" id="formbtn" class="btnsubmit" onclick="password_check()" onclick="wrong_pass_alert()"></p>
+   <p> <input type="submit" value="Submit" name="reset" id="formbtn" class="btnsubmit"  onclick="wrong_pass_alert()"></p>
 </form>
 </div>
 
@@ -146,18 +150,55 @@ const togglePassword2 = document.querySelector('#togglePassword2');
 </script>
 
 
-<script>
+<!-- Password Validation -->
 
 
-function password_check() {
-  pass = document.getElementById("inputfield1").value;
-  console.log(pass);
-  regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  if (regex.exec(pass) == null) {
-    alert('invalid password!(Password should contains special character,Alphanumric And Numbers')
-  }
-  else {
-    console.log("valid");
-  }
-}
-</script>
+           <script>
+            function validatePassword(password) {
+                
+                // Do not show anything when the length of password is zero.
+                if (password.length === 0) {
+                    document.getElementById("pwdmsg").innerHTML = "";
+                    return;
+                }
+                // Create an array and push all possible values that you want in password
+                var matchedCase = new Array();
+                matchedCase.push("[$@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test(password)) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        strength = "Password is Weak";
+                        color = "red";
+                        break;
+                    case 3:
+                        strength = "Password is Medium";
+                        color = "orange";
+                        break;
+                    case 4:
+                        strength = "Password is Strong";
+                        color = "green";
+                        break;
+                }
+                document.getElementById("pwdmsg").innerHTML = strength;
+                document.getElementById("pwdmsg").style.color = color;
+            }
+        </script>
+
+
+
+

@@ -235,14 +235,17 @@ class Main extends CI_Controller
 				//var_dump($record);
 
 				// echo "<br>";
+				$user_type_id=$this->Main_model->get_User_Type($balunand_id_no, $Password);
 
-				$usertype = $this->Main_model->getUserType($record);
+				$usertype = $this->Main_model->getUserType( $user_type_id);
+				
 
 				//var_dump($usertype);
 
 				//return;
 
-				$username = $this->Main_model->getUserName($record);
+				$new_user_id = $this->Main_model->getUserId($balunand_id_no, $Password);
+				$username = $this->Main_model->getUserName($new_user_id);
 
 				// echo "username $username";
 

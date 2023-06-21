@@ -22,10 +22,14 @@
             <thead class="viewtable">
                 <tr class="text-center text-white text-capitalize">
                     <th class="wkorderhead" colspan="8">Name
-                        <i class='bx bxs-message-square-edit' id='workorder_edit_btn'>
-                            <p>Edit</p>
-                        </i>
-                        <button id="save_workorder_btn" onclick="addEventListener()"><i class='bx bxs-save'></i><span>Save</span></button>
+                    <?php
+                      if ( $this->session-> userdata('usertype') == 'admin' ) {
+                    ?>
+                    <i class='bx bxs-message-square-edit' id='workorder_edit_btn' ><p>Edit</p></i>
+                     <button id="save_workorder_btn"><i class='bx bxs-save'></i><span>Save</span></button>
+                 <?php
+                   }
+                 ?>
 
 
                     </th>

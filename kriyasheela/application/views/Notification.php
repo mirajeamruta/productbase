@@ -17,33 +17,52 @@
       
 
       
-<?php
+
+
+      <?php
             // $notfications = array_slice($this->Notification_Model->getNotifications(), 0, 10);
             $notfications = $this->Notification_Model->getNotifications();
-            $this->load->model('Workorder_model');
             $loggedInUserId = $this->session->userdata('userId');
              foreach ($notfications as $notfication) {
                 if ($this->session->userdata('usertype') == 'admin') {
                  ?>
             <tr>
 
-                <?php if ($notfication["type"] == "updatedates") { ?>
+                <?php if ($notfication["type"] == "updatedates") {
+                    $assign_to = $this->Workorder_model->getAssignToForWorkOrderNo($notfication['workorder_no'])[0]['assign_to'];
+                    $array['number1'] = str_replace('"', '', $assign_to);
+                    $array['number2'] = str_replace(']', '', $array['number1']);
+                    $array['number3'] = str_replace('[', '', $array['number2']);
+                    $array['number4'] = explode(',', $array['number3']);
+
+                    if (in_array($loggedInUserId, $array['number4'])) {
+                        ?>
                 <td>
                     <h6> Target date and deadline for workorder no <a
-                            href="<?= base_url("workorder/view_workorder/".$notfication["workorder_no"]) ?>"><?php echo $notfication['workorder_no'] ?>
+                            href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>"><?php echo $notfication['workorder_no'] ?>
                         </a> has been revised <br></h6>
                     <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
                         value="<?= $notfication["date"] ?>" />
                 </td>
-                <?php } else if ($notfication["type"] == "workorder") {?>
+                <?php }
+                }
+                else if ($notfication["type"] == "workorder") {
+                    $array['number1'] = str_replace('"', '', $notfication['assign_to']);
+                    $array['number2'] = str_replace(']', '', $array['number1']);
+                    $array['number3'] = str_replace('[', '', $array['number2']);
+                    $array['number4'] = explode(',', $array['number3']);
+                    if (in_array($loggedInUserId, $array['number4'])) {
+                        ?>
                 <td>
                     <h6> New workorder <a
-                            href="<?= base_url("workorder/view_workorder/".$notfication["workorder_no"]) ?>"><?php echo $notfication["workorder_no"] ?>
+                            href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>"><?php echo $notfication["workorder_no"] ?>
                         </a> assigned to you <br></h6>
                     <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden"
                         value="<?= $notfication["date"] ?>" />
                 </td>
-                <?php } else if ($notfication["type"] == "client") { ?>
+                <?php }
+                }
+                else if ($notfication["type"] == "client") { ?>
                 <td>
                     <h6>New client <a href="<?= base_url("client/clientList") ?>"><?php echo $notfication['name']; ?>
                         </a> has been created <br></h6>
@@ -116,6 +135,9 @@
         }
     }
     ?>
+
+            
+
 
             </tr>
 
