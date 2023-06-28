@@ -9,6 +9,10 @@ class Notification_Controller extends CI_Controller
         if($this->session->userdata('balunand_id_no')== ''){
 
             redirect(base_url(). 'Main/login');
+        } else {
+
+
+
         }
         $this->load->library('session');
         $this->load->model('Notification_Model');

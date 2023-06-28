@@ -145,15 +145,15 @@ class Workorder_model extends CI_Model
 	}
 
 
-public function updateentitydate($data)
-    {
+	public function updateentitydate($data)
+	{
 		$workorder_no = $data['workorder_no'];
 		unset($data['workorder_no']);
 		$this->db->where('workorder_no', $workorder_no);
 		$this->db->update('tbl_workorder', $data);
 
-        return $id;
-    }
+		return $id;
+	}
 
 	public function getTypeofWork()
 	{
@@ -178,4 +178,20 @@ public function updateentitydate($data)
 		return $query->result_array();
 	}
 
+	public function updateViewWorkorder($data, $workorder_number)
+	{
+
+		//$sql = "UPDATE tbl_workorder SET assign_to=$data WHERE id=2";
+		// $query=$this->db->query("UPDATE tbl_workorder SET assign_to= $assign_to WHERE workorder_no='$workorder_number'");	
+		$this->db->where('workorder_no', $workorder_number);
+		$this->db->update('tbl_workorder', $data);
+		// $this->db->where('workorder_no',$workorder_number);
+	}
+
+
+	public function getAssignToUserId()
+	{
+		$query = $this->db->query('SELECT remarks FROM tbl_workorder');
+		return $query->result_array();
+	}
 }

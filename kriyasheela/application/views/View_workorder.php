@@ -18,18 +18,36 @@
 
 
         </div>
+       
+          
+          <script>
+            let loggedInUserId="<?php echo $this->session->userdata('userId') ?>"
+            // alert(loggedInUserId)
+          </script>
+       
+        <?php
+        
+         
+        if ($this->session->flashdata('success')) {    ?>
+
+            <script>
+                alert("<?php echo $this->session->flashdata('success') ?>")
+            </script>
+        <?php } ?>
         <table class="table table-bordered my-5">
             <thead class="viewtable">
                 <tr class="text-center text-white text-capitalize">
                     <th class="wkorderhead" colspan="8">Name
-                    <?php
-                      if ( $this->session-> userdata('usertype') == 'admin' ) {
-                    ?>
-                    <i class='bx bxs-message-square-edit' id='workorder_edit_btn' ><p>Edit</p></i>
-                     <button id="save_workorder_btn"><i class='bx bxs-save'></i><span>Save</span></button>
-                 <?php
-                   }
-                 ?>
+                        <?php
+                        if ($this->session->userdata('usertype') == 'admin') {
+                        ?>
+                            <i class='bx bxs-message-square-edit' id='workorder_edit_btn'>
+                                <p>Edit</p>
+                            </i>
+                            <button id="save_workorder_btn"><i class='bx bxs-save'></i><span>Save</span></button>
+                        <?php
+                        }
+                        ?>
 
 
                     </th>
@@ -40,6 +58,9 @@
             </thead>
             <tbody id="viewbody">
                 <?php
+                $workorder_number;
+                ?>
+                <?php
                 if (!empty($oneworkorderdata)) {
                     foreach ($oneworkorderdata as $row) {
                         // print_r(end($oneworkorderdata));
@@ -48,6 +69,10 @@
 
                 ?>
                         <tr class="viewrow">
+
+                            <?php
+                            $workorder_number = $row['workorder_no'];
+                            ?>
 
                             <input type="text" value=" <?php echo $row['workorder_no']; ?> " id="workno" hidden />
                             <input type="text" value=" <?php echo $row['client_name']; ?> " id="workclnt" hidden />
@@ -72,9 +97,9 @@
                         </tr>
                         <tr>
                             <td class="wksubhead">Start Date </td>
-                            <td >
-                              
-                                <input type="text"id="start_date" style="border:none" value="<?php echo $row['start_date']; ?>" readonly/>
+                            <td>
+
+                                <input type="text" id="start_date" style="border:none" value="<?php echo $row['start_date']; ?>" readonly />
                             </td>
 
                             <td colspan="2" class="wksubhead">Targetted End Date </td>
@@ -108,7 +133,37 @@
                 }
                 ?>
                 <tr class="text-center text-white text-capitalize">
-                    <th class="wkorderhead" colspan="8">Team Members </th>
+                    <th class="wkorderhead" colspan="8">Team Members
+                        <!-- Start Working(22/06/23)-1 -->
+                        <?php
+                                if ($this->session->userdata('usertype') == 'admin') {
+                                ?>
+                        <button id="new_assign_btn" class="assign_btn">Assign</button>
+                        <form method="post" autocomplete="off" action="<?= base_url('Workorder/updateData') ?>">
+                            <select id="selected_New_Assigned_Name" name="assign_to[]" hidden>
+                            </select>
+
+                            <input type="text" value="<?php echo $row['workorder_no']; ?>" name="workorder_number" hidden />
+
+                            <script>
+                                let workorder_number = "<?php echo $row['workorder_no']; ?>"
+                            </script>
+                            <input type="submit" id="new_assign_save_btn" value="Save" class="assign_btn" />
+                        </form>
+
+                        <!-- Test form for removing assign user -->
+                        <form method="post" autocomplete="off" action="<?= base_url('Workorder/updateDataAfterDelete') ?>">
+                            <select id="delete_assign_user" name="remove_assign_user[]" hidden>
+                            </select>
+                            <input type="text" value="<?php echo $row['workorder_no']; ?>" name="workorder_number" hidden />
+                            <input type="submit" id="removeAssignUserBtn" value="Update" style="display:none" />
+                        </form>
+                        <?php
+                                }
+                                ?>
+                        <!-- End Working(22/06/23) -->
+                    </th>
+
                 </tr>
                 <tr class="wksubhead2">
                     <td colspan="2"></td>
@@ -122,11 +177,36 @@
                         // var_dump($key);
                         if ($key == 0) {
                 ?>
+                            <script>
+                                let assign_user_name = []
+                                let assign_user_id = []
+                            </script>
                             <tr>
                                 <td colspan="2" class="wksubhead">Lead Member </td>
                                 <td colspan="2"><?php echo $row['balunand_id_no']; ?> </td>
                                 <td colspan="2"><?php echo $row['student_reg_no']; ?> </td>
-                                <td colspan="2"><?php echo $row['name']; ?> </td>
+                                <td colspan="2" class="assign_name" value="<?php echo $row['user_id']; ?>"><?php echo $row['name']; ?>
+                                    <input type="text" value="<?php echo $row['user_id']; ?>" id="otheruserid" hidden />
+                                    <!-- Delete assign user start -->
+
+                                    <?php
+
+                                    if ($this->session->userdata('usertype') == 'admin') {
+                                    ?>
+                                        <button id="deleteAssignUser" class="deleteMe_btn">Select</button>
+                                    <?php
+                                    }
+                                    ?>
+                                    <!-- Delete assign user end -->
+
+                                </td>
+                                <script>
+                                    assign_user_name.push("<?php echo $row['name']; ?>")
+                                    assign_user_id.push("<?php echo $row['user_id']; ?>")
+                                </script>
+
+                                <input type="text" value="<?php echo $row['user_id']; ?>" id="leaduserid" hidden />
+
                             </tr>
 
                 <?php
@@ -145,7 +225,28 @@
                                 <td colspan="2"><?php echo $row['balunand_id_no'];
                                                 $key ?></td>
                                 <td colspan="2"><?php echo $row['student_reg_no']; ?></td>
-                                <td colspan="2"><?php echo $row['name']; ?> </td>
+                                <td colspan="2" class="assign_name" value="<?php echo $row['user_id']; ?>"><?php echo $row['name']; ?>
+                                    <input type="text" value="<?php echo $row['user_id']; ?>" id="otheruserid" hidden />
+
+
+                                    <!-- Delete assign user start -->
+
+                                    <?php
+                                    if ($this->session->userdata('usertype') == 'admin') {
+                                    ?>
+                                        <button id="deleteAssignUser" class="deleteMe_btn">Select</button>
+                                    <?php
+                                    }
+                                    ?>
+
+                                    <!-- Delete assign user start -->
+                                </td>
+                                <script>
+                                    assign_user_name.push("<?php echo $row['name']; ?>")
+                                    assign_user_id.push("<?php echo $row['user_id']; ?>")
+                                </script>
+
+                                <input type="text" value="<?php echo $row['user_id']; ?>" id="otheruserid" hidden />
                             </tr>
                     <?php
                         }
@@ -158,6 +259,48 @@
                 <?php
                 }
                 ?>
+
+                <!-- Start Working(23/06/23)-2 -->
+                <tr id="new_assign_user_name_container" hidden>
+                    <td colspan="8" id="new_assign_user_name">
+                        <ul id="new_assign_user_name__list" name="assign_to[]">
+                        </ul>
+                    </td>
+                </tr>
+                <!-- End Working(23/06/23)-2 -->
+                <!-- Start Working(22/06/23)-2 -->
+                <tr id="new_assign_to_section">
+                    <script>
+                        let alreadyAssignUser = [];
+                        let alreadyAssignUserId = [];
+                    </script>
+
+                    <!-- <script>
+                        let testArray = [];
+                        <?php foreach ($assign_to_id as $worksheetrecord) : ?>
+                            testArray.push("<?php echo $worksheetrecord['remarks'] ?>")
+                        <?php endforeach; ?>
+                    </script> -->
+
+
+                    <th colspan="8" id="new_assign_section__options">
+                        <select id="new_assign_to_section__select">
+                            <option id="default_value">Select</option>
+                            <?php foreach ($assign_to2 as $worksheetrecord) : ?>
+                                <option value="<?= $worksheetrecord['user_id']; ?>"><?= $worksheetrecord['name']; ?>
+                              
+                                </option>
+                               
+                                <script>
+                                    alreadyAssignUser.push("<?php echo  $worksheetrecord['user_id'] ?>");
+                                    alreadyAssignUser.push("<?php echo $worksheetrecord['name'] ?>")
+                                    alreadyAssignUserId.push("<?php echo  $worksheetrecord['user_id'] ?>")
+                                </script>
+                            <?php endforeach; ?>
+                        </select>
+                        <button id="new_assign_user_addBtn">Add</button>
+                    </th>
+                </tr>
 
                 <tr class="text-center text-white text-capitalize">
                     <th class="text-capitalize wkorderhead" colspan="8">Flow of work </th>
@@ -196,11 +339,18 @@
                 ?>
             </tbody>
         </table>
+
+        <!-- close workorder button -->
         <button id="close_workorder">Close Workorder</button>
 
     </div>
 </div>
+
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
     var name = ['naki', 'nuka'];
     $(".saveMe").click(function() {
@@ -257,6 +407,8 @@
     // output = workOrder;
     // alert(output);
 </script>
+
+
 <script type="text/javascript">
     jQuery(document).ready(function($) {
 
@@ -377,6 +529,10 @@
     });
 </script>
 
+
+
+<!-- Edit for date button -->
+
 <script>
     let view_workorder_editable = document.querySelector('.view_workorder_editable');
     let work_order_edit_btn = document.getElementById('workorder_edit_btn');
@@ -384,25 +540,25 @@
 
     // Start Date
     let start_date = document.getElementById('start_date').value
-     //  deadline Date Value
-     let deadline_date = document.getElementById('deadline_date').value;
- //  targeted Date Value
-   let targeted_date = document.getElementById('targeted_date').value;
+    //  deadline Date Value
+    let deadline_date = document.getElementById('deadline_date').value;
+    //  targeted Date Value
+    let targeted_date = document.getElementById('targeted_date').value;
 
-    document.getElementById('targeted_date').setAttribute("min",start_date)
-    document.getElementById('targeted_date').setAttribute("max",deadline_date)
+    document.getElementById('targeted_date').setAttribute("min", start_date)
+    document.getElementById('targeted_date').setAttribute("max", deadline_date)
 
-    document.getElementById('deadline_date').setAttribute("min",start_date)
+    document.getElementById('deadline_date').setAttribute("min", start_date)
 
 
-    document.getElementById('targeted_date').addEventListener('change',function(){
+    document.getElementById('targeted_date').addEventListener('change', function() {
         let deadline_date = document.getElementById('deadline_date').value;
         let targeted_date = document.getElementById('targeted_date').value;
-           if(targeted_date>deadline_date){
-           // alert('Targetted date cannot be greater than deadline date')
-           }
+        if (targeted_date > deadline_date) {
+            // alert('Targetted date cannot be greater than deadline date')
+        }
     })
-   
+
 
     // Targeted Date
     view_workorder_editable.setAttribute('readonly', 'readonly');
@@ -483,13 +639,273 @@
     });
 </script>
 
+
+
+<!-- Closed workorder script -->
 <script>
-    // For workorder close request button
-    document.getElementById('close_workorder').addEventListener('click', function() {
-        // document.getElementById('request_message').style.display="block"
-        document.getElementById('close_workorder').innerHTML = "Request Sent";
-        document.getElementById('close_workorder').style.background = "green";
-        let seleectedData = document.getElementById('workorderids')
-        console.log(seleectedData.options[seleectedData.selectedIndex].value)
+    const close = document.getElementById('close_workorder');
+    
+    // Add a click event listener to the button
+    close.addEventListener('click', () => {
+        <?php
+            if ($this->session->userdata('usertype') == 'admin') {
+          ?>
+        if(newAssignNameArray.length!=""){
+
+            // newAssignNameArray.map((x)=>{
+                for(let i=0; i<newAssignNameArray.length; i++){
+
+                if(newAssignNameArray[i]==loggedInUserId){
+
+                    var workOrderNo = document.getElementById('workno');
+                    var workOrderNoValue = workOrderNo.value.trim();
+        
+                    document.getElementById('close_workorder').innerHTML = "Request Sent";
+                    document.getElementById('close_workorder').style.background = "green";
+                    fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/close_work_order?workorder_no=' +
+                    workOrderNoValue)
+                    .then(response => response.json())
+                    .then(data => {
+                    // Process the received data here
+                     console.log(data);
+                    })
+                    .catch(error => {
+                   // Handle any errors that occur during the request
+                    console.error('Error:', error);
+                  });
+                break;
+                }else{
+                    
+                    // alert('You are not assigned for this workorder')
+                    // break;
+                }
+             
+            }
+      
+        } else{
+            alert('No User is assigned to this workorder')
+        } 
+        <?php 
+        
+       }?>
+
+        <?php
+            if (!($this->session->userdata('usertype')=='admin')) {
+          ?>
+          var workOrderNo = document.getElementById('workno');
+                    var workOrderNoValue = workOrderNo.value.trim();
+        
+                    document.getElementById('close_workorder').innerHTML = "Request Sent";
+                    document.getElementById('close_workorder').style.background = "green";
+                    fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/close_work_order?workorder_no=' +
+                    workOrderNoValue)
+                    .then(response => response.json())
+                    .then(data => {
+                    // Process the received data here
+                     console.log(data);
+                    })
+                    .catch(error => {
+                   // Handle any errors that occur during the request
+                    console.error('Error:', error);
+                  });
+        
+
+
+          <?php 
+        
+    }?>
+
+
+});
+
+</script>
+
+
+<!-- deadline notification code -->
+
+<script>
+    var workorder = document.getElementById('workno');
+    var workorderno = workorder.value.trim();
+    var targetted = document.getElementById('targeted_date');
+    var targetteddate = targetted.value.trim();
+    var deadline = document.getElementById('deadline');
+    var deadlinedate = deadline.value.trim();
+    fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/deadline?workorder_no=' +
+            workorderno + '&targeted_date=' +
+            targetteddate + '&deadline_date=' + deadlinedate)
+
+
+        .then(response => response.json())
+        .then(data => {
+            // Process the received data here
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle any errors that occur during the request
+            console.error('Error:', error);
+        });
+</script>
+
+
+
+
+<!-- Assign to new user code -->
+
+
+<script>
+    let isUserAssigned = true;
+    // Save button 
+    document.getElementById('new_assign_save_btn').addEventListener('click', function(event) {
+        let select = document.getElementById('new_assign_to_section__select')
+        let selectData = select.options[select.selectedIndex].value;
+        if (isUserAssigned) {
+            event.preventDefault();
+            alert('No Changes Made')
+            document.getElementById('new_assign_save_btn').style.display = 'none' // Save Button
+            document.getElementById('new_assign_btn').style.display = 'block' // Assign Button
+            document.getElementById('new_assign_to_section').style.display = 'none' // Assign new user section 
+            document.getElementById('new_assign_user_name_container').setAttribute('hidden', 'hidden') // Selected n
+        } else {
+            document.getElementById('new_assign_save_btn').style.display = 'none' // Save Button
+            document.getElementById('new_assign_btn').style.display = 'block' // Assign Button
+            document.getElementById('new_assign_to_section').style.display = 'none' // Assign new user section 
+            document.getElementById('new_assign_user_name_container').setAttribute('hidden', 'hidden') // Selected new assign user contaner 
+        }
+
     })
+
+    // Assign button
+    document.getElementById('new_assign_btn').addEventListener('click', function() {
+        document.getElementById('new_assign_save_btn').style.display = 'block' // Save Button
+        document.getElementById('new_assign_btn').style.display = 'none' // Assign Button
+        document.getElementById('new_assign_to_section').style.display = 'block' // Assign new user section   
+        document.getElementById('new_assign_user_name_container').removeAttribute('hidden') // Selected new assign user contaner  
+    })
+
+    //Selecting new user for workorder//
+    //Storing selected names into an array
+    let newAssignNameArray = []
+    document.getElementById('new_assign_user_addBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        //Creating new li element
+        let li = document.createElement('li')
+        //Getting data from dropdown
+        let select = document.getElementById('new_assign_to_section__select')
+        let selectData = select.options[select.selectedIndex].text;
+        let selectDataValue = select.options[select.selectedIndex].value;
+        let isPresent = false;
+        newAssignNameArray.map((x) => {
+            if (x == selectDataValue) {
+                alert('Already Exist!!!')
+                isPresent = true;
+            }
+        })
+        var id_Number = 0;
+        if (!li.id) {
+            li.id = id_Number;
+            id_Number++;
+        }
+
+        if (selectData != 'Select' && isPresent == false) {
+            newAssignNameArray.push(select.options[select.selectedIndex].value)
+            isUserAssigned = false;
+            let textNode = document.createTextNode(selectData)
+            // Adding textNode into li
+            li.appendChild(textNode)
+            //Creating span tag
+            let span = document.createElement('span')
+            let spanIcon = document.createTextNode('\u00D7')
+            span.className = "closeIcon"
+            span.appendChild(spanIcon)
+            li.appendChild(span)
+            li.value = selectDataValue
+            document.getElementById('new_assign_user_name__list').appendChild(li)
+            var closeItem = document.getElementsByClassName('closeIcon');
+            var i;
+            let isDelete = false;
+            for (i = 0; i < closeItem.length; i++) {
+                closeItem[i].onclick = function() {
+                    let div = this.parentElement;
+                    let id_To_Delete = div.id;
+                    let deleted_Item_Index = newAssignNameArray.indexOf(div.value.toString());
+                    newAssignNameArray.splice(deleted_Item_Index, 1);
+                    assignNewUser(newAssignNameArray)
+                    div.remove()
+                    select.options[select.options.value = `${test_value}`].style.display = "block";
+                }
+            }
+            if (!isDelete) {
+                assignNewUser(newAssignNameArray)
+            }
+
+            function assignNewUser(data) {
+                let selected_New_Assigned_Name = document.getElementById('selected_New_Assigned_Name');
+                let newOption = new Option(data);
+                selected_New_Assigned_Name.add(newOption, undefined);
+                for (let i = 0; i < selected_New_Assigned_Name.options.length; i++) {
+                    selected_New_Assigned_Name.options[i].selected = true;
+                }
+            }
+            select.options[select.selectedIndex].style.display = "none"
+            document.getElementById('default_value').selected = true;
+        }
+    })
+    // Storing already assign user name and user id
+    let alreadyAssignUserObject = {}
+    for (let i = 0; i < alreadyAssignUser.length; i += 2) {
+        const key = alreadyAssignUser[i]
+        const value = alreadyAssignUser[i + 1]
+        alreadyAssignUserObject[key] = value
+    }
+    // For each user name which is already assign, we are adding it into array 'newAssignNameArray'
+    // which we are using to update the assign to column
+    assign_user_name.map((x) => {
+        //Iterating through 'alreadyAssignUserObject' object
+        for (let [key, value] of Object.entries(alreadyAssignUserObject)) {
+            if (value == x) { // if username(already assigned) is equal to username present in username list
+                newAssignNameArray.push(key) // adding respective user id to an array
+            }
+        }
+    })
+    // Removing or Deleting assigned user
+    let deleteMe_btn = document.getElementsByClassName('deleteMe_btn');
+    let i;
+     let userDeleted;
+    let selectWorkorder=document.getElementById("workorderids");
+    let workid=selectWorkorder.options[selectWorkorder.options.selectedIndex].text
+
+    let remainingUser = newAssignNameArray
+    for (i = 0; i < deleteMe_btn.length; i++) {
+        deleteMe_btn[i].onclick = function() {
+            let parentElement = this.parentNode;
+            let value = parentElement.textContent;
+            let updatedValue = value.replace('Select', '')
+            parentElement.style.color = "red"
+            this.style.display = "none"
+            document.getElementById('new_assign_btn').style.display = "none"
+            document.getElementById('new_assign_save_btn').style.display = "none"
+            document.getElementById('new_assign_to_section').style.display = "none"
+            document.getElementById('new_assign_user_name_container').style.display = "none"
+            document.getElementById('removeAssignUserBtn').style.display = "inline"
+            let result = 0;
+            for (let [key, value] of Object.entries(alreadyAssignUserObject)) {
+                if (value == updatedValue.trim()) {
+                    remainingUser = remainingUser.filter((x) => {
+                        userDeleted = key;
+                        return x != key
+                    })
+                    if (remainingUser == "") {
+                        remainingUser = null
+                    }
+                    let selected_New_Assigned_Name = document.getElementById('delete_assign_user');
+                    let newOption = new Option(remainingUser);
+                   // alert(`User  is ${userDeleted} remove from workorder number ${workid} ` )
+                    selected_New_Assigned_Name.add(newOption, undefined);
+                    for (let i = 0; i < selected_New_Assigned_Name.options.length; i++) {
+                        selected_New_Assigned_Name.options[i].selected = true;
+                    }
+                }
+            }
+        }
+    }
 </script>

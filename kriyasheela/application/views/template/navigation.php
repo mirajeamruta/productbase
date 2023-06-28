@@ -85,10 +85,10 @@
                             <!-- <span>Inbox</span> -->
                    
                         </a>
-                        <a href="#" class="" id="iconnotify">
+                        <!-- <a href="#" class="" id="iconnotify">
                          <span></span>
                       <span class="badge1">3</span>
-                          </a>
+                          </a> -->
                         <!-- <span href="#" class="badge1">3</span> -->
                         <!-- <a class="nav-link" href="<?= base_url("Notification") ?>">Notification -->
                             <!-- <?php echo  $this->session->userdata('countnotify'); ?> -->
@@ -144,16 +144,16 @@
                     <a class="nav-link "  href="<?= base_url("Notification_Controller/notification") ?>">
                             Notification
                             <!-- <span>Inbox</span> -->
-                        </a><a href="#" class="" id="iconnotify">
+                        <!-- </a><a href="#" class="" id="iconnotify">
                          <span></span>
                       <span class="badge1 badge2">3</span>
-                          </a>
+                          </a> -->
                       
                         <!-- <?php echo  $this->session->userdata('countnotify'); ?> -->
                         <!-- <a class="nav-link" href="<?= base_url("Notification") ?>">Notification</a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url("Report_Controller/index") ?>">Reports</a>
+                        <a class="nav-link" style="margin-top: -15px;" href="<?= base_url("Report_Controller/index") ?>">Reports</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"

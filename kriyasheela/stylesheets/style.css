@@ -1792,7 +1792,7 @@ select#selected_Assigned_Name {
     cursor: pointer;
     font-size: 20px;
     position: absolute;
-    top: 285px;
+    top: 307px;
     right: 231px;
 }
 
@@ -1801,7 +1801,7 @@ select#selected_Assigned_Name {
 		font-size: 16px !important;
 		padding-left: 5px;
 		position: relative;
-		top: -2px;
+		top: -3px;
 	}
 /* Save Button in View Workorder  */
 
@@ -1811,7 +1811,7 @@ select#selected_Assigned_Name {
     color: #fff;
     display: none;
     position: absolute;
-    top: 287.5px;
+    top: 304.5px;
 	right: 231px;
 }
 
@@ -2032,13 +2032,16 @@ p#recent_close_header {
 	font-size: 20px;
     /* position: fixed;     */
     z-index: 1;
+	/* margin-left: -46px; */
 }
 #close_items>li{
 	color: blue;
 	cursor: pointer;
 }
 #close_items{
-	margin-left: 36px;
+	margin-left: 30px;
+	margin-top: -50px;
+	min-height: 150px;
 }
 
 /* View Workorder Form - Editable */
@@ -2059,6 +2062,7 @@ input.view_workorder_editable {
 
 /* Workorder close request button */
 button#close_workorder {
+	
     height: 35px;
     border: none;
     background: #17a2b8;
@@ -2125,6 +2129,277 @@ input#userupdate {
     width: 75px;
 }
  
+
+/* --- Dashboard(06/06/23 --- */
+.home-section .home-content {
+
+    padding-top: 107px;
+}
+
+.home-content .sales-boxes {
+
+    height: 509px;
+
+}
+
+.home-content .sales-boxes .top-sales {
+   height: 695px;
+}
+
+ul.top-sales-details {
+    cursor: pointer;
+    width: 304px;
+    height: 249px;
+    overflow-y: auto;
+    margin-top: 20px;
+  
+}
+
+/* --- recently Close workorder --- */
+div#recently_close_pending_workorder {
+    width: 307px;
+    margin-left: 28px;
+    height: 195px;
+    overflow-y: auto;
+}
+p#recent_close_header {
+	background: #f3f3f3f0;
+	font-size: 20px;
+    position: relative;    
+    z-index: 1;
+}
+#close_items>li{
+	color: blue;
+	cursor: pointer;
+}
+/* Workorder close request button */
+button#close_workorder {
+    height: 35px;
+    border: none;
+    background: #17a2b8;
+    color: #fff;
+    border-radius: 3px;
+    width: 160px;
+    left: 504px;
+    position: relative;
+    bottom: 20px;
+}
+/* request message  */
+p#request_message {
+    color: green;
+	display: none;
+    margin-left: 387px;
+    margin-top: -29px;
+}
+
+/* --- Edit User --- */
+ input#username {
+    border: none;
+    background: transparent;
+	outline: none;
+    width: 200px;
+    margin-left: 169px;
+}
+input#username:focus{
+	outline: none !important ;
+}
+#edit_user_form{
+	 margin-top: 68px;
+    margin-left: 272px;
+}
+img#propileimage {
+    margin-left: 174px;
+}
+
+/* Edit User Btn */
+button#edit_user_btn,#save_user_btn {
+    border: none;
+    background: blue;
+    color: #fff;
+    height: 29px;
+    position: absolute;
+	right: 205px;
+    top: 126px;
+    width: 75px;
+}
+#save_user_btn{
+	display: none;
+}
+#edit_user_pic_btn {
+    display: none;
+    margin-left: 370px;
+    margin-top: 12px;
+}
+.edit_user_from{
+	border: 1px solid rgb(255, 4, 4);
+	background-color: red;
+}
+
+/* ---Dashboard --- */
+/* Left Section(Notification) */
+.home-content .sales-boxes .recent-sales{
+	height: 694px;
+}
+
+/* working on 22/06/23 */
+/* Workorder assign to new user btn */
+button.assign_btn {
+	background: transparent;
+    border: none;
+    color: #ffffff;
+    position: absolute !important;
+	top: 79%;
+    right: 208px;
+    width: 80px;
+}
+button#new_assign_btn{
+	
+	display: block;
+	
+}
+
+
+input#new_assign_save_btn {
+	display: none;
+	background: transparent;
+    border: none;
+    color: #ffffff;
+    position: absolute;
+	right: 222px;
+    top: 78%;
+}
+/* new assign user section */
+#new_assign_to_section{
+	display: none;
+	margin-top: -47PX;
+}
+th#new_assign_section__options {
+    border: none;
+    position: relative;
+    top: 39px;
+    left: 430px;
+}
+button#new_assign_user_addBtn {
+    background: blue;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    left: 164px;
+    top: -36px;
+    width: 70px;
+    height: 35px;
+}
+select#new_assign_to_section__select {
+	cursor: pointer;
+    position: relative;
+    right: 1px;
+    padding-left: 43px;
+}
+
+select#new_assign_to_section__select:focus{
+	outline:none;
+}
+
+/* New Assign user list -23-06-23 */
+
+/* #new_assign_user_name_container{
+	display: none;
+} */
+td#new_assign_user_name {
+    border: none;
+    list-style: none;
+}
+td#new_assign_user_name>ul{
+	list-style-type: none;
+	position: relative;
+    TOP: 13PX;
+}
+ul#new_assign_user_name__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ul#new_assign_user_name__list>li {
+    border-radius: 53px;
+    background-color: yellow;
+    padding: 0px 22px 3px 21px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+ul#new_assign_user_name__list>li:hover span.closeIcon{
+	visibility: visible;
+}
+#new_assign_user_name__list>li>span.closeIcon{
+	font-size: 27px;
+	visibility: hidden ;
+	z-index:1;
+}
+#new_assign_user_name__list>li>span.closeIcon {   
+    position: relative;
+    left: 10px;
+	top:5px
+}
+#new_assign_user_name__list>li>span.closeIcon:hover{
+	color: rgb(255, 0, 0);
+}
+
+/* Assign user delete button */
+button#deleteAssignUser {
+    background: rgb(198, 2, 2);
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0;
+	/* display: none; */
+    height: 26px;
+    position: relative;
+    left: 46px;
+    top: -2px;
+    width: 70px;
+}
+
+button#deleteAssignUser:hover{
+	background: red;
+}
+td.assign_name {
+    cursor: pointer;
+}
+td.assign_name:hover button#deleteAssignUser {
+	
+	opacity: 1;
+	/* display:inline */
+	
+}
+ select.userAfterDelete {
+    margin-left: 100px;
+}  
+
+/* Button for removing assign user */
+input#removeAssignUserBtn {
+	background: transparent;
+    border-radius: 16px;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    height: 30px;
+    position: absolute;
+	left: 81%;
+    top: 78.3%;
+    width: 70px;
+}
+input#removeAssignUserBtn:hover{
+	background-color: rgb(242, 242, 242);
+	color:#000;
+}
+li.closed_workorder {
+    position: relative;
+    top: 46px;
+}
+
+
 /* === Mobile Responsive === */
 @media screen and (max-width: 600px) {
 	.container {

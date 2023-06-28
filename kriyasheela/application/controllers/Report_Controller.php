@@ -13,7 +13,6 @@ class Report_Controller extends CI_Controller
 		//$this->load->view('view_workorder');
 		//$this->load->helper(array('form', 'url'));
 		//$this->load->library('form_validation');
-
 	}
 
 	public function	index(){
@@ -30,6 +29,12 @@ class Report_Controller extends CI_Controller
 				$sr_number = 1;
 				foreach ($data['worksheet'] as $worksheet) {
 
+					$status = $worksheet['status'];
+
+					if ($status === 'open') {
+						$status = 'pending';
+					}
+
 					$data['workesheetdata'][] = array(
 						'SrNo' => $sr_number,
 						'workorder_no' => $worksheet['workorder_no'],
@@ -39,6 +44,7 @@ class Report_Controller extends CI_Controller
 						'start_time'=>$worksheet['start_time'],
 						'end_time'=>$worksheet['end_time'],
 						'partner_in_charge'=>$worksheet['partner_in_charge'],
+						'status'=>$status,
 					);
 					// $sr_number++;
 					// echo $sr_number;
@@ -60,7 +66,11 @@ class Report_Controller extends CI_Controller
 						'start_time'=>$worksheet['start_time'],
 						'end_time'=>$worksheet['end_time'],
 						'partner_in_charge'=>$worksheet['partner_in_charge'],
+						'status'=>$worksheet['status'],
 					);
+
+				
+
 					// $sr_number++;
 					// echo $sr_number;
 					++$sr_number;
@@ -77,3 +87,5 @@ class Report_Controller extends CI_Controller
 			$this->load->view('template/footer');
 	}
 }
+
+

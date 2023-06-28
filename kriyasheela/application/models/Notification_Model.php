@@ -5,6 +5,7 @@ class Notification_Model extends CI_Model
         function insertnotification($data)
         {
                 $this->db->insert('notification', $data);
+                
         }
 
     public function getNotifications()
