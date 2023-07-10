@@ -38,6 +38,7 @@ li#clienttable_previous {
 li#clienttable_next {
     margin-left: 10px;
 }
+
 </style>
 
 <div class='container-fluid' id="section_clientlist">
@@ -85,7 +86,7 @@ li#clienttable_next {
 							
 							>
 							
-							View Details					
+							ViewDetails					
 					    </a>
                       </td>
 					</tr>

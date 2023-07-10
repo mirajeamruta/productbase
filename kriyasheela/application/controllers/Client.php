@@ -347,7 +347,7 @@ $this->Notification_Model->insertnotification($notification_data);
 				$this->load->model('Notification_Model');
 				$this->Notification_Model->insertnotification($notification_data);
 
-$this->session->set_flashdata('success', 'Successfully Updated');
+                $this->session->set_flashdata('success', 'Successfully Updated');
                                 redirect(base_url('Client/editClientData/'.$clientid));
         }
 }

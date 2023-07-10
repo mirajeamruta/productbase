@@ -20,7 +20,7 @@
                                                                                     'Client/createClient'
                                                                                 ) ?>" enctype='multipart/form-data'>
                 <div class="row mb-3">
-                    <label for="inputEmail3" class="col-sm-4 clientLabel">Legal Name :</label>
+                    <label for="inputEmail3" class="col-sm-4 clientLabel" id="required-field5">Legal Name :</label>
                     <div class="col-sm-8 clientInput">
                         <input type="text" name="clientname" class="form-control clientLegalName" id="clientname_legal" placeholder="Legal Name" size="50" required >
                     </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel">Pan :</label>
+                    <label for="inputPassword3" class="col-sm-4 text-uppercase clientLabel" id="required-field6">Pan :</label>
                     <div class="col-sm-8 clientInput" >
                         <input type="text" name="pan" class="form-control" id="inputPassword3" placeholder="PAN" maxlength="10" onblur="ValidatePAN(this);" style="text-transform: uppercase;"  required>
                     </div>
@@ -53,25 +53,25 @@
                     </div>
                 </div>
                 <div class="row mb-3" style="margin-top: -26px;">
-                    <label for="inputPassword3" class="col-sm-4 clientLabel">Aadhaar Number :</label>
+                    <label for="inputPassword3" class="col-sm-4 clientLabel" id="required-field7">Aadhaar Number :</label>
                     <div class="col-sm-8 clientInput" >
                         <input type="text" name="aadhar" id="txtAadhaar" class="form-control" id="gst"  data-type="adhaarnumber" placeholder="Aadhaar Number" maxlength="14" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 clientLabel">Address :</label>
+                    <label for="inputPassword3" class="col-sm-4 clientLabel" id="required-field8" >Address :</label>
                     <div class="col-sm-8 clientInput">
                         <input type="text" name="address" id="address" class="form-control" id="gst" placeholder="Address"  required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 clientLabel">Person Incharge :</label>
+                    <label for="inputPassword3" class="col-sm-4 clientLabel" id="required-field9">Person Incharge :</label>
                     <div class="col-sm-8 clientInput">
                         <input type="text" name="person_incharge" id="person_incharge" class="form-control" size="50" id="gst" placeholder="Person Incharge" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-4 clientLabel">Person To Be Contacted :</label>
+                    <label for="inputPassword3" class="col-sm-4 clientLabel" id="required-field10">Person To Be Contacted :</label>
                     <div class="col-sm-8 clientInput">
                         <input type="text" name="person_to_be_contact" id="person_to_be_contact" class="form-control"
                             id="gst" placeholder="Person to be Contacted" required>

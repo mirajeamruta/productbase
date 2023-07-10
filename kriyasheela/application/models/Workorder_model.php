@@ -24,7 +24,7 @@ class Workorder_model extends CI_Model
 	public  function fetchworkordersheetdata($workid)
 	{
 
-		$query = $this->db->query("SELECT * FROM tbl_worksheet where workorder_no='$workid' ");
+		$query = $this->db->query("SELECT * FROM tbl_worksheet where workorder_no='$workid'");
 
 		//$query = $this->db->get();
 
@@ -164,7 +164,7 @@ class Workorder_model extends CI_Model
 
 	public function getTypeofWorkPrefix($type_of_work_id)
 	{
-		$query = $this->db->query("SELECT prefix FROM tbl_typeofwork where type_of_work_id = $type_of_work_id   ");
+		$query = $this->db->query("SELECT prefix FROM tbl_typeofwork where type_of_work_id = $type_of_work_id");
 
 		//return $query->result_array();
 		return $query->row('prefix');

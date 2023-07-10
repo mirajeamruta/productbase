@@ -2,11 +2,11 @@
 class Main_model extends CI_Model
 {
 
-     public   function can_login($balunand_id_no, $password, $official_email)
+     public   function can_login($balunand_id_no, $password)
      {
           $this->db->where('balunand_id_no', $balunand_id_no);
           $this->db->where('password', $password);
-          $this->db->where('official_email', $official_email);
+          // $this->db->where('official_email', $official_email);
 
           $query = $this->db->get('tbl_users');
 

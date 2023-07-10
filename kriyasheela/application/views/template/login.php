@@ -76,7 +76,7 @@
 
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                     <input type="text" id="email" class="form-control" name="official_email" placeholder="Email" required="required">
@@ -84,7 +84,7 @@
                                     <span class="text-danger"><?php echo form_error('official_email'); ?></span>
 
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <div class="input-group">

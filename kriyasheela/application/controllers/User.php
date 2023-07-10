@@ -401,7 +401,7 @@ class User extends CI_Controller
          $data=array(
              'name' => $_POST['name'],
              'student_reg_no' => $_POST['ID'],
-            // 'icai'=>$_POST['icai'],
+            'icai'=>$_POST['ID'],
              'partner_under_whom_registered'=>$_POST['partner_under_whom_registered'],
              'balunand_id_no'=>$_POST['balunand_id_no'],
              'personal_email'=>$_POST['personal_email'],

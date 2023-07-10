@@ -40,8 +40,7 @@
             <div class="row mb-3">
                 <label for="demo-date" class="col-sm-3">ICAI Number :</label>
                 <div class="col-sm-9">
-                    <input type="text" name="ID" class="form-control user_icai user_icai_edit" id="ID" value="<?php echo $row['ID'] ?>"
-                        aria-describedby="created_on"  readonly/>
+                    <input type="text" name="ID" class="form-control user_icai user_icai_edit" id="ID" value="<?php echo $row['ID'] ?>" aria-describedby="created_on"  readonly/>
                 </div>
             </div>
             <div class="row mb-3">

@@ -19,7 +19,7 @@ h1 {
 	margin-top: 200px;
 }
 .navbar-nav li {
-	margin-right: 35px;
+	margin-right: 19px;
 }
 /* .navbar-nav li a {
   margin-right: 15px;
@@ -1419,6 +1419,117 @@ input[type=text] {
 	display: none;
 }
 
+/* All manditory fileds add * contnets css */
+
+/* workorder form */
+#required-field1::after {
+    content: "*";
+    color: red;
+    font-size: 28px;
+    margin-left: -89px;
+}
+
+/* worksheet form */
+#required-field2::after {
+    content: "*";
+    color: red;
+    font-size: 28px;
+    margin-left: -155px;
+}
+
+#required-field3::after {
+    content: "*";
+    color: red;
+    font-size: 28px;
+    margin-left: -128px;
+}
+
+#required-field4::after {
+    content: "*";
+    color: red;
+    font-size: 28px;
+    margin-left: -85px;
+}
+
+/* client form */
+
+#required-field5::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+    margin-left: -101px;
+}
+
+#required-field6::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+    margin-left: -50px;
+}
+
+#required-field7::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -133px;
+}
+
+#required-field8::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -73px;
+}
+
+#required-field9::after {
+	content: "*";
+    color: red;
+    font-size: 27px;
+    margin-left: -132px;
+}
+
+#required-field10::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -184px;
+}
+
+/* user form */
+#required-field11::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -57px;
+}
+
+#required-field12::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -57px;
+}
+
+#required-field13::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -192px;
+}
+#required-field14::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -171px;
+}
+
+#required-field15::after {
+    content: "*";
+    color: red;
+	font-size: 27px;
+	margin-left: -87px;
+}
+
 
 
 /* ========= AMRUTA CSS CODE END======================== */
@@ -2387,7 +2498,7 @@ input#removeAssignUserBtn {
     height: 30px;
     position: absolute;
 	left: 81%;
-    top: 78.3%;
+    top: 124.3%;
     width: 70px;
 }
 input#removeAssignUserBtn:hover{

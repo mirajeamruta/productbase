@@ -15,7 +15,8 @@ class Report_Controller extends CI_Controller
 		//$this->load->library('form_validation');
 	}
 
-	public function	index(){
+	public function	index()
+	{
 
 		if ($this->session->userdata('balunand_id_no') == '') {
 			//echo "not logged in";      
@@ -41,21 +42,26 @@ class Report_Controller extends CI_Controller
 						'client_name' => $worksheet['client_name'],
 						'date' => $worksheet['date'],
 						'work_description' => $worksheet['work_description'],
-						'start_time'=>$worksheet['start_time'],
-						'end_time'=>$worksheet['end_time'],
-						'partner_in_charge'=>$worksheet['partner_in_charge'],
-						'status'=>$status,
+						'start_time' => $worksheet['start_time'],
+						'end_time' => $worksheet['end_time'],
+						'partner_in_charge' => $worksheet['partner_in_charge'],
+						'status' => $status,
 					);
 					// $sr_number++;
 					// echo $sr_number;
 					++$sr_number;
 					echo "</br>";
-
 				}
 			} else {
 				$data['worksheet'] = $this->Report_Model->getWorkSheet($loggedInUserId);
 				$sr_number = 1;
 				foreach ($data['worksheet'] as $worksheet) {
+
+					$status = $worksheet['status'];
+
+					if ($status === 'open') {
+						$status = 'pending';
+					}
 
 					$data['workesheetdata'][] = array(
 						'SrNo' => $sr_number,
@@ -63,13 +69,14 @@ class Report_Controller extends CI_Controller
 						'client_name' => $worksheet['client_name'],
 						'date' => $worksheet['date'],
 						'work_description' => $worksheet['work_description'],
-						'start_time'=>$worksheet['start_time'],
-						'end_time'=>$worksheet['end_time'],
-						'partner_in_charge'=>$worksheet['partner_in_charge'],
-						'status'=>$worksheet['status'],
+						'start_time' => $worksheet['start_time'],
+						'end_time' => $worksheet['end_time'],
+						'partner_in_charge' => $worksheet['partner_in_charge'],
+						'status' => $status,
+						
 					);
 
-				
+
 
 					// $sr_number++;
 					// echo $sr_number;
@@ -80,12 +87,10 @@ class Report_Controller extends CI_Controller
 		}
 		$this->load->view('template/header');
 
-			$this->load->view('template/navigation');
+		$this->load->view('template/navigation');
 
-			$this->load->view('Report',$data);
+		$this->load->view('Report', $data);
 
-			$this->load->view('template/footer');
+		$this->load->view('template/footer');
 	}
 }
-
-

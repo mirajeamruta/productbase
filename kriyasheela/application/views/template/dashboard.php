@@ -225,7 +225,7 @@
                                             if (!(in_array($loggedInUserId, $array['number4']))) {
                                             ?>
                                                 <td>
-                                                <h6> You have been removed from requested workorder no <a href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>"><?php echo $notfication["workorder_no"] ?> </a> <br></h6>
+                                                <h6> You have been removed from  workorder no <a href="<?= base_url("workorder/view_workorder/" . $notfication["workorder_no"]) ?>"><?php echo $notfication["workorder_no"] ?> </a> <br></h6>
                                                     <input id="<?= $notfication["Notification_id"] ?>_notification_date" type="hidden" value="<?= $notfication["date"] ?>" />
                                                 </td>
                                                 <?php }

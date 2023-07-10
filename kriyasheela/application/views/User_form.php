@@ -28,13 +28,13 @@
             </div>
 
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-4">Image</label>
+                <label for="inputEmail3" class="col-sm-4"id="required-field11">Image</label>
                 <div class="col-sm-8">
                     <!-- <input type="file" name="profilephoto" id="profilephoto" aria-describedby="created_on" onchange="readfile(this)" /> -->
 
 
                     <input type="file" name="profilephoto" class="chooseFile" id="profilephoto"
-                        onchange="readfile(this)"/>
+                        onchange="readfile(this)" required/>
 
                     <!--
                             <input type="file" name="chooseFile" id="chooseFile">
@@ -49,10 +49,10 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-4">Name</label>
+                <label for="inputPassword3" class="col-sm-4" id="required-field12">Name</label>
                 <div class="col-sm-8">
                     <input type="text" name="username" id="username1" class="form-control" id="inputPassword3"
-                        placeholder="Name"  >
+                        placeholder="Name" required  >
                 </div>
             </div>
             <div class="row mb-3" id="studentregno" style="display:none">
@@ -155,10 +155,10 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-4">Balu & Anand ID Number</label>
+                <label for="inputPassword3" class="col-sm-4" id="required-field13">Balu & Anand ID Number</label>
                 <div class="col-sm-8">
                     <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"
-                        class="form-control" >
+                        class="form-control" required >
                 </div>
             </div>
             <div class="row mb-3">
@@ -169,10 +169,10 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-4"> Official Email Address </label>
+                <label for="inputPassword3" class="col-sm-4" id="required-field14"> Official Email Address </label>
                 <div class="col-sm-8">
                     <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address"
-                        class="form-control" >
+                        class="form-control" required>
                 </div>
             </div>
             <div class="row mb-3">
@@ -184,9 +184,9 @@
             </div>
 
             <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-4"> Password </label>
+                <label for="inputPassword3" class="col-sm-4"id="required-field15" > Password </label>
                 <div class="col-sm-8" data-placeholder="Password">
-                    <input type="password" id="password4" name="password" placeholder="Password" onkeyup='checkPasswordLength(this.value)'>
+                    <input type="password" id="password4" name="password" placeholder="Password" onkeyup='checkPasswordLength(this.value)' required>
                     <span class='passTypeToggle' title="Show">
                         <i class="fa-solid fa-eye" id="fa-passicon"
                             style="margin-left: -50px; position: relative; right:-540px; top:-32px; cursor: pointer; color: black;  vertical-align: text-bottom;line-height: 1.7; "></i></span>

@@ -206,7 +206,7 @@ class Main extends CI_Controller
 
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
-		$this->form_validation->set_rules('official_email', 'official_email', 'required');
+		// $this->form_validation->set_rules('official_email', 'official_email', 'required');
 
 		if ($this->form_validation->run()) {
 
@@ -215,22 +215,22 @@ class Main extends CI_Controller
 
 			$password =($this->input->post('password'));
 			$Password=md5($password);
-			$official_email=$this->input->post('official_email');
+			// $official_email=$this->input->post('official_email');
 
 			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
-			if ($this->Main_model->can_login($balunand_id_no, $Password, $official_email)) {
+			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
 				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
-				$record = $this->Main_model->can_login($balunand_id_no, $Password, $official_email);
+				$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
 				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
-				$record = $this->Main_model->can_login($balunand_id_no, $Password, $official_email);
+				$record = $this->Main_model->can_login($balunand_id_no, $Password);
 				// echo $password;
 				//var_dump($record);
 
@@ -258,7 +258,7 @@ class Main extends CI_Controller
 					//'student_reg_no'=> $student_reg_no,
 					'usertype'     => $usertype,
 					'username'     => $username,
-					'official_email'=> $official_email,
+					// 'official_email'=> $official_email,
 					'userId' => $record
 
 				);
@@ -315,7 +315,7 @@ class Main extends CI_Controller
 		$this->session->unset_userdata('balunand_id_no');
 		$this->session->unset_userdata('usertype');
 		$this->session->unset_userdata('username');
-		$this->session->unset_userdata('official_email');
+		// $this->session->unset_userdata('official_email');
 		$this->session->unset_userdata('userId');
 
 		redirect(base_url() . 'Main/login');

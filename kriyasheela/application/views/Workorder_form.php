@@ -1,4 +1,5 @@
 <!-- Form style presnt in htdocs\kriyasheela-p2\kriyasheela\stylesheets\style.css -->
+
 <div class='container userform'>
     <div id="section_userform" class="col-md-9 offset-md-1">
         <span class="span">Workorder Form</span>
@@ -155,7 +156,7 @@
 
             </div>
             <div class="row mb-3">
-                <label for="remarks" class="col-sm-4">Remarks :</label>
+                <label for="remarks" class="col-sm-4" id="required-field1" >Remarks :</label>
                 <div class="col-sm-8">
                     <textarea type="text" placeholder="Remarks" class="form-control" name="remarks" id="remarks"
                         col="50" row="50" required></textarea>
@@ -236,25 +237,28 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+
+
         <script>
-        $(document).ready(function() {
+        // $(document).ready(function(){
 
-            //alert('yes');
+        //     //alert('yes');
 
-            var startDate;
-            var endDate;
-            var DeadLine;
-            $("#date_picker1").datepicker({
-                dateFormat: 'dd-mm-yy'
-            })
+        //     var startDate;
+        //     var endDate;
+        //     var DeadLine;
+        //     $("#date_picker1").datepicker({
+        //         dateFormat: 'dd-mm-yy'
+        //     })
           
 
-            $("#date_picker2").datepicker({
-                dateFormat: 'dd-mm-yy'
-            });
-            $("#date_picker3").datepicker({
-                dateFormat: 'dd-mm-yy'
-            });
+        //     $("#date_picker2").datepicker({
+        //         dateFormat: 'dd-mm-yy'
+        //     });
+        //     $("#date_picker3").datepicker({
+        //         dateFormat: 'dd-mm-yy'
+        //     });
 
 //     $('#date_picker1').change(function() {
 //     var startDate = $(this).datepicker('getDate');
@@ -431,12 +435,11 @@
         })
        
         */
-
-     
-    
-  
    
        </script>
+
+
+
 
        <script>
         var today=new Date();
@@ -496,8 +499,7 @@
             return todayDate;   
          }
         //  Start Date
-       document.getElementById('date_picker1').addEventListener('change',function()
-         {            
+       document.getElementById('date_picker1').addEventListener('change',function(){            
             // Getting selected Date
             let currentDate= document.getElementById('date_picker1').value;
             // Adding value to new input filed because default format is bit hard to change
