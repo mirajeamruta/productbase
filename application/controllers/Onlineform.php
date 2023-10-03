@@ -2,6 +2,8 @@
 if (!defined('BASEPATH')) {
 	exit('No direct script access allowed');
 }
+	use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class Onlineform extends CI_Controller
 {
@@ -20,45 +22,113 @@ class Onlineform extends CI_Controller
 	}
 	// edit_submit_index function
 
-	function edit_submit_index()
+	function applyOnlineForm()
 	{
-		$action = $this->input->post('submit');
 
-		$data['resume'] = $this->input->post('resume');
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
 
-		$config['upload_path'] = './uploads/';
-		// Directory
-		$config['allowed_types'] = 'pdf|doc|docx';
-		//type of images allowed
-		$config['max_size'] = '30720';
-		//Max Size
-		// For unique image name at a time
-		$this->load->library('upload');
+$name = $_POST['firstname'];
+$email = $_POST['email'];
+$address=$_POST['address'];
+$education=$_POST['qualifications'];
+$experience=$_POST['experience'];
+$pdfFileTmp = $_FILES['resume']['tmp_name']; // Use the 'tmp_name' key
+$pdfName = $_FILES['resume']['name'];
 
-		$this->upload->initialize($config);
-		//File Uploading library
-		$this->upload->do_upload('resume');
-		// input name which have to upload
-		$video_upload = $this->upload->data();
-		//
+if(isset($_POST["send"])){
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host ='ssl://smtp.gmail.com:465';
+    $mail->SMTPAuth = true;
+    $mail->Username='webone@balunand.com';
+    $mail->Password='KriyaSheela2023';
+    $mail->SMTPSecure='ssl';
+    $mail->Port=465;
+    $mail->setFrom('webone@balunand.com','Kriyasheela');
+    $mail->addAddress('webone@balunand.com');
+    $mail->isHTML(true);
+    $mail->Subject="Application Form";
+    $mail->Body="<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>PDF</title>
+        <meta name='viewport' content='width=device-width,initial-scale=1.0'/>
+         <style>
+           
+           .applicant_table,th,td
+            {
+                border: 1px solid #000;
+                border-collapse: collapse;
+                padding: 10px 58px;
+            }
+           table.applicant_table 
+           {
+            font-size: 14px;
+           }
+            th{
+				text-align: center;
+			}
+          
+           @media screen and (max-width: 600px)
+          {
+            
+            table.applicant_table 
+             {
+                font-size: 14px;
+            }
+            .applicant_table, th, td 
+            {
+               border: 1px solid #000;
+               border-collapse: collapse;
+               padding: 10px 24px;
+            }
+             th{
+				text-align: center;
+			}
+        }
+         </style>
+    </head>
+    <body>
+        <table class='applicant_table'>
+            <tbody>
+            <tr>
+			  <th colspan='2'><h3>Applicant details</h3></th>
+			</tr>
+                <tr>
+                    <th>Name</th>
+                    <td>$name</td>
+                </tr>
+                <tr>
+                    <th>Email Id</th>
+                    <td>$email</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>$address</td>
+                </tr>
+                <tr>
+                    <th>Education</th>
+                    <td>$education</td>
+                </tr>
+                <tr>
+                    <th>Experience</th>
+                    <td>$experience years</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>";
+	$mail->addAttachment($pdfFileTmp, $pdfName);
+    $mail->send();
+    echo "
+    <script>
+    alert('Application sent  successfully');
+    document.location.href='https://balunand.com/';
+    </script>";
+}
 
-		$data = [
-			'name' => $this->input->post('firstname'),
-			'email' => $this->input->post('email'),
-			'address' => $this->input->post('address'),
-			'educational_qualification' => $this->input->post('qualifications'),
-			'experience' => $this->input->post('experience'),
-			'resume' => $video_upload['full_path'],
-		];
-
-		//print_r($data);
-		$this->load->model('Onlineformmodel');
-		$validate = $this->Onlineformmodel->submit_index($data);
-
-		if ($validate) {
-			redirect(base_url());
-		} else {
-			echo "error while inserting data";
-		}
 	}
 }

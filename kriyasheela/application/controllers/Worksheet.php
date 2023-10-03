@@ -51,6 +51,15 @@ class Worksheet extends CI_Controller
 
 			$data['workGiven'] = $this->Worksheet_model->getUsers();
 
+			//$data['typeofworkorder'] = $this->Worksheet_model->getTypeofWork();
+			//	foreach ($data['typeofworkorder'] as $typeofworkorder) {
+			//		$data['typeofworkorderdata'][] = array(
+			//			'type_of_work_id' => $typeofworkorder['type_of_work_id'],
+			//			'type_of_work' => $typeofworkorder['type_of_work'],
+			//			'prefix' => $typeofworkorder['prefix']
+			//		);
+				//}
+
 			foreach ($data['workorder'] as $workId) {
 
 				$array['number1'] = str_replace('"', '',  $workId['assign_to']);
@@ -62,7 +71,8 @@ class Worksheet extends CI_Controller
 				if (in_array($loggedInUserId, $array['number4'])) {
 
 					$data['workerorderno'][] = array(
-						'id' => $workId['workorder_no']
+						'id' => $workId['workorder_no'],
+'client_name' => $workId['client_name']
 					);
 				}
 
@@ -81,6 +91,13 @@ class Worksheet extends CI_Controller
 			$this->load->view('template/footer');
 		}
 	}
+
+	//function typeOfWork() {
+	//	$selected_value = $this->input->get('selectedValue');
+	//	$this->session->set_userdata('selectedValue', $selected_value);
+	//	echo $selected_value;
+	//}
+
 
 	function createWorksheet()
 	{
@@ -104,9 +121,13 @@ class Worksheet extends CI_Controller
 				//echo "true";
 
 				$workorder = $this->input->post('workorder');
+				$typeofwork= $this->input->post('type_of_work');
 				$date = $this->input->post('date');
+				$formatedDate=date('Y-m-d',strtotime($date));
 				$clientname = $this->input->post('client_name');
 				$Description = $this->input->post('Description');
+
+				//echo $date;
 
 				//$WorkGiven = $this->input->post('WorkGiven');
 				$remarks = $this->input->post('remarks');
@@ -128,12 +149,13 @@ class Worksheet extends CI_Controller
 
 				$data = array(
 					'workorder_no' => $workorder,
+					'Type_of_work'=> $typeofwork,
 					'employee_name' => $loggedInEmployee,
 					'user_id' => $loggedInUserId,
-					'Date' => $date,
+					'date' => $formatedDate,
 					'work_description' => $Description,
 					//'work_given_by'=>$WorkGiven,
-					'remarks' => $remarks,
+					'remark' => $remarks,
 					'start_time' => $Starttime_in_24_hour_format,
 					'end_time' => $Endtime_in_24_hour_format
 
@@ -155,7 +177,9 @@ class Worksheet extends CI_Controller
 
 	public function worksheetview()
 	{
-
+		if ($this->session->userdata('balunand_id_no') == '') {
+			redirect(base_url() . 'main/login');
+        } else {
 		$this->load->model('Worksheet_model');
 
 		$this->load->model('user_model');
@@ -183,6 +207,47 @@ class Worksheet extends CI_Controller
 		// var_dump($data['loginuserdetails']);
 
 
+		// foreach ($data['loginuserdetails'] as $worksheet) {
+		// 	if ($usertype == 3) {
+
+
+		// 		$data['workesheetuloginuserdetails'][] = array(
+		// 			'userid' => $worksheet['user_id'],
+		// 			'name' => $loggedInEmployee,
+		// 			'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+		// 			'student_reg_no' => $worksheet['student_reg_no'],
+		// 			//'employee_id' => $worksheet['employee_id'],
+		// 			'startdate' => $worksheet['date_of_comencement_of_articleship'],
+		// 			'CompletingOn' => $worksheet['date_of_completion_of_articleship'],
+
+		// 		);
+		// 	} else if ($usertype == 2) {
+
+		// 		$data['workesheetuloginuserdetails'][] = array(
+		// 			'userid' => $worksheet['user_id'],
+		// 			'name' => $loggedInEmployee,
+		// 			'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+		// 			'student_reg_no' => $worksheet['student_reg_no'],
+		// 			'balunand_id_no' => $worksheet['balunand_id_no'],
+		// 			'startdate' => $worksheet['date_of_comencement_of_employment'],
+		// 			'CompletingOn' => $worksheet['date_of_completion_of_employment'],
+
+		// 		);
+		// 	} else {
+
+
+		// 		$data['workesheetuloginuserdetails'][] = array(
+		// 			'userid' => $worksheet['user_id'],
+		// 			'name' => $loggedInEmployee,
+		// 			'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+		// 			'student_reg_no' => $worksheet['student_reg_no'],
+		// 			'balunand_id_no' => $worksheet['balunand_id_no'],
+		// 			'startdate' => '',
+		// 			'CompletingOn' => '',
+
+		// 		);
+		// 	}
+		// }
 		foreach ($data['loginuserdetails'] as $worksheet) {
 			if ($usertype == 3) {
 
@@ -192,6 +257,7 @@ class Worksheet extends CI_Controller
 					'name' => $loggedInEmployee,
 					'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
 					'student_reg_no' => $worksheet['student_reg_no'],
+					'balunand_id_no' => $worksheet['balunand_id_no'],
 					//'employee_id' => $worksheet['employee_id'],
 					'startdate' => $worksheet['date_of_comencement_of_articleship'],
 					'CompletingOn' => $worksheet['date_of_completion_of_articleship'],
@@ -209,7 +275,7 @@ class Worksheet extends CI_Controller
 					'CompletingOn' => $worksheet['date_of_completion_of_employment'],
 
 				);
-			} else {
+			} else if($usertype == 4){
 
 
 				$data['workesheetuloginuserdetails'][] = array(
@@ -218,8 +284,19 @@ class Worksheet extends CI_Controller
 					'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
 					'student_reg_no' => $worksheet['student_reg_no'],
 					'balunand_id_no' => $worksheet['balunand_id_no'],
-					'startdate' => '',
-					'CompletingOn' => '',
+					'startdate' => $worksheet['date_of_comencement_of_employment'],
+					'CompletingOn' => $worksheet['date_of_completion_of_employment'],
+
+				);
+			} else {
+				$data['workesheetuloginuserdetails'][] = array(
+					'userid' => $worksheet['user_id'],
+					'name' => $loggedInEmployee,
+					'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+					'student_reg_no' => $worksheet['student_reg_no'],
+					'balunand_id_no' => $worksheet['balunand_id_no'],
+					'startdate' => $worksheet['date_of_comencement_of_employment'],
+					'CompletingOn' => $worksheet['date_of_completion_of_employment'],
 
 				);
 			}
@@ -249,11 +326,12 @@ class Worksheet extends CI_Controller
 				//echo "www";
 				$data['workesheetdata'][] = array(
 					'workorder_no' => $worksheet['workorder_no'],
+					'type_of_work' => $worksheet['Type_of_work'],
 					'client_name' => $worksheet['client_name'],
 					'date' => $worksheet['date'],
 					'work_description' => $worksheet['work_description'],
 					'work_given_by' => $worksheet['partner_in_charge'],
-					'remarks' => $worksheet['remarks'],
+					'remarks' => $worksheet['remark'],
 					'start_time' => $Starttime_in_12_hour_format,
 					'end_time' => $Endtime_in_12_hour_format,
 					'break_time_from' => '',
@@ -273,6 +351,7 @@ class Worksheet extends CI_Controller
 
 		$this->load->view('Worksheet_view', $data);
 		$this->load->view('template/footer');
+		}
 	}
 
 
@@ -348,3 +427,4 @@ class Worksheet extends CI_Controller
 
 	}
 }
+ 

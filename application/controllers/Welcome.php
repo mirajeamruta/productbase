@@ -18,8 +18,31 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct() {
+    parent::__construct();
+    $this->load->database(); // Load the database library
+     }
+	
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->helper('url');
+		$this->load->model('VisitorCount_Model');
+        $data['visitorCounts']=$this->VisitorCount_Model->getVisitor();
+        foreach($data['visitorCounts'] as $element){
+           $data['visitorCount']=array(
+                  'visitorCount'=>$element['visitor_Count']
+        );
+        }
+		$this->load->view('index', $data);
+	}
+	// Inserting Visitor Counts
+	public function postVisitorCounts(){
+		$visitorCounts=$this->input->post('visitorCounts');
+		$data=array(
+			'visitor_Count'=>$visitorCounts
+		);
+		 $this->load->model('VisitorCount_Model');
+		 $this->VisitorCount_Model->postVisitors($data);
+		 redirect(base_url());
 	}
 }

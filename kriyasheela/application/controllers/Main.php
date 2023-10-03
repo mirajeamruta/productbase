@@ -18,6 +18,10 @@ class Main extends CI_Controller
 
 		$this->load->model('Main_model');
 
+		$this->load->model('Workorder_model');
+
+		$this->load->model('Notification_Model');
+
 		// Load the todo model to make it available 
 		// to *all* of the controller's actions 
 		$this->load->helper('url');
@@ -26,12 +30,16 @@ class Main extends CI_Controller
 	function login()
 	{
 
-
+        $loggedInUserId = $this->session->userdata('userId');
+		if($loggedInUserId){
+			redirect(base_url() . 'Main/dashboard');
+		}
 		$this->load->view('template/header');
 
 		$this->load->view('template/navigation1');
 
 		$this->load->view('template/login');
+
 	}
 
 	// public   function dashboard()
@@ -95,8 +103,13 @@ class Main extends CI_Controller
 
         $data['pendingWorkorders'] = $this->Main_model->pendingWorkorder();
 
-        $data['pendingWorkorderDetails1'] = $this->Main_model->pendingWorkorderDetails();
+		$data['notifications'] = $this->Notification_Model->getNotifications();
 
+        $data['pendingWorkorderDetails1'] = $this->Main_model->pendingWorkorderDetails();
+		
+		$data['notifyNewUser1']=$this->Main_model->notifyNewUser();
+
+		$data['notifyNewClient1']=$this->Main_model->notifyNewClient();
 
 		$this->load->view('template/header');
 
@@ -107,7 +120,7 @@ class Main extends CI_Controller
             $array['number2'] = str_replace(']', '',    $array['number1']);
             $array['number3'] = str_replace('[', '',    $array['number2']);
             $array['number4'] = explode(',',  $array['number3']);
-
+           
             if (in_array($loggedInUserId, $array['number4'])) {
 
 
@@ -130,6 +143,22 @@ class Main extends CI_Controller
 
             $count++;
         }
+		if ($this->session->userdata('usertype') == 'admin') {
+			foreach ($data['notifyNewUser1'] as $user) {
+				//print_r($data['notifyNewUser1']);
+				$data['notifyNewUser2'][] = array(
+					'uid' => $user['user_id'],
+					'name' => $user['name'],
+				);
+				//print_r($data['notifyNewUser2']);
+			}
+			foreach ($data['notifyNewClient1'] as $client) {
+				$data['notifyNewClient2'][] = array(
+					'cid' => $client['client_id'],
+					'name' => $client['name'],
+				);
+			}
+		}
 
         //  var_dump($data['pendingWorkorderDetails']);
 
@@ -162,7 +191,6 @@ class Main extends CI_Controller
 
 		$data = array(
 			'name' => $this->input->post('firstname'),
-			'email' => $this->input->post('email'),
 			'subject' => $this->input->post('subject'),
 			'organization' => $this->input->post('organization'),
 			'message' =>  nl2br($this->input->post('message')),
@@ -182,31 +210,46 @@ class Main extends CI_Controller
 
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
+		// $this->form_validation->set_rules('official_email', 'official_email', 'required');
+
 		if ($this->form_validation->run()) {
 
 			//true
 			$balunand_id_no = $this->input->post('balunand_id_no');
 
-			$password = md5($this->input->post('password'));
+			$password =($this->input->post('password'));
+			$Password=md5($password);
+			// $official_email=$this->input->post('official_email');
+
+			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
-			if ($this->Main_model->can_login($balunand_id_no, $password)) {
+			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
-				$record = $this->Main_model->can_login($balunand_id_no, $password);
+				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
+				$record = $this->Main_model->can_login($balunand_id_no, $Password);
+
+				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
+
+				$record = $this->Main_model->can_login($balunand_id_no, $Password);
+				// echo $password;
 				//var_dump($record);
 
 				// echo "<br>";
+				$user_type_id=$this->Main_model->get_User_Type($balunand_id_no, $Password);
 
-				$usertype = $this->Main_model->getUserType($record);
+				$usertype = $this->Main_model->getUserType( $user_type_id);
+				
 
 				//var_dump($usertype);
 
 				//return;
 
-				$username = $this->Main_model->getUserName($record);
+				$new_user_id = $this->Main_model->getUserId($balunand_id_no, $Password);
+				$username = $this->Main_model->getUserName($new_user_id);
 
 				// echo "username $username";
 
@@ -219,6 +262,7 @@ class Main extends CI_Controller
 					//'student_reg_no'=> $student_reg_no,
 					'usertype'     => $usertype,
 					'username'     => $username,
+					// 'official_email'=> $official_email,
 					'userId' => $record
 
 				);
@@ -233,6 +277,7 @@ class Main extends CI_Controller
 
 				// var_dump( $_SESSION['usertype']);
 
+
 				//return;
 
 				$this->session->set_userdata($session_data);
@@ -246,6 +291,7 @@ class Main extends CI_Controller
 
 				redirect(base_url() . 'Main/login');
 			}
+			
 		} else {
 
 			//false
@@ -273,7 +319,10 @@ class Main extends CI_Controller
 		$this->session->unset_userdata('balunand_id_no');
 		$this->session->unset_userdata('usertype');
 		$this->session->unset_userdata('username');
+		// $this->session->unset_userdata('official_email');
 		$this->session->unset_userdata('userId');
+
+
 
 		redirect(base_url() . 'Main/login');
 	}

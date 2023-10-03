@@ -97,8 +97,8 @@ switch (ENVIRONMENT)
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-	$system_path = '/var/www/html/kriyasheela/system/';
-
+	// === For Local === //
+	$system_path = 'system';
 /*
  *---------------------------------------------------------------
  * APPLICATION DIRECTORY NAME
@@ -114,7 +114,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = '/var/www/html/kriyasheela/application/';
+$application_folder = 'application';
 
 /*
  *---------------------------------------------------------------

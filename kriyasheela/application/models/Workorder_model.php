@@ -95,12 +95,24 @@ class Workorder_model extends CI_Model
 	function fetch_workorder_data()
 	{
 		//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
-		$query = $this->db->query('SELECT workorder_no  FROM tbl_workorder ORDER BY workorder_no DESC LIMIT 1');
+		$query = $this->db->query('SELECT *  FROM tbl_workorder order by workorder_no ');
 		//var_dump($query );
 
 
 		return $query->result_array();
 	}
+
+	// function fetch_workorder_data()
+	// {
+	// 	//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
+	// 	$query = $this->db->query('SELECT workorder_no  FROM tbl_workorder ORDER BY workorder_no DESC LIMIT 1');
+	// 	//var_dump($query );
+
+
+	// 	return $query->result_array();
+	// }
+
+
 
 	public function getUsers()
 	{
@@ -133,7 +145,15 @@ class Workorder_model extends CI_Model
 	}
 
 
+	public function updateentitydate($data)
+	{
+		$workorder_no = $data['workorder_no'];
+		unset($data['workorder_no']);
+		$this->db->where('workorder_no', $workorder_no);
+		$this->db->update('tbl_workorder', $data);
 
+		return $id;
+	}
 
 	public function getTypeofWork()
 	{
@@ -149,4 +169,77 @@ class Workorder_model extends CI_Model
 		//return $query->result_array();
 		return $query->row('prefix');
 	}
+
+
+	public  function getAssignToForWorkOrderNo($workorder_no)
+	{
+		$query = $this->db->query("SELECT * FROM tbl_workorder WHERE workorder_no = '$workorder_no'");
+
+		return $query->result_array();
+	}
+
+	public function updateViewWorkorder($data, $workorder_number)
+	{
+
+		//$sql = "UPDATE tbl_workorder SET assign_to=$data WHERE id=2";
+		// $query=$this->db->query("UPDATE tbl_workorder SET assign_to= $assign_to WHERE workorder_no='$workorder_number'");	
+		$this->db->where('workorder_no', $workorder_number);
+		$this->db->update('tbl_workorder', $data);
+		// $this->db->where('workorder_no',$workorder_number);
+	}
+
+
+	public function getAssignToUserId()
+	{
+		$query = $this->db->query('SELECT remarks FROM tbl_workorder');
+		return $query->result_array();
+	}
+	// Updating workorder status
+	public function updateWorkorderStatus($data,$currentWorkorder){
+
+        $this->db->where('workorder_no', $currentWorkorder);
+		$this->db->update('tbl_workorder', $data);
+	}
+	// Getting Workorder status
+	// public function getWorkorderStatus($workorder_number){
+	// 	$query=$this->db->query('SELECT status FROM tbl_workorder WHERE $workorder_number');
+	// 	return $query->result_array();
+	// }
+	//Getting workorder status and number
+	public function getWorkorderStatus(){
+		$query=$this->db->query('SELECT workorder_no,status from tbl_workorder');
+		return $query->result_array();
+	}
+	public function deleteWorkoderNo($currentWorkorder){
+		 $this->db->where('workorder_no', $currentWorkorder);
+        $this->db->delete('tbl_workorder');
+
+        // Check if deletion was successful for the workorder table
+        if ($this->db->affected_rows() > 0) {
+            //echo "Similar workorder number deleted successfully.";
+
+            
+            $this->db->where('workorder_no', $currentWorkorder);
+            $this->db->delete('tbl_worksheet');
+
+            $this->db->where('workorder_no', $currentWorkorder);
+            $this->db->delete('notification');
+
+            //echo "Associated table worksheet and notification workorder number deleted successfully.";
+		} else {
+			//echo "No workorder were deleted.";
+		}	
+
+	}
+
+function fetch_workorder()
+	{
+		//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
+		$query = $this->db->query('SELECT workorder_no FROM tbl_workorder order by time');
+		//var_dump($query );
+
+
+		return $query->result_array();
+	}
+
 }

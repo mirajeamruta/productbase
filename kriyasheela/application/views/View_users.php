@@ -19,21 +19,21 @@
 				<th hidden>usertype</th>
 				<th>Email</th>
 				<th>Mobile Number</th>
-				<th></th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php
+	      <?php
 			if (count($userdetailsdata) > 0) {
-				foreach ($userdetailsdata as $row) {
+                $userdetail=array_reverse($userdetailsdata);
+				foreach ($userdetail as $row) {
 			?>
 					<tr>
 						<td><?php echo $row['name']; ?> </td>
 						<td hidden><?php echo $row['user_type_id']; ?> </td>
 						<td><?php echo $row['personal_email']; ?> </td>
 						<td><?php echo $row['mobile_no']; ?> </td>
-						<td class="text-center"><a class='viewdetail' href="<?= base_url("User/editUserData") ?>/<?php echo $row['user_id']; ?>">view
-								details</a>
+						<td class="text-center"><a class='viewdetail' href="<?= base_url("User/editUserData") ?>/<?php echo $row['user_id']; ?>">view</a>
 						</td>
 					</tr>
 				<?php
@@ -49,3 +49,10 @@
 		</tbody>
 	</table>
 </div>
+
+<script>
+window.addEventListener('beforeunload',function(){
+    localStorage.removeItem('selectedte')
+    localStorage.setItem('refreshPage',true)
+})
+</script>

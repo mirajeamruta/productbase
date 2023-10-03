@@ -304,4 +304,199 @@ input::file-selector-button {
 	table td:last-child {
 		border-bottom: 0;
 	}
+
+
+	/* apply form responsive */
+	.label__name {
+		margin-left: -35px !important;
+	}
+	.applyform_name {
+		margin-top: -40px !important;
+		width: 438px !important;
+        margin-left: -21px !important;
+	}
+
+	.label__email{
+		margin-left: -35px !important;
+		margin-top: 20px !important;
+	}
+	.applyform_email{
+		margin-top: -42px !important;
+		width: 438px !important;
+        margin-left: -21px !important;
+	}
+
+	form#onlineForm {
+	    width: 347px !important;
+    margin-left: -3px !important;
+    font-size: 10px !important;
+	}
+	.label__address{
+		margin-left: -35px !important;
+		margin-top: 20px !important;       
+	}
+	.applyform_address{
+		margin-top: -42px !important;
+		width: 438px !important;
+        margin-left: -21px !important;
+	}
+	.label__education{
+		margin-left: -35px !important;
+		margin-top: 20px !important;       
+	}
+	.applyform_education{
+		margin-top: -42px !important;
+		width: 438px !important;
+        margin-left: -21px !important;
+	}
+  .label__experience{
+	margin-left: -35px !important;
+	margin-top: 20px !important;      
+   }
+  .applyform_experience{
+	margin-top: -42px !important;
+	width: 438px !important;
+	margin-left: -21px !important;
+  }
+  .label__upload{
+	margin-left: -35px !important;
+	margin-top: 20px !important;   
+  }
+  .applyform_uploadresume{
+	margin-top: -42px !important;
+	width: 438px !important;
+	margin-left: -21px !important;
+  }
+  .form__submit {
+    margin-top: 20px !important;
+}
+
+
+
+/* contact form responsive */
+.contactForm__name {
+    margin-left: -29px !important;
+    margin-top: -6px !important;
+}
+.contactdetailsfrom__application {
+    width: 341px !important;
+    margin-left: 2px !important;
+    font-size: 11px !important;
+}
+.contact__name {
+    margin-top: -37px !important;
+	margin-left: -111px !important;
+    width: 551px !important;
+}
+.contact__emailid{
+	margin-top: -37px !important;
+	margin-left: -111px !important;
+    width: 551px !important;
+}
+.contactForm__emailid{
+	margin-left: -29px !important;
+	margin-top: 19px !important;
+}
+.contactForm__subject{
+	margin-left: -29px !important;
+	margin-top: 19px !important;
+}
+.contact__subject{
+	margin-top: -37px !important;
+    margin-left: -111px !important;
+    width: 551px !important;
+}
+.contactForm__organization{
+	margin-left: -29px !important;
+	margin-top: 19px !important;
+}
+.contact__organization{
+	margin-top: -37px !important;
+	margin-left: -111px !important;
+    width: 551px !important;
+}
+.contactForm__message{
+	margin-left: -29px !important;
+    margin-top: 19px !important;
+}
+.contact__message{
+	margin-top: -37px !important;
+	margin-left: -111px !important;
+    width: 551px !important;
+}
+.contact__submitbtn {
+    margin-top: 20px !important;
+}
+.header1{
+	margin-left: -42px !important;
+	
+    
+}
+.header2 {
+    margin-left: -49px !important;
+    /* width: 16px !important; */
+	margin-top: 47px !important;
+}
+.header3{
+	margin-top: 98px !important;
+}
+h1#year{
+	margin-left: 10px !important;
+	font-size: 25px !important;
+}
+h1#regNo{
+	margin-left: 10px !important;
+	font-size: 25px !important;
+}
+h1#databaseregNo{
+	margin-left: 10px !important;
+	font-size: 25px !important;
+}
+}
+
+
+.incomeTax {
+    margin-top: 20px;
+	font-size: 13px;
+}
+
+.MCA{
+	margin-top: 20px;
+	font-size: 13px;
+}
+.GST{
+	margin-top: 20px;
+	font-size: 13px;
+}
+
+.ITAT{
+	margin-top: 20px;
+	font-size: 13px;
+}
+.RBI{
+	margin-top: 20px;
+	font-size: 13px;
+}
+.Avoidance{
+	margin-top: 20px;
+	font-size: 13px;
+}
+.ICAI{
+	margin-top: 20px;
+	font-size: 13px;
+}
+
+.importantLinks__logo {
+    width: 14% !important;
+}
+
+img.imporatntimage {
+    width: 30%;
+    height: 40%;
+}
+
+/* css for image alignment */
+.image-container {
+    display: inline-block; 
+    transition: background-color 0.3s; 
 }

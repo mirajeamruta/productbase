@@ -6,9 +6,12 @@ class Main_model extends CI_Model
      {
           $this->db->where('balunand_id_no', $balunand_id_no);
           $this->db->where('password', $password);
+$this->db->where('status', 'Active');
+          // $this->db->where('official_email', $official_email);
+
           $query = $this->db->get('tbl_users');
 
-          // var_dump($query->row('balunand_id_no'));
+          //var_dump($query->row('password'));
 
           //SELECT * FROM users WHERE username = '$username' AND password = '$password'  
           if ($query->num_rows() > 0) {
@@ -18,6 +21,35 @@ class Main_model extends CI_Model
                return false;
           }
      }
+     public function getUserId($balunand_id_no, $password){
+          
+          $this->db->where('balunand_id_no', $balunand_id_no);
+          $this->db->where('password', $password);
+          $query = $this->db->get('tbl_users');
+
+         // var_dump($query->row('password'));
+
+          //SELECT * FROM users WHERE username = '$username' AND password = '$password'  
+          if ($query->num_rows() > 0) {
+               //return true;
+               return $query->row('user_id');
+          } else {
+               return false;
+          }
+      }
+
+      public function get_User_Type($balunand_id_no, $password){
+          
+          $this->db->where('balunand_id_no', $balunand_id_no);
+          $this->db->where('password', $password);
+          $query = $this->db->get('tbl_users');
+
+          if ($query->num_rows() > 0) {
+               return $query->row('user_type_id');
+          } else {
+               return false;
+          }
+      }
 
 
      public function getUsersType($userid)
@@ -46,6 +78,20 @@ class Main_model extends CI_Model
      }
 
 
+	public function notifyNewUser()
+     {
+          $query=$this->db->query("SELECT * FROM tbl_users ");
+          return $query->result_array();
+     }
+
+     public function notifyNewClient()
+     {
+          $query=$this->db->query("SELECT * FROM tbl_clients ");
+          return $query->result_array();
+     }
+
+
+
      public function countWorkorder()
      {
           $query = $this->db->query("SELECT COUNT(`workorder_no`) AS woirknumber FROM tbl_workorder ");
@@ -64,12 +110,19 @@ class Main_model extends CI_Model
 
      public function pendingWorkorderDetails()
      {
-          $query = $this->db->query("SELECT *  FROM tbl_workorder WHERE `status`='open' ");
+          $query = $this->db->query("SELECT *  FROM tbl_workorder WHERE `status`='open' order by time desc");
 
 
           return $query->result_array();
      }
 
+     // public function pendingWorkorderDetails()
+     // {
+     //      $query = $this->db->query("SELECT `workorder_no` ,`assign_to`FROM `tbl_workorder`WHERE `status` = 'open'ORDER BY `created_on` DESC");
+
+
+     //      return $query->result_array();
+     // }
 
 
      public function countclents()
@@ -88,4 +141,11 @@ class Main_model extends CI_Model
 
           return $query->row('workusernumber');
      }
+
+     public  function getAssignToForWorkOrderNo($workorder_no)
+	{
+		$query = $this->db->query("SELECT * FROM tbl_workorder WHERE workorder_no = '$workorder_no'");
+
+		return $query->result_array();
+	}
 }

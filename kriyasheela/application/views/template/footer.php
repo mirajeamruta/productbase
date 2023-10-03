@@ -36,12 +36,17 @@
 
 
 
-<!--  for data atbles-->
+<!--  for data Tables-->
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+
+
+
+
 
 <!-- dashboard --->
 
@@ -56,6 +61,9 @@ sidebarBtn.onclick = function() {
         sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
 </script>
+
+
+
 
 </body>
 

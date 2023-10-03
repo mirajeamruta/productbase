@@ -1,3 +1,9 @@
+.navbar-expand-lg .navbar-collapse {
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: 100%;
+}
+
 h1 {
 	font-family: "Droid Sans", arial, serif;
 }
@@ -17,7 +23,7 @@ h1 {
 	margin-top: 200px;
 }
 .navbar-nav li {
-	margin-right: 15px;
+	    margin-right: 9px;
 }
 /* .navbar-nav li a {
   margin-right: 15px;
@@ -29,7 +35,9 @@ h1 {
 }
 .navbar-nav li.last .dropdown-menu[data-bs-popper] {
 	right: 0;
-	left: auto;
+    left: -45px;
+    margin-top: 26px;
+    margin-top: 13px !important;
 }
 a.nav-link,
 .navbar-nav .dropdown-item {
@@ -50,7 +58,7 @@ a.nav-link,
 #section_viewworkorder,
 #section_clientlist,
 #section_viewuser {
-	margin-top: 100px;
+	margin-top: 99px;
 }
 .footer {
 	width: 100%;
@@ -61,6 +69,12 @@ a.nav-link,
 	margin-bottom: 10px;
 	text-align: center;
 }
+
+section#section-dashboard {
+	margin-top: 17px;
+	margin-left: -127px !important;
+}
+
 
 /* login style */
 body {
@@ -84,6 +98,9 @@ body {
 	top: -10px;
 	right: -10px;
 }
+th.wkorderhead {
+     position: relative;
+}
 .modal-login h4 {
 	color: #636363;
 	text-align: center;
@@ -100,8 +117,13 @@ body {
 	padding: 25px;
 }
 .modal-login .form-group {
-	margin-bottom: 20px;
+	margin-bottom: 34px !important;
 }
+/* === In Client Form Choose file input button === */
+.form-group > #file-upload-button {
+	background-color: red !important ;
+}
+
 .modal-login label {
 	font-weight: normal;
 	font-size: 13px;
@@ -190,9 +212,12 @@ body {
 	display: block;
 	font-size: 25px;
 	line-height: 28px;
-	color: white;
+	color: rgb(0, 0, 0);
 	text-align: center;
-	margin: 30px 0px;
+	margin: 30px 0px 30px 15px;
+}
+#section_userform > .span {
+	margin-left: 210px;
 }
 
 .wkorderhead {
@@ -206,20 +231,31 @@ body {
 	color: white;
 	border: 1px solid #40ab3e;
 }
+
+/* ============Amruta Code Start========================= */
+
+.user__bloodgroup {
+    width: 524px;
+}
+
+
+/* ==== Form which is common for workorder,worksheet,userform,client form ====*/
+
 .userform {
 	border: 1px solid #ecf0f3;
 	margin-top: 100px;
 	margin-bottom: 100px;
-	border-radius: 10px;
-	color: white;
-	background: #765695;
-	box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+	border-radius: 7px;
+	color: rgb(0, 0, 0);
+	background: #eaeae8a9 !important;
+	box-shadow: 2px 2px 4px #cbced1;
 }
 select {
 	/* styling */
 	background-color: white;
 	border: thin solid #c9cccf;
 	border-radius: 4px;
+	color: #444;
 	display: inline-block;
 	font: inherit;
 	line-height: 1.5em;
@@ -228,6 +264,15 @@ select {
 	-moz-appearance: none;
 	text-indent: 1px;
 	text-overflow: "";
+	height: calc(1.5em + 0.75rem + 2px) !important;
+}
+.mainheadline{
+	display: block;
+	font-size: 25px;
+	line-height: 28px;
+	color: black;
+	text-align: center;
+	margin: 30px 0px 30px 248px; 
 }
 
 /* arrows */
@@ -240,12 +285,13 @@ select.classic {
 		calc(100% - 15px) calc(1em + 2px), 100% 0;
 	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
 	background-repeat: no-repeat;
+	/* width: 523px; */
 }
 
 select.classic:focus {
 	background-image: linear-gradient(45deg, white 50%, transparent 50%),
-		linear-gradient(135deg, transparent 50%, white 50%),
-		linear-gradient(to right, gray, gray);
+					  linear-gradient(135deg, transparent 50%, white 50%),
+					  linear-gradient(to right, gray, gray);
 	background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
 	background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
 	background-repeat: no-repeat;
@@ -262,7 +308,7 @@ select.classic:focus {
 	height: 417px;
 	margin: 0px;
 	position: relative;
-	left: 50px;
+	left: 91px;
 }
 
 /* view details button */
@@ -288,14 +334,14 @@ select.classic:focus {
 	position: fixed;
 	height: 100%;
 	width: 240px;
-	background: #0a2558;
+	background: #324260;
 	transition: all 0.5s ease;
 }
 .sidebar.active {
 	width: 60px;
 }
 .sidebar .logo-details {
-	height: 80px;
+	height: 48px;
 	display: flex;
 	align-items: center;
 }
@@ -320,20 +366,17 @@ select.classic:focus {
 	height: 50px;
 }
 .sidebar .nav-links li a {
-	height: 100%;
+	height: 1%;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 	transition: all 0.4s ease;
+	margin-top: 68px;
+	margin-left: 18px;
 }
 
-/* .sidebar .nav-links li a.active{
-  background: #041129;
-} */
-/* .sidebar .nav-links li a:hover{
-  background: #04173b;
-} */
+
 .sidebar .nav-links li i {
 	min-width: 60px;
 	text-align: center;
@@ -345,6 +388,7 @@ select.classic:focus {
 	font-size: 14px;
 	font-weight: 400;
 	white-space: nowrap;
+	margin-left: -10px;
 }
 .sidebar .nav-links .log_out {
 	position: absolute;
@@ -358,6 +402,7 @@ select.classic:focus {
 	width: calc(100% - 240px);
 	left: 240px;
 	transition: all 0.5s ease;
+	
 }
 .sidebar.active ~ .home-section {
 	width: calc(100% - 60px);
@@ -453,7 +498,8 @@ nav .profile-details i {
 }
 .home-section .home-content {
 	position: relative;
-	padding-top: 104px;
+	padding-top: 118px;
+	
 }
 .home-content .overview-boxes {
 	display: flex;
@@ -536,24 +582,28 @@ nav .profile-details i {
 	display: flex;
 	justify-content: space-between;
 	/* padding: 0 20px; */
+	height: 630px;
+	margin-top: -20px;
 }
 
+/* chnages */
 /* left box */
 .home-content .sales-boxes .recent-sales {
-	width: 65%;
-	background: #edf1d6;
-	padding: 19px 187px;
-	margin: 0 22px;
-	border-radius: 12px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 99%;
+    background: #eaeae8a9;
+    padding: 18px 177px;
+    margin: -18px 12px;
+    border-radius: -5px;
+	 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .home-content .sales-boxes .sales-details {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
+/* chnages */
 .sales-boxes .box .title {
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 500;
 	/* color: darkblue; */
 	/* margin-bottom: 10px; */
@@ -591,15 +641,105 @@ nav .profile-details i {
 	background: #0d3073;
 }
 
+.table-bordered thead td, .table-bordered thead th{
+	text-align: center;
+}
+
+/* chnages */
 /* Right box */
+@media (max-width: 600px){
+	div#heading {
+		position: relative;
+		left: -28px !important;
+	}
+	#heading1 {
+		padding: -6px;
+     padding: 9px;
+     position: relative;
+     margin-right: 5px;
+     left: -447px !important;
+     width: 285px !important;
+     top: 215px !important;
+     z-index: 9999;
+     margin-top: 57px !important;
+	}
 .home-content .sales-boxes .top-sales {
 	width: 35%;
-	background: #edf1d6;
-	padding: 31px 85px;
-	margin: 0 20px 0 0;
-	border-radius: 12px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+     padding: 23px 94px;
+    margin: -23px 12px 0 0;
+     height: 673px;
+    border-radius: -1px;
+   
 }
+.closeworkorder1 {
+   top: -63px !important;
+}
+
+p#recent_close_header {
+	background: #eee0 !important;
+	font-size: 21px !important;
+    position: relative !important;    
+    z-index: 1;
+	margin-top: 57px !important;
+}
+div#recently_close_pending_workorder {
+    width: 307px !important;
+    margin-left: -36px !important;
+    height: 195px !important;
+    overflow-y: auto;
+}
+.recentlyclosed___workorder {
+    margin-top: 58px !important;
+    margin-left: 164px !important;
+}
+.alladmin___notificationsdata {
+    margin-left: -21px !important;
+}
+.alluser__notificationdata {
+    margin-left: 61px !important;
+	text-align: justify;
+}
+div.pendingworkorder__adminside {
+    /* margin-top: 893px !important; */
+    margin-left: 393px !important;
+}
+ul#tableofpendingworkorder {
+    margin-top: 274px !important;
+    margin-left: -5% !important;
+}
+}
+
+.closedworkorder___dashboard {
+    margin-top: 263px !important;
+}
+
+
+/* .home-content .sales-boxes .top-sales {
+    width: 35%;
+    padding: 10px 685px;
+    margin: -410px 12px 0 0;
+    height: 673px;
+    border-radius: -1px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* chnages */
+
+.box.box-1 {
+	 margin-left: 259px;
+     width: 30%;
+     position: relative;
+     top: 3rem;
+     left: 15rem;
+padding: 0 !important;
+}
+
+.box-2 {
+    width: 35%;
+    padding: 65px 539px;
+    margin: -189px -1px 0 0;
+}
+
 .sales-boxes .top-sales li {
 	display: flex;
 	align-items: center;
@@ -625,6 +765,7 @@ nav .profile-details i {
 	font-weight: 400;
 	color: #333;
 }
+
 /* Responsive Media Query */
 @media (max-width: 1240px) {
 	.sidebar {
@@ -661,7 +802,12 @@ nav .profile-details i {
 		margin-bottom: 30px;
 	}
 	.home-content .sales-boxes .top-sales {
+		
 		margin: 0;
+	}
+/* changes */
+	.home-content .sales-boxes {
+		height: 766px !important;
 	}
 }
 @media (max-width: 1000px) {
@@ -680,8 +826,12 @@ nav .profile-details i {
 		height: 50px;
 		min-width: 40px;
 	}
+	/* changes */
 	.home-content .sales-boxes .sales-details {
-		width: 560px;
+		width: fit-content !important;
+    margin-top: -82px;
+    position: fixed;
+    margin-left: 21px !important;
 	}
 }
 @media (max-width: 550px) {
@@ -692,7 +842,14 @@ nav .profile-details i {
 	.sidebar.active ~ .home-section nav .profile-details {
 		display: none;
 	}
+	
 }
+/* @media (max-width: 400px) {
+.test {
+	margin-left: -108px !important;
+}
+} */
+
 @media (max-width: 400px) {
 	.sidebar {
 		width: 0;
@@ -718,19 +875,3965 @@ nav .profile-details i {
 	}
 }
 
+
+
+/* profile password change password button */
+
+.float-right {
+	color: #fff;
+	background-color: #2b4cf1;
+	border: none;
+	border-radius: 6px;
+	width: 64%;
+	height: 42px;
+}
+.number{
+	margin-left: -88px;
+    margin-top: 88px;
+    background: white;
+    border-radius: 21px;
+    box-sizing: border-box;
+    padding: 9px 14px 9px 14px;
+    color: black;
+}
+/* myprofile dropdown css */
+
+.dropdown-menu {
+	position: absolute;
+	/* margin-top: -26px !important; */
+    margin-left: -31px !important;
+}
+
+/* table for all text align  */
+
+tbody {
+	
+	text-align: left;
+}
+
+tbody.notification_tbody {
+    text-align: left;
+}
+
+/* .oldPass{
+
+
+	height: 40px !important;
+}
+.oldPass:focus{
+
+
+	height: 40px !important;
+} */
+
+span#msg1 {
+    margin-top: 18px !important;
+    position: absolute;
+    top: 194px;
+    left: 279px;
+}
+.mb-2,
+.my-2 {
+	margin-bottom: 2.5rem !important;
+}
+/* ======Responsive for website start code======= */
+
+/* responsive for dashboard code start */
+
+@media screen and (max-width: 600px){
+.navbar{
+	background-color: rgb(255, 255, 255) !important;
+	text-align: center !important;
+	padding-top: 6px !important;
+	font-weight: 800;
+}
+
+
+h6.words3 {
+    /* margin-left: 45px; */
+    padding-left: 78px;
+}
+img.logo1 {
+    margin-left: -179px;
+}
+/* changes */
+.logo{
+	/* display: none; */
+	position: absolute !important;
+    top: 15px;
+    margin-left: -102px;
+}
+}
+.navbar-toggler{
+	display: block !important;
+	position: relative !important;
+	right: -305px !important;
+}
+
+
+/* chnages */
+/* pending workorder responsive */
+
+@media (max-width: 600px){
+	.title1{
+		margin: 4px 282px -1px -32px !important;
+	}
+}
+
+#heading1 {
+    padding: -6px;
+     float: left;
+     padding: 32px;
+     position: relative;
+     top: 17.6rem;
+     left: -1rem;
+     margin-right: 5px;
+     width: 275px;
+     margin-top: 57px !important;
+}
+
+#heading {
+    margin-left: -14rem !important;
+}
+/* chnages */
+/* @media (max-width: 1150px){
+.home-content .sales-boxes .top-sales {
+	margin: -346px -18px 0px 0px !important;
+	font-size: 22px !important;
+} */
+@media (max-width: 1150px){
+.home-content .sales-boxes .top-sales {
+	margin: -190px -18px 0px 0px !important;
+    font-size: 22px !important;
+    /* background: blue; */
+}
+}
+/* changes */
+
+@media (max-width: 1150px){
+.home-content .sales-boxes .box {
+	width: 85% !important;
+    overflow-x: scroll !important;
+    margin-bottom: 90px !important;
+    /* min-height: -webkit-fill-available !important; */
+    /* background: #ff5500; */
+    /* margin-left: 0px !important; */
+    margin-left: -179px !important;
+    /* height: 100%; */
+    height: 456px;
+    border: none!important;
+    border-radius: 0px!important;
+    font-size: 20px !important;
+}
+/* div#heading {
+    margin-left: 136px !important;
+} */
+
+ul.top-sales-details.pending-details {
+    /* margin-left: -9px; */
+	margin: -209px 158px 0px !important;
+	font-size: 18px !important;
+}
+
+
+.closedetails {
+	font-size: 20px !important;
+}
+}
+
+
+@media (max-width: 1150px){
+.home-content .sales-boxes {
+    flex-direction: column !important;
+	position: fixed !important;
+}
+}
+
+@media (max-width: 400px) {
+	.home-section {
+		width: 100% !important;
+		left: 0 !important;
+		background: #0a2558 !important;
+	}
+}
+
+@media (max-width: 400px) {
+	.sidebar {
+		width: 0 !important;
+		z-index: 1 !important;
+	}
+}
+
+@media(max-width:400px){
+	div#navbarText {
+		text-align: left !important;
+		margin-left: 137px !important;
+	}
+}
+
+@media(max-width:400px){
+	.dropdown-menu.show{
+		float: none !important;
+		margin-left: 48px !important ;
+    width: 182px !important;
+	border: none !important;
+
+
+	}
+}
+
+@media(max-width:400px){
+	#active1{
+		padding-left: 164px !important;
+        margin-top: -49px !important;
+	}
+}
+
+/* changes */
+@media (max-width: 400px){
+.home-content .recent-sales.box {
+	margin-top: 194px !important;
+    height: 3220px !important;
+}
+.home-content .sales-boxes .top-sales {
+	height: 200px;
+}
+}
+/* changes */
+@media(max-width:400px){
+	.active3{
+	    margin-top: 40px !important ;
+	}
+}
+/* Chnages */
+@media (max-width: 400px){
+.title {
+   margin-left: -154px !important;
+	padding: 0px 31px 70px 10px;
+}
+.top-sales {
+    position: relative;
+    left: 196px !important;
+    /* right: 213px !important; */
+}
+}
+
+@media (max-width: 400px){
+.bx-user {
+    margin-top: -239px !important;
+    margin-left: 170px !important;
+}
+}
+
+@media(max-width:400px){
+	#links{
+		margin-top: -236px !important;
+	}
+}
+
+@media (max-width: 400px){
+#Numb {
+    margin-top: -147px !important;
+}
+}
+@media (max-width: 400px){
+.recent-sales {
+    border: none!important;
+    border-radius: 0px!important;
+}
+}
+
+/* hide and show humbarger icon code  */
+
+
+/* [ON BIG SCREEN] */
+/* (A) WRAPPER */
+
+  /* (B) HORIZONTAL MENU ITEMS */
+  #hamitems { display: flex !important; }
+  #hamitems a {
+	flex-grow: 1 !important;
+	flex-basis: 0 !important;
+	padding: 10px !important;
+	color: white !important;
+	text-decoration: none !important;
+	text-align: center !important;
+  }
+  /* #hamitems a:hover { background: #af0d0d; } */
+
+  /* (C) HIDE HAMBURGER */
+  #hamnav label, #hamburger { display: none !important; }
+
+
+  /* [ON SMALL SCREENS] */
+@media screen and (max-width: 768px){
+	/* (A) BREAK INTO VERTICAL MENU */
+	#hamitems a {
+	  box-sizing: border-box !important;
+	  display: block !important;
+	  width: 100% !important;
+	  border-top: 1px solid #333 !important;
+	}
+
+	/* (B) SHOW HAMBURGER ICON */
+	#hamnav label {
+	  display: inline-block !important;
+	  color: rgb(6, 0, 0) ;
+	  /* background: #a02620; */
+	  font-style: normal !important;
+	  font-size: 2.4rem !important;
+	  padding-right: 25px !important;
+	}
+
+	/* (C) TOGGLE SHOW/HIDE MENU */
+	#hamitems { display: none !important; }
+	#hamnav input:checked ~ #hamitems { display: block !important; }
+  }
+
+  button:focus {
+    /* outline: 1px dotted; */
+    outline: none !important;
+  }
+@media (max-width: 400px) {
+	.dropdown-menu.show {
+		float: none;
+		margin-left: 77px;
+		width: 182px;
+	}
+}
+
+/* @media(max-width:400px){
+	.active{
+		margin-top: 12px;
+	}
+} */
+
+@media (max-width: 400px) {
+	#active1 {
+		padding-left: 164px;
+		margin-top: -49px;
+	}
+}
+
+/* @media(max-width:400px){
+	.active2{
+		margin-left: 185px;
+		margin-top: -51px;
+	}
+} */
+
+@media (max-width: 400px) {
+	.home-content .recent-sales.box {
+		margin-top: 265px;
+		height: 123px;
+	}
+}
+
+@media (max-width: 400px) {
+	.active3 {
+		margin-top: 86px;
+	}
+}
+
+@media (max-width: 400px) {
+	.title {
+		margin-left: -47px;
+	}
+}
+
+@media (max-width: 400px) {
+	.bx-user {
+		margin-top: -239px;
+		margin-left: 166px;
+	}
+}
+
+@media (max-width: 400px) {
+	#links {
+		margin-top: -231px;
+	}
+}
+
+@media (max-width: 400px) {
+	#Numb {
+		margin-top: -146px;
+	}
+}
+
+.number {
+	margin-left: -87px;
+	margin-top: 88px;
+	background: white;
+	border-radius: 21px;
+	box-sizing: border-box;
+	padding: 9px 14px 9px 11px;
+	color: black;
+
+}
+
+/* view workorder responsive code */
+
+@media(max-width:400px){
+	h2.text-center.mb-2 {
+		padding-right: 6px !important;
+	}
+}
+
+@media (max-width: 500px){
+	span.font-weight-bold {
+		margin: 20px -189px 0px -111px !important;
+	}
+}
+
+/* view workorder table */
+@media all and (max-width: 400px) {
+	.table-bordered,
+	.viewtable,
+	#viewbody,
+	.wkorderhead,
+	#tableviewdata,
+	.viewrow {
+	  /* display: block !important; */
+	}
+}
+
+
+@media(max-width:500px){
+
+	.text-center.my-5 {
+		margin: 0px 196px 0px 0px !important;
+	}
+}
+@media(max-width:500px){
+	span.select2-dropdown.select2-dropdown--below {
+		width: 321.4px !important;
+	}
+}
+
+@media(max-width:500px){
+span.select2.select2-container.select2-container--default {
+    margin: 11px 0px -12px 2px;
+}
+}
+
+@media(max-width:400px){
+	.ul#select2-workorderids-results {
+
+		margin: -3px -4px 8px 3px !important;
+	}
+}
+
+
+
+/* view worksheet responsive table code */
+
+@media all and (max-width: 500px) {
+	.table-bordered.my-5,
+	.viewwork,
+	.worksheet,
+	.data1,
+	.sheetdata,
+	#totaldata {
+	
+	}
+}
+
+
+
+/* responsive code for my profile login as a employe */
+
+@media(max-width:400px) {
+	.col-sm-9 {
+		/* margin-left: -76px; */
+		margin-top: 13px !important;
+	}
+}
+
+@media(max-width:500px){
+	.form {
+		margin-left: -4px !important;
+		width: 100% !important;
+		margin-top: 40px !important;
+
+	}
+}
+
+@media(max-width:500px){
+	span#msg1 {
+		margin-top: 58px !important;
+		position: absolute;
+		top: 194px;
+		left: 12px;
+	}
+	
+}
+
+
+
+@media(max-width:400px){
+	.col-sm-8 {
+	    margin-left: -238px !important;
+    width: 456px !important;
+	}
+}
+
+@media(max-width:400px){
+	.container.userform {
+		margin-top: 6rem !important;
+		/* position: fixed !important; */
+	}
+}
+
+
+
+/* Responsive code for sign In page */
+
+
+@media(max-width:500px){
+	.modal-dialog.modal-login {
+		margin-left: -15px;
+		margin-top: -82px !important;
+		position: fixed !important;
+	}
+}
+
+@media(max-width:500px){
+	input.form-control {
+		margin-top: -26px !important;
+		margin-left: 27px !important;
+	}
+}
+
+@media(max-width:500px){
+	button.btn.btn-primary.btn-lg {
+		margin-left: 66px !important;
+		margin-top: 14px !important;
+	}
+	}
+
+
+
+
+/* client responsive form */
+@media(max-width:500px){
+	
+input#clientname_legal {
+    margin-top: -5px !important;
+    margin-left: 239px !important;
+}
+input#tradename {
+    margin-top: -14px !important;
+    margin-left: 2px !important;
+}
+input#Type_of_Clients {
+    margin-top: -8px !important;
+    margin-left: 2px !important;
+	width: fit-content;
+}
+
+input#pancard1 {
+    margin-top: -19px !important;
+    margin-left: 4px !important;
+}
+input#gst1 {
+    margin-left: -108px !important;
+    margin-top: -13px !important;
+}
+input#tan1 {
+    margin-left: -107px !important;
+    margin-top: -21px !important;
+}
+input#aadhar1{
+	margin-left: -107px !important;
+    margin-top: -21px !important;
+}
+
+input#address1{
+	margin-left: -107px !important;
+    margin-top: -21px !important;
+}
+
+input#person_incharge1{
+	margin-left: -107px !important;
+    margin-top: -21px !important;
+}
+input#person_name1{
+	margin-left: -107px !important;
+    margin-top: -21px !important;
+}
+input#person_to_be_contact1{
+	margin-left: -107px !important;
+    margin-top: -21px !important;
+}
+input#type_of_clients1{
+
+}
+}
+
+
+
+.clientUpdate___Btn{
+	margin-left: 789px;
+    position: absolute;
+    width: fit-content !important;
+    top: -645px !important;
+}
+
+/* ======responsive for website code end======= */
+
+
 /* notification css */
 
-.notification-icon {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
+
+/* chnages */
+
+.dashboarduser___notify0 {
+    margin-left: 24px;
 }
-.badge {
+div#heading2 {
+    position: relative;
+    top: -163px;
+    left: 35px;
+    width: 200px;
+}
+ul#user__pendingWorkorderList {
+    position: relative;
+    width: 200px;
+    top: -162px;
+    text-align: justify;
+}
+div#recently_close_pending_workorder1 {
+     position: relative;
+     left: 80px;
+     width: 300px;
+}
+
+ul.test.alladmin___notificationsdata.alluser__notificationdata {
+    text-align: justify;
+	   
+}
+
+@media(max-width:500px){
+
+.button_notify {
+     margin-left: 120px;
+     margin-top: 110px;
+}
+
+	button.show_button {
+    width: 100px !important;
+    font-size: 16px;
+}
+ul.test.alladmin___notificationsdata.alluser__notificationdata {
+    text-align: justify;
+	    margin-left: 37px !important;
+}
+	div#recently_close_pending_workorder1 {
+position: relative;
+     left: -195px;
+     top: 41px;
+     width: 300px;
+     margin-top: 105px !important;
+}
+	div#pendingWorkorder__section {
+		margin-left: -115px !important;
+		/* min-height: -128px !important; */
+	}
+	div#recently_close_pending_workorder {
+		width: 883px !important;
+		margin-left: -87px !important;
+		height: 195px;
+		overflow-y: auto;
+		font-size: 7px !important;
+		margin-top: 270px !important;
+	}
+	p#recent_close_header {
+	
+		font-size: 18px !important;
+		
+	}
+	
+	div#heading2 {
+		position: relative;
+		top: 210px !important;
+		left: -224px !important;
+		width: 200px !important;
+	}
+	
+	ul#user__pendingWorkorderList {
+		position: relative;
+		width: 200px;
+		top: 424px !important;
+		left: -242px !important;
+		text-align: justify;
+	}
+.button_notify1 {
+	margin-left: 73px !important;
+}
+.button_notify {
+	margin-left: 23px;
+    margin-top: 36px;
+ position: relative;
+     left: 12rem;
+}
+
+.show_button {
+	border-radius: 6px;
+    width: 120px;
+    height: 34px;
+    background: #2b4cf1;
+    border-color: #2b4cf1;
+    color: white;
+}
+}
+.show_button {
+    border-radius: 6px;
+    width: 100px;
+    height: 34px;
+    background: #2b4cf1;
+    border-color: #2b4cf1;
+    color: white;
+}
+
+.sales-details.admindetails {
+    margin-left: -112px !important;
+}
+
+/* View user report details */
+#viewuserreport{
+	margin-top: 20px;
+}
+
+.alluser{
+	margin-top: 85px;
+    margin-left: 654px;
+    font-size: 23px;
+}
+
+.Filterdatabutton {
+    margin-left: 1102px;
+    position: relative;
+    top: 74px !important;
+    background: #c89047 !important;
+}
+
+/* notification table  CSS*/
+
+#iconnotify {
+	/* background-color: #555;  */
+    color: black;
+    text-decoration: none;
+    padding: 5px -10px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+  /* #iconnotify{
+	background: red;
+  } */
+  
+.badge1 {
 	position: absolute;
-	top: -10px;
-	right: -10px;
-	padding: 5px 10px;
-	border-radius: 50%;
-	background-color: red;
+	top: -32px;
+    right: -9px;
+    padding: 0px 8px !important;
+    border-radius: 58%;
+    background: red;
+    color: white;
+  }
+
+  span.badge1.badge2 {
+    position: absolute;
+    top: -59px;
+    right: -121px;
+    padding: 0px 8px !important;
+    border-radius: 58%;
+    background: red;
+    color: white;
+}
+
+.notificationtable,th,td{
+	font-family: arial, sans-serif;
+	/* width: 100%; */margin-left: -97px;
+	border: 1px solid #dddddd;
+	padding-top: 13px;
+	/* margin-top: 108px !important; */
+	
+  }
+  table#notificationdata1 {
+   
+    border-collapse: collapse !important;
+}
+  
+
+.notifycalender {
+    position: absolute;
+    top: 104px !important;
+    left: 66.2%;
+} 
+
+#filterDate {
+	color: whitesmoke;
+    border: none;
+    background: #73bac5;
+    border-radius: 4px;
+    border-color: #b1eaf3 !important;
+    height: 35px;
+    padding: 11px;
+}
+
+#fristhead {
+    margin-top: 17px !important;
+	margin-left: 200px;
+}
+
+input#myInput1 {
+	margin-top: 101px;
+    margin-left: -56px !important;
+    width: 234px;
+    height: 41px;
+    border-color: #bdaeae !important;
+
+}
+input[type=text] {
+	/* border: none;  */
+	padding: 4px 8px;       
+	border-radius: 6px; /* Sadly outline does not round! therefore...*/
+  }
+  input[type=text]:focus{
+	outline: none;      /* Remove default outline and use border or box-shadow */
+	box-shadow: 0 0 0 2px rgb(234, 226, 213); /* Full freedom. (works also with border-radius) */
+  }
+	  
+#cancelbtn{
+	display: none;
+}
+
+.btn12{    
+	margin-top: -29px ;
+    margin-left: 424px;
+
+}
+
+
+
+/* Report css code */
+
+
+.tablereport{
+	background: mediumturquoise;
 	color: white;
 }
+
+.activity{
+	text-align: center;
+	font-size: 22px;
+	height: 50px;
+	padding-top: 3px;
+}
+
+.reportdata{
+	background: mediumturquoise;
+	color: white;
+	height: 45px;
+}
+
+.excelbutton {
+    margin-top: 20px;
+    background: #3232d0;
+    color: white;
+    border-radius: 6px;
+    border-color: #3232d0;
+    padding: 7px;
+}
+
+#UPdatebtn{
+	display: none;
+}
+#filterDate {
+	color: whitesmoke;
+    border: none;
+    background: #73bac5;
+    border-radius: 4px;
+    border-color: #b1eaf3 !important;
+    height: 35px;
+    padding: 11px;
+}
+/* All manditory fileds add * contnets css */
+
+/* workorder form */
+#required-field1::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+/* worksheet form */
+#required-field2::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+#required-field3::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+#required-field4::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+/* client form */
+
+#required-field5::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+#required-field6::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -8px;
+}
+
+#required-field6::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+#required-field7::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+#required-field8::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -13px;
+}
+
+#required-field9::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -12px;
+}
+
+#required-field10::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -8px;
+}
+/* user form */
+#required-field11::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -3px;
+}
+#required-field12::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -5px;
+}
+
+#required-field13::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -4px;
+}
+#required-field14::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -11px;
+}
+
+#required-field15::after {
+    content: "*";
+    color: #ff0000ed;
+    font-size: 22px;
+    margin-left: -3px;
+}
+
+
+
+.clientForm__gst {
+	margin-left: 29px;
+	width: 527px !important;
+}
+
+label.col-sm-3.clientForm__label_gst {
+    margin-left: -112px;
+}
+
+.clientForm__tan {
+	margin-left: 29px;
+	width: 527px !important;
+}
+
+.clientForm__label_tan
+{
+	margin-left: -112px;
+}
+
+.clientForm__label_aadhar{
+	margin-left: -112px;
+}
+.clientForm__aadhar{
+	margin-left: 29px;
+	width: 527px !important;
+}
+
+.clientForm__label_adress{
+	margin-left: -112px;
+}
+.clientForm__address{
+	margin-left: 29px;
+	width: 527px !important;
+}
+.clientForm__label_personincharge{
+	margin-left: -112px;
+}
+
+.clientForm__personIncharge{
+	margin-left: 29px;
+	width: 527px !important;
+}
+
+.clientLabel__personname{
+	margin-left: -112px;
+}
+.clientForm__personName{
+	margin-left: 29px;
+	width: 527px !important;
+}
+.clientForm__personto_becontact{
+	margin-left: 29px;
+	width: 527px !important;
+}
+.clientForm__label_contactno{
+	margin-left: -112px;
+}
+
+
+/* notification responsive */
+@media(max-width:500px){
+.col-sm-8.Notification__button {
+	margin-left: -162px !important;
+    width: fit-content !important;
+    margin-top: -1px !important;
+	/* z-index: 99999 !important; */
+}
+.notification__searchbtn {
+	margin-left: -114px;
+	width: fit-content !important;
+}
+select#filterType {
+    width: 533px ;
+    margin-left: -180px !important;
+    margin-top: 55px !important;
+}
+.btnnotification {
+    width: 385px !important;
+}
+
+}
+
+/* bulk workorder responsive */
+
+@media(max-width:500px){
+	label.bulk_workorder_label.lable__bulk {
+		margin-top: 145px !important;
+	}
+	p.Csvupload__successmessage {
+		margin-top: -39px !important;
+    margin-left: -432px !important;
+    width: 294px !important;
+	}
+	p.upload___successmessage {
+		margin-left: -469px !important;
+    margin-top: -21px !important;
+    font-size: 11px !important;
+	}
+	
+	
+}
+
+.daily___activityreport {
+    margin-top: 94px;
+    width: 96%;
+}
+/* report responsive */
+@media(max-width:500px){
+input.report__filterbtn {
+    margin-top: 47px !important;
+    /* margin-left: -22px !important; */
+}
+button.Filter__dataBtn {
+    margin-top: 48px !important;
+    width: fit-content !important;
+    margin-right: -307px !important;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+input#notification__filterDate {
+    background: skyblue;
+    border: navajowhite;
+    border-radius: 3px;
+    height: 35px;
+    width: 139px;
+}
+}
+
+input#notification__filterDate {
+    background: skyblue;
+    border: navajowhite;
+    border-radius: 3px;
+    height: 35px;
+    width: 172px;
+}
+/* report responsive */
+@media(max-width:500px){
+input.status___data {
+    margin-left: 0px !important;
+    margin-top: -18px !important;
+}
+}
+
+/*edit userform responsive */
+@media(max-width:500px){
+select.user___statusdata {
+    margin-top: -16px !important;
+    margin-left: -2px !important;
+	width: 316px;
+}
+.editdata__userbtn {
+    margin-top: -479px !important;
+    margin-left: -629px !important;
+}
+span#mainheader__userform {
+    margin-left: -472px !important;
+}
+.userblood___editing {
+    margin-left: 4px !important;
+}
+/* .clientfrom___editingdata {
+  
+    width: 335px !important;
+} */
+.tableclientdata___exporting {
+    margin: 0px -178px 74px -142px;
+}
+div.Notify_datafound {
+    margin-top: 261px !important;
+    margin-left: -20px !important;
+}
+
+
+
+}
+
+.hearline_userdetail{
+	position: relative;
+    top: 20px;
+    left: 510px;
+    font-size: 20px;
+}
+
+
+.blood___data {
+    width: 308px;
+}
+
+.user___statusdata {
+    width: 523px;
+}
+
+
+div#dashborad___notifications {
+    margin-left: -73px !important;
+    width: 370px !important;
+}
+/* ========= AMRUTA CSS CODE END======================== */
+
+
+
+
+/* =========================================   KAMAL CODE START   ================================= */
+
+
+
+
+
+/* Total Break Time */
+span#totalBreakTime {
+    background: blue;
+    color: #fff;
+    position: absolute;
+    padding: 5px;
+    right: 0%;
+    top: 29%;
+}
+
+select#typeOfUser__select {
+     background-color: #e9ecef;
+     width: 100%;
+}
+.typeOfUser_OnEditable{
+	 background-color: #ffffff !important;
+}
+
+
+/*  === Input field having file type ==== */
+input[type=file]::file-selector-button {
+	background-color: #17a2b8;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	color: #fff;
+	height: 40px;
+	width: 140px;
+}
+
+	input[type=file]::file-selector-button:hover {
+		background-color: #0294aa;
+	}
+
+/* === Workorder input field - legal name === */
+.select2-selection {
+	/* background-color: red !important; */
+	padding: 5px !important;
+	height: calc(1.5em + 0.75rem + 2px) !important;
+	border-color: #ced4da !important;
+	width: 32.7rem;
+}
+
+/* === Partner in charge === */
+#Partner_in_charge {
+	width: 32.7rem !important;
+}
+
+[aria-describedby="partner_in_charge"] {
+	/* background-color: red !important; */
+	width: 32.7rem !important;
+}
+
+.select2-selection__arrow {
+	background-color: skyblue;
+	height: 36px !important;
+	width: 40px !important;
+	/* margin-top: 5px !important; */
+	margin-right: -0.2px !important;
+	right: -317px !important;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	font-size: 20px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	border-color: blue transparent transparent transparent !important;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+	border-color: transparent transparent blue transparent !important;
+}
+
+
+/* === Search Field Inside dropdown list === */
+.select2-search__field:focus {
+	outline: none !important;
+}
+
+/* ==== Calender === */
+.ui-datepicker-header {
+	background: #8bcb48 !important;
+	border: none !important;
+}
+
+/* === Submit Button === */
+#clientFormSubmit {
+	border: none;
+	background-color: #049fb7 !important;
+	margin-left: 424px;
+	margin-top: 4px;
+}
+
+	#clientFormSubmit:hover {
+		background-color: #015967 !important;
+	}
+/* === Password input field in user form === */
+#password4 {
+	border-radius: 0.25rem;
+	border: 1px solid #ced4da;
+	padding-left: 10px;
+	height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+	#password4:focus {
+		outline: none;
+		box-shadow: 0px 0px 1px 3px #01e4e4d2;
+	}
+/* === client submit form === */
+#clientsubmit {
+	width: 700px !important;
+	margin-left: 3%;
+	font-size: 15px;
+}
+
+#section_userform1 > #span {
+	margin-left: 248px !important;
+}
+
+/* === In Workorder Form - legal name input dropdown ==== */
+.select2-dropdown {
+	width: 523.5px !important;
+}
+
+/* === Danger button(Delete) in assign to label === */
+.btn-danger {
+	margin-left: -6px;
+}
+
+/* === Workorder form - workorder number field === */
+#workorder_no {
+	width: 523px !important;
+}
+/* === Workoder form - start and end date clock === */
+.fa-clock-o {
+	color: rgba(0, 0, 255, 0.676) !important;
+}
+
+.input-group-text {
+	background-color: skyblue !important;
+}
+/* === User Form === */
+#usertypeid {
+	width: 32.7rem !important;
+}
+
+#type_of_work {
+	width: 32.7rem !important;
+}
+
+/* === Its was effecting with user profile forms so commented === */
+#password4 {
+	width: 32.7rem !important;
+}
+/* === View form Input field === */
+.font-weight-bold {
+	margin-left: -340px;
+	margin-right: 10px;
+}
+
+/*=== View Workorder Header Text ===  */
+#section_viewworkorder > h2 {
+	margin-left: 46px;
+}
+
+/* === View Workorder Drop Down === */
+[aria-labelledby="select2-workorderids-container"] {
+	position: relative !important;
+	width: 523px !important;
+}
+
+	/* === View Workorder Drop Down Arrow === */
+	[aria-labelledby="select2-workorderids-container"] > .select2-selection__arrow {
+		right: 0px !important;
+		top: 0px !important;
+	}
+
+[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
+	right: -20rem !important;
+	/* background-color: red !important;	 */
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+	padding-right: 171px !important;
+}
+
+.container {
+	margin-top: 86px;
+	margin-left: 110px;
+	border-radius: 5px;
+}
+
+
+/* ==== Client Form - CSV File Upload Section ==== */
+.or {
+	/* color: #fff; */
+	background-color: transparent;
+	position: absolute;
+	top: 200px;
+	right: 350px;
+	z-index: 1;
+}
+
+/* ==== Client Form new code ==== */
+.uploadBtn {
+	position: absolute;
+	top: 511px !important;
+	left: -298px !important;
+	height: 35px !important;
+	padding: 6px;
+	width: 85px;
+}
+
+
+/* === Upload CSV file label === */
+#csv_upload_success {
+    position: absolute;
+    top: 357px;
+    left: 483px;
+    color: green !important;
+    font-size: 15px;
+}
+.uploadClientCSV {
+    background-color: #17a2b8;
+    border-radius: 7px;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    top: 239px;
+    left: 115px;
+    padding: 10px;
+	font-size: 16px;
+}
+
+/* === File input-It is hidden-getting control via label === */
+#chooseFile {
+	position: absolute;
+	top: 185px;
+	left: 100px;
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+}
+
+/* === Submit button of file === */
+#clientCSVSubmit {
+	display: none;
+}
+/* === Client Form submit button === */
+#section_clientform {
+	/* height: 600px !important; */
+	min-height: 761px !important;
+}
+
+/* === Selected CSV File Name (In client Form) ==== */
+#selectedFileName {
+	display: none;
+	position: absolute;
+	top: 142px;
+	left: 100px;
+}
+
+#fileName {
+	display: none;
+	font-size: 16px !important;
+	position: absolute;
+	top: -56px;
+	left: -79px;
+	width: 300px;
+}
+/* === CSV File upload success message ==== */
+.text-success {
+	margin-top: -342px !important;
+	margin-left: 790px !important;
+	width: 300px !important;
+}
+/* === Add more plus icon disapble in large screen === */
+.bxs-plus-square {
+	display: none !important;
+}
+
+#dis_Select_File {
+	display: none;
+	cursor: pointer;
+	font-size: 31px;
+	position: absolute;
+	top: 107px;
+	left: 275px;
+}
+
+	#dis_Select_File:hover {
+		color: red;
+	}
+
+.user_details_lg {
+	display: block !important;
+}
+/* === VIEW USER TABLE SMALL SCREEN VERSION DISABLE IN BIG SCREEN === */
+#view_User_Table {
+	display: none !important;
+}
+
+.section_viewuser__header {
+	display: none;
+}
+/* === View User Mobile Version === */
+.user_details_sm {
+	display: none;
+}
+/* === View Client Form Mobile Version === */
+
+.view_Client_Container {
+	display: none;
+}
+/* === View Client Header === */
+#section_clientlist__header {
+	display: none;
+}
+
+/* --- workorder Form Assign to section --- */
+#assignedName {
+	position: relative;
+	left: 292px;
+	list-style-type: none;
+	/* text-align: center; */
+}
+
+	#assignedName > li {
+		background: #19A7CE;
+		border-radius: 2px;
+		color: #fff;
+		font-size: 20px;
+		width: 523px;
+		padding: 2px 0px 0px 20px;
+		position: relative;
+		margin-top: 10px;
+	}
+/* --- Assign Delete Button disable --- */
+.assignDeleteBtn {
+	display: none;
+}
+/* --- Close Icon --- */
+span.assign_Close {
+	cursor: pointer;
+	position: absolute;
+	font-size: 36px;
+	left: 483px;
+	top: -9px;
+}
+
+.Assign_Close:hover {
+	color: red;
+}
+/* --- Assign to input field --- */
+#select {
+	cursor: pointer;
+	width: 405px;
+}
+/* --- Add More Button --- */
+#btnAdd {
+	position: absolute;
+	left: 113px;
+	width: 111px;
+	z-index: 99999999999;
+}
+select#slct1 {
+	width: 522px;
+}
+
+/* --- Assigned Name box(Not visible) --- */
+select#selected_Assigned_Name {
+	border: none;
+	background: transparent;
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+/* Edit Button in View Workorder */
+.bxs-message-square-edit {
+    display: block;
+     cursor: pointer;
+     font-size: 20px;
+     position: absolute;
+     top: 11px;
+     right: 34px;
+}
+
+	.bxs-message-square-edit > p {
+		display: inline;
+		font-size: 16px !important;
+		padding-left: -2px;
+		position: relative;
+		top: -3px;
+	}
+/* Save Button in View Workorder  */
+
+#save_workorder_btn {
+     background: transparent;
+     border: none;
+     color: #fff;
+     display: none;
+     position: absolute;
+     top: 14.5px;
+     right: 34px;
+}
+
+	#save_workorder_btn:focus {
+		outline: none;
+	}
+
+.bxs-save {
+	font-size: 19px;
+}
+
+#save_workorder_btn > span {
+	font-size: 15px !important;
+	position: relative;
+	top: -2px;
+	left: 3px;
+}
+
+/* View Workorder Form - Editable */
+
+/* Target Date */
+input.view_workorder_editable {
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+	input.view_workorder_editable:focus {
+		outline: none;
+	}
+
+/* edited data */
+#targeted_date_data {
+}
+
+/* Bulk Work order */
+#bulk_workorder_container {
+    background-color: #eaeae8a9 !important;
+    border-radius: 3px;
+    height: 540px;
+    text-align: center;
+    margin-top: 90px;
+    width: 93%;
+    margin-left: 58px;
+}
+/* Header */
+.bulk_workorder_container__header {
+	position: relative;
+	top: 40px;
+}
+
+	.bulk_workorder_container__choose_bulk_file > input {
+		background-color: transparent;
+		width: 0;
+		opacity: 0;
+		z-index: -1;
+	}
+
+
+/* CSV upload Failed Message */
+span.sunny {
+	position: absolute;
+	top: 311px;
+	left: 480px;
+}
+input#bulk_workorder_submit {
+	display: none;
+    position: absolute;
+    top: 35px;
+    width: 117px;
+    height: 40px;
+    border: none;
+    background: blue;
+    color: #fff;
+    border-radius: 26px;
+}
+label.bulk_workorder_label {
+    background: blue;
+    width: 139px;
+    height: 40px;
+    /* padding: 9px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: none;
+    border-radius: 26px;
+}
+#uploadButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 182px;
+    flex-direction: column;
+    height: 91px;
+    position: relative;
+    top: 219px;
+    margin: auto;
+}
+div#uplaodFileDetails {
+    width: 202px;
+    height: 60px;
+    position: relative;
+    top: 146px;
+    margin: AUTO;
+}
+/* Selected File Name */
+#bulk_workder_selected_File_Name {
+cursor: pointer;
+    background-color: #E34BB9;
+    border-radius: 3px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    /* position: absolute;
+    top: 234px;
+    left: 851px; */
+    width: 200px;
+    min-height: 30px;
+    overflow-wrap: break-word;
+}
+
+
+/* Close selected Bulk order File */
+#close_bulk_workorder {
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    position: absolute;
+    top: 12px;
+    left: 200px;
+    height: 25px;
+    width: 25px;
+}
+/* bulk_order file upload success */
+p.bulk_workorder_success {
+	position: ABSOLUTE;
+	top: 201px;
+	left: 574px;
+}
+
+p#csv_upload_failed {
+	margin-top: 79px !important;
+}
+
+/* Date Formatting  */
+input#date_picker,input#date_picker2,input#date_picker3 {
+    color: transparent;
+}
+input#date_picker {
+    background: #fff;
+}
+input#createdOn {    
+    width: 521px;
+    margin-left: -2px;
+    height: 35px;
+}
+
+input#targettedDateValue,
+input#startDateValue,
+input#deadlineDateValue,
+input#createdOn,
+input#dateAtWokrsheet,
+input#date_Of_Employement_Value,
+input#dateOfCompletionOfEmployementValue,
+input#commencement_of_articleship_value,
+input#completion_Of_Articleship_Value
+{
+  color: rgb(125, 125, 125);
+  position: absolute;
+  border: none;
+  left: 18px;
+  height: 36px;
+   top: 1px; 
+   
+}
+
+/* Worksheet Start and EndTime */
+#startTime,#endTime{
+    border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	padding-left: 15px;
+	height: 40px;
+	width: 522px
+}
+input[type='time']::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator
+{
+	/* background: none; */
+	cursor: pointer;
+	font-size: 20px;
+	padding-right: 10px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+	padding-right: 0px !important;
+}
+#startTime:focus,#endTime:focus{
+	outline: none;
+}
+/* User Form Dates */
+input#date_Of_Employement_Value{
+	height: 30px;
+	top: 11px;
+
+}
+
+
+* --- recently Close workorder --- */
+/* div#recently_close_pending_workorder {
+    width: 307px;
+   
+    height: 195px;
+    overflow-y: auto;
+   
+
+} */
+#recently_close_pending_workorder{
+	margin-top: 92px !important;
+	position: relative;	
+}
+
+#close_items>li{
+	color: blue;
+	cursor: pointer;
+}
+#close_items{
+	margin-left: 30px;
+	margin-top: -50px;
+	min-height: 150px;
+}
+
+/* View Workorder Form - Editable */
+
+/* Target Date */
+input.view_workorder_editable {
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+	input.view_workorder_editable:focus {
+		outline: none;
+	}
+
+/* edited data */
+#targeted_date_data {
+}
+
+/* Workorder close request button */
+button#close_workorder {
+	
+    height: 35px;
+    border: none;
+    background: #17a2b8;
+    color: #fff;
+    border-radius: 3px;
+    width: 160px;
+    left: 504px;
+    position: relative;
+    bottom: 20px;
+}
+
+/* --- Edit User --- */
+input#username {
+    border: none;
+    background: transparent;
+	outline: none;
+    width: 200px;
+    margin-left: 169px;
+}
+input#username:focus{
+	outline: none !important ;
+}
+#edit_user_form{
+	 margin-top: 68px;
+    margin-left: 272px;
+}
+img#propileimage {
+    margin-left: 174px;
+}
+
+/* Edit User Btn */
+button#save_user_btn {
+   border: none;
+     background: blue;
+     color: #fff;
+     height: 29px;
+     position: absolute;
+     right: 6px;
+     top: 23px;
+     width: 75px;
+}
+#save_user_btn{
+	display: none;
+}
+#edit_user_pic_btn {
+    display: none;
+    margin-left: 370px;
+    margin-top: 12px;
+}
+.edit_user_from{
+	border: 1px solid rgb(255, 4, 4);
+	background-color: red;
+}
+input#userupdate {
+    border-radius: 0px;
+    border: none;
+    background: blue;
+    color: #fff;
+    display: none;
+    height: 33px;
+    position: absolute;
+    top: -807px !important;
+    right: -517px !important;
+    width: 81px;
+}
+ 
+
+/* --- Dashboard(06/06/23 --- */
+.home-section .home-content {
+
+	padding-top: 105px;
+}
+
+.home-content .sales-boxes {
+
+    height: 509px;
+
+}
+
+.home-content .sales-boxes .top-sales {
+   height: 923px;
+}
+
+ul.top-sales-details {
+    cursor: pointer;
+    width: 185px;
+    height: 249px;
+    overflow-y: auto;
+    margin-top: -244px;
+  
+}
+
+/* --- recently Close workorder --- */
+div#recently_close_pending_workorder {
+    width: 307px;
+    margin-left: 130px;
+    height: 195px;
+    overflow-y: auto;
+    margin-top: -76px;
+}
+p#recent_close_header {
+	background: #eee0;
+	font-size: 22px;
+    position: relative;    
+    z-index: 1;
+}
+#close_items>li{
+	color: blue;
+	cursor: pointer;
+}
+/* Workorder close request button */
+button#close_workorder {
+    height: 42px;
+    border: none;
+    background: #17a2b8;
+    color: #fff;
+    border-radius: 3px;
+    width: 256px;
+    left: 455px;
+    position: relative;
+    bottom: 30px;
+}
+/* request message  */
+p#request_message {
+    color: green;
+	display: none;
+    margin-left: 387px;
+    margin-top: -29px;
+}
+
+/* --- Edit User --- */
+ input#username {
+    border: none;
+    background: transparent;
+	outline: none;
+    width: 200px;
+    margin-left: 169px;
+}
+input#username:focus{
+	outline: none !important ;
+}
+#edit_user_form{
+	 margin-top: 68px;
+    margin-left: 272px;
+}
+img#propileimage {
+    margin-left: 174px;
+}
+
+/* Edit User Btn */
+button#edit_user_btn {
+    border: none;
+     background: blue;
+     color: #fff;
+     height: 29px;
+     position: absolute;
+     right: 17px;
+     top: 28px;
+     width: 75px;
+}
+#save_user_btn{
+	display: none;
+}
+#edit_user_pic_btn {
+    display: none;
+    margin-left: 370px;
+    margin-top: 12px;
+}
+.edit_user_from{
+	border: 1px solid rgb(255, 4, 4);
+	background-color: red;
+}
+
+/* ---Dashboard --- */
+/* Left Section(Notification) */
+.home-content .sales-boxes .recent-sales {    
+    height: 908px;
+}
+
+/* working on 22/06/23 */
+/* Workorder assign to new user btn */
+button.assign_btn {
+	background: transparent;
+     border: none;
+     color: #ffffff;
+     position: absolute;
+     top: 22%;
+     right: 34px;
+     width: fit-content;
+}
+button#new_assign_btn{
+	
+	display: block;
+	
+}
+
+
+input#new_assign_save_btn {
+	display: none;
+     background: transparent;
+     border: none;
+     color: #ffffff;
+     position: absolute;
+     right: 34px;
+     top: 29.5%;
+}
+/* new assign user section */
+#new_assign_to_section{
+	display: none;
+	margin-top: -47PX;
+}
+th#new_assign_section__options {
+    border: none;
+    position: relative;
+    top: 39px;
+    left: 430px;
+}
+button#new_assign_user_addBtn {
+    background: blue;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    left: 164px;
+    top: -36px;
+    width: 70px;
+    height: 35px;
+}
+select#new_assign_to_section__select {
+	cursor: pointer;
+    position: relative;
+    right: 1px;
+    padding-left: 43px;
+}
+
+select#new_assign_to_section__select:focus{
+	outline:none;
+}
+
+/* New Assign user list -23-06-23 */
+
+/* #new_assign_user_name_container{
+	display: none;
+} */
+td#new_assign_user_name {
+    border: none;
+    list-style: none;
+}
+td#new_assign_user_name>ul{
+	list-style-type: none;
+	position: relative;
+    TOP: 13PX;
+}
+ul#new_assign_user_name__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ul#new_assign_user_name__list>li {
+    border-radius: 53px;
+    background-color: yellow;
+    padding: 0px 22px 3px 21px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+ul#new_assign_user_name__list>li:hover span.closeIcon{
+	visibility: visible;
+}
+#new_assign_user_name__list>li>span.closeIcon{
+	font-size: 27px;
+	visibility: hidden ;
+	z-index:1;
+}
+#new_assign_user_name__list>li>span.closeIcon {   
+    position: relative;
+    left: 10px;
+	top:5px
+}
+#new_assign_user_name__list>li>span.closeIcon:hover{
+	color: rgb(255, 0, 0);
+}
+
+/* Assign user delete button */
+button#deleteAssignUser {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #ff0000;
+    font-size: 14px;
+    opacity: 0;
+	/* display: none; */
+    height: 26px;
+    position: relative;
+    left: 46px;
+    top: -2px;
+    width: 26px;
+z-index:9999;
+}
+
+button#deleteAssignUser:hover{
+	color: #fff;
+	background: red;
+}
+/* Hiding delete button */
+.deleteMe_btn {
+     opacity: 0;
+        z-index: -9999;
+}
+
+/*td.assign_name {
+    cursor: pointer;
+}*/
+
+ select.userAfterDelete {
+    margin-left: 100px;
+}  
+
+/* Button for removing assign user */
+input#removeAssignUserBtn {
+background: transparent;
+     border-radius: 16px;
+     border: none;
+     color: #fffcfc;
+     font-size: 14px;
+     height: 30px;
+     position: absolute;
+     /* left: 45%; */
+     right: 34px;
+     top: 21.3%;
+     width: fit-content;
+}
+div#section_viewworkorder {
+     position: relative;
+}
+
+li.closed_workorder {
+    position: relative;
+    top: 46px;
+}
+/* Close and open workorder button */
+.workorderActionStatus{
+	background: blue;
+    color: #fff;
+    border-radius: 3px;
+	font-size: 15px;
+    position: absolute;
+    top: 39.5%;
+    left: 46%;
+    border: none;
+    width: 150px;
+    height: 30px;
+}
+#closeWorkorder {
+    background: yellow;
+    color: #000;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0px !important;
+}
+#currentWorkOrderNo{
+	display:none;
+}
+#workorderStatus{
+	display:none;
+}
+div#workorderStatus__conatiner {
+    /* background: #232222; */
+    height: 50px;
+    width: 100%;
+    position: relative;
+    top: -46px !important;
+}
+#openWorkorder {
+   visibility: hidden;
+	position: absolute; 
+    bottom: 0px !important;
+}
+div#section_userform {
+     position: relative;
+}
+/* 	workorder delete button */
+input#deleteWorkorderBtn {
+    background: #f1000094;
+    border: none;
+    color: #fff;
+	cursor: pointer;
+    border-radius: 3px;
+    height: 30px;
+    position: absolute;
+    right: 0%;
+    bottom: 0;
+    width: 152px;
+}
+/* View Workorder table */
+table#viewWorkOrderTable {
+    margin-top: -44px !important;
+}
+input#deleteWorkorderBtn:hover{
+	background:red;
+}
+#currentWorkOrderNumber{
+	display: none;
+}
+/* Forget Password Form */
+button#resetPassword {
+    border: none;
+    background: blue;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15.5px;
+    border-radius: 3px;
+    position: relative;
+    left: 198px;
+    height: 30px;
+    width: 105px;
+}
+
+input#resetEmail {
+    height: 42px;
+    position: relative;
+    left: 109px;
+    top: 7px;
+    text-align: center;
+    width: 271px;
+}
+h4#fp_title {
+    position: relative;
+    left: 146px;
+}
+
+/* Worksheet Filter */
+input#filterDateText {
+    border: none;
+    border-top: 1px solid #959595;
+    border-left: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+    position: absolute;
+    /* top: 0%; */
+    left: 0%;
+    padding-left: 16px;
+    width: 134px;
+    height: 32px;
+    border-radius: inherit;
+}
+input#filterDateText:active{
+	outline: none;
+}
+div#filterDateButtons {
+    /* background: yellow; */
+    height: 37px;
+    width: 158px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    top: 15px;
+}
+input#filter_by_date {
+    border: none;
+    border-right: 1px solid #959595;
+    border-radius: inherit;
+    color: transparent;
+    background: transparent;
+    /* margin-left: -12%; */
+    height: 32px;
+    position: absolute;
+    /* top: 16px; */
+    left: 82%;
+    width: 23px;
+    border-top: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+}
+div#filterSection {
+    /* background: yellow; */
+    position: relative;
+    height: 49px;
+}
+input#filter_by_date:focus{
+	color: transparent;
+  outline: none;
+}
+/* Clear Filter Button */
+button#clearFilter {
+	display: none;
+    background: blue;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    height: 32px;
+    margin-left: 10px;
+    width: 54px;
+}
+/* worksheet data table */
+table#viewWorksheetTable {
+    margin-top: 1rem !important;
+}
+/* Filter Time */
+
+input#filterStartTime {
+     padding-left: 13px !important;
+    /* margin-left: 225px; */
+    position: absolute;
+    top: 18px;
+    left: 222px;
+}
+/* Filter Result */
+button#showFilterResult {
+	display: none;
+    background: blue;
+    border-radius: 2px;
+    color: #fff;
+    border: NONE;
+    font-size: 14px;
+    height: 32px;
+    margin-left: 10px;
+    width: 110px;
+}
+/* Filter Date and Time label */
+p#fDate {
+    position: absolute;
+    top: -8px;
+}
+p#fTime {
+    position: absolute;
+    top: -7.5%;
+    left: 16.5%;
+}
+p#bulk_workorder_error {
+    position: relative;
+    top: 87px;
+    color: red;
+}
+
+/* === Mobile Responsive === */
+@media screen and (max-width: 600px) {
+div#userbloodgroup__form {
+    margin-left: 5px !important;
+}
+.worksheetformbtn {
+    position: relative;
+    left: 62vw !important;
+    width: fit-content !important;
+}
+
+div#btnsubmit {	
+    margin-left: 13px !important;	
+    margin-top: 29px !important;	
+}	
+	
+
+
+
+	.container {
+		border: none !important;
+		box-shadow: none !important;
+		height: 1050px !important;
+		width: 355px !important;
+		margin: 59px 140px 0 9px !important;
+		height: 1075px !important;
+	}
+
+	#workorder_form {
+		margin-left: -12px !important;
+	}
+
+	/* === Workorder label - in create workorder number ==== */
+	#section_userform > .span {
+		margin: 10px 0px 0px 14px !important;
+		font-size: 18px;
+		padding-top: 15px !important;
+	}
+	/* === Workorder Submit button === */
+	.btn-info {
+		margin: 4px 0 0 120px !important;
+	}
+	/* === Type of work === */
+	#type_of_work {
+		width: 20rem !important;
+	}
+	/* === Workorder number input field === */
+	#workorder_no {
+		width: 20rem !important;
+	}
+	/* === Created on Input field === */
+	.form-control {
+		width: 20rem !important;
+	}
+	/* === Legal and Trade Name === */
+	.select2-selection--single {
+		width: 20rem !important;
+	}
+
+	[aria-labelledby="select2-slct1-container"] > .select2-selection__arrow {
+		right: -7.1rem !important;
+	}
+
+	span.select2-dropdown.select2-dropdown--above {
+		width: 319px !important;
+	}
+	/* === Partner In Charge ===  */
+	#partner_in_charge {
+		width: 20rem !important;
+	}
+
+	/* === Asign to input field === */
+	select#select {
+		width: 270px !important;
+	}
+	/* === Delete Buttom ==== */
+	.btn-danger {
+		display: none !important;
+	}
+	/* === Add More text button disable in mobile view === */
+	#btnAdd {
+		display: none;
+	}
+
+	/* === Add more plus icon display in small screen === */
+	.bxs-plus-square {
+		display: block !important;
+		font-size: 49px;
+		position: absolute !important;
+		top: -59px;
+		right: -11px;
+	}
+
+	div#section_userform {
+		margin-left: -12px;
+		padding-top: 12px;
+	}
+	/* === Legal and Trade Name drop down === */
+	.select2-dropdown--below {
+		width: 319px !important;
+	}
+	/* ==== WORKSHEET FORM ==== */
+	#worksheet_Form {
+		height: 959px !important;
+	}
+
+	#section_userform1 > #span {
+		padding-top: 18px;
+		margin: 81px 0 20px 33px !important;
+	}
+
+	#section_userform1 {
+		margin-left: -13px !important;
+	}
+	/* --- Start and End Time -- */
+	.input-group-text {
+		position: relative;
+		top: -38px;
+		right: -279px;
+		height: 38px;
+		z-index: 9999;
+	}
+
+	#datetimepicker {
+		width: 318px !important;
+		margin-bottom: -32px;
+	}
+
+	#datetimepickerend {
+		width: 315px !important;
+	}
+
+	/* ==== CLIENT FORM ==== */
+	#clientsubmit {
+		margin-left: 4px !important;
+		width: 100% !important;
+	}
+
+	.uploadClientCSV {
+		top: 25px;
+		left: 52px;
+	}
+
+	.hr {
+		display: none !important;
+	}
+
+	.hr1 {
+		display: none !important;
+	}
+
+	.or {
+		top: -7px;
+		right: 174px;
+	}
+
+	#section_clientform {
+		height: 975px !important;
+		margin-top: 80px !important;
+	}
+
+	#section_clientform span {
+		padding-top: -14px !important;
+		padding-left: 121px !important;
+	}
+
+	#clientFormSubmit {
+		margin-left: 125px !important;
+	}
+
+	/* === Client CSV file Submit === */
+	.uploadBtn {
+		left: -15px !important;
+		top: 129px !important;
+	}
+
+	/* chnages */
+	/* === Client CSV selected file === */
+	#section_clientform span {
+	    margin: 91px 0px 30px -84px;
+	}
+	/* === Dis Select Client CSV selected file === */
+	#dis_Select_File {
+		top: 79px;
+		left: 228px;
+	}
+	/* ==== USER FORM ==== */
+	#user_Form, #user_Form > #section_userform {
+		height: 1370px !important;
+	}
+
+	#usersubmit {
+		margin-top: 36px !important;
+	}
+	/* --- Header --- */
+	#user_Form span {
+		margin: 6px 0px -7px 19px !important;
+	}
+	/* --- Password Eye Icon --- */
+	.fa-eye {
+		position: absolute !important;
+		right: 13px !important;
+		top: 8px !important;
+	}
+	/* --- Password Input Field --- */
+	#password4 {
+		width: 19.70rem !important;
+	}
+	/* -- Type of User Input Field --- */
+	#usertypeid {
+		width: 19.71rem !important;
+	}
+	/* === VIEW USER FORM === */
+	#view_User_Table {
+		display: block !important;
+	}
+
+	#section_viewuser {
+		margin-top: 82px;
+	}
+
+	.section_viewuser__header {
+		display: block;
+		background-color: #0047FF;
+		color: #fff;
+		height: 45px;
+		text-align: center;
+		padding: 12px 0px;
+		width: 100%;
+	}
+	/* --- Table Header Background-color --- */
+	#view_User_Table > thead th {
+		font-size: 12px !important;
+		background-color: #0047FF !important;
+		text-align: center;
+		width: 600px;
+	}
+
+	#view_User_Table > tbody td {
+		font-size: 12px !important;
+	}
+
+		#view_User_Table > tbody td > .viewdetail {
+			background-color: transparent !important;
+			color: #0047FF !important;
+		}
+	/* === View User === */
+	.user_details_lg {
+		display: none !important;
+	}
+
+	#view_User_Table_lg {
+		display: none !important;
+	}
+	/* --- Small Screen --- */
+	.user_details_sm {
+		display: block !important;
+	}
+
+	.user_details_sm {
+		display: bock !important;
+		background-color: #eaeae8e0 !important;
+		min-height: 500px;
+		margin-left: -15px;
+		width: 109%;
+	}
+
+	#view_user {
+		height: 573px !important;
+	}
+	/* --- Profile Picture --- */
+	.user_details_sm__profile_Picture {
+		background-color: green;
+		border-radius: 50%;
+		height: 100px;
+		position: relative;
+		left: 123px;
+		top: 23px;
+		width: 100px;
+	}
+	/* --- User Name --- */
+	.user_details_sm__user_Name {
+		min-height: 30px;
+		width: 101px;
+		text-align: center;
+		margin: 35px 0 0 126px;
+		word-wrap: break-word;
+	}
+	/* --- View User Table --- */
+	.user_details_sm__table {
+		display: block !important;
+	}
+
+		.user_details_sm__table > tbody > tr {
+			text-align: left;
+		}
+
+			.user_details_sm__table > tbody > tr > td {
+				padding-left: 18px;
+				overflow-wrap: break-word;
+				padding-top: 16px;
+			}
+
+	.user_details_sm__profile_Picture {
+		margin-top: 50px;
+	}
+
+		.user_details_sm__profile_Picture > img {
+			height: 89px;
+			width: 96px;
+			margin-top: 7px;
+			margin-left: 3px;
+			border-radius: 50%;
+		}
+
+	.user_data {
+		padding: 21px 26px 0px 5px !important;
+		overflow-wrap: break-word;
+		width: 50px;
+	}
+
+	.user_dots {
+		padding-left: 5px !important;
+		/* color: green; */
+	}
+	/* === VIEW CLIENT === */
+	#clienttable {
+		display: none !important;
+		overflow-x: auto;
+	}
+
+	/* --- View Client Section ---  */
+	#section_clientlist {
+		margin-top: 82px;
+	}
+
+	/* --- View Client Header --- */
+	div#section_clientlist__header {
+		display: flex;
+		background: #000AFF;
+		color: #fff;
+		height: 41px;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 12px;
+	}
+	/* --- Show Entries --- */
+
+	div.dataTables_length select {
+		width: 57px !important;
+		display: inline-block;
+		padding-left: 17px !important;
+		position: relative !important;
+	}
+
+	div#clienttable_length {
+		font-size: 12px !important;
+		position: relative !important;
+		top: 4px !important;
+		left: -62px !important;
+	}
+
+	#clienttable_filter {
+		position: relative !important;
+		top: -42px !important;
+		right: -171px !important;
+		font-size: 12px !important;
+		width: 100px !important;
+	}
+
+	input.form-control.input-sm {
+		width: 117px !important;
+	}
+	/* --- Pagination -- */
+	div#clienttable_info {
+		font-size: 12px;
+		position: relative !important;
+		top: 564px;
+		left: 9px;
+		width: 100px;
+	}
+
+	div#clienttable_paginate {
+		/* display: none; */
+		position: relative !important;
+		margin-left: -488px;
+	}
+
+	.pagination {
+		color: #000 !important;
+		font-size: 12px;
+		position: relative;
+		right: -23px;
+		top: 546px;
+		padding-left: 702px !important;
+	}
+
+	/* --- View Client Table --- */
+	.view_Client_Container {
+		display: block;
+		/* background-color: yellow; */
+		min-height: 480px;
+		overflow: hidden;
+		margin-top: -81px;
+		width: 100%;
+	}
+	/* --- Table --- */
+	.view_Client_Container_table {
+		/* overflow-x: auto; */
+		overflow-x: auto;
+		display: block;
+	}
+		/* --- Table Column Header ---- */
+		.view_Client_Container_table > thead > tr > th {
+			background-color: #000AFF !important;
+			font-size: 13px !important;
+			padding: 4px;
+		}
+		/* --- Table Data(td) --- */
+		.view_Client_Container_table > tbody > tr > td {
+			font-size: 12px !important;
+			padding: 13px !important;
+		}
+	/* === Previous and Next Button in view client === */
+	.pagination > li > a {
+		padding-right: 10px;
+	}
+
+	/* === CSV File upload Status === */
+	.text-success {
+		margin-top: 12px !important;
+		margin-left: 16px !important;
+		width: 300px !important;
+	}
+	/* ==== User Form Password Eye Slash === */
+	.fa-eye-slash {
+		margin-left: -50px;
+		position: relative;
+		right: -312px !important;
+		top: -46px !important;
+		cursor: pointer;
+		color: black;
+		vertical-align: text-bottom;
+		line-height: 3.7 !important;
+	}
+
+	.passTypeToggle {
+		height: 0 !important;
+	}
+	/* --- Assign Section --- */
+	#assignedName {
+		position: relative !important;
+		left: 16px !important;
+		list-style-type: none;
+	}
+
+		#assignedName > li {
+			position: relative !important;
+			padding-left: 12px !important;
+			width: 315px !important;
+		}
+
+	span.assign_Close {
+		cursor: pointer;
+		position: absolute !important;
+		top: -10px !important;
+		left: 285px !important;
+	}
+
+	#slct1 {
+		width: 319px !important;
+	}
+
+
+}
+
+@media screen and (max-width: 600px){
+
+.container.userform {
+    margin-top: -25px !important;
+}
+
+select#type_of_work {
+    margin-left: 15rem;
+}
+
+input#workorder_no {
+    margin-left: 240px !important;
+    margin-top: 0px !important;
+}
+
+input#date_picker {
+    margin-left: 242px !important;
+    margin-top: 0px !important;
+}
+
+input#createdOn {
+    margin-left: 243px;
+    width: 150px;
+}
+
+select#partner_in_charge {
+    margin-left: 236px;
+}
+#slct1 {
+    width: 323px !important;
+}
+#partner_in_charge {
+    width: 20rem !important;
+}
+input#date_picker1 {
+    margin-left: 239px !important;
+    margin-top: 0px !important;
+}
+input#date_picker2 {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+    color: #000;
+}
+input#date_picker3 {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+    color: #000;
+}
+textarea#remarks {
+    margin-left: 15rem !important;
+}
+/* Worksheet Form */
+select#workorder_no {
+    margin-left: 15rem;
+}
+input#clientname {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#date_picker {
+    color: #000;
+}
+textarea#w3review {
+    margin-left: 15rem;
+}
+input#WorkGivenBy {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+div#datetimepicker {
+    margin-left: 15rem;
+}
+div#datetimepickerend {
+    margin-left: 15rem;
+    margin-top: -1PX !IMPORTANT;
+}
+div#endtime {
+    margin-top: 47px !important;
+}
+
+input#formsubmit {
+    color: white !important;
+    margin-top: 19PX !IMPORTANT;
+    Z-INDEX: 9999 !IMPORTANT;
+    background-color: #0017ff !important;
+    border: none;
+    margin-bottom: 1rem !important;
+}
+
+
+
+Client Form
+input#clientname_legal {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#clientname_legal1 {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+
+select#type_of_clients {
+    margin-left: 16rem !important;
+    margin-top: 45px !important;
+}
+input#pancard {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#txtGSTNumber {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+}
+
+input#txtTANNumber {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#txtAadhaar {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#address {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+}
+input#person_incharge {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+}
+input#person_name {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#person_to_be_contact {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+#section_clientform {
+    height: 1297px !important;
+    margin-top: 80px !important;
+}
+
+/* User Form */
+select#usertypeid {
+    margin-left: 15rem;
+}
+input#profilephoto {
+    margin-left: 15rem !important;
+}
+input#username1 {
+    margin-left: 15rem !important;
+    margin-top: 0 !important;
+}
+input#employeeid {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#date_Of_Employement {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#dateOfCompletionOfEmployement {
+    margin-top: 0PX !IMPORTANT;
+    margin-left: 15rem !important;
+}
+input#balunandno {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+}
+input#personalmail {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+}
+input#officialemail {
+    margin-top: 0px !important;
+    margin-left: 15rem !important;
+}
+input#mobile {
+    margin-left: 15rem !important;
+    margin-top: 0px !important;
+}
+input#password4 {
+    margin-left: 15rem !important;
+}
+.fa-eye {
+    position: absolute !important;
+    right: -101px !important;
+    top: 8px !important;
+}
+select#blood {
+    width: 19.7rem !important;
+    margin-left: 0rem !important;
+}
+
+select#blood1 {
+    width: 32.7rem !important;
+}
+
+/* Bulk Workorder */
+#bulk_workorder_container {
+    background-color: #eaeae8a9 !important;
+    border-radius: 3px;
+    height: 747px !important;
+    text-align: center;
+    margin-top: 90px !important;
+    width: 360px;
+    margin-left: 7px !important;
+}
+/* chnages */
+#bulk_workder_selected_File_Name {
+	cursor: pointer;
+    background-color: #E34BB9;
+    border-radius: 3px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: absolute;
+    top: -49px;
+    left: 5px;
+    width: 200px;
+    min-height: 30px;
+    overflow-wrap: break-word;
+}
+
+/* View Client */
+#clienttable_filter {
+    position: relative !important;
+    top: -30px !important;
+    right: -171px !important;
+    font-size: 12px !important;
+    width: 100px !important;
+}
+
+/* Login Page */
+button.btn.btn-primary.btn-lg {
+    margin-left: 58px !important;
+    margin-top: 0px !important;
+}
+a#myBtn {
+    position: relative;
+    left: 67px;
+    top: 11px;
+    font-size: 14px;
+}
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 82% !important;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+.container {
+    border: none !important;
+    box-shadow: none !important;
+    width: 355px !important;
+    margin: 59px 140px 0 9px !important;
+    height: 323px !important;
+}
+#section1 {
+    margin-top: 238px;
+}
+/* Forget Password Form */
+.modal-content1 {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 85% !important;
+    height: 267px;
+}
+h4#fp_title {
+    position: relative;
+    font-size: 20px;
+    left: 53px;
+    /* top: 5px; */
+}
+span.closeForgetForm {
+    cursor: pointer;
+    font-size: 36px;
+    position: absolute;
+    top: -22%;
+    right: -4%;
+    z-index: 999999;
+}
+input#resetEmail {
+    height: 45px;
+    position: relative;
+    left: 8px;
+    top: 45px;
+    text-align: center;
+    width: 271px;
+}
+button#resetPassword {
+    border: none;
+    background: blue;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15.5px;
+    border-radius: 3px;
+    position: relative;
+    left: 86px;
+    top: 71px;
+    height: 40px;
+    width: 105px;
+}
+
+}
+
+div#filterAndClear {
+    /* background: yellow; */
+    width: fit-content;
+    position: relative;
+    left: 27%;
+    top: -37%;
+}
+@media screen and (max-width: 600px){
+	div#filterAndClear {
+    /* background: yellow; */
+    width: fit-content;
+    position: relative;
+    left: 1%;
+    top: 60%;
+}
+	div#hamnav {
+    position: relative;
+    right: -18px;
+}
+
+select#blood1 {
+    width: 19rem !important;
+}
+
+.edituser__updatebtn {
+    left: 135px;
+    margin-top: -577px !important;
+}
+
+.dropdown-menu.show {
+    float: none !important;
+    margin-left: 3px !important;
+    margin-top: -8px;
+    width: 182px !important;
+    border: none !important;
+    /* position: relative; */
+}
+
+/* chnages */
+#section_clientform {
+	height: 1295px !important;
+    margin-top: 80px !important;
+    margin-left: 18px !important;
+    width: 365px !important;
+}
+
+
+/* client Form */
+#dis_Select_File {
+    top: 58px;
+    left: 289px;
+}
+/* changes */
+.logo>img {
+    width: 205px !important;
+    height: 55px !important;
+    vertical-align: middle;
+    border-style: none;
+    position: relative;
+    top: -11px !important;
+    object-fit: contain;
+    left: 78px;
+}
+/* View User Form */
+#section_userform{
+	position: relative;
+}
+#viewUserDetails{
+	display: none !important;
+}
+#section_userform>#userDetails {
+	display: block !important;
+    margin-left: 100px !important;
+    font-size: 20px;
+    /* margin-top: 35px; */
+    position: relative !important;
+    top: 14px !important;
+}
+div#section_userform {
+    margin-top: 91px !important;
+    margin-left: -21px !important;
+    padding-top: 12px !important;
+}
+.userform {
+    height: 1396px !important;
+}
+div#typeOfUser {
+    margin-top: 65px !important;
+}
+img#propileimage {
+    margin-left: 94px !important;
+}
+input#name,input#ID,input#bloodgroup,input#mobile_no,input#official_email,input#personal_email,input#balunand_id_no,input#startdate,input#enddate,input#partner_under_whom_registered {
+    margin-left: 0px !important;
+    margin-top: -6px !important;
+    width: 305px !important;
+}
+/* changes */
+/* Notification */
+input#myInput1 {
+	margin-top: 102px;
+    margin-left: -41px !important;
+    width: 533px ;
+    /* width: 204px; */
+    height: 36px;
+    font-size: 12px;
+    border-color: #bdaeae !important;
+}
+
+
+@media screen and (max-width: 600px)
+{
+.notifycalender {
+    position: absolute;
+    top: 209px !important;
+    height: 40px !important;
+	left: -156px;
+    width: fit-content !important;
+}
+
+
+	table#notificationdata1 {
+    border-collapse: collapse !important;
+    margin-left: -30.5px;
+    width: 103vw !important;
+    margin-top: 135px !important;
+}
+}
+	/* Report */
+.alluser {
+    margin-top: 108px;
+    margin-left: 367px;
+    font-size: 23px;
+    /* width: fit-content; */
+    width: 248px;
+}
+
+
+
+@media screen and (max-width: 600px)
+{
+	div#heading {
+    margin-left: 23% !important;
+     width: fit-content;
+}
+	#fristhead {
+    margin-top: 17px !important;
+    margin-left: 41px;
+   }
+	input#myInput1 {
+    margin-top: 102px;
+    margin-left: -41px !important;
+    width: 103vw !important;
+    /* width: 204px; */
+    height: 36px;
+    font-size: 12px;
+    border-color: #bdaeae !important;
+}
+select#filterType {
+    width: 103vw !important;
+    margin-left: -180px !important;
+    margin-top: 55px !important;
+}
+	select.user___statusdata {
+    margin-top: -16px !important;
+    margin-left: -2px !important;
+    width: 306px !important;
+    }
+select#typeOfUser__select {
+    background-color: #e9ecef;
+    width: 97% !important;
+}
+div#btnsubmit {
+    margin-left: -9px !important;
+    margin-top: 29px !important;
+}
+	form#edit_User_Form {
+    position: relative;
+    left: 5%;
+   }
+   input#userupdate {
+    border-radius: 0px;
+    border: none;
+    background: blue;
+    color: #fff;
+    display: none;
+    height: 33px;
+    position: absolute;
+    top: -733px !important;
+    right: -547px !important;
+    width: 81px;
+}
+input#filterDateText {
+    border: none;
+    border-top: 1px solid #959595;
+    border-left: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+    position: relative;
+    /* top: 1rem; */
+    left: 0%;
+    padding-left: 16px;
+    width: 143px;
+    height: 34px;
+    border-radius: inherit;
+}
+input#filter_by_date {
+    border: none;
+    border-right: 1px solid #959595;
+    border-radius: inherit;
+    color: transparent;
+    background: transparent;
+    margin-left: -5%;
+    position: absolute;
+    top: 1px;
+    height: 34px;
+    width: 25px;
+    border-top: 1px solid #959595;
+    border-bottom: 1px solid #959595;
+}
+/* // close and open buttons container */
+div#workorderStatus__conatiner {
+    height: 50px;
+    width: 100%;
+    position: relative;
+    top: 0rem !important;
+}
+table#viewWorkOrderTable {
+    margin-top: 1px !important;
+}
+div#viewWorkOrderTable__Container {
+    margin-top: 2%;
+    overflow-y: auto;
+}
+
+
+#filterDate {
+        color: rgb(0, 0, 0);
+		width: 36vw !important;
+    border: none;
+    border-radius: 4px;
+    border-color: #b1eaf3 !important;
+    height: 35px;
+    padding: 11px;
+    margin-left: 433px !important;
+    margin-top: 5px;
+   }
+}
+button#reportFilterBtn {/* Add this id into HTML */
+    position: relative;
+    left: -116px !important;
+    left: -209px !important;
+    top: 73px !important;
+    width: 99px !important;
+}
+
+button.excelbutton {
+    position: relative;
+    height: 46px;
+    left: 85px !important;
+}
+input.filterDateBtn {
+    position: relative;
+    left: 297px !important;
+}
+/*View Client */
+#clienttable {
+   display: block !important;
+    overflow-x: auto;
+}
+#clienttable_filter {
+    position: relative !important;
+    top: -31px !important;
+    right: -168px !important;
+    font-size: 12px !important;
+    width: 100px !important;
+}
+.pagination {
+    color: #000 !important;
+    font-size: 12px;
+    position: relative;
+    right: -23px;
+    top: -13px;
+    padding-left: 702px !important;
+}
+div#clienttable_info {
+    font-size: 12px;
+    position: relative !important;
+    top: 7px;
+    left: 9px;
+    width: 100px;
+}
+/* Edit Client */
+.container {
+    position: relative;
+}
+button#edit_client_form {
+    background: blue;
+    border: none;
+    color: #fff;
+    width: 110px;
+    position: absolute;
+	right: 26px !important;
+    height: 28px !important;
+    top: 20px !important;
+    width: 62px !important;
+}
+span#viewClientHeader {
+    top: 24px !important;
+    font-size: 19px !important;
+    left: 77px !important;
+}
+form#viewClient__form { /* Add this id to HTML */
+    margin-top: 47px !important;
+}
+input#clientname,
+input#editClient__tradeName,
+input#editClient__Type_of_Clients,
+input#editClient__pancard,
+input#editClient__address,
+input#editClient__person_incharge
+input#editClient__person_to_be_contact
+ {
+    margin-left: 0rem !important;
+    margin-top: -6px !important;
+}
+input#editClient__pancard {
+    margin-left: -5px !important;
+    margin-top: -6px !important;
+}
+input#editClient__pancard {
+    margin-left: -2px !important;
+    margin-top: -6px !important;
+}
+input#gst {
+    margin-left: -6px !important;
+}
+input#editClient__person_incharge {
+    margin-top: -6px !important;
+    margin-left: -8px !important;
+}
+input#editClient__person_to_be_contact {
+    margin-top: -14px !important;
+    margin-left: 0px !important;
+}
+div#clientPan {
+    position: relative;
+    /* top: -296px; */
+    top: -184px !important;
+    left: -73px;
+    width: fit-content !important;
+}
+div#gstBlock {
+    width: fit-content !important;
+    position: relative;
+    top: -186px !important;
+    left: -74px !important;
+}
+#gst{
+    margin-top: -6px !important;
+    margin-left: -5px !important;
+}
+div#tanBlock {
+    position: relative;
+    top: -187px !important;
+    left: -71px !important;
+    width: fit-content !important;
+}
+input#editClient__tan {
+    margin-top: -6px !important;
+    margin-left: -8px !important;
+}
+input#editClient__tan {
+    margin-left: -8px !important;
+}
+div#adhaarBlock {
+    position: RELATIVE;
+    top: -191px !important;
+    left: -73px !important;
+    width: fit-content !important;
+}
+input#aadhar {
+    margin-top: -6px !important;
+    margin-left: -4px !important;
+}
+div#addressBlock {
+    position: relative;
+    top: -194px !important;
+    width: fit-content !important;
+    left: -71px !important;
+}
+div#personInCharge {
+    position: relative;
+    top: -196px !important;
+    left: -66px !important;
+    width: fit-content !important;
+}
+input#editClient__person_name {
+    margin-left: 0rem !important;
+    margin-top: -16px !important;
+}
+div#persondBlock {
+    position: relative;
+    top: -202px !important;
+    left: -70px !important;
+    width: fit-content !important;
+}
+
+div#contactBlock {
+    width: fit-content !important;
+    position: relative;
+    top: -208px !important;
+    left: -73px !important;
+}
+#editClient__section_clientform {
+    height: 1080px !important;
+    margin-top: 96px !important;
+    width: 115% !important;
+}
+/* chnages */
+input#UPdatebtn {
+    position: relative;
+    top: -339px !important;
+    top: -348px !important;
+    left: 20px !important;
+    width: 71px !important;
+    font-size: 11px;
+}
+/* Worksheet view */
+
+span#totalBreakTime {
+    right: -699px;
+}
+div#filterSection {
+    /* background: yellow; */
+    position: relative;
+    height: 49px;
+    width: 196%;
+}
+div#filterDateButtons {
+    /* background: yellow; */
+    height: 37px;
+    width: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    top: 15px;
+    left: -23px;
+}
+input#filterStartTime {
+    padding-left: 13px !important;
+    margin-left: 177px;
+    position: relative;
+    top: -21px;
+    left: 35px;
+    height: 35px;
+}
+button#showFilterResult {
+    position: relative;
+    top: -10vh;
+    left: 87vw;
+}
+
+button#clearFilter {
+    position: RELATIVE;
+    top: -10vh;
+    left: 89vw;
+}
+p#fTime {
+    position: absolute;
+    top: -8px;
+    left: 210px;
+}
+p#fDate {
+    position: absolute;
+    top: -5px;
+    left: -1px;
+    width: fit-content !important;
+}
+p#filterTilte {
+    position: relative;
+    top: 50%;
+}
+h3#viewWorksheetHeader {
+    position: relative;
+    top: 8px;
+    left: 53px;
+    width: 238px !important;
+}
+span#totalBreakTime {
+    right: -23.5%;
+    top: 30%;
+}
+
+    
+/* View Workorder */
+#openWorkorder {
+    visibility: hidden;
+    position: absolute;
+    /* top: 11%; */
+    left: 1px;
+}
+#closeWorkorder {
+    /* display: none; */
+    background: yellow;
+    color: #000;
+    visibility: hidden;
+    position: absolute;
+    /* top: 11%; */
+    left: 1px;
+}
+button#close_workorder { 
+    left: 32px;
+    top: 0.5rem;
+}
+h2#viewWorkOrderHeader { /* Add it to HTMl*/
+    font-size: 24px;
+    position: relative;
+    top: -2px;
+}
+/* Worksheet form */
+input#client_name {
+    margin-top: -2px !important;
+    margin-left: 239px !important;
+}
+#worksheet_Form {
+    height: 959px !important;
+    margin-top: 20px !important;
+}
+/*  workorder form */
+div#section_userform {
+    margin-top: 14px !important;
+    margin-left: -21px !important;
+    padding-top: 12px !important;
+}
+div#section_userform {
+    margin-top: 109px !important;
+}
+/* view worksheet */
+div#section_viewworkorder {
+    position: relative;
+    /* overflow-x: auto; */
+	left: 3%;
+}
+/* View Client */
+#section_clientlist {
+    margin-top: 82px;
+    overflow-x: auto;
+}
+div#clienttable_length {
+    font-size: 12px !important;
+    position: relative !important;
+    top: 36px !important;
+    left: -62px !important;
+}
+#clienttable_filter {
+    position: relative !important;
+    top: 2px !important;
+    right: -168px !important;
+    font-size: 12px !important;
+    width: 100px !important;
+}
+/* view User */
+#section_viewuser {
+    margin-top: 82px;
+    overflow-x: auto;
+}
+/* Bulk workorder */
+
+#close_bulk_workorder {
+    /* display: none !important; */
+    /* background-color: red; */
+    border-radius: 50%;
+    /* color: #fff; */
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    position: absolute;
+	top: -43px;
+    left: 217px;
+    height: 25px;
+    width: 25px;
+}
+/* Login Form */
+img#loginPage_logo {
+    position: relative;
+    left: 85px;
+    object-fit: contain;
+    top: 1px !important;
+}
+/* change password page */
+.fa-eye {
+    position: absolute !important;
+    right: 49px !important;
+    top: 8px !important;
+}
+/* Workorder form */
+/* add id to html */
+div#workorder__form {
+    margin-top: -121px !important;
+}
+/* Reset Password */
+.resetmodal {
+    background: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-top: 196px;
+    width: 65%;
+    height: 619px;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+/* Report */
+/* view Report */
+#viewuserreport {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+.alluser {
+    margin-top: 108px;
+    margin-left: 66px;
+    font-size: 23px;
+    /* width: fit-content; */
+    width: 248px;
+}
+/* report details */
+button.excelbutton {
+    position: relative;
+    height: 46px;
+    top: -11px;
+	left: 167px !important;
+}
+/* Add it to HTML */
+input#reportFilterDate {
+    margin-left: -410px !important;
+    margin-top: 10px !important;
+    width: fit-content;
+    opacity: 0;
+}
+div#reportDetails {
+    margin-top: 10px !important;
+    overflow-x: auto;
+}
+.Filterdatabutton {
+    margin-left: 444px;
+    position: relative;
+    top: 74px !important;
+    border: none;
+    background: #c89047 !important;
+    height: 38px;
+    color: white;
+    border-radius: 3px;
+}
+}
+
+/* For Desktop */
+input#reportfilterDate {
+    position: relative;
+    right: 10% !important;
+    padding: 10px;
+}
+.logo>
+img {
+    width: 200px;
+    object-fit: contain;
+}
+
+/* #section_userform>#userDetails{
+	display: none;
+} */
+div#notificationFilterButtons {
+    /* background: yellow; */
+    width: 68.4%;
+    height: 138px;
+    position: relative;
+    left: 178px;
+}
+
+
+/* Desktop */
+/* Delete Workorder Confiramtion */
+div#deleteWorkOrderConfirmationBox {
+     display: flex;
+     height: 145vh;
+     justify-content: center;
+     width: 90vw;
+     background: #00000000;
+     position: absolute;
+     top: -263%;
+     left: -4%;
+        visibility: hidden;
+     z-index: 999;
+}
+div#deleteConfirmation {
+     height: 22vh;
+     text-align: center;
+     width: 31vw;
+     background: white;
+     color: #000;
+     /* position: absolute; */
+     box-shadow: 0px 0px 2px 1px #00000029;
+     /* top: 10px; */
+}
+div#deleteConfirmation__buttons {
+     /* background: hotpink; */
+     display: flex;
+     justify-content: center;
+     justify-content: space-evenly;
+     position: relative;
+     top: 36%;
+}
+h5#deleteConfirmation__msg {
+     position: relative;
+     top: 18%;
+}
+span#deleteConfirmation__buttons__yes {
+    width: 56px;
+     cursor: pointer;
+     height: 33px;
+     background: rgb(14 255 0);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+span#deleteConfirmation__buttons__yes:hover{
+        background: rgb(13, 188, 3);
+        color: #fff;
+}
+span#deleteConfirmation__buttons__no {
+     width: 56px;
+     cursor: pointer;
+     height: 33px;
+     background: red;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+span#deleteConfirmation__buttons__no:hover{
+         background: rgb(201, 0, 0);
+         color:#fff;
+}
+@media screen and (max-width: 600px){
+        div#deleteConfirmation {
+     height: 22vh;
+     text-align: center;
+     width: 90vw;
+     background: white;
+     color: #000;
+     box-shadow: 0px 0px 2px 1px #00000029;
+     margin-left: 2%;
+     margin-top: 29%;
+}
+}
+
+
+
+/* =========================================   KAMAL CODE END   ================================= */
+
+
+

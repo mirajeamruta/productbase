@@ -235,6 +235,9 @@ a:visited {
 .parallax-bg4 {
 	background-image: url(../images/parallax-bg4.png);
 }
+.parallax-bg5{
+	background-image: url(../images/parallax-bg5.jpg);
+}
 
 .title {
 	text-align: center;
@@ -1754,6 +1757,14 @@ footer {
 	display: none !important;
 }
 
+
+/* css for the impotant likns */
+a.sub-heading:hover {
+	color: blue !important;
+  }
+
+ 
+
 /* =Media
 -------------------------------------------------------------- */
 
@@ -2095,3 +2106,6 @@ footer {
 		background-size: 22px 22px;
 	}
 }
+
+
+

@@ -21,6 +21,7 @@ a:hover { color: #ffa593; }
 
 /* Content */
 .parallax.colored { background-color: #ee3b16; }
+.parallax.colored1{background-color: #bbb8b8;}
 .list-dot { background: #ee3b16; }
 
 .projectlist a:hover .projectinfo { 

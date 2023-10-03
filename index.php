@@ -104,7 +104,8 @@ switch (ENVIRONMENT) {
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-$system_path = '/var/www/html/system/';
+// $system_path = '/home/aaplwe35/public_html/balunand/system/';
+$system_path = 'system';
 
 /*
  *---------------------------------------------------------------
@@ -121,8 +122,8 @@ $system_path = '/var/www/html/system/';
  *
  * NO TRAILING SLASH!
  */
-$application_folder = '/var/www/html/application/';
-
+// $application_folder = '/home/aaplwe35/public_html/balunand/application/';
+$application_folder ='application';
 /*
  *---------------------------------------------------------------
  * VIEW DIRECTORY NAME

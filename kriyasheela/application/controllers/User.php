@@ -9,8 +9,8 @@ class User extends CI_Controller
     {
         parent::__construct();
 
-        // Load the todo model to make it available 
-        // to *all* of the controller's actions 
+        // Load the todo model to make it available
+        // to *all* of the controller's actions
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');
@@ -21,7 +21,7 @@ class User extends CI_Controller
     {
 
         if ($this->session->userdata('balunand_id_no') == '') {
-            echo "not logged in";
+            //echo "not logged in";
 
             redirect(base_url() . 'main/login');
         } else {
@@ -61,6 +61,22 @@ class User extends CI_Controller
 
     public function createUser()
     {
+        $loggedInEmployee = $this->session->userdata('username');
+
+		$loggedInUserId = $this->session->userdata('userId');
+
+		$user_info = $this->User_model->duplicateId($this->input->post('balunandno'));
+
+		//var_dump($user_info);
+
+		// return;
+
+		if (count($user_info) > 0) {
+			$data['error'] = 'This Balunand ID is already assigned to a usser ';
+			$this->session->set_flashdata('error', 'This Balunand ID is already assigned to an user');
+
+			redirect(base_url('User/index'));
+		}
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             /*
@@ -69,7 +85,7 @@ class User extends CI_Controller
             $this->form_validation->set_rules( 'reg_no', 'Reg_no', 'required' );
 
             $this->form_validation->set_rules( 'employee_id', 'Employee_id', 'required' );
-           
+
 			$this->form_validation->set_rules( 'partner_in_charge', 'Partner in Charge', 'required' );
             $this->form_validation->set_rules( 'start_date', 'Start Date', 'required' );
 
@@ -86,7 +102,7 @@ class User extends CI_Controller
 
 
                 // Directory
-                $config['allowed_types'] = 'jpg|png';
+                $config['allowed_types'] = 'jpg|png|jpeg';
 
                 $config['upload_path'] = './photos/';
                 //type of images allowed
@@ -105,7 +121,7 @@ class User extends CI_Controller
 
                     $imgname = $this->upload->data('file_name');
                 } else {
-                    print_r($this->upload->display_errors());
+                    //print_r($this->upload->display_errors());
                 }
 
 
@@ -117,6 +133,7 @@ class User extends CI_Controller
                 //var_dump($username);
 
                 $reg_no = $this->input->post('reg_no');
+                $REG_NO = strtoupper($reg_no);
                 $employee_id = $this->input->post('employee_id');
 
                 $commencementofarticleship = $this->input->post('commencementofarticleship');
@@ -133,17 +150,22 @@ class User extends CI_Controller
                 $bloodgroup = $this->input->post('bloodgroup');
                 $password = $this->input->post('password');
 
+                $icai_Number=$this->input->post('icai_number');
+
                 $hashpassword = md5($password);
 
-                // var_dump($hashpassword);
+
+                //var_dump($hashpassword);
+                //var_dump($password);
 
                 // return;
 
                 $data = array(
                     'name' => $username,
                     'user_image' => $userimage,
-                    // 'employee_id'=>$employee_id,
-                    'student_reg_no' => $reg_no,
+                    'student_reg_no' => $REG_NO,
+                    'icai'=> $icai_Number,
+                    //'employee_id'=>$employee_id,
                     'date_of_comencement_of_articleship' => $commencementofarticleship,
                     'date_of_comencement_of_employment' => $commencementofemployment,
                     'date_of_completion_of_articleship' => $completionofarticleship,
@@ -156,7 +178,9 @@ class User extends CI_Controller
                     'bloodgroup' => $bloodgroup,
                     'password' => $hashpassword,
                     'user_type_id' => $usertype,
+'status'=> 'Active'
                 );
+
 
                 //var_dump($data);
 
@@ -164,16 +188,41 @@ class User extends CI_Controller
 
                 $this->load->model('User_model');
                 $this->User_model->insertUsers($data);
+
+                $notification_data = array(
+                    'user_name' => $username,
+                    //'user_id' => $lastInsertedID,
+                    'type' => 'New User',
+                    'status' => '0',
+                    'date' => date('Y-m-d H:i:s')
+                    );
+                
+                
+                                $this->load->model('Notification_Model');
+                                $this->Notification_Model->insertnotification($notification_data);
+                
                 $this->session->set_flashdata('success', 'New user created successfully');
                 redirect(base_url('User/allusers'));
             }
         }
     }
+    public function validate()
+	{
+		if ($this->User_model->duplicateId($this->input->post('balunandno'))) {
+
+			$this->error = 'This Balunand Number is already assigned to a user ';
+
+			//var_dump($this->error);
+			return !$this->error;
+		}
+	}
 
 
     public function allusers()
     {
-
+	if ($this->session->userdata('balunand_id_no') == '') {
+			redirect(base_url() . 'main/login');
+        } else {
         $this->load->model('User_model');
 
         $data['usertype'] = $this->User_model->getAllUserType();
@@ -191,16 +240,23 @@ class User extends CI_Controller
 
         foreach ($data['userdetails'] as $user) {
             $data['userdetailsdata'][] = array(
+                'user_type_id' => $user['user_type_id'],
                 'user_id' => $user['user_id'],
+                'balunand_id_no' => $user['balunand_id_no'],
                 'user_type_id' => $user['user_type_id'],
                 'name' => $user['name'],
                 'student_reg_no' => $user['student_reg_no'],
-                // 'employee_id' => $user['employee_id'],
+                'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                'password'=>$user['password'],
+                 //'employee_id' => $user['employee_id'],
                 'personal_email' => $user['personal_email'],
                 'mobile_no' => $user['mobile_no'],
                 'details' => $user['mobile_no'],
             );
+
         }
+        
+
 
         $this->load->view('template/header');
 
@@ -209,11 +265,15 @@ class User extends CI_Controller
         $this->load->view('View_users', $data);
 
         $this->load->view('template/footer');
+	}
     }
 
 
     public function editUserData($userid)
     {
+	if ($this->session->userdata('balunand_id_no') == '') {
+			redirect(base_url() . 'main/login');
+        } else {
         $this->load->model('User_model');
 
         $data['userdetails'] = $this->User_model->editUserData($userid);
@@ -223,8 +283,10 @@ class User extends CI_Controller
             if ($user['user_type_id'] == 3) {
 
                 $data['userdetailsdata'][] = array(
+                    'user_type_id' => $user['user_type_id'],
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
+                    
                     'ID' => $user['student_reg_no'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
@@ -237,42 +299,84 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
+'status' => $user['status'],
+'user_type_id'=>$user['user_type_id']
                     //'details'=>$user['mobile_no'],
                 );
+                // print_r($data['userdetailsdata']);
             }
 
             if ($user['user_type_id'] == 4) {
 
                 $data['userdetailsdata'][] = array(
+                    'user_type_id'=>$user['user_type_id'],
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
-                    'ID' => $user['student_reg_no'],
+                    'ID' => $user['icai'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
-                    'startdate' => $user['date_of_comencement_of_articleship'],
+                    'startdate' => $user['date_of_comencement_of_employment'],
 
-                    'enddate' => $user['date_of_completion_of_articleship'],
+                    'enddate' => $user['date_of_completion_of_employment'],
 
                     'partner_under_whom_registered' => $user['partner_under_whom_registered'],
                     'balunand_id_no' => $user['balunand_id_no'],
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
+
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
+'status' => $user['status']
                     //'details'=>$user['mobile_no'],
                 );
+                //print_r($data['userdetailsdata']);
             }
 
-            if ($user['user_type_id'] == 2  || $user['user_type_id'] == 1) {
+            // Tesinging start
 
-                echo 2;
+            if ($user['user_type_id'] == 2) {
+
+               
                 $data['userdetailsdata'][] = array(
+                    'user_type_id'=>$user['user_type_id'],
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
-                    // 'sro_no'=>$user['student_reg_no'],
+                    'ID' => $user['icai'],
                     'image' => $user['user_image'],
-                    'ID' => $user['student_reg_no'],
+                    //'employee_id'=>$user['employee_id'],
+                    'startdate' => $user['date_of_comencement_of_employment'],
+
+                    'enddate' => $user['date_of_completion_of_employment'],
+
+                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                    'balunand_id_no' => $user['balunand_id_no'],
+                    'personal_email' => $user['personal_email'],
+                    'official_email' => $user['official_email'],
+
+                    'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
+                    'bloodgroup' => $user['bloodgroup'],
+'status' => $user['status']
+                    //'details'=>$user['mobile_no'],
+                );
+                //print_r($data['userdetailsdata']);
+            }
+
+             // Tesinging end
+
+            if ( $user['user_type_id'] == 1) {
+
+                //echo 2;
+                $data['userdetailsdata'][] = array(
+                    'user_type_id'=>$user['user_type_id'],
+                    'user_id' => $user['user_id'],
+                    'name' => $user['name'],
+                    //'sro_no'=>$user['student_reg_no'],
+                    'image' => $user['user_image'],
+                    'ID' => $user['icai'],
                     'startdate' => ($user['date_of_comencement_of_employment']),
 
                     'enddate' => ($user['date_of_completion_of_employment']),
@@ -282,11 +386,13 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
+'status' => $user['status']
                     //'details'=>$user['mobile_no'],
                 );
 
-                //  var_dump(	$data['userdetailsdata']);
+                //   var_dump(	$data['userdetailsdata']);
 
                 //return;
 
@@ -300,12 +406,203 @@ class User extends CI_Controller
 
         $this->load->view('Edit_user', $data);
 
+
+
         $this->load->view('template/footer');
+	}
     }
+
+    public function EditUser(){
+        $user_type_id=$this->input->post('user_type_id');
+        $userid = $this->input->post('user_id');
+        $userimage= $this->input->POST('user_image');
+echo($userimage);
+var_dump($userimage);
+print_r($userimage);
+        $usertype=$this->input->post('usertype');        
+        $usertypeid= $usertype;
+        if($usertypeid=='Admin'){
+            $usertypeid='1';
+        }else if($usertypeid=='Employee'){
+            $usertypeid='2';
+        }else if($usertypeid=='Article Trainee'){
+            $usertypeid='3';
+        }else if($usertypeid=='External Consultant'){
+            $usertypeid='4';
+        } 
+        if ($user_type_id == 1) {
+            if ( $userimage) {
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'icai' => $_POST['ID'],
+                    'user_image' => $userimage,
+                    'date_of_comencement_of_employment' => $_POST['startdate'],
+                    'date_of_completion_of_employment' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            } else {
+
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'icai' => $_POST['ID'],
+                    'date_of_comencement_of_employment' => $_POST['startdate'],
+                    'date_of_completion_of_employment' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            }
+        } else if($user_type_id==2){
+
+if ( $userimage) {
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'icai' => $_POST['ID'],
+                    'user_image' =>  $userimage,
+                    'date_of_comencement_of_employment' => $_POST['startdate'],
+                    'date_of_completion_of_employment' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            } else {
+
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'icai' => $_POST['ID'],
+                    'date_of_comencement_of_employment' => $_POST['startdate'],
+                    'date_of_completion_of_employment' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            }
+        } else if ($user_type_id==3){
+if ( $userimage) {
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'student_reg_no' => $_POST['ID'],
+                    'user_image' =>  $userimage,
+                    'date_of_comencement_of_articleship' => $_POST['startdate'],
+                    'date_of_completion_of_articleship' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            } else {
+
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'student_reg_no' => $_POST['ID'],
+                    'date_of_comencement_of_articleship' => $_POST['startdate'],
+                    'date_of_completion_of_articleship' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            }
+
+        } else if ($user_type_id==4){
+if ( $userimage) {
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'icai' => $_POST['ID'],
+                    'user_image' =>  $userimage,
+                    'date_of_comencement_of_employment' => $_POST['startdate'],
+                    'date_of_completion_of_employment' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            } else {
+
+                $data = array(
+                    'user_type_id' => $usertypeid,
+                    'name' => $_POST['name'],
+                    'icai' => $_POST['ID'],
+                    'date_of_comencement_of_employment' => $_POST['startdate'],
+                    'date_of_completion_of_employment' => $_POST['enddate'],
+                    // 'icai'=>$_POST['icai'],
+                    'partner_under_whom_registered' => $_POST['partner_under_whom_registered'],
+                    'balunand_id_no' => $_POST['balunand_id_no'],
+                    'personal_email' => $_POST['personal_email'],
+                    'official_email' => $_POST['official_email'],
+                    'mobile_no' => $_POST['mobile_no'],
+                    'bloodgroup' => $_POST['bloodgroup'],
+                    'status' => $_POST['status']
+                );
+            }
+
+
+        }
+            $this->load->model('User_model');
+            $this->User_model->EditUserInfo($data, $userid);
+
+         $notification_data = array(
+            'user_name'=>$_POST['name'],
+            'user_id'=>$userid,
+            'type' => 'Updated User',
+            'status'=>0,
+            'date'=>date('Y-m-d H:i:s')
+        );
+
+        $this->load->model('Notification_Model');
+        $this->Notification_Model->insertnotification($notification_data);
+ $this->session->set_flashdata('success', 'Successfully Updated');
+                 redirect(base_url('User/editUserData/'.$userid));
+         
+     }
 
     public function MyProfile()
 
     {
+	if ($this->session->userdata('balunand_id_no') == '') {
+			redirect(base_url() . 'main/login');
+        } else {
 
         $data = '';
 
@@ -325,6 +622,8 @@ class User extends CI_Controller
                     $newpassword = $this->input->post('newpassword');
 
                     $hashnewpassword = md5($newpassword);
+                    // echo $newpassword;
+                    // echo $hashnewpassword;
 
                     if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
 
@@ -335,14 +634,14 @@ class User extends CI_Controller
 
                             $this->User_model->updatePassword($pass, $hashnewpassword);
 
-                            $this->session->set_flashdata('passwordsuccess', 'Your Password has been updated');
+                            $this->session->set_flashdata('passwordsuccess', ' <h6 class="sucessmsg" style="margin-top: 363px !important; margin-left: 203px !important; color: green;">Your Password has been updated</h6>');
                         }
                     } elseif ($this->input->post('newpassword') != $this->input->post('confirmpassword')) {
 
                         $this->session->set_flashdata('passwordsuccess', 'password and confirm password should be same');
                     }
                 } else {
-                    $this->session->set_flashdata('passwordsuccess', '<h6 style="color:red">Your old password was entered incorrectly. Please enter it again. </h6> ');
+                   $this->session->set_flashdata('passwordfail', '<h6 style="color:red;margin-top: 353px;margin-left: 107px;">Your old password was entered incorrectly. Please enter it again. </h6> ');
                 }
             }
 
@@ -355,6 +654,7 @@ class User extends CI_Controller
         $this->load->view('userpassword_form', $data);
 
             $this->load->view('template/footer');
+		}
         }
    }
 }

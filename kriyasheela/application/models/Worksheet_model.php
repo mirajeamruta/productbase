@@ -15,12 +15,13 @@ class Worksheet_model extends CI_Model
 		$this->db->insert('tbl_worksheet', $data);
 	}
 
-	public	function getWorkOrder()
-	{
-		$query = $this->db->query('SELECT * FROM tbl_workorder');
+	public  function getWorkOrder()
+        {
+                $query = $this->db->query("SELECT * FROM tbl_workorder WHERE status='open'");
 
-		return $query->result_array();
-	}
+                return $query->result_array();
+        }
+
 
 	public function getUsers()
 	{
@@ -54,6 +55,14 @@ class Worksheet_model extends CI_Model
 		return $query->row();
 	}
 
+	public function getTypeofWork()
+	{
+		$query = $this->db->query('SELECT * FROM tbl_typeofwork');
+
+		return $query->result_array();
+	}
+
+
 
 	public function getWorkOrderClientName($id)
 	{
@@ -63,7 +72,7 @@ class Worksheet_model extends CI_Model
 
 		//if($query->num_rows()>1 )  foreach($query->num_rows()>1 as $row) 
 
-		$query = $this->db->query("SELECT client_name , partner_in_charge FROM tbl_workorder  where workorder_no= '$ids' ");
+		$query = $this->db->query("SELECT client_name , partner_in_charge, start_date FROM tbl_workorder  where workorder_no= '$ids' ");
 
 		// $clientname['name']=$row['client_name'];
 
