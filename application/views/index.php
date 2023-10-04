@@ -53,6 +53,10 @@
                 <li><a href="#section4">Our Team</a></li>
                 <li><a href="#section5">Career</a></li>
                 <li><a href="#section7">Contact</a></li>
+
+
+
+                
             </ul>
         </div>
     </nav>
@@ -61,9 +65,9 @@
     <section id="section1" class="parallax-bg1 hero parallax clearfix">
         <div class="dark content container">
             <div class="ticker">
-                <h1 class="header1" id="year">Year Of Establishment : 1987</h1>
-                <h1 class="header2" id="regNo">ICAI REGISTRATION No : FR 000367s</h1>
-                <h1 class="header3" id="databaseregNo">Dun & Bradstreet Global Database Registration No : 67-676 - 7686</h1>
+                <h1>Year Of Establishment:1987</h1>
+                <h1>ICAI REGISTRATION No:FR 000367s</h1>
+                <h1>Dun & Bradstreet Global Database Registration No: 67-676 - 7686</h1>
             </div>
             <ul class="call-to-action">
                 <li><a class="button" href="#section2">Learn more</a></li>
@@ -324,6 +328,7 @@
 
                     <!-- Title -->
                     <h5>Audit and Assurance</h5>
+                    <h5>Audit and Assurance</h5>
 
                 </li>
 
@@ -351,6 +356,7 @@
                     <div class="icon design"></div>
 
                     <!-- Title -->
+                    <h5>Direct Taxation</h5>
                     <h5>Direct Taxation</h5>
                 </li>
 
@@ -398,6 +404,7 @@
 
                     <!-- Title -->
                     <h5>Indirect Taxation</h5>
+                    <h5>Indirect Taxation</h5>
                 </li>
 
                 <!-- Single Icon -->
@@ -443,6 +450,7 @@
 
                     <!-- Title -->
                     <h5>Drafting and Conveyancing</h5>
+                    <h5>Drafting and Conveyancing</h5>
                 </li>
 
                 <li class="overview animated entrance" data-appear-bottom-offset="100">
@@ -453,6 +461,7 @@
                             <li>
                                 <span class="list-dot"></span>
                                 Obtaining approvals for opening liaison / branch offices in
+                                Obtaining approvals for opening liaison / branch offices in
                                 india for Overseas Corporate Bodies Preparation of Project Feasibility Reports for
                                 obtaining finance from banks and other Institutions Assisting in Obtaining Import-Export
                                 Code Number
@@ -462,6 +471,7 @@
                     <span class="arrow-down"></span>
 
                     <div class="icon commerce"></div>
+                    <h5>Supplementary Services</h5>
                     <h5>Supplementary Services</h5>
                 </li>
 
@@ -530,6 +540,9 @@
                     <h6 style="text-transform: capitalize; font-weight: bold;">partner</h6>
                 </div>
                 <p>
+                    Srinivas has a Bachelor’s Degree in Commerce from the University of Mysore and became a member of the
+                    Institute of Chartered Accountants of India in the year 2002. He holds a post-qualification diploma
+                    in Information Systems Audit from the ICAI and is also a Graduate Member of the Institute of Cost and
                     Srinivas has a Bachelor’s Degree in Commerce from the University of Mysore and became a member of the
                     Institute of Chartered Accountants of India in the year 2002. He holds a post-qualification diploma
                     in Information Systems Audit from the ICAI and is also a Graduate Member of the Institute of Cost and

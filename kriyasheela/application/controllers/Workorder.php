@@ -2,8 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 // $fromLocal=localStorage.getItem('name');
 // echo $fromLocal;
+// $fromLocal=localStorage.getItem('name');
+// echo $fromLocal;
 class Workorder extends CI_Controller
 {
+
 
 	function workorderform()
 	{
@@ -30,6 +33,7 @@ class Workorder extends CI_Controller
 			$data['assign_to'] = $this->Workorder_model->getUsers();
 			// var_dump($data['assign_to'] );
 			foreach ($data['assign_to']  as $assign_to) {
+				$data['assign_to2'][] = array(
 				$data['assign_to2'][] = array(
 					'user_id' =>  $assign_to['user_id'],
 					'name' =>   $assign_to['name']
@@ -342,6 +346,7 @@ $notification_data = array(
 									// var_dump($key);
 									$data['userdetails1'][] = array(
 										'user_id' => $userdetails['user_id'],
+										'user_id' => $userdetails['user_id'],
 										'name' => $userdetails['name'],
 										'balunand_id_no' => $userdetails['balunand_id_no'],
 										'student_reg_no' => $userdetails['student_reg_no'],
@@ -434,6 +439,7 @@ $notification_data = array(
 								foreach ($data['userdetails'] as $key => $userdetails) {
 									$data['userdetails1'][] = array(
 										'user_id' => $userdetails['user_id'],
+										'user_id' => $userdetails['user_id'],
 										'name' => $userdetails['name'],
 										'balunand_id_no' => $userdetails['balunand_id_no'],
 										'student_reg_no' => $userdetails['student_reg_no'],
@@ -510,6 +516,7 @@ $notification_data = array(
 							$data['userdetails'] = $this->Workorder_model->getAssignToUsers($assignworkordernonumber4);
 							foreach ($data['userdetails'] as $userdetails) {
 								$data['userdetails1'][] = array(
+									'user_id' => $userdetails['user_id'],
 									'user_id' => $userdetails['user_id'],
 									'name' => $userdetails['name'],
 									'balunand_id_no' => $userdetails['balunand_id_no'],
@@ -599,6 +606,7 @@ $notification_data = array(
 								foreach ($data['userdetails'] as $userdetails) {
 									$data['userdetails1'][] = array(
 										'user_id' => $userdetails['user_id'],
+										'user_id' => $userdetails['user_id'],
 										'name' => $userdetails['name'],
 										'balunand_id_no' => $userdetails['balunand_id_no'],
 										'student_reg_no' => $userdetails['student_reg_no']
@@ -685,6 +693,9 @@ $notification_data = array(
 
 
 
+
+
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			//$this->form_validation->set_rules('workorder_no', 'Workorder No', 'required');
 			// $this->form_validation->set_rules( 'created_on', 'Created On', 'required' );
@@ -704,6 +715,8 @@ $notification_data = array(
 				$created_on = $this->input->post('created_on');
 				//echo $created_on;
 				//$foratedDate=date('Y-m-d',strtotime($created_on));
+				//echo $created_on;
+				//$foratedDate=date('Y-m-d',strtotime($created_on));
 				$client_name = $this->input->post('client_name');
 				$type_of_work = $this->input->post('type_of_work');
 				$partner_in_charge = $this->input->post('partner_in_charge');
@@ -712,7 +725,14 @@ $notification_data = array(
 				$deadline = $this->input->post('deadline');
 				$assign_to = $this->input->post('assign_to');
 
+
 				$assign_tojson = json_encode($assign_to);
+				// exit;
+				// header('Content-Type: application/json');
+
+				//exit;
+				//var_dump($assign_tojson);
+
 				// exit;
 				// header('Content-Type: application/json');
 
@@ -725,6 +745,7 @@ $notification_data = array(
 				// return; 
 				//
 
+
 				$remarks = $this->input->post('remarks');
 				$time=date('Y-m-d H:i:s');
 				$data = array(
@@ -736,6 +757,7 @@ $notification_data = array(
 					'start_date' => $start_date,
 					'targetted_end_date' => $targetted_end_date,
 					'deadline' => $deadline,
+					'assign_to' =>  $assign_tojson,
 					'assign_to' =>  $assign_tojson,
 					//$data['assign_to'] = array();
 					'remarks' => $remarks,
@@ -912,5 +934,75 @@ $notification_data = array(
 
 		$this->session->set_flashdata('success', 'User Remove Successfully');
 		redirect(base_url('Workorder/View_workorder/' . $workorder_number));
+	}
+
+	// New Assign user 
+	function updateData()
+	{
+		$workorder_number = $this->input->post('workorder_number');
+		$workorder_num = (string)$workorder_number;
+		$assign_to = $this->input->post('assign_to');
+
+		$assign_tojson = json_encode($assign_to);
+
+		$data = array(
+			'assign_to' =>  $assign_tojson,
+		);
+
+		// Addding data to workorder table
+		$this->load->model('Workorder_model');		
+		$this->Workorder_model->updateViewWorkorder($data, $workorder_num);
+
+       // Adding data to notification table
+	   $this->load->model('User_Model');
+	   $loggedInUserId = $this->session->userdata('userId');
+		$notification_data= array(
+			'workorder_no'=>$workorder_number,
+			'assign_to'=>$assign_tojson,
+			'user_id'=>$loggedInUserId,
+			'type'=>'newuser',
+			'status'=>0,
+			'date'=>date('Y-m-d H:i:s')
+
+		);
+
+		$this->load->model('Notification_Model');
+		$this->Notification_Model->insertnotification($notification_data);
+
+		$this->session->set_flashdata('success', 'User Assigned Successfully');
+		redirect(base_url('Workorder/View_workorder/' . $workorder_no));
+	}
+	//Removing Assign user from assign user
+	function updateDataAfterDelete()
+	{
+		$workorder_number = $this->input->post('workorder_number');
+		$workorder_num = (string)$workorder_number;
+		$assign_to = $this->input->post('remove_assign_user');
+		$assign_tojson = json_encode($assign_to);
+
+		$data = array(
+			'assign_to' =>  $assign_tojson,
+		);
+		$this->load->model('Workorder_model');
+
+		$this->Workorder_model->updateViewWorkorder($data, $workorder_num);
+
+		$this->load->model('User_Model');
+	   $loggedInUserId = $this->session->userdata('userId');
+
+$notification_data=array(
+'workorder_no'=>$workorder_number,
+'assign_to'=>$assign_tojson,
+'user_id'=>$loggedInUserId,
+'type'=>'closeuser',
+'status'=>0,
+'date'=>date('Y-m-d H:i:s')
+);
+
+		$this->load->model('Notification_Model');
+		$this->Notification_Model->insertnotification($notification_data);
+
+		$this->session->set_flashdata('success', 'User Remove Successfully');
+		redirect(base_url('Workorder/View_workorder/' . $workorder_no));
 	}
 }

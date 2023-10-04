@@ -104,6 +104,7 @@ class Client extends CI_Controller
 				'PAN' => $PAN,
 				'gst' => $gst,
 				'tan' => $TAN,
+				'tan' => $TAN,
 				'aadhar' => $aadhar,
 				'address' => $address,
 				'person_incharge' => $person_incharge,
@@ -373,6 +374,7 @@ public function countRecordsWithCellValue($csv_array, $columnName, $cellValue)
 		foreach ($data['clientdetails'] as $client) {
 			$data['clientdetailsdata'][] = array(
 				'client_id' => $client['client_id'],
+				'client_id' => $client['client_id'],
 
 				'name' => $client['name'],
 				'Trade_Name' => $client['Trade_Name'],
@@ -398,81 +400,5 @@ public function countRecordsWithCellValue($csv_array, $columnName, $cellValue)
 		$this->load->view('template/footer');
 
 		$this->load->view('View_clients', $data);
-		}
-	}
-
-
-	public function editClientData($clientid)
-	{
-	if ($this->session->userdata('balunand_id_no') == '') {
-			redirect(base_url() . 'main/login');
-        } else {
-		$this->load->model('Client_model');
-
-		$data['clientdetails'] = $this->Client_model->editClientData($clientid);
-
-		foreach ($data['clientdetails'] as $client) {
-			$data['clientdetailsdata'][] = array(
-				'client_id' => $client['client_id'],
-				'name' => $client['name'],
-				'Trade_Name' => $client['Trade_Name'],
-				'Type_of_Clients' => $client['Type_of_Clients'],
-				'PAN' => $client['PAN'],
-				'GST' => $client['GST'],
-				'tan' => $client['tan'],
-				'aadhar' => $client['aadhar'],
-				'address' => $client['address'],
-				'person_incharge' => $client['person_incharge'],
-				'person_name' => $client['person_name'],
-				'person_to_be_contact' => $client['person_to_be_contact'],
-
-			);
-
-			//https://www.youtube.com/watch?v=LxddgOvMrwY https://www.youtube.com/watch?v=sDw9tyDbEV4  https://www.codexworld.com/codeigniter-import-csv-file-data-into-mysql-database/fgetcsv()
-		}
-
-		$this->load->view('template/header');
-
-		$this->load->view('template/navigation');
-
-		$this->load->view('Edit_client', $data);
-
-		$this->load->view('template/footer');
-	}
-}
-
-	public function EditClient()
-	{
-		$clientid = $this->input->post('client_id');
-		$data = array(
-			'name' => $_POST['clientname'],
-			'Trade_Name' => $_POST['tradename'],
-			'Type_of_Clients' => $_POST['Type_of_Clients'],
-			'PAN' => $_POST['pancard'],
-			'GST' => $_POST['gst'],
-			'tan' => $_POST['tan'],
-			'aadhar' => $_POST['aadhar'],
-			'address' => $_POST['address'],
-			'person_incharge' => $_POST['person_incharge'],
-			'person_name' => $_POST['person_name'],
-			'person_to_be_contact' => $_POST['person_to_be_contact']
-		);
-
-		$this->load->model('Client_model');
-		$this->Client_model->EditClientInfo($data, $clientid);
-
-		$notification_data = array(
-			'name' => $_POST['clientname'],
-			'client_id' => $clientid,
-			'type' => 'Updated Client',
-			'status' => 0,
-			'date' => date('Y-m-d H:i:s')
-		);
-
-		$this->load->model('Notification_Model');
-		$this->Notification_Model->insertnotification($notification_data);
-
-		$this->session->set_flashdata('success', 'Successfully Updated');
-		redirect(base_url('Client/editClientData/' . $clientid));
 	}
 }

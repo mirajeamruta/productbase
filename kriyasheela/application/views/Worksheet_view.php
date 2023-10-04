@@ -11,15 +11,21 @@
             ?>
             <table class="table table-bordered my-4" id="worksheettable">
                 <thead  class="viewwork" id="tablehead">
+            <table class="table table-bordered my-4" id="worksheettable">
+                <thead  class="viewwork" id="tablehead">
                     <tr class="text-center text-white text-capitalize wkorderhead">
                         <th>Name</th>
                         <th>Partner in Charge</th>
+                        <th>SRO Number </th>
                         <th>SRO Number </th>
                         <th>balunand_id_no</th>
                         <th>Start Date</th>
                         <th>Completing On</th>
                     </tr>
                 </thead>
+                
+                <tbody class="worksheet" id="worksheetbody">
+                    <td data-label=""><?php echo $row['name'] ?></td>
                 
                 <tbody class="worksheet" id="worksheetbody">
                     <td data-label=""><?php echo $row['name'] ?></td>
@@ -58,7 +64,9 @@
                         
                         <tr class="text-center text-white text-capitalize wksubhead2">
                             <th class="data1" data-label="Date">Date</th>
+                            <th class="data1" data-label="Date">Date</th>
                             <th>Workorder No</th>
+                            <th>Type Of Work</th>
                             <th>Type Of Work</th>
                             <th>Name Of Client </th>
                             <th>Description of work done</th>

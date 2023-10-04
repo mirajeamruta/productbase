@@ -38,9 +38,7 @@ class Worksheet extends CI_Controller
 
 		if ($this->session->userdata('balunand_id_no') == '') {
 			//echo "not logged in";      
-
-
-
+			
 			redirect(base_url() . 'main/login');
 		} else {
 
@@ -122,10 +120,14 @@ class Worksheet extends CI_Controller
 
 				$workorder = $this->input->post('workorder');
 				$typeofwork= $this->input->post('type_of_work');
+				$typeofwork= $this->input->post('type_of_work');
 				$date = $this->input->post('date');
+				$formatedDate=date('Y-m-d',strtotime($date));
 				$formatedDate=date('Y-m-d',strtotime($date));
 				$clientname = $this->input->post('client_name');
 				$Description = $this->input->post('Description');
+
+				//echo $date;
 
 				//echo $date;
 
@@ -153,13 +155,12 @@ class Worksheet extends CI_Controller
 					'employee_name' => $loggedInEmployee,
 					'user_id' => $loggedInUserId,
 					'date' => $formatedDate,
+					'date' => $formatedDate,
 					'work_description' => $Description,
 					//'work_given_by'=>$WorkGiven,
 					'remark' => $remarks,
 					'start_time' => $Starttime_in_24_hour_format,
 					'end_time' => $Endtime_in_24_hour_format
-
-
 
 				);
 
@@ -248,6 +249,50 @@ class Worksheet extends CI_Controller
 		// 		);
 		// 	}
 		// }
+
+
+
+		// foreach ($data['loginuserdetails'] as $worksheet) {
+		// 	if ($usertype == 3) {
+
+
+		// 		$data['workesheetuloginuserdetails'][] = array(
+		// 			'userid' => $worksheet['user_id'],
+		// 			'name' => $loggedInEmployee,
+		// 			'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+		// 			'student_reg_no' => $worksheet['student_reg_no'],
+		// 			//'employee_id' => $worksheet['employee_id'],
+		// 			'startdate' => $worksheet['date_of_comencement_of_articleship'],
+		// 			'CompletingOn' => $worksheet['date_of_completion_of_articleship'],
+
+		// 		);
+		// 	} else if ($usertype == 2) {
+
+		// 		$data['workesheetuloginuserdetails'][] = array(
+		// 			'userid' => $worksheet['user_id'],
+		// 			'name' => $loggedInEmployee,
+		// 			'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+		// 			'student_reg_no' => $worksheet['student_reg_no'],
+		// 			'balunand_id_no' => $worksheet['balunand_id_no'],
+		// 			'startdate' => $worksheet['date_of_comencement_of_employment'],
+		// 			'CompletingOn' => $worksheet['date_of_completion_of_employment'],
+
+		// 		);
+		// 	} else {
+
+
+		// 		$data['workesheetuloginuserdetails'][] = array(
+		// 			'userid' => $worksheet['user_id'],
+		// 			'name' => $loggedInEmployee,
+		// 			'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+		// 			'student_reg_no' => $worksheet['student_reg_no'],
+		// 			'balunand_id_no' => $worksheet['balunand_id_no'],
+		// 			'startdate' => '',
+		// 			'CompletingOn' => '',
+
+		// 		);
+		// 	}
+		// }
 		foreach ($data['loginuserdetails'] as $worksheet) {
 			if ($usertype == 3) {
 
@@ -257,6 +302,7 @@ class Worksheet extends CI_Controller
 					'name' => $loggedInEmployee,
 					'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
 					'student_reg_no' => $worksheet['student_reg_no'],
+					'balunand_id_no' => $worksheet['balunand_id_no'],
 					'balunand_id_no' => $worksheet['balunand_id_no'],
 					//'employee_id' => $worksheet['employee_id'],
 					'startdate' => $worksheet['date_of_comencement_of_articleship'],
@@ -275,6 +321,7 @@ class Worksheet extends CI_Controller
 					'CompletingOn' => $worksheet['date_of_completion_of_employment'],
 
 				);
+			} else if($usertype == 4){
 			} else if($usertype == 4){
 
 
@@ -299,8 +346,20 @@ class Worksheet extends CI_Controller
 					'CompletingOn' => $worksheet['date_of_completion_of_employment'],
 
 				);
+			} else {
+				$data['workesheetuloginuserdetails'][] = array(
+					'userid' => $worksheet['user_id'],
+					'name' => $loggedInEmployee,
+					'partner_under_whom_registered' => $worksheet['partner_under_whom_registered'],
+					'student_reg_no' => $worksheet['student_reg_no'],
+					'balunand_id_no' => $worksheet['balunand_id_no'],
+					'startdate' => $worksheet['date_of_comencement_of_employment'],
+					'CompletingOn' => $worksheet['date_of_completion_of_employment'],
+
+				);
 			}
 		}
+
 
 		foreach ($data['worksheet'] as $worksheet) {
 			// $starttime = chop($worksheet['breaktime_from'], "amp");
@@ -320,6 +379,9 @@ class Worksheet extends CI_Controller
 			// $end_time = strtotime($endtime);
 
 			//$timespent = ($end_time - $start_time) / 60;
+
+            
+
 
 			if (!empty($data['worksheet'])) {
 
@@ -342,9 +404,11 @@ class Worksheet extends CI_Controller
 					'spent_time' => '',
 
 				);
+				
 			}
 		}
 
+		
 		// var_dump(	$data['workesheetdata']);  
 		$this->load->view('template/header');
 		$this->load->view('template/navigation');

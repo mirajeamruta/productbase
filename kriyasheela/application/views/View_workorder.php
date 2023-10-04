@@ -98,7 +98,12 @@
 
                 </tr>
 
+
             </thead>
+            <tbody id="viewbody">
+                <?php
+                $workorder_number;
+                ?>
             <tbody id="viewbody">
                 <?php
                 $workorder_number;
@@ -224,9 +229,9 @@
                     }
                 } else {
                     ?>
-                <tr>
-                    <td colspan="8">No Data Found</td>
-                </tr>
+                    <tr>
+                        <td colspan="8">No Data Found</td>
+                    </tr>
                 <?php
                 }
                 ?>
@@ -357,9 +362,9 @@
                     }
                 } else {
                     ?>
-                <tr>
-                    <td>No Data Found</td>
-                </tr>
+                    <tr>
+                        <td>No Data Found</td>
+                    </tr>
                 <?php
                 }
                 ?>
@@ -435,9 +440,9 @@
                     }
                 } else {
                     ?>
-                <tr>
-                    <td colspan="8">No Data Found</td>
-                </tr>
+                    <tr>
+                        <td colspan="8">No Data Found</td>
+                    </tr>
                 <?php
                 }
                 ?>
@@ -629,10 +634,10 @@ jQuery(document).ready(function($) {
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <script>
-function myfunction() {
+    function myfunction() {
 
 
-    var workId = document.getElementById("workorderids").value;
+        var workId = document.getElementById("workorderids").value;
 
     const url = "<?= base_url("Workorder/View_workorder") ?>" + '/' + workId;
     localStorage.setItem('selectedte', workId);
@@ -640,23 +645,24 @@ function myfunction() {
 }
 
 
-// localStorage.removeItem('selectedtem');
+    // localStorage.removeItem('selectedtem');
 
-if (localStorage.getItem('selectedtem')) {
+    if (localStorage.getItem('selectedtem')) {
 
-    // alert(localStorage.getItem('selectedtem'));
+        // alert(localStorage.getItem('selectedtem'));
 
     //document.getElementById('workorderids').options[localStorage.getItem('selectedtem')].selected = true;
 
-    $('select').find('option[value=' + localStorage.getItem('selectedtem') + ']').attr('selected', 'selected');
+        $('select').find('option[value=' + localStorage.getItem('selectedtem') + ']').attr('selected', 'selected');
 
-    localStorage.setItem('selectedtem', '');
+        localStorage.setItem('selectedtem', '');
 
-}
+    }
 </script>
 
+
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
     //change selectboxes to selectize mode to be searchable
     $(".filter-handle").select2();

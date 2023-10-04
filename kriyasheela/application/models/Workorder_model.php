@@ -24,7 +24,7 @@ class Workorder_model extends CI_Model
 	public  function fetchworkordersheetdata($workid)
 	{
 
-		$query = $this->db->query("SELECT * FROM tbl_worksheet where workorder_no='$workid' ");
+		$query = $this->db->query("SELECT * FROM tbl_worksheet where workorder_no='$workid'");
 
 		//$query = $this->db->get();
 
@@ -96,11 +96,24 @@ class Workorder_model extends CI_Model
 	{
 		//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
 		$query = $this->db->query('SELECT *  FROM tbl_workorder order by workorder_no ');
+		$query = $this->db->query('SELECT *  FROM tbl_workorder order by workorder_no ');
 		//var_dump($query );
 
 
 		return $query->result_array();
 	}
+
+	// function fetch_workorder_data()
+	// {
+	// 	//$this->db->select("CONCAT_WS(' ', users.first_name, users.last_name) AS name");
+	// 	$query = $this->db->query('SELECT workorder_no  FROM tbl_workorder ORDER BY workorder_no DESC LIMIT 1');
+	// 	//var_dump($query );
+
+
+	// 	return $query->result_array();
+	// }
+
+
 
 	// function fetch_workorder_data()
 	// {
@@ -154,6 +167,15 @@ class Workorder_model extends CI_Model
 
 		return $id;
 	}
+	public function updateentitydate($data)
+	{
+		$workorder_no = $data['workorder_no'];
+		unset($data['workorder_no']);
+		$this->db->where('workorder_no', $workorder_no);
+		$this->db->update('tbl_workorder', $data);
+
+		return $id;
+	}
 
 	public function getTypeofWork()
 	{
@@ -164,7 +186,7 @@ class Workorder_model extends CI_Model
 
 	public function getTypeofWorkPrefix($type_of_work_id)
 	{
-		$query = $this->db->query("SELECT prefix FROM tbl_typeofwork where type_of_work_id = $type_of_work_id   ");
+		$query = $this->db->query("SELECT prefix FROM tbl_typeofwork where type_of_work_id = $type_of_work_id");
 
 		//return $query->result_array();
 		return $query->row('prefix');

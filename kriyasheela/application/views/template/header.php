@@ -32,6 +32,7 @@
 
     <!-- datepicker -->
       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.css">
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.css">
     <!-- datepicker end-->
 
     <!-- select search link -->
@@ -60,6 +61,7 @@
 
 
 
+    <!-- notification styles link -->
     <!-- notification styles link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -120,9 +122,10 @@
     
 <!-- for report date links  -->
 
-
+    
 
 
 </head>
 
 <body>
+

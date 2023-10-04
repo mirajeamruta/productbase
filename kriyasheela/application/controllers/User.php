@@ -11,6 +11,8 @@ class User extends CI_Controller
 
         // Load the todo model to make it available
         // to *all* of the controller's actions
+        // Load the todo model to make it available
+        // to *all* of the controller's actions
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');
@@ -86,6 +88,7 @@ class User extends CI_Controller
 
             $this->form_validation->set_rules( 'employee_id', 'Employee_id', 'required' );
 
+
 			$this->form_validation->set_rules( 'partner_in_charge', 'Partner in Charge', 'required' );
             $this->form_validation->set_rules( 'start_date', 'Start Date', 'required' );
 
@@ -134,6 +137,7 @@ class User extends CI_Controller
 
                 $reg_no = $this->input->post('reg_no');
                 $REG_NO = strtoupper($reg_no);
+                $REG_NO = strtoupper($reg_no);
                 $employee_id = $this->input->post('employee_id');
 
                 $commencementofarticleship = $this->input->post('commencementofarticleship');
@@ -152,8 +156,13 @@ class User extends CI_Controller
 
                 $icai_Number=$this->input->post('icai_number');
 
+                $icai_Number=$this->input->post('icai_number');
+
                 $hashpassword = md5($password);
 
+
+                //var_dump($hashpassword);
+                //var_dump($password);
 
                 //var_dump($hashpassword);
                 //var_dump($password);
@@ -163,6 +172,9 @@ class User extends CI_Controller
                 $data = array(
                     'name' => $username,
                     'user_image' => $userimage,
+                    'student_reg_no' => $REG_NO,
+                    'icai'=> $icai_Number,
+                    //'employee_id'=>$employee_id,
                     'student_reg_no' => $REG_NO,
                     'icai'=> $icai_Number,
                     //'employee_id'=>$employee_id,
@@ -182,7 +194,9 @@ class User extends CI_Controller
                 );
 
 
-                //var_dump($data);
+
+
+                var_dump($data);
 
                 // return;
 
@@ -243,9 +257,13 @@ class User extends CI_Controller
                 'user_type_id' => $user['user_type_id'],
                 'user_id' => $user['user_id'],
                 'balunand_id_no' => $user['balunand_id_no'],
+                'balunand_id_no' => $user['balunand_id_no'],
                 'user_type_id' => $user['user_type_id'],
                 'name' => $user['name'],
                 'student_reg_no' => $user['student_reg_no'],
+                'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                'password'=>$user['password'],
+                 //'employee_id' => $user['employee_id'],
                 'partner_under_whom_registered' => $user['partner_under_whom_registered'],
                 'password'=>$user['password'],
                  //'employee_id' => $user['employee_id'],
@@ -253,6 +271,7 @@ class User extends CI_Controller
                 'mobile_no' => $user['mobile_no'],
                 'details' => $user['mobile_no'],
             );
+
 
         }
         
@@ -287,6 +306,7 @@ class User extends CI_Controller
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
                     
+                    
                     'ID' => $user['student_reg_no'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
@@ -300,11 +320,13 @@ class User extends CI_Controller
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
                     'password'=>$user['password'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
 'status' => $user['status'],
 'user_type_id'=>$user['user_type_id']
                     //'details'=>$user['mobile_no'],
                 );
+                // print_r($data['userdetailsdata']);
                 // print_r($data['userdetailsdata']);
             }
 
@@ -315,8 +337,12 @@ class User extends CI_Controller
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
                     'ID' => $user['icai'],
+                    'ID' => $user['icai'],
                     'image' => $user['user_image'],
                     //'employee_id'=>$user['employee_id'],
+                    'startdate' => $user['date_of_comencement_of_employment'],
+
+                    'enddate' => $user['date_of_completion_of_employment'],
                     'startdate' => $user['date_of_comencement_of_employment'],
 
                     'enddate' => $user['date_of_completion_of_employment'],
@@ -356,15 +382,21 @@ class User extends CI_Controller
                     'personal_email' => $user['personal_email'],
                     'official_email' => $user['official_email'],
 
+
                     'mobile_no' => $user['mobile_no'],
+                    'password'=>$user['password'],
                     'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
 'status' => $user['status']
                     //'details'=>$user['mobile_no'],
                 );
                 //print_r($data['userdetailsdata']);
+                //print_r($data['userdetailsdata']);
             }
 
+             // Tesinging end
+
+            if ( $user['user_type_id'] == 1) {
              // Tesinging end
 
             if ( $user['user_type_id'] == 1) {
@@ -375,7 +407,9 @@ class User extends CI_Controller
                     'user_id' => $user['user_id'],
                     'name' => $user['name'],
                     //'sro_no'=>$user['student_reg_no'],
+                    //'sro_no'=>$user['student_reg_no'],
                     'image' => $user['user_image'],
+                    'ID' => $user['icai'],
                     'ID' => $user['icai'],
                     'startdate' => ($user['date_of_comencement_of_employment']),
 
@@ -387,11 +421,13 @@ class User extends CI_Controller
                     'official_email' => $user['official_email'],
                     'mobile_no' => $user['mobile_no'],
                     'password'=>$user['password'],
+                    'password'=>$user['password'],
                     'bloodgroup' => $user['bloodgroup'],
 'status' => $user['status']
                     //'details'=>$user['mobile_no'],
                 );
 
+                //   var_dump(	$data['userdetailsdata']);
                 //   var_dump(	$data['userdetailsdata']);
 
                 //return;
@@ -597,6 +633,37 @@ if ( $userimage) {
          
      }
 
+    public function EditUser(){
+        $userid = $this->input->post('user_id');
+         $data=array(
+             'name' => $_POST['name'],
+             'student_reg_no' => $_POST['ID'],
+            'icai'=>$_POST['ID'],
+             'partner_under_whom_registered'=>$_POST['partner_under_whom_registered'],
+             'balunand_id_no'=>$_POST['balunand_id_no'],
+             'personal_email'=>$_POST['personal_email'],
+             'official_email'=>$_POST['official_email'],
+             'mobile_no'=>$_POST['mobile_no'],
+             'bloodgroup'=>$_POST['bloodgroup']     
+         );
+         $this->load->model('User_model');
+         $this->User_model->EditUserInfo($data,$userid);
+
+         $notification_data = array(
+            'user_name'=>$_POST['name'],
+            'user_id'=>$userid,
+            'type'=>'edituser',
+            'status'=>0,
+            'date'=>date('Y-m-d H:i:s')
+        );
+
+        $this->load->model('Notification_Model');
+        $this->Notification_Model->insertnotification($notification_data);
+ $this->session->set_flashdata('success', 'Successfully Updated');
+                 redirect(base_url('User/editUserData/'.$userid));
+         
+     }
+
     public function MyProfile()
 
     {
@@ -624,6 +691,8 @@ if ( $userimage) {
                     $hashnewpassword = md5($newpassword);
                     // echo $newpassword;
                     // echo $hashnewpassword;
+                    // echo $newpassword;
+                    // echo $hashnewpassword;
 
                     if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
 
@@ -635,12 +704,14 @@ if ( $userimage) {
                             $this->User_model->updatePassword($pass, $hashnewpassword);
 
                             $this->session->set_flashdata('passwordsuccess', ' <h6 class="sucessmsg" style="margin-top: 363px !important; margin-left: 203px !important; color: green;">Your Password has been updated</h6>');
+                            $this->session->set_flashdata('passwordsuccess', ' <h6 class="sucessmsg" style="margin-top: 363px !important; margin-left: 203px !important; color: green;">Your Password has been updated</h6>');
                         }
                     } elseif ($this->input->post('newpassword') != $this->input->post('confirmpassword')) {
 
                         $this->session->set_flashdata('passwordsuccess', 'password and confirm password should be same');
                     }
                 } else {
+                   $this->session->set_flashdata('passwordfail', '<h6 style="color:red;margin-top: 353px;margin-left: 107px;">Your old password was entered incorrectly. Please enter it again. </h6> ');
                    $this->session->set_flashdata('passwordfail', '<h6 style="color:red;margin-top: 353px;margin-left: 107px;">Your old password was entered incorrectly. Please enter it again. </h6> ');
                 }
             }
@@ -654,7 +725,6 @@ if ( $userimage) {
         $this->load->view('userpassword_form', $data);
 
             $this->load->view('template/footer');
-		}
         }
    }
 }

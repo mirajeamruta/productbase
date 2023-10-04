@@ -10,10 +10,12 @@ class Client_model extends CI_Model
 	}
 
 
+
 	public function insertClient($data)
 	{
 		$this->db->insert('tbl_clients', $data);
 	}
+
 
 
 	
@@ -34,9 +36,12 @@ class Client_model extends CI_Model
 	public function allClients()
 	{
 		$query = $this->db->query("SELECT * FROM `tbl_clients` ORDER BY `client_id` DESC");
+		$query = $this->db->query("SELECT * FROM `tbl_clients` ORDER BY `client_id` DESC");
 
 		return $query->result_array();
 	}
+
+
 
 
 	public function editClientData($clientid)

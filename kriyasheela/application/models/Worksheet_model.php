@@ -28,6 +28,7 @@ class Worksheet_model extends CI_Model
 		$query = $this->db->query('SELECT * FROM tbl_users');
 
 		return $query->result_array();
+		
 	}
 
 
@@ -82,7 +83,7 @@ class Worksheet_model extends CI_Model
 	public function getWorkSheetDetails($date, $starttime, $endtime, $loginUserId)
 	{
 
-		$query = $this->db->query("SELECT * FROM `tbl_worksheet` WHERE date='$date ' and (start_time BETWEEN '$starttime' AND '$endtime' OR end_time BETWEEN '$starttime' AND '$endtime') and `user_id`=$loginUserId ");
+		$query = $this->db->query("SELECT * FROM `tbl_worksheet` WHERE date='$date ' and (start_time BETWEEN '$starttime' AND '$endtime' OR end_time BETWEEN '$starttime' AND '$endtime') and `user_id`=$loginUserId");
 
 		//$query = $this->db->query("SELECT * FROM `tbl_worksheet` WHERE date='2022-11-01' and (start_time BETWEEN '08:00' AND '09:00' OR end_time BETWEEN '08:00' AND '09:00') and `user_id`=2 ");
 
