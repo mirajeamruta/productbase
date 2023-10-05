@@ -80,7 +80,7 @@
                 <div class="col-sm-9">
                     <!-- <p><?php echo ('https://balunand.com/kriyasheela/photos/http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?></p> -->
                     <img id="propileimage"
-                        src="<?php echo ('http://localhost/balunand/kriyasheela/photos/' . $row['image']) ?>"
+                        src="<?php echo ('http://localhost/kriyasheela-p2/kriyasheela/photos/' . $row['image']) ?>"
                         width="100px" height="100px" alt="your image" />
 
                 </div>

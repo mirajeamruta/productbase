@@ -402,3 +402,4 @@ public function countRecordsWithCellValue($csv_array, $columnName, $cellValue)
 		$this->load->view('View_clients', $data);
 	}
 }
+}

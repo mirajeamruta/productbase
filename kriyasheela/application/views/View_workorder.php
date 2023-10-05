@@ -790,7 +790,7 @@ button.addEventListener('click', () => {
 
 
 
-    fetch('http://localhost/balunand/kriyasheela/index.php/Workorder/update_date?workorder_no=' +
+    fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/update_date?workorder_no=' +
             workOrderNoValue + '&targeted_date=' + targetedDateValue + '&deadline_date=' + deadlineDateValue +
             '&client_name=' + clientName.value + '&partner_in_charge=' + partner.value)
 
@@ -843,7 +843,7 @@ close.addEventListener('click', () => {
 
                 document.getElementById('close_workorder').innerHTML = "Request Sent";
                 document.getElementById('close_workorder').style.background = "green";
-                fetch('http://localhost/balunand/kriyasheela/index.php/Workorder/close_work_order?workorder_no=' +
+                fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/close_work_order?workorder_no=' +
                         workOrderNoValue)
                     .then(response => response.json())
                     .then(data => {
@@ -878,7 +878,7 @@ close.addEventListener('click', () => {
 
     document.getElementById('close_workorder').innerHTML = "Request Sent";
     document.getElementById('close_workorder').style.background = "green";
-    fetch('http://localhost/balunand/kriyasheela/index.php/Workorder/close_work_order?workorder_no=' +
+    fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/close_work_order?workorder_no=' +
             workOrderNoValue)
         .then(response => response.json())
         .then(data => {
@@ -910,7 +910,7 @@ var targetted = document.getElementById('targeted_date');
 var targetteddate = targetted.value.trim();
 var deadline = document.getElementById('deadline');
 var deadlinedate = deadline.value.trim();
-fetch('http://localhost/balunand/kriyasheela/index.php/Workorder/deadline?workorder_no=' +
+fetch('http://localhost/kriyasheela-p2/kriyasheela/index.php/Workorder/deadline?workorder_no=' +
         workorderno + '&targeted_date=' +
         targetteddate + '&deadline_date=' + deadlinedate)
 

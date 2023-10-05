@@ -22,10 +22,6 @@ class Main extends CI_Controller
 
 		$this->load->model('Notification_Model');
 
-		$this->load->model('Workorder_model');
-
-		$this->load->model('Notification_Model');
-
 		// Load the todo model to make it available 
 		// to *all* of the controller's actions 
 		$this->load->helper('url');
@@ -109,13 +105,7 @@ class Main extends CI_Controller
 
 		$data['notifications'] = $this->Notification_Model->getNotifications();
 
-		$data['notifications'] = $this->Notification_Model->getNotifications();
-
         $data['pendingWorkorderDetails1'] = $this->Main_model->pendingWorkorderDetails();
-		
-		$data['notifyNewUser1']=$this->Main_model->notifyNewUser();
-
-		$data['notifyNewClient1']=$this->Main_model->notifyNewClient();
 		
 		$data['notifyNewUser1']=$this->Main_model->notifyNewUser();
 
@@ -130,7 +120,6 @@ class Main extends CI_Controller
             $array['number2'] = str_replace(']', '',    $array['number1']);
             $array['number3'] = str_replace('[', '',    $array['number2']);
             $array['number4'] = explode(',',  $array['number3']);
-           
            
             if (in_array($loggedInUserId, $array['number4'])) {
 
@@ -154,22 +143,6 @@ class Main extends CI_Controller
 
             $count++;
         }
-		if ($this->session->userdata('usertype') == 'admin') {
-			foreach ($data['notifyNewUser1'] as $user) {
-				//print_r($data['notifyNewUser1']);
-				$data['notifyNewUser2'][] = array(
-					'uid' => $user['user_id'],
-					'name' => $user['name'],
-				);
-				//print_r($data['notifyNewUser2']);
-			}
-			foreach ($data['notifyNewClient1'] as $client) {
-				$data['notifyNewClient2'][] = array(
-					'cid' => $client['client_id'],
-					'name' => $client['name'],
-				);
-			}
-		}
 		if ($this->session->userdata('usertype') == 'admin') {
 			foreach ($data['notifyNewUser1'] as $user) {
 				//print_r($data['notifyNewUser1']);
@@ -239,8 +212,6 @@ class Main extends CI_Controller
 
 		// $this->form_validation->set_rules('official_email', 'official_email', 'required');
 
-		// $this->form_validation->set_rules('official_email', 'official_email', 'required');
-
 		if ($this->form_validation->run()) {
 
 			//true
@@ -251,29 +222,16 @@ class Main extends CI_Controller
 			// $official_email=$this->input->post('official_email');
 
 			//print_r($Password);
-			$password =($this->input->post('password'));
-			$Password=md5($password);
-			// $official_email=$this->input->post('official_email');
-
-			//print_r($Password);
 
 			//model function
 			$this->load->model('Main_model');
 
 			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
-			if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
 				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
 				$record = $this->Main_model->can_login($balunand_id_no, $Password);
-				//if ($this->Main_model->can_login($balunand_id_no, $Password)) {
 
-				$record = $this->Main_model->can_login($balunand_id_no, $Password);
-
-				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
-
-				$record = $this->Main_model->can_login($balunand_id_no, $Password);
-				// echo $password;
 				//$record = $this->Main_model->can_login($balunand_id_no, $Password);
 
 				$record = $this->Main_model->can_login($balunand_id_no, $Password);
@@ -285,17 +243,11 @@ class Main extends CI_Controller
 
 				$usertype = $this->Main_model->getUserType( $user_type_id);
 				
-				$user_type_id=$this->Main_model->get_User_Type($balunand_id_no, $Password);
-
-				$usertype = $this->Main_model->getUserType( $user_type_id);
-				
 
 				//var_dump($usertype);
 
 				//return;
 
-				$new_user_id = $this->Main_model->getUserId($balunand_id_no, $Password);
-				$username = $this->Main_model->getUserName($new_user_id);
 				$new_user_id = $this->Main_model->getUserId($balunand_id_no, $Password);
 				$username = $this->Main_model->getUserName($new_user_id);
 
@@ -310,7 +262,6 @@ class Main extends CI_Controller
 					//'student_reg_no'=> $student_reg_no,
 					'usertype'     => $usertype,
 					'username'     => $username,
-					// 'official_email'=> $official_email,
 					// 'official_email'=> $official_email,
 					'userId' => $record
 
@@ -327,7 +278,6 @@ class Main extends CI_Controller
 				// var_dump( $_SESSION['usertype']);
 
 
-
 				//return;
 
 				$this->session->set_userdata($session_data);
@@ -337,11 +287,10 @@ class Main extends CI_Controller
 				//redirect('https://aaplweb.co.in/balunand/kriyasheela/Main/dashboard');
 			} else {
 
-				$this->session->set_flashdata('error', 'Invalid balunand_id_no and Password and Emailid');
+				$this->session->set_flashdata('error', 'Invalid balunand_id_no and Password');
 
 				redirect(base_url() . 'Main/login');
 			}
-			
 			
 		} else {
 
@@ -370,7 +319,6 @@ class Main extends CI_Controller
 		$this->session->unset_userdata('balunand_id_no');
 		$this->session->unset_userdata('usertype');
 		$this->session->unset_userdata('username');
-		// $this->session->unset_userdata('official_email');
 		// $this->session->unset_userdata('official_email');
 		$this->session->unset_userdata('userId');
 

@@ -40,11 +40,7 @@
         </li>
     </ul>
 </div>
-        </li>
-    </ul>
-</div>
 
-<section class="home-section" id="hom">
 <section class="home-section" id="hom">
     <div class="home-content">
 
@@ -464,10 +460,6 @@ if ($notfication['workorder_no'] && !$this->Workorder_model->getAssignToForWorkO
                         <?php
                         } ?>
                     </section>
-
-
-
-
 
 
 

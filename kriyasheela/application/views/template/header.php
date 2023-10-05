@@ -9,7 +9,7 @@
     <!-- dashboard   tmplte-->
 
     <!-- For Server  -->
-    <link rel="stylesheet" href="http://localhost/balunand/kriyasheela/stylesheets/style.css"> 
+    <link rel="stylesheet" href="http://localhost/kriyasheela-p2/kriyasheela/stylesheets/style.css"> 
 
     <!-- For Local   -->
    <!--  <link rel="stylesheet" href="style.css">-->
@@ -22,7 +22,7 @@
     <link href=' https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 
      <!-- For Server  -->
-    <link rel="stylesheet" type="text/css" href="<?= ("http://localhost/balunand/kriyasheela/stylesheets/style.css") ?>">
+    <link rel="stylesheet" type="text/css" href="<?= ("http://localhost/kriyasheela-p2/kriyasheela/stylesheets/style.css") ?>">
 
        <!-- For Local   -->
      <!--<link rel="stylesheet" type="text/css" href="<?= base_url("stylesheets/style.css") ?>">-->
@@ -52,7 +52,7 @@
      <!-- DASHBOARD -->
 
     <!-- For Server  -->
-    <link rel="stylesheet" href="http://localhost/balunand/kriyasheela/stylesheets/style.css"> 
+    <link rel="stylesheet" href="http://localhost/kriyasheela-p2/kriyasheela/stylesheets/style.css"> 
      <!-- For Local -->
     <!--<link rel="stylesheet" href="https://aaplweb.co.in/balunand/kriyasheela/stylesheets/style.css">-->
 

@@ -72,10 +72,10 @@ button{
 <body>
 <div class='container'>
 <div class='logo'>
-		<img src='http://localhost/balunand/kriyasheela/images/Balunand_logo.png' class='balu_logo'> 
+		<img src='http://localhost/kriyasheela-p2/kriyasheela/images/Balunand_logo.png' class='balu_logo'> 
         <h2>Password Reset - Kriyasheela</h2>
         <p>We have received your request to reset the password. Click the below button to set a new password.</p>
-        <a href='http://localhost/balunand/kriyasheela/index.php/Resetpassword_Controller/Resetpassword'><button type='submit' >Reset Password</button></a>
+        <a href='http://localhost/kriyasheela-p2/kriyasheela/index.php/Resetpassword_Controller/Resetpassword'><button type='submit' >Reset Password</button></a>
 </div>
 </div>
 </body>
@@ -87,7 +87,7 @@ button{
     echo "
     <script>
     alert('Password reset link send successfully');
-    document.location.href='http://localhost/balunand/kriyasheela/index.php/Main/login';
+    document.location.href='http://localhost/kriyasheela-p2/kriyasheela/index.php/Main/login';
     </script>";
 }
 

@@ -85,7 +85,7 @@ span#resetPasswordMsg {
 }
 </style>
 <div class='logo'>
-		<img src='http://localhost/balunand/kriyasheela/images/ca_logo.png' width='95' height='45'> 
+		<img src='http://localhost/kriyasheela-p2/kriyasheela/images/ca_logo.png' width='95' height='45'> 
 			<div>
                     <h6 class='words4' style='margin: -43px 0px 44px 89px;
     font-size: 23px !important; color: #3f3f66; letter-spacing: 1px;font-weight: 600;'>BALU &amp; ANAND </h6>

@@ -51,36 +51,6 @@ $this->db->where('status', 'Active');
           }
       }
 
-     public function getUserId($balunand_id_no, $password){
-          
-          $this->db->where('balunand_id_no', $balunand_id_no);
-          $this->db->where('password', $password);
-          $query = $this->db->get('tbl_users');
-
-         // var_dump($query->row('password'));
-
-          //SELECT * FROM users WHERE username = '$username' AND password = '$password'  
-          if ($query->num_rows() > 0) {
-               //return true;
-               return $query->row('user_id');
-          } else {
-               return false;
-          }
-      }
-
-      public function get_User_Type($balunand_id_no, $password){
-          
-          $this->db->where('balunand_id_no', $balunand_id_no);
-          $this->db->where('password', $password);
-          $query = $this->db->get('tbl_users');
-
-          if ($query->num_rows() > 0) {
-               return $query->row('user_type_id');
-          } else {
-               return false;
-          }
-      }
-
 
      public function getUsersType($userid)
      {
@@ -106,20 +76,6 @@ $this->db->where('status', 'Active');
 
           return $query->row('name');
      }
-
-
-	public function notifyNewUser()
-     {
-          $query=$this->db->query("SELECT * FROM tbl_users ");
-          return $query->result_array();
-     }
-
-     public function notifyNewClient()
-     {
-          $query=$this->db->query("SELECT * FROM tbl_clients ");
-          return $query->result_array();
-     }
-
 
 
 	public function notifyNewUser()
@@ -167,13 +123,6 @@ $this->db->where('status', 'Active');
 
      //      return $query->result_array();
      // }
-     // public function pendingWorkorderDetails()
-     // {
-     //      $query = $this->db->query("SELECT `workorder_no` ,`assign_to`FROM `tbl_workorder`WHERE `status` = 'open'ORDER BY `created_on` DESC");
-
-
-     //      return $query->result_array();
-     // }
 
 
      public function countclents()
@@ -192,15 +141,6 @@ $this->db->where('status', 'Active');
 
           return $query->row('workusernumber');
      }
-
-     public  function getAssignToForWorkOrderNo($workorder_no)
-	{
-		$query = $this->db->query("SELECT * FROM tbl_workorder WHERE workorder_no = '$workorder_no'");
-
-		return $query->result_array();
-	}
-}
-
 
      public  function getAssignToForWorkOrderNo($workorder_no)
 	{

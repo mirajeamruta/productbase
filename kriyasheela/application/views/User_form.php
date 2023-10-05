@@ -5,14 +5,10 @@
             enctype='multipart/form-data'>
             <div class="row mb-3">
 
-
                 <label for="inputEmail3" class="col-sm-4">Type of User</label>
                 <div class="col-sm-8" id="user">
 
-                <div class="col-sm-8" id="user">
-
                     <select name="usertype" class="classic" id="usertypeid" onchange="userfields(event)">
-                        <option value="">Select</option>
                         <option value="">Select</option>
                         <?php
                         foreach ($usertypes as $id) {
@@ -25,7 +21,7 @@
             </div>
 
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-4"id="required-field11">Image</label>
+                <label for="inputEmail3" class="col-sm-4">Image</label>
                 <div class="col-sm-8">
                     <!-- <input type="file" name="profilephoto" id="profilephoto" aria-describedby="created_on" onchange="readfile(this)" /> -->
 
@@ -43,11 +39,9 @@
             <div class="row mb-3">
                 <div class="col-sm-8" id="displayimage">
                     <img id="propileimage" src="#" alt="your image" name="img" style="display:none"  />
-                    <img id="propileimage" src="#" alt="your image" name="img" style="display:none"  />
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-4" id="required-field12">Name</label>
                 <label for="inputPassword3" class="col-sm-4" id="required-field12">Name</label>
                 <div class="col-sm-8">
                     <input type="text" name="username" id="username1" class="form-control" id="inputPassword3"
@@ -58,7 +52,6 @@
                 <label for="inputPassword3" class="col-sm-4">Student Reg Number</label>
                 <div class="col-sm-8">
                     <input type="text" name="reg_no" id="srono" class="form-control" MaxLength="10" style="text-transform: uppercase;" onclick="ValidatestudentregNumber()" >
-                    <input type="text" name="reg_no" id="srono" class="form-control" MaxLength="10" style="text-transform: uppercase;" onclick="ValidatestudentregNumber()" >
                 </div>
             </div>
             <div class="row mb-3" id="employeeID">
@@ -66,20 +59,13 @@
                 <div class="col-sm-8">
                     <input type="text" name="icai_number" id="employeeid" class="form-control"
                         placeholder="ICAI Number" >
-                    <input type="text" name="icai_number" id="employeeid" class="form-control"
-                        placeholder="ICAI Number" >
                 </div>
             </div>
-
-
 
 
             <div class="row mb-3" id="Articleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Commencement of Articleship</label>
                 <div class="col-sm-8">
-                    <input type="date" name="commencementofarticleship" id="commencement_of_articleship"
-                        placeholder="Select Date of Commencement of Articleship" class="form-control" >
-                        <input type="text" value="DD / MM / YYYY" id="commencement_of_articleship_value"/>
                     <input type="date" name="commencementofarticleship" id="commencement_of_articleship"
                         placeholder="Select Date of Commencement of Articleship" class="form-control" >
                         <input type="text" value="DD / MM / YYYY" id="commencement_of_articleship_value"/>
@@ -94,18 +80,12 @@
                     <input type="date" placeholder="Select Date of Commencement of Employment"
                         name="commencementofemployment" id="date_Of_Employement" class="form-control">
                         <input type="text" value="DD / MM / YYYY" id="date_Of_Employement_Value" readonly/>
-                    <input type="date" placeholder="Select Date of Commencement of Employment"
-                        name="commencementofemployment" id="date_Of_Employement" class="form-control">
-                        <input type="text" value="DD / MM / YYYY" id="date_Of_Employement_Value" readonly/>
                 </div>
             </div>
 
             <div class="row mb-3" id="completionArticleship" style="display:none">
                 <label for="inputPassword3" class="col-sm-4">Date of Completion of Articleship</label>
                 <div class="col-sm-8">
-                    <input type="date" name="completionofarticleship"
-                        placeholder="Select Date of Completion of Articleship"  class="form-control" id="completion_Of_Articleship">
-                        <input type="text" value="DD / MM YYYY" id="completion_Of_Articleship_Value"/>
                     <input type="date" name="completionofarticleship"
                         placeholder="Select Date of Completion of Articleship"  class="form-control" id="completion_Of_Articleship">
                         <input type="text" value="DD / MM YYYY" id="completion_Of_Articleship_Value"/>
@@ -126,14 +106,7 @@
                 <label for="inputPassword3" class="col-sm-4">Partner Under Whom Registered </label>
                 <div class="col-sm-8">
                       <!-- <input type="text" name="partner_registered" id="type_of_work" class="form-control" aria-describedby="type_of_work"> -->
-                      <!-- <input type="text" name="partner_registered" id="type_of_work" class="form-control" aria-describedby="type_of_work"> -->
                     <select name="partner_registered" id="type_of_work" class="classic" aria-describedby="type_of_work">
-                        <option value="">Select</option>
-                        <option value="R.E. Balasubramanyam">R.E. Balasubramanyam</option>
-                        <option value="A.V. Muralisharan">A.V. Muralisharan</option>
-                        <option value="N.K.S. Bharath">N.K.S. Bharath</option>
-                        <option value="Ashok S Navalgund">Ashok S Navalgund</option>
-
                         <option value="">Select</option>
                         <option value="R.E. Balasubramanyam">R.E. Balasubramanyam</option>
                         <option value="A.V. Muralisharan">A.V. Muralisharan</option>
@@ -145,7 +118,6 @@
             </div>
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4" id="required-field13">Balu & Anand ID Number</label>
-                <label for="inputPassword3" class="col-sm-4" id="required-field13">Balu & Anand ID Number</label>
                 <div class="col-sm-8">
                     <input type="text" name="balunandno" id="balunandno" placeholder="Balu & Anand ID Number"
                         class="form-control" >
@@ -156,12 +128,9 @@
                 <div class="col-sm-8">
                     <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address"
                         class="form-control" >
-                    <input type="email" name="personalemail" id="personalmail" placeholder="Personal Email Address"
-                        class="form-control" >
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-4" id="required-field14"> Official Email Address </label>
                 <label for="inputPassword3" class="col-sm-4" id="required-field14"> Official Email Address </label>
                 <div class="col-sm-8">
                     <input type="email" name="officialemail" id="officialemail" placeholder="Official Email Address"
@@ -171,8 +140,6 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-4"> Mobile Number </label>
                 <div class="col-sm-8">
-                    <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10"
-                        placeholder="Mobile Number" title="10 digits Mobile Number" >
                     <input type="tel" name="mobile" id="mobile" class="form-control" minlength="10" maxlength="10"
                         placeholder="Mobile Number" title="10 digits Mobile Number" >
                 </div>
@@ -210,7 +177,6 @@
 
 
             <div class="row mb-3">
-                <div class="col-sm-8" id="btnsubmit">
                 <div class="col-sm-8" id="btnsubmit">
                     <input type="submit" name="insert" value="Submit" class="btn btn-info" onclick="submituser()" />
                 </div>
@@ -262,113 +228,8 @@ let checkPasswordStrength = (password) => {
         message = {
             strength: 'medium',
         }
-let input = document.querySelector('#password4')
-let formGroup = document.querySelector('.col-sm-8')
-let message = document.querySelector('.message')
-let passTypeToggle = document.querySelector('.passTypeToggle i')
-let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
-let mediumPassword = new RegExp(
-    '((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))'
-)
-
-document.body.addEventListener('click', function(e) {
-    if (input.contains(e.target)) {
-        formGroup.classList.add('focus')
-    } else {
-        if (input.value == '') {
-            formGroup.classList.remove('focus')
-        }
-    }
-});
-
-
-
-let checkPasswordStrength = (password) => {
-    let message = {}
-    var span = document.getElementById("message");
-    if (strongPassword.test(password)) {
-        span.style.color = "green";
-        message = {
-            strength: 'strong',
-        }
-
-    } else if (mediumPassword.test(password)) {
-        span.style.color = "orange";
-        message = {
-            strength: 'medium',
-        }
 
     } else {
-        span.style.color = "red";
-        message = {
-
-            strength: 'weak'
-        }
-
-    }
-
-    return message;
-
-    document.getElementById("message").innerHTML = strength;
-    document.getElementById("message").innerHTML = Color;
-}
-
-input.addEventListener('keyup', e => {
-    let password = e.target.value
-
-    password != "" ? passTypeToggle.style.display = 'block' : passTypeToggle.style.display = 'none'
-
-    if (password == '') {
-        message.classList.remove('weak')
-        message.classList.remove('medium')
-        message.classList.remove('strong')
-
-        formGroup.classList.remove('weak')
-        formGroup.classList.remove('medium')
-        formGroup.classList.remove('strong')
-
-        message.innerHTML = ''
-    } else {
-        let result = checkPasswordStrength(password)
-
-        if (result.strength == 'weak') {
-            message.classList.remove('medium')
-            message.classList.remove('strong')
-            formGroup.classList.remove('medium')
-            formGroup.classList.remove('strong')
-            message.classList.add('weak')
-            formGroup.classList.add('weak')
-            message.innerHTML = 'Your Password is weak.'
-
-        } else if (result.strength == 'medium') {
-            formGroup.classList.remove('weak')
-            formGroup.classList.remove('strong')
-            message.classList.remove('weak')
-            message.classList.remove('strong')
-            message.classList.add('medium')
-            formGroup.classList.add('medium')
-            message.innerHTML = 'Your Password is medium.'
-        } else {
-            formGroup.classList.remove('weak')
-            formGroup.classList.remove('medium')
-            message.classList.remove('weak')
-            message.classList.remove('medium')
-            message.classList.add('strong')
-            formGroup.classList.add('strong')
-            message.innerHTML = 'Your Password is Strong.'
-        }
-    }
-
-})
-
-passTypeToggle.addEventListener('click', e => {
-    input.getAttribute('type') == 'password' ? input.setAttribute('type', 'text') : input.setAttribute('type',
-        'password')
-    input.getAttribute('type') == 'password' ? passTypeToggle.setAttribute('title', 'Show') : passTypeToggle
-        .setAttribute('title', 'Hide')
-    document.querySelector('.passTypeToggle i').classList.toggle('fa-eye')
-    document.querySelector('.passTypeToggle i').classList.toggle('fa-eye-slash')
-})
         span.style.color = "red";
         message = {
 
@@ -443,11 +304,8 @@ passTypeToggle.addEventListener('click', e => {
 
 
 
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
 
 
 <script type="text/javascript">
@@ -523,11 +381,6 @@ function submituser() {
 
 
 
-
-
-
-
-
 <script type="text/javascript">
 function readfile(input) {
     if (input.files && input.files[0]) {
@@ -558,10 +411,8 @@ function userfields(event) {
 
     if (event.target.value == 3) {
 
-
         document.getElementById('CommencementEmployment').style.display = 'none';
         document.getElementById('completionEmployment').style.display = 'none';
-        document.getElementById('employeeID').style.display = 'none';
         document.getElementById('employeeID').style.display = 'none';
     }
     if (event.target.value == 4) {
@@ -615,17 +466,13 @@ emailAddress.oninput = function() {
 
 
 
-
-
 <script>
-
 
 $.validator.addMethod(
     "tendigits",
     function(value, element) {
         if (value == "")
             return false;
-        return value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
         return value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
     },
     "Please enter 10 digits Contact # (No spaces or dash)"
@@ -643,15 +490,12 @@ $('#frm_registration').validate({
 });
 
 
-
-
 </script>
 
 
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-    $('select').find('option[value=0]').attr('selected', 'selected');
     $('select').find('option[value=0]').attr('selected', 'selected');
 });
 </script>
@@ -823,6 +667,4 @@ function ValidatestudentregNumber() {
         document.getElementById('completion_Of_Articleship_Value').value = formatDate(new Date(currentDate))
     })
 </script>
-
-
 

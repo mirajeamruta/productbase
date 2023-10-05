@@ -167,15 +167,7 @@ class Workorder_model extends CI_Model
 
 		return $id;
 	}
-	public function updateentitydate($data)
-	{
-		$workorder_no = $data['workorder_no'];
-		unset($data['workorder_no']);
-		$this->db->where('workorder_no', $workorder_no);
-		$this->db->update('tbl_workorder', $data);
-
-		return $id;
-	}
+	
 
 	public function getTypeofWork()
 	{

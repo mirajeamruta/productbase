@@ -2,12 +2,8 @@
 	.pagination {
 
 		padding-left: 734px;
-		padding-left: 734px;
 
 	}
-	a {
-    margin-left: 6px;
-}
 	a {
     margin-left: 6px;
 }
@@ -63,10 +59,8 @@ li#clienttable_next {
 				<th style="width: 132.925px;">Name</th>
 				<th>Person To Be Contact</th>
 				<th> Action </th>
-				<th> Action </th>
 			</tr>
 		</thead>
-		<tbody class="tablebody" id="bodytable">
 		<tbody class="tablebody" id="bodytable">
 			<?php       
 			if (!empty($clientdetailsdata)) {
@@ -101,10 +95,8 @@ li#clienttable_next {
 					</tr>
 				<?php
 				} 
-				} 
 			} else {
 				?>
-				<tr class="tablero">
 				<tr class="tablero">
 					<td colspan="8">No Data Found</td>
 				</tr>
