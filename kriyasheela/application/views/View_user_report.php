@@ -1,7 +1,7 @@
 
 
 <h6 class="alluser">User Report Details</h6>
-<div class='container-fluid' id="viewuserreport">
+<div class='container' id="viewuserreport">
 	<table class="table table-bordered">
 		<thead class="wkorderhead text-white">
 			<tr>
@@ -29,7 +29,8 @@
 						<td><?php echo $row['enddate']; ?> </td>
                         <td><?php echo $row['partner_under_whom_registered']?></td>
                         <td><?php echo $row['balunand_id_no']?></td>
-						<td class="text-center"><a class='viewdetail' href="<?= base_url("Report_Controller/editUserData") ?>/<?php echo $row['user_id']; ?>">View</a>
+						<td class="text-center" style="font-weight: 700;">
+							 <a class='viewdetail' href="<?= base_url("Report_Controller/editUserData") ?>/<?php echo $row['user_id']; ?>">View</a>
 						</td>
 					</tr>
 				<?php

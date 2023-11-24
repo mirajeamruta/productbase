@@ -1,254 +1,445 @@
-<div class='container clientform'>
-  <div id="section_clientform" class="clientfrom___editingdata" style="background: #eaeae8a9;margin-left: -19px !important; ">
-    <span style="position: relative;top: 20px;left:-69px;font-size: 20px;"> VIEW CLIENT DETAIL</span>
-    <form class="form col-md-8 offset-md-1"  id="editclients__data" method="post" autocomplete="off" action="<?= base_url('Client/EditClient') ?>" style="margin-top: 45px;">
-      <?php
-      /*
-                  <td><a href="<?=base_url("User/editUserData")?><?php echo 'user_id='.$row['user_id'];?>">view
-            details</a>
-            </td>
-            */
-      if (count($clientdetailsdata) > 0) {
-        foreach ($clientdetailsdata as $row) {
-      ?>
-          <input type="hidden" name="client_id" value="<?php echo $row['client_id'] ?>">
-          <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-3">Legal Name :</label>
-            <div class="col-sm-9 clientname__name">
-              <input type="text" name="clientname" class="form-control edit_clientname" id="clientname" value="<?php echo $row['name'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="inputEmail3" class="col-sm-3">Trade Name :</label>
-            <div class="col-sm-9">
-              <input type="text" name="tradename" class="form-control trade_name" id="tradename" value="<?php echo $row['Trade_Name'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
+<!DOCTYPE html>
+<html>
 
-          <div class="row mb-3" id="Entity" style="">
-            <label for="demo-date" class="col-sm-3">Type of Clients :</label>
-            <div class="col-sm-9">
-              <input type="text" name="Type_of_Clients" class="form-control type_client" id="Type_of_Clients" style="" value="<?php echo $row['Type_of_Clients'] ?>" aria-describedby="created_on" readonly />
-              <select type="text" name="Type_of_Clients" id="type_of_clients1" class="form-control  clientform___Typeofclients" onclick="myfun()" value="<?php echo $row['Type_of_Clients'] ?>" aria-describedby="created_on" style=" display: none;" readonly>
-                <option value="">Select</option>
-                <?php
-                if ($row['Type_of_Clients'] == "P-Individual") {
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width,
+      initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 
-                ?>
-                  <option value="P-Individual" selected>P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
-                } else if ($row['Type_of_Clients'] == "C-Company") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company" selected>C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
+</head>
 
-                } else if ($row['Type_of_Clients'] == "T-Trust") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust" selected>T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
 
-                <?php } else if ($row['Type_of_Clients'] == "Association of Persons") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons" selected>Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
-                } else if ($row['Type_of_Clients'] == "Firm") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm" selected>Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
-                } else if ($row['Type_of_Clients'] == "HUF") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF" selected >HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
-                } else if ($row['Type_of_Clients'] == "Body of Individual") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual" selected>Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php } else if ($row['Type_of_Clients'] == "Goverment") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment" selected>Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
-                } else if ($row['Type_of_Clients'] == "Local Authority") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority" selected>Local Authority</option>
-                  <option value="Artifical Judicial Person">Artifical Judicial Person</option>
-                <?php
-                } else if ($row['Type_of_Clients'] == "Artifical Judicial Person") {
-                ?>
-                  <option value="P-Individual">P-Individual</option>
-                  <option value="C-Company">C-Company</option>
-                  <option value="T-Trust">T-Trust</option>
-                  <option value="Association of Persons">Association of Persons</option>
-                  <option value="Firm">Firm</option>
-                  <option value="HUF">HUF</option>
-                  <option value="Body of Individual">Body of Individual</option>
-                  <option value="Goverment">Goverment</option>
-                  <option value="Local Authority">Local Authority</option>
-                  <option value="Artifical Judicial Person" selected>Artifical Judicial Person</option>
-                <?php
-                }
-                ?>
-              </select>
-            </div>
-          </div>
-          <div class="row mb-3" style="">
-            <label for="demo-date" class="col-sm-3 ">Pan :</label>
-            <div class="col-sm-9">
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-              <input type="text" name="pancard" class="form-control clientForm__pan" id="pancard1" MaxLength="10" placeholder="Pan Number" style="text-transform: uppercase;" value="<?php echo $row['PAN'] ?>" aria-describedby="created_on" readonly onblur="ValidatePAN(this);">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="demo-date" class="col-sm-3 clientForm__label_gst">GST :</label>
-            <div class="col-sm-9">
-              <input type="text" name="gst" class="form-control clientForm__gst " id="gst1" MaxLength="15" style="text-transform: uppercase;" onblur="Validamber(this);" value="<?php echo $row['GST'] ?>" aria-describedby="created_on" readonly />
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f6f8fa;
+  font-family: 'Poppins', sans-serif;
+}
 
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="demo-date" class="col-sm-3 clientForm__label_tan">TAN :</label>
-            <div class="col-sm-9">
-              <input type="text" name="tan" class="form-control clientForm__tan" id="tan1" MaxLength="10teGSTNu" style="text-transform: uppercase;" onclick="ValidateTANNumber()" value="<?php echo $row['tan'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="demo-date" class="col-sm-3 clientForm__label_aadhar">Aadhaar :</label>
-            <div class="col-sm-9">
-              <input type="text" name="aadhar" class="form-control clientForm__aadhar" id="aadhar1" data-type="adhaarnumber1" placeholder="Aadhaar Number" maxlength="14" value="<?php echo $row['aadhar'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="demo-date" class="col-sm-3 clientForm__label_adress ">Address :</label>
-            <div class="col-sm-9">
-              <input type="text" name="address" class="form-control clientForm__address" id="address1" value="<?php echo $row['address'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="demo-date" class="col-sm-3 clientForm__label_personincharge">Person Incharge :</label>
-            <div class="col-sm-9">
-              <input type="text" name="person_incharge" class="form-control clientForm__personIncharge " id="person_incharge1" value="<?php echo $row['person_incharge'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
+.custom-select {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: 'Poppins', sans-serif;
+  transition: all 120ms ease-out 0s;
+}
 
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="inputPassword3" class="col-sm-3 clientLabel__personname">Person Name :</label>
-            <div class="col-sm-9 clientInput">
-              <input type="text" name="person_name" class="form-control clientForm__personName" value="<?php echo $row['person_name'] ?>" id="person_name1" placeholder="Name" aria-describedby="created_on" readonly>
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <label for="demo-date" class="col-sm-3 clientForm__label_contactno">Contact No:</label>
-            <div class="col-sm-9">
-              <input type="tel" name="person_to_be_contact" class="form-control clientForm__personto_becontact" id="person_to_be_contact1" minlength="10" maxlength="10" value="<?php echo $row['person_to_be_contact'] ?>" aria-describedby="created_on" readonly />
-            </div>
-          </div>
-          <div class="row mb-3" style=" margin-left: 96px;">
-            <div class="col-sm-8 clientUpdate___Btn" id="btnsubmit">
-              <input type="submit" name="edit" id="UPdatebtn" value="Update" class="btn btn-info" onclick="submituser()" />
-            </div>
-          </div>
-      <?php
+.container-editclient {
+  max-width: 1386px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 5px 12px -2px rgba(0, 0, 0, 0.1), 0px 18px 36px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: -4px;
+}
+
+.container-editclient .title {
+  padding: 25px;
+  background: #f6f8fa;
+}
+
+.container-editclient .title p {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.main-container {
+  display: flex;
+  width: 100vw;
+  position: relative;
+  top: 4px;
+  z-index: 1;
+}
+
+.container-editclient .title p::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(to right, #F37A65, #D64141);
+}
+
+.editclient_details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 19px;
+}
+
+.editclient_details .input_box {
+  width: calc(100% / 2 - 20px);
+  margin: 0 0 12px 0;
+}
+
+.input_box label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input_box label::after {
+  content: " *";
+  color: red;
+}
+
+.input_box input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: 'Poppins', sans-serif;
+  transition: all 120ms ease-out 0s;
+}
+
+#edit_client_form {
+  padding: 10px 20px;
+  background: #27ae60;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+  top: -722px;
+  right: -1148px;
+}
+
+#UPdatebtn {
+  background: brown;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 66px;
+  height: 42px;
+  position: relative;
+  top: -616px;
+  right: 24px;
+  display: none;
+}
+
+/* Update Button for Small Screens */
+@media (max-width: 768px) {
+  .custom-select {
+    font-size: 14px;
+    height: 40px;
+    padding-left: 10px;
+  }
+  .container-editclient {
+    border-radius: 4px;
+  }
+  .container-editclient .title p {
+    font-size: 20px;
+  }
+
+  .editclient_details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .editclient_details .input_box {
+    width: 100%;
+  }
+}
+/* Button Styles for Small Screens */
+@media (max-width: 768px) {
+  .reg_btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #UPdatebtn{
+    width: 22%;
+    margin: -1145px 0px 0px 257px;
+    position: static !important;
+  }
+  .edit__btn{
+    width: 22%;
+    margin: -1167px 0px 0px 224px;
+    position: static !important;
+  }
+
+  #UPdatebtn {
+    display: none; /* Initially hide the "Update" button */
+  }
+  #edit_clientdata{
+  width: 355px;
+    margin-left: -23px !important;
+}
+}
+
+
+</style>
+
+
+
+<body>
+  <div class="main">
+    <div class='container-editclient' id="edit_clientdata">
+      <div class="title">
+        <p>Edit Client Details</p>
+      </div>
+
+      <form id="editclients__data" method="post" autocomplete="off" action="<?= base_url('Client/EditClient') ?>">
+        <?php
+
+        if (count($clientdetailsdata) > 0) {
+          foreach ($clientdetailsdata as $row) {
+        ?>
+            <input type="hidden" name="client_id" value="<?php echo $row['client_id'] ?>">
+            <div class="editclient_details">
+              <div class="input_box">
+                <label for="clientname__name">Legal Name :</label>
+                <input type="text" name="clientname" id="clientname" value="<?php echo $row['name'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+              <div class="input_box">
+                <label for="inputEmail3">Trade Name :</label>
+                <input type="text" name="tradename" id="tradename" value="<?php echo $row['Trade_Name'] ?>" aria-describedby="created_on" readonly />
+              </div>
+              <div class="input_box">
+                <label for="name">Type of Clients :</label>
+                <input type="text" name="Type_of_Clients" id="Type_of_Clients" style="" value="<?php echo $row['Type_of_Clients'] ?>" aria-describedby="created_on" readonly />
+                <select type="text" name="Type_of_Clients" id="type_of_clients1" class="custom-select" onclick="myfun()" value="<?php echo $row['Type_of_Clients'] ?>" aria-describedby="created_on" style=" display: none;" readonly>
+                  <option value="">Select</option>
+                  <?php
+                  if ($row['Type_of_Clients'] == "P-Individual") {
+
+                  ?>
+                    <option value="P-Individual" selected>P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+                  } else if ($row['Type_of_Clients'] == "C-Company") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company" selected>C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+
+                  } else if ($row['Type_of_Clients'] == "T-Trust") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust" selected>T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+
+                  <?php } else if ($row['Type_of_Clients'] == "Association of Persons") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons" selected>Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+                  } else if ($row['Type_of_Clients'] == "Firm") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm" selected>Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+                  } else if ($row['Type_of_Clients'] == "HUF") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF" selected>HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+                  } else if ($row['Type_of_Clients'] == "Body of Individual") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual" selected>Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php } else if ($row['Type_of_Clients'] == "Goverment") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment" selected>Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+                  } else if ($row['Type_of_Clients'] == "Local Authority") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority" selected>Local Authority</option>
+                    <option value="Artifical Judicial Person">Artifical Judicial Person</option>
+                  <?php
+                  } else if ($row['Type_of_Clients'] == "Artifical Judicial Person") {
+                  ?>
+                    <option value="P-Individual">P-Individual</option>
+                    <option value="C-Company">C-Company</option>
+                    <option value="T-Trust">T-Trust</option>
+                    <option value="Association of Persons">Association of Persons</option>
+                    <option value="Firm">Firm</option>
+                    <option value="HUF">HUF</option>
+                    <option value="Body of Individual">Body of Individual</option>
+                    <option value="Goverment">Goverment</option>
+                    <option value="Local Authority">Local Authority</option>
+                    <option value="Artifical Judicial Person" selected>Artifical Judicial Person</option>
+                  <?php
+                  }
+                  ?>
+                </select>
+
+              </div>
+
+              <div class="input_box">
+                <label for="pan">Pan :</label>
+                <input type="text" name="pancard" id="pancard1" MaxLength="10" placeholder="Pan Number" style="text-transform: uppercase;" value="<?php echo $row['PAN'] ?>" aria-describedby="created_on" readonly onblur="ValidatePAN(this);">
+              </div>
+
+              <div class="input_box">
+                <label for="gst">GST :</label>
+                <input type="text" name="gst" id="gst1" MaxLength="15" style="text-transform: uppercase;" onblur="Validamber(this);" value="<?php echo $row['GST'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+              <div class="input_box">
+                <label for="tan">TAN :</label>
+                <input type="text" name="tan" id="tan1" MaxLength="10teGSTNu" style="text-transform: uppercase;" onclick="ValidateTANNumber()" value="<?php echo $row['tan'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+              <div class="input_box">
+                <label for="aadhar">Aadhaar :</label>
+                <input type="text" name="aadhar" id="aadhar1" data-type="adhaarnumber1" placeholder="Aadhaar Number" maxlength="14" value="<?php echo $row['aadhar'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+              <div class="input_box">
+                <label for="address">Address :</label>
+                <input type="text" name="address" id="address1" value="<?php echo $row['address'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+              <div class="input_box">
+                <label for="incharge">Person Incharge :</label>
+                <input type="text" name="person_incharge" id="person_incharge1" value="<?php echo $row['person_incharge'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+              <div class="input_box">
+                <label for="person name">Person Name :</label>
+                <input type="text" name="person_name" value="<?php echo $row['person_name'] ?>" id="person_name1" placeholder="Name" aria-describedby="created_on" readonly>
+              </div>
+
+              <div class="input_box">
+                <label for="contact">Contact No:</label>
+                <input type="tel" name="person_to_be_contact" id="person_to_be_contact1" minlength="10" maxlength="10" value="<?php echo $row['person_to_be_contact'] ?>" aria-describedby="created_on" readonly />
+              </div>
+
+
+
+              <div class="reg_btn" id="update_btn" >
+                <input type="submit" name="edit" id="UPdatebtn" value="Update" onclick="submituser()" />
+
+              </div>
+          <?php
+          }
         }
-      }
-      ?>
+          ?>
+        
+            </div>
 
-
-    </form>
-    <button id="edit_client_form" style="width: 110px;
-    height: 34px;
-    position: absolute;
-    right: 224px;
-    top: 102px;
-    background: blue;
-    border: none;
-    color: white;">Edit</button>
-
+      </form>
+      <div class="reg_btn">
+            <button id="edit_client_form" class="edit__btn">Edit</button>
+          </div>
+    </div>
   </div>
-</div>
+  </div>
+
+</body>
+
+</html>
 
 <script>
-window.addEventListener('beforeunload',function(){
+  window.addEventListener('beforeunload', function() {
     localStorage.removeItem('selectedte')
-    localStorage.setItem('refreshPage',true)
-})
+    localStorage.setItem('refreshPage', true)
+  })
 </script>
 
 

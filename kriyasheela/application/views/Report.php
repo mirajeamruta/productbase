@@ -1,121 +1,278 @@
 <!DOCTYPE html>
-
-
 <html>
+<head>
+    <meta charset="utf-8" />
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
 
-
-
-
-<body bgcolor="lightblue">
-    <center>
   
-        <table class="table table-bordered" style="" id="tableid1">
-        <th class="activity" colspan="11" hidden>User Report Details</th>
-            <thead class="wkorderhead text-white">
-                <tr>
-                    <th hidden>Name</th>
-                    <th hidden>ICAI / SRO Number</th>
-                    <th hidden>Date of Commencement of Articleship / Employement</th>
-                    <th hidden>Date of Completion of Articleship / Employement</th>
-                    <th hidden>Partner under whom registered</th>
-                    <th hidden>Balu & Anand ID Number</th>
+</head>
+<style>
+/* Common CSS for both small and big screens */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if (count($userdetailsdata) > 0) {
-                    foreach ($userdetailsdata as $row) {
-                ?>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f6f8fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-detailreport {
+    max-width: 1240px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 5px 12px -2px rgba(0, 0, 0, 0.1),
+        0px 18px 36px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: -4px;
+    height: 609px;
+}
+
+.container-detailreport .title {
+    padding: 25px;
+    background: #f6f8fa;
+}
+
+.container-detailreport .title p {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.container-detailreport .title p::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(to right, #F37A65, #D64141);
+}
+
+.main-container {
+    display: flex;
+    width: 100vw;
+    position: relative;
+    top: 5px;
+    z-index: 1;
+}
+.table {
+    font-size: 14px;
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.table td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Additional CSS for colorful table styling */
+.table th {
+    background-color: cadetblue; /* Reddish background color for th elements */
+}
+
+.table td {
+    background-color: cadetblue;/* Light gray background color for td elements */
+    color: #333; /* Text color for td elements */
+}
+
+.custom-table {
+    background-color: cadetblue; /* Background color for the table */
+    color: #333; /* Text color for the table */
+    border-collapse: separate;
+    border-spacing: 0 5px; /* Add spacing between table rows */
+}
+
+.custom-table th {
+    background-color: cadetblue; /* Blue background color for th elements */
+    color: white; /* Text color for th elements */
+    text-align: center;
+    padding: 10px;
+}
+
+.custom-table td {
+    background-color: cadetblue; /* Light gray background color for td elements */
+    color: #333; /* Text color for td elements */
+    padding: 10px;
+    text-align: center;
+}
+/* Add this CSS to style the buttons and update their positions */
+#reportFilterButtons {
+    text-align: left; /* Align the filter button to the left */
+    margin-top: 20px;
+}
+
+.Filter__dataBtn {
+    background-color: #4CAF50; /* Change the filter button color */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    margin-right: 10px; /* Add some space between buttons */
+}
+
+.excelbutton {
+    background-color: #007bff; /* Change the export button color */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    float: right; /* Align the export button to the right */
+}
+
+.report__filterbtn{
+    margin-left: 20px;
+    height: 46px;
+    margin-top: 17px;
+    background: darkgoldenrod;
+    border-radius: 7px;
+    border: none;
+}
+
+#viewtotaldeatils{
+    margin-top: -11px;
+    margin-left: 10px;
+	}
+
+#excelfilebtn{
+    position: relative;
+    right: 51px;
+    top: -43px;
+}
+
+
+/* Add this CSS for small screens */
+@media (max-width: 768px) {
+    .custom-table-wrapper {
+        overflow-x: auto;
+    }
+    .report__filterbtn {
+    margin-left: -1px;
+    height: 46px;
+    margin-top: 17px;
+    background: darkgoldenrod;
+    border-radius: 7px;
+    border: none;
+    width: 202px;
+}
+}
+
+
+    </style>
+
+
+
+<body>
+    <div class="main">
+        <div class="container-detailreport" id="viewtotaldeatils">
+            <div class="title">
+                <p>User Report Details</p>
+            </div>
+            <table>
+                <th class="activity" colspan="11" hidden >User Report Details</th>
+                <thead class="wkorderhead text-white">
+                    <tr>
+                        <th hidden>Name</th>
+                        <th hidden>ICAI / SRO Number</th>
+                        <th hidden>Date of Commencement of Articleship / Employement</th>
+                        <th hidden>Date of Completion of Articleship / Employement</th>
+                        <th hidden>Partner under whom registered</th>
+                        <th hidden>Balu & Anand ID Number</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (count($userdetailsdata) > 0) {
+                        foreach ($userdetailsdata as $row) {
+                    ?>
+                            <tr>
+                                <td hidden><?php echo $row['name']; ?> </td>
+                                <td hidden><?php echo $row['ID']; ?> </td>
+                                <td hidden ><?php echo $row['startdate']; ?> </td>
+                                <td hidden><?php echo $row['enddate']; ?> </td>
+                                <td hidden><?php echo $row['partner_under_whom_registered'] ?></td>
+                                <td hidden><?php echo $row['balunand_id_no'] ?></td>
+                            </tr>
+                        <?php
+                        }
+                    } else {
+                        ?>
                         <tr>
-                            <td hidden><?php echo $row['name']; ?> </td>
-                            <td hidden><?php echo $row['ID']; ?> </td>
-                            <td hidden ><?php echo $row['startdate']; ?> </td>
-                            <td hidden><?php echo $row['enddate']; ?> </td>
-                            <td hidden><?php echo $row['partner_under_whom_registered'] ?></td>
-                            <td hidden><?php echo $row['balunand_id_no'] ?></td>
+                            <td colspan="5">No Data Found</td>
                         </tr>
                     <?php
                     }
-                } else {
                     ?>
-                    <tr>
-                        <td colspan="5">No Data Found</td>
+                </tbody> 
+            </table>
+            <div id="reportFilterButtons">
+                <input type="date" id="filterDate" class="Filterdatabutton report__filterbtn">
+                <button onclick="filterData()" class="Filter__dataBtn">Filter</button>
+            </div>
+            <div>
+            <button class="excelbutton" id="excelfilebtn" onclick="exportTablesToExcel()">Export Tables Data To Excel File</button>
+            </div>
+            <div class="daily___activityreport">
+            <div class="custom-table-wrapper">
+                <table class="custom-table" border="1" cellspacing="5" id="tblData" >
+                    <tr class="tablereport">
+                        <th class="activity" colspan="13">Daily Activity Report</th>
                     </tr>
-                <?php
-                }
-                ?>
-            </tbody>
-
-        </table>
-
-
-     <div id="reportFilterButtons">
-       <input type="date" id="filterDate" class="Filterdatabutton report__filterbtn">
-        <button onclick="filterData()" class="Filter__dataBtn" style="position: absolute;top: 89px;right: 50px;width: 79px;border: none;background: #4545e8;;color: white;height: 37px; border-radius: 3px;">Filter</button>
-     </div>
-       
-        <table border="1" cellspacing="5" bgcolor="white" class="daily___activityreport"  id="tblData">
-        <thead><!-- Add the header row here --></thead>
-            <tr class="tablereport">
-                <th class="activity" colspan="13">Daily Activity Report</th>
-            </tr>
-            <tr>
-                <th colspan="2">Beginning of Year 1:</th>
-                <th>2022-02-26</th>
-                <th colspan="3">End of Year 1:</th>
-                <th colspan="">2023-03-27</th>
-            </tr>
-            <tr class="reportdata" id="adminreport_data">
-                <th>Sl. No.</th>
-                <th>Date</th>
-                <th>Name of Client</th>
-                <th>Workorder Number</th>
-                <th>Type Of Work</th>
-                <th>Description of Work</th>
-		<th>Partner Incharge</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-		<th>Break Time From </th>
-                <th>Break Time To </th>
-                <th>Break Time</th>
-                <th>Status</th>
-            </tr>
-            <!--<?php
-            if (!empty($workesheetdata)) {
-                foreach ($workesheetdata as $worksheetrecord) {
-            ?>
                     <tr>
-                        <td><?php echo $worksheetrecord['SrNo']; ?></td>
-                        <td><?php echo date('Y-m-d', strtotime($worksheetrecord['date'])); ?></td>
-                        <td><?php echo $worksheetrecord['client_name']; ?></td>
-                        <td><?php echo $worksheetrecord['workorder_no']; ?></td>
-                        <td><?php echo $worksheetrecord['type_of_work']; ?></td>
-                        <td><?php echo $worksheetrecord['work_description']; ?></td>
-                        <td><?php echo $worksheetrecord['start_time']; ?></td>
-                        <td><?php echo $worksheetrecord['end_time']; ?></td>
-                        <td><?php echo $worksheetrecord['partner_in_charge']; ?></td>
-                        <td><?php echo $worksheetrecord['status']; ?></td>
+                        <th colspan="2">Beginning of Year 1:</th>
+                        <th>2022-02-26</th>
+                        <th colspan="3">End of Year 1:</th>
+                        <th colspan="">2023-03-27</th>
                     </tr>
-                <?php
-                }
-            } else {
-                ?>
-                <tr class="text-center">
-                    <td colspan="10">No Data Found</td>
-                </tr>
-            <?php
-            }
-            ?>-->
+                    <tr class="reportdata" id="adminreport_data">
+                        <th>Sl. No.</th>
+                        <th>Date</th>
+                        <th>Name of Client</th>
+                        <th>Workorder Number</th>
+                        <th>Type Of Work</th>
+                        <th>Description of Work</th>
+                <th>Partner Incharge</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                <th>Break Time From </th>
+                        <th>Break Time To </th>
+                        <th>Break Time</th>
+                        <th>Status</th>
+                    </tr>
+             
+                </table>
+             
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-        </table>
-<br>
-     <!-- Add a new button to export both tables -->
-   
-    <button class="excelbutton" onclick="exportTablesToExcel()">Export Tables Data To Excel File</button>
 
-
-    </center>
 
     <!-- excel sheet data both table exporting -->
 

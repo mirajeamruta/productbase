@@ -63,20 +63,20 @@ class User extends CI_Controller
     {
         $loggedInEmployee = $this->session->userdata('username');
 
-		$loggedInUserId = $this->session->userdata('userId');
+        $loggedInUserId = $this->session->userdata('userId');
 
-		$user_info = $this->User_model->duplicateId($this->input->post('balunandno'));
+        $user_info = $this->User_model->duplicateId($this->input->post('balunandno'));
 
-		//var_dump($user_info);
+        //var_dump($user_info);
 
-		// return;
+        // return;
 
-		if (count($user_info) > 0) {
-			$data['error'] = 'This Balunand ID is already assigned to a usser ';
-			$this->session->set_flashdata('error', 'This Balunand ID is already assigned to an user');
+        if (count($user_info) > 0) {
+            $data['error'] = 'This Balunand ID is already assigned to a usser ';
+            $this->session->set_flashdata('error', 'This Balunand ID is already assigned to an user');
 
-			redirect(base_url('User/index'));
-		}
+            redirect(base_url('User/index'));
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             /*
@@ -150,7 +150,7 @@ class User extends CI_Controller
                 $bloodgroup = $this->input->post('bloodgroup');
                 $password = $this->input->post('password');
 
-                $icai_Number=$this->input->post('icai_number');
+                $icai_Number = $this->input->post('icai_number');
 
                 $hashpassword = md5($password);
 
@@ -164,7 +164,7 @@ class User extends CI_Controller
                     'name' => $username,
                     'user_image' => $userimage,
                     'student_reg_no' => $REG_NO,
-                    'icai'=> $icai_Number,
+                    'icai' => $icai_Number,
                     //'employee_id'=>$employee_id,
                     'date_of_comencement_of_articleship' => $commencementofarticleship,
                     'date_of_comencement_of_employment' => $commencementofemployment,
@@ -178,7 +178,7 @@ class User extends CI_Controller
                     'bloodgroup' => $bloodgroup,
                     'password' => $hashpassword,
                     'user_type_id' => $usertype,
-'status'=> 'Active'
+                    'status' => 'Active'
                 );
 
 
@@ -195,243 +195,243 @@ class User extends CI_Controller
                     'type' => 'New User',
                     'status' => '0',
                     'date' => date('Y-m-d H:i:s')
-                    );
-                
-                
-                                $this->load->model('Notification_Model');
-                                $this->Notification_Model->insertnotification($notification_data);
-                
+                );
+
+
+                $this->load->model('Notification_Model');
+                $this->Notification_Model->insertnotification($notification_data);
+
                 $this->session->set_flashdata('success', 'New user created successfully');
                 redirect(base_url('User/allusers'));
             }
         }
     }
     public function validate()
-	{
-		if ($this->User_model->duplicateId($this->input->post('balunandno'))) {
+    {
+        if ($this->User_model->duplicateId($this->input->post('balunandno'))) {
 
-			$this->error = 'This Balunand Number is already assigned to a user ';
+            $this->error = 'This Balunand Number is already assigned to a user ';
 
-			//var_dump($this->error);
-			return !$this->error;
-		}
-	}
+            //var_dump($this->error);
+            return !$this->error;
+        }
+    }
 
 
     public function allusers()
     {
-	if ($this->session->userdata('balunand_id_no') == '') {
-			redirect(base_url() . 'main/login');
+        if ($this->session->userdata('balunand_id_no') == '') {
+            redirect(base_url() . 'main/login');
         } else {
-        $this->load->model('User_model');
+            $this->load->model('User_model');
 
-        $data['usertype'] = $this->User_model->getAllUserType();
+            $data['usertype'] = $this->User_model->getAllUserType();
 
-        foreach ($data['usertype'] as $usertypedetails) {
-            $data['usertypes'][] = array(
-                'user_type_id' => $usertypedetails['user_type_id'],
+            foreach ($data['usertype'] as $usertypedetails) {
+                $data['usertypes'][] = array(
+                    'user_type_id' => $usertypedetails['user_type_id'],
 
-                'user_type' => $usertypedetails['user_type']
+                    'user_type' => $usertypedetails['user_type']
 
-            );
+                );
+            }
+
+            $data['userdetails'] = $this->User_model->getAllUsersDetails();
+
+            foreach ($data['userdetails'] as $user) {
+                $data['userdetailsdata'][] = array(
+                    'user_type_id' => $user['user_type_id'],
+                    'user_id' => $user['user_id'],
+                    'balunand_id_no' => $user['balunand_id_no'],
+                    'user_type_id' => $user['user_type_id'],
+                    'name' => $user['name'],
+                    'student_reg_no' => $user['student_reg_no'],
+                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                    'password' => $user['password'],
+                    //'employee_id' => $user['employee_id'],
+                    'personal_email' => $user['personal_email'],
+                    'mobile_no' => $user['mobile_no'],
+                    'details' => $user['mobile_no'],
+                );
+            }
+
+
+
+            $this->load->view('template/header');
+
+            $this->load->view('template/navigation');
+
+            $this->load->view('View_users', $data);
+
+            $this->load->view('template/footer');
         }
-
-        $data['userdetails'] = $this->User_model->getAllUsersDetails();
-
-        foreach ($data['userdetails'] as $user) {
-            $data['userdetailsdata'][] = array(
-                'user_type_id' => $user['user_type_id'],
-                'user_id' => $user['user_id'],
-                'balunand_id_no' => $user['balunand_id_no'],
-                'user_type_id' => $user['user_type_id'],
-                'name' => $user['name'],
-                'student_reg_no' => $user['student_reg_no'],
-                'partner_under_whom_registered' => $user['partner_under_whom_registered'],
-                'password'=>$user['password'],
-                 //'employee_id' => $user['employee_id'],
-                'personal_email' => $user['personal_email'],
-                'mobile_no' => $user['mobile_no'],
-                'details' => $user['mobile_no'],
-            );
-
-        }
-        
-
-
-        $this->load->view('template/header');
-
-        $this->load->view('template/navigation');
-
-        $this->load->view('View_users', $data);
-
-        $this->load->view('template/footer');
-	}
     }
 
 
     public function editUserData($userid)
     {
-	if ($this->session->userdata('balunand_id_no') == '') {
-			redirect(base_url() . 'main/login');
+        if ($this->session->userdata('balunand_id_no') == '') {
+            redirect(base_url() . 'main/login');
         } else {
-        $this->load->model('User_model');
+            $this->load->model('User_model');
 
-        $data['userdetails'] = $this->User_model->editUserData($userid);
+            $data['userdetails'] = $this->User_model->editUserData($userid);
 
-        foreach ($data['userdetails'] as $user) {
+            foreach ($data['userdetails'] as $user) {
 
-            if ($user['user_type_id'] == 3) {
+                if ($user['user_type_id'] == 3) {
 
-                $data['userdetailsdata'][] = array(
-                    'user_type_id' => $user['user_type_id'],
-                    'user_id' => $user['user_id'],
-                    'name' => $user['name'],
-                    
-                    'ID' => $user['student_reg_no'],
-                    'image' => $user['user_image'],
-                    //'employee_id'=>$user['employee_id'],
-                    'startdate' => $user['date_of_comencement_of_articleship'],
+                    $data['userdetailsdata'][] = array(
+                        'user_type_id' => $user['user_type_id'],
+                        'user_id' => $user['user_id'],
+                        'name' => $user['name'],
 
-                    'enddate' => $user['date_of_completion_of_articleship'],
+                        'ID' => $user['student_reg_no'],
+                        'image' => $user['user_image'],
+                        //'employee_id'=>$user['employee_id'],
+                        'startdate' => $user['date_of_comencement_of_articleship'],
 
-                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
-                    'balunand_id_no' => $user['balunand_id_no'],
-                    'personal_email' => $user['personal_email'],
-                    'official_email' => $user['official_email'],
-                    'mobile_no' => $user['mobile_no'],
-                    'password'=>$user['password'],
-                    'bloodgroup' => $user['bloodgroup'],
-'status' => $user['status'],
-'user_type_id'=>$user['user_type_id']
-                    //'details'=>$user['mobile_no'],
-                );
-                // print_r($data['userdetailsdata']);
+                        'enddate' => $user['date_of_completion_of_articleship'],
+
+                        'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                        'balunand_id_no' => $user['balunand_id_no'],
+                        'personal_email' => $user['personal_email'],
+                        'official_email' => $user['official_email'],
+                        'mobile_no' => $user['mobile_no'],
+                        'password' => $user['password'],
+                        'bloodgroup' => $user['bloodgroup'],
+                        'status' => $user['status'],
+                        'user_type_id' => $user['user_type_id']
+                        //'details'=>$user['mobile_no'],
+                    );
+                    // print_r($data['userdetailsdata']);
+                }
+
+                if ($user['user_type_id'] == 4) {
+
+                    $data['userdetailsdata'][] = array(
+                        'user_type_id' => $user['user_type_id'],
+                        'user_id' => $user['user_id'],
+                        'name' => $user['name'],
+                        'ID' => $user['icai'],
+                        'image' => $user['user_image'],
+                        //'employee_id'=>$user['employee_id'],
+                        'startdate' => $user['date_of_comencement_of_employment'],
+
+                        'enddate' => $user['date_of_completion_of_employment'],
+
+                        'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                        'balunand_id_no' => $user['balunand_id_no'],
+                        'personal_email' => $user['personal_email'],
+                        'official_email' => $user['official_email'],
+
+                        'mobile_no' => $user['mobile_no'],
+                        'password' => $user['password'],
+                        'bloodgroup' => $user['bloodgroup'],
+                        'status' => $user['status']
+                        //'details'=>$user['mobile_no'],
+                    );
+                    //print_r($data['userdetailsdata']);
+                }
+
+                // Tesinging start
+
+                if ($user['user_type_id'] == 2) {
+
+
+                    $data['userdetailsdata'][] = array(
+                        'user_type_id' => $user['user_type_id'],
+                        'user_id' => $user['user_id'],
+                        'name' => $user['name'],
+                        'ID' => $user['icai'],
+                        'image' => $user['user_image'],
+                        //'employee_id'=>$user['employee_id'],
+                        'startdate' => $user['date_of_comencement_of_employment'],
+
+                        'enddate' => $user['date_of_completion_of_employment'],
+
+                        'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                        'balunand_id_no' => $user['balunand_id_no'],
+                        'personal_email' => $user['personal_email'],
+                        'official_email' => $user['official_email'],
+
+                        'mobile_no' => $user['mobile_no'],
+                        'password' => $user['password'],
+                        'bloodgroup' => $user['bloodgroup'],
+                        'status' => $user['status']
+                        //'details'=>$user['mobile_no'],
+                    );
+                    //print_r($data['userdetailsdata']);
+                }
+
+                // Tesinging end
+
+                if ($user['user_type_id'] == 1) {
+
+                    //echo 2;
+                    $data['userdetailsdata'][] = array(
+                        'user_type_id' => $user['user_type_id'],
+                        'user_id' => $user['user_id'],
+                        'name' => $user['name'],
+                        //'sro_no'=>$user['student_reg_no'],
+                        'image' => $user['user_image'],
+                        'ID' => $user['icai'],
+                        'startdate' => ($user['date_of_comencement_of_employment']),
+
+                        'enddate' => ($user['date_of_completion_of_employment']),
+
+                        'partner_under_whom_registered' => $user['partner_under_whom_registered'],
+                        'balunand_id_no' => $user['balunand_id_no'],
+                        'personal_email' => $user['personal_email'],
+                        'official_email' => $user['official_email'],
+                        'mobile_no' => $user['mobile_no'],
+                        'password' => $user['password'],
+                        'bloodgroup' => $user['bloodgroup'],
+                        'status' => $user['status']
+                        //'details'=>$user['mobile_no'],
+                    );
+
+                    //   var_dump(	$data['userdetailsdata']);
+
+                    //return;
+
+                }
             }
 
-            if ($user['user_type_id'] == 4) {
 
-                $data['userdetailsdata'][] = array(
-                    'user_type_id'=>$user['user_type_id'],
-                    'user_id' => $user['user_id'],
-                    'name' => $user['name'],
-                    'ID' => $user['icai'],
-                    'image' => $user['user_image'],
-                    //'employee_id'=>$user['employee_id'],
-                    'startdate' => $user['date_of_comencement_of_employment'],
+            $this->load->view('template/header');
 
-                    'enddate' => $user['date_of_completion_of_employment'],
+            $this->load->view('template/navigation');
 
-                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
-                    'balunand_id_no' => $user['balunand_id_no'],
-                    'personal_email' => $user['personal_email'],
-                    'official_email' => $user['official_email'],
+            $this->load->view('Edit_user', $data);
 
-                    'mobile_no' => $user['mobile_no'],
-                    'password'=>$user['password'],
-                    'bloodgroup' => $user['bloodgroup'],
-'status' => $user['status']
-                    //'details'=>$user['mobile_no'],
-                );
-                //print_r($data['userdetailsdata']);
-            }
 
-            // Tesinging start
 
-            if ($user['user_type_id'] == 2) {
-
-               
-                $data['userdetailsdata'][] = array(
-                    'user_type_id'=>$user['user_type_id'],
-                    'user_id' => $user['user_id'],
-                    'name' => $user['name'],
-                    'ID' => $user['icai'],
-                    'image' => $user['user_image'],
-                    //'employee_id'=>$user['employee_id'],
-                    'startdate' => $user['date_of_comencement_of_employment'],
-
-                    'enddate' => $user['date_of_completion_of_employment'],
-
-                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
-                    'balunand_id_no' => $user['balunand_id_no'],
-                    'personal_email' => $user['personal_email'],
-                    'official_email' => $user['official_email'],
-
-                    'mobile_no' => $user['mobile_no'],
-                    'password'=>$user['password'],
-                    'bloodgroup' => $user['bloodgroup'],
-'status' => $user['status']
-                    //'details'=>$user['mobile_no'],
-                );
-                //print_r($data['userdetailsdata']);
-            }
-
-             // Tesinging end
-
-            if ( $user['user_type_id'] == 1) {
-
-                //echo 2;
-                $data['userdetailsdata'][] = array(
-                    'user_type_id'=>$user['user_type_id'],
-                    'user_id' => $user['user_id'],
-                    'name' => $user['name'],
-                    //'sro_no'=>$user['student_reg_no'],
-                    'image' => $user['user_image'],
-                    'ID' => $user['icai'],
-                    'startdate' => ($user['date_of_comencement_of_employment']),
-
-                    'enddate' => ($user['date_of_completion_of_employment']),
-
-                    'partner_under_whom_registered' => $user['partner_under_whom_registered'],
-                    'balunand_id_no' => $user['balunand_id_no'],
-                    'personal_email' => $user['personal_email'],
-                    'official_email' => $user['official_email'],
-                    'mobile_no' => $user['mobile_no'],
-                    'password'=>$user['password'],
-                    'bloodgroup' => $user['bloodgroup'],
-'status' => $user['status']
-                    //'details'=>$user['mobile_no'],
-                );
-
-                //   var_dump(	$data['userdetailsdata']);
-
-                //return;
-
-            }
+            $this->load->view('template/footer');
         }
-
-
-        $this->load->view('template/header');
-
-        $this->load->view('template/navigation');
-
-        $this->load->view('Edit_user', $data);
-
-
-
-        $this->load->view('template/footer');
-	}
     }
 
-    public function EditUser(){
-        $user_type_id=$this->input->post('user_type_id');
+    public function EditUser()
+    {
+        $user_type_id = $this->input->post('user_type_id');
         $userid = $this->input->post('user_id');
-        $userimage= $this->input->POST('user_image');
-echo($userimage);
-var_dump($userimage);
-print_r($userimage);
-        $usertype=$this->input->post('usertype');        
-        $usertypeid= $usertype;
-        if($usertypeid=='Admin'){
-            $usertypeid='1';
-        }else if($usertypeid=='Employee'){
-            $usertypeid='2';
-        }else if($usertypeid=='Article Trainee'){
-            $usertypeid='3';
-        }else if($usertypeid=='External Consultant'){
-            $usertypeid='4';
-        } 
+        $userimage = $this->input->POST('user_image');
+        echo ($userimage);
+        var_dump($userimage);
+        print_r($userimage);
+        $usertype = $this->input->post('usertype');
+        $usertypeid = $usertype;
+        if ($usertypeid == 'Admin') {
+            $usertypeid = '1';
+        } else if ($usertypeid == 'Employee') {
+            $usertypeid = '2';
+        } else if ($usertypeid == 'Article Trainee') {
+            $usertypeid = '3';
+        } else if ($usertypeid == 'External Consultant') {
+            $usertypeid = '4';
+        }
         if ($user_type_id == 1) {
-            if ( $userimage) {
+            if ($userimage) {
                 $data = array(
                     'user_type_id' => $usertypeid,
                     'name' => $_POST['name'],
@@ -466,9 +466,9 @@ print_r($userimage);
                     'status' => $_POST['status']
                 );
             }
-        } else if($user_type_id==2){
+        } else if ($user_type_id == 2) {
 
-if ( $userimage) {
+            if ($userimage) {
                 $data = array(
                     'user_type_id' => $usertypeid,
                     'name' => $_POST['name'],
@@ -503,8 +503,8 @@ if ( $userimage) {
                     'status' => $_POST['status']
                 );
             }
-        } else if ($user_type_id==3){
-if ( $userimage) {
+        } else if ($user_type_id == 3) {
+            if ($userimage) {
                 $data = array(
                     'user_type_id' => $usertypeid,
                     'name' => $_POST['name'],
@@ -539,9 +539,8 @@ if ( $userimage) {
                     'status' => $_POST['status']
                 );
             }
-
-        } else if ($user_type_id==4){
-if ( $userimage) {
+        } else if ($user_type_id == 4) {
+            if ($userimage) {
                 $data = array(
                     'user_type_id' => $usertypeid,
                     'name' => $_POST['name'],
@@ -576,85 +575,82 @@ if ( $userimage) {
                     'status' => $_POST['status']
                 );
             }
-
-
         }
-            $this->load->model('User_model');
-            $this->User_model->EditUserInfo($data, $userid);
+        $this->load->model('User_model');
+        $this->User_model->EditUserInfo($data,$userid);
 
-         $notification_data = array(
-            'user_name'=>$_POST['name'],
-            'user_id'=>$userid,
+        $notification_data = array(
+            'user_name' => $_POST['name'],
+            'user_id' => $userid,
             'type' => 'Updated User',
-            'status'=>0,
-            'date'=>date('Y-m-d H:i:s')
+            'status' => 0,
+            'date' => date('Y-m-d H:i:s')
         );
 
         $this->load->model('Notification_Model');
         $this->Notification_Model->insertnotification($notification_data);
- $this->session->set_flashdata('success', 'Successfully Updated');
-                 redirect(base_url('User/editUserData/'.$userid));
-         
-     }
+        $this->session->set_flashdata('success', 'Successfully Updated');
+        redirect(base_url('User/editUserData/' . $userid));
+    }
 
     public function MyProfile()
 
     {
-	if ($this->session->userdata('balunand_id_no') == '') {
-			redirect(base_url() . 'main/login');
+        if ($this->session->userdata('balunand_id_no') == '') {
+            redirect(base_url() . 'main/login');
         } else {
 
-        $data = '';
+            $data = '';
 
-        if ($this->session->userdata('userId') != '') {
+            if ($this->session->userdata('userId') != '') {
 
-            if (($this->input->post('oldpassword'))) {
+                if (($this->input->post('oldpassword'))) {
 
-                $oldpassword = md5($this->input->post('oldpassword'));
+                    $oldpassword = md5($this->input->post('oldpassword'));
 
-                $results = $this->User_model->oldPasswordValidation($oldpassword);
+                    $results = $this->User_model->oldPasswordValidation($oldpassword);
 
-                // echo $this->session->userdata('userId');
+                    // echo $this->session->userdata('userId');
 
-                $pass = $this->session->userdata('userId');
+                    $pass = $this->session->userdata('userId');
 
-                if (!empty($results)) {
-                    $newpassword = $this->input->post('newpassword');
+                    if (!empty($results)) {
+                        $newpassword = $this->input->post('newpassword');
 
-                    $hashnewpassword = md5($newpassword);
-                    // echo $newpassword;
-                    // echo $hashnewpassword;
+                        $hashnewpassword = md5($newpassword);
+                        // echo $newpassword;
+                        // echo $hashnewpassword;
 
-                    if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
+                        if ($this->input->post('newpassword') == $this->input->post('confirmpassword')) {
 
-                        if ($this->input->post('newpassword') == $this->input->post('oldpassword')) {
+                            if ($this->input->post('newpassword') == $this->input->post('oldpassword')) {
 
-                            $this->session->set_flashdata('passwordsuccess', 'Your Old  Password  and New Password cant be same.');
-                        } else {
+                                $this->session->set_flashdata('passwordsuccess', 'Your Old  Password  and New Password cant be same.');
+                            } else {
 
-                            $this->User_model->updatePassword($pass, $hashnewpassword);
+                                $this->User_model->updatePassword($pass, $hashnewpassword);
 
-                            $this->session->set_flashdata('passwordsuccess', ' <h6 class="sucessmsg" style="margin-top: 363px !important; margin-left: 203px !important; color: green;">Your Password has been updated</h6>');
+                                $this->session->set_flashdata('passwordsuccess', ' <h6 class="sucessmsg" style="margin-top: 363px !important; margin-left: 203px !important; color: green;">Your Password has been updated</h6>');
+                            }
+                        } elseif ($this->input->post('newpassword') != $this->input->post('confirmpassword')) {
+
+                            $this->session->set_flashdata('passwordsuccess', 'password and confirm password should be same');
                         }
-                    } elseif ($this->input->post('newpassword') != $this->input->post('confirmpassword')) {
-
-                        $this->session->set_flashdata('passwordsuccess', 'password and confirm password should be same');
+                    } else {
+                        $this->session->set_flashdata('passwordfail', '<h6 style="color:red;margin-top: 353px;margin-left: 107px;">Your old password was entered incorrectly. Please enter it again. </h6> ');
                     }
-                } else {
-                   $this->session->set_flashdata('passwordfail', '<h6 style="color:red;margin-top: 353px;margin-left: 107px;">Your old password was entered incorrectly. Please enter it again. </h6> ');
                 }
+
+
+
+                $this->load->view('template/header');
+
+                $this->load->view('template/navigation');
+
+                $this->load->view('userpassword_form', $data);
+
+                $this->load->view('template/footer');
             }
-
-
-
-        $this->load->view('template/header');
-
-        $this->load->view('template/navigation');
-
-        $this->load->view('userpassword_form', $data);
-
-            $this->load->view('template/footer');
-		}
         }
-   }
+    }
 }

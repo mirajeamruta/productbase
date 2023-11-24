@@ -1,11 +1,276 @@
-<div class="container-fluid">
-        <div id='section_viewworkorder'>
+
+
+<style>
+/* Reset some default browser styles */
+body, div, p, h3, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color for the entire page */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the container */
+.container-fluid {
+    max-width: 1293px;
+    margin: 0 auto;
+    padding: -3px;
+}
+
+#section_viewworksheet {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Center the h3 heading */
+h3.text-center {
+    text-align: center;
+}
+
+/* Style the filter section */
+#filterSection {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Style the filter buttons */
+#filterDateText,
+#filter_by_date,
+#filterStartTime {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 146px;
+}
+
+#showFilterResult,
+#clearFilter {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Style the first table */
+#worksheettable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+/* Style the first table headers */
+#worksheettable th {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style the first table rows */
+#worksheettable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style the first table data cells */
+#worksheettable td {
+    padding: 5px;
+}
+
+/* Style the second table */
+#viewWorksheetTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+/* Style the second table headers */
+#viewWorksheetTable th {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style the second table rows */
+#viewWorksheetTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style the second table data cells */
+#viewWorksheetTable td {
+    padding: 5px;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    #worksheettable, #viewWorksheetTable {
+        font-size: 14px;
+        display: block;
+    }
+    
+    #filterSection {
+        text-align: left;
+    }
+    
+    h3.text-center {
+        margin-top: 10px;
+    }
+      #worksheettable {
+        overflow-x: auto;
+    }
+
+    #viewWorksheetTable {
+        overflow-x: auto;
+    }
+}
+/* Style the filter section */
+#filterSection {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Style the filter titles and labels */
+#filterTilte {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#fDate, #fTime, #totalBreakTime {
+    font-weight: bold;
+}
+
+/* Style the filter buttons and inputs */
+#filterDateButtons {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#showFilterResult, #clearFilter {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    /* Style the filter section */
+    #filterSection {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+   /* Style the date input and text */
+   input[type="date"] {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 100%; /* Adjust the width to your preference */
+    }
+
+
+    /* Style the time input and text */
+    #filterStartTime {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 94%; /* Adjust the width to your preference */
+    }
+
+    #fDate {
+        font-weight: bold;
+    }
+    /* Style the time input */
+    input[type="time"] {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 94%;/* Adjust the width to your preference */
+    }
+
+    /* Style the Apply Filter and Clear buttons */
+    #showFilterResult, #clearFilter {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+        width: 283px; /* Adjust the width as needed */
+    }
+
+    /* Center-align the Total Break Time */
+    #totalBreakTime {
+        text-align: center;
+        margin-top: 20px;
+    }
+    #showFilterResult, #clearFilter {
+        display: block;
+    }
+    #viewworksheet_form{
+        width: 389px;
+    margin-left: -39px !important;
+    }
+    
+    #fTime {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    #filterDateText{
+        margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 146px;
+    }
+
+}
+
+    
+</style>
+
+<body>
+<div class="main">
+<div class="container-fluid" id="viewworksheet_form">
+
+        <div id='section_viewworksheet'>
+        <div class="title" style=" font-size: 1.75rem;margin-left: 7px;margin-top: 2px;font-weight: 600;background: #f6f8fa;" >
+      <p>View Worksheet Form</p>
+    </div>
             <?php
-            /*
-                  <td><a href="<?=base_url("User/editUserData")?><?php echo 'user_id='.$row['user_id'];?>">view
-            details</a>
-            </td>
-            */
+        
             if (count($workesheetuloginuserdetails) > 0) {
             foreach ($workesheetuloginuserdetails as $row) {
             ?>
@@ -17,15 +282,13 @@
                         <th>Name</th>
                         <th>Partner in Charge</th>
                         <th>SRO Number </th>
-                        <th>SRO Number </th>
                         <th>balunand_id_no</th>
                         <th>Start Date</th>
                         <th>Completing On</th>
                     </tr>
                 </thead>
                 
-                <tbody class="worksheet" id="worksheetbody">
-                    <td data-label=""><?php echo $row['name'] ?></td>
+         
                 
                 <tbody class="worksheet" id="worksheetbody">
                     <td data-label=""><?php echo $row['name'] ?></td>
@@ -39,16 +302,13 @@
                 }
             }
                 ?>
-                <h3 class="text-center">View Worksheet</h3>
-               
-                <table class="table table-bordered my-5" id="viewWorksheetTable">
-                    <thead>
-                       
-                        <p id="filterTilte">Filter by</p>
+                <!-- <h3 class="text-center">View Worksheet</h3>
+                -->
+                <p id="filterTilte">Filter by</p>
                         <div id="filterSection">
                           <p id="fDate">Date</p>
                           <div id="filterDateButtons">
-                                <input type="text" placeholder="Select Date" readonly id="filterDateText"/>
+                                <input type="text"  placeholder="Select Date" readonly id="filterDateText"/>
                                 <input type="date" id="filter_by_date" placeholder="Select Date"/>
                           </div>                         
                         
@@ -61,13 +321,19 @@
                           
                           <span id="totalBreakTime">Total Break Time: </span>
                         </div>
+
+                
+                <table class="table table-bordered my-5" id="viewWorksheetTable">
+                    <thead>
+                       
+                     
                         
                         <tr class="text-center text-white text-capitalize wksubhead2">
                             <th class="data1" data-label="Date">Date</th>
-                            <th class="data1" data-label="Date">Date</th>
+                           
                             <th>Workorder No</th>
                             <th>Type Of Work</th>
-                            <th>Type Of Work</th>
+                          
                             <th>Name Of Client </th>
                             <th>Description of work done</th>
                             <th>Work Given By</th>
@@ -86,6 +352,9 @@
               
         </div>
     </div>
+</div>
+  </div>
+</body>
     <!-- Begin Footer -->
 <script>
 window.addEventListener('beforeunload',function(){

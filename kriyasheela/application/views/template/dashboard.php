@@ -1,55 +1,118 @@
-<div class="sidebar" Id="sidebar1">
-    <div class="logo-details">
-    </div>
-    <ul class="nav-links">
-        <li>
-            <a class="active" style="">
-                <i class='bx bx-grid-alt'></i>
-                <span class="links_name">Total Workorders</span>
-                <div class="number" style="margin-left: -85px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 10px 14px 10px 13px;color: black;">
-                    <?php echo $countworkorder; ?></div>
-            </a>
-        </li>
-        <li>
-            <a class="active1" id="active1" style="">
-                <!-- <a  class="active1" id="active1" style="margin-left: 10px; ;margin-top: 74px;"> -->
-                <i class='bx bx-box'></i>
-                <span class="links_name">Pending Workorders</span>
-                <div class="number" style="margin-left: -109px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 10px 15px 11px 12px; color: black;">
-                    <?php echo $pendingWorkorders; ?> </div>
-            </a>
-        </li>
-        <li>
-            <a class="active3" style="">
-                <!-- <a class="active3" style="margin-left: 10px;margin-top: 74px;"> -->
-                <i class=' bx bx-user-pin'></i>
-                <span class="links_name">Number of Clients</span>
-                <div class="number" style="margin-left: -93px; margin-top: 88px; background: white; border-radius: 21px; box-sizing: border-box; padding: 9px 14px 9px 11px; color: black;">
-                    <?php echo $countclents; ?></div>
-            </a>
-        </li>
-        <li>
-            <a class="active2" style="">
-                <!-- <a class="active2" style="margin-left: 10px; margin-top: 70px;"> -->
-                <i class='bx bx-user'></i>
-                <span class="links_name" id="links">Number of Users</span>
-                <div class="number" id="Numb"><?php echo $countusers; ?></div>
-            </a>
-        </li>
+<!DOCTYPE html>
+<html lang="en">
 
-        </li>
-    </ul>
-</div>
 
-<section class="home-section" id="hom">
-    <div class="home-content">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-        <div class="sales-boxes" style="">
-            <div class="recent-sales box" id="recent">
-                <div class="title" id="heading" style="text-align: center;  margin-left: -610px;">Notifications</div>
-                <div class="sales-details admindetails " id="dashborad___notifications" style="left:93px; width: fit-content;position: relative;top: 19px;">
-                    <section id="section-dashboard " style="text-align: center;">
-                        <ul class="test  alladmin___notificationsdata   alluser__notificationdata">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+
+
+<body>
+    <!-- for header part -->
+    <header>
+
+        <div class="logosec">
+
+
+            <div class="logo">
+                <img src="<?= ("http://localhost/kriyasheela-p2/kriyasheela/images/ca_logo.png") ?>" width="95" height="45">
+
+            </div>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" class="icn menuicn" id="menuicn" alt="menu-icon">
+
+            <a class="nav-link dropdown-toggle" href="#" style="font-size: 12px;margin-left: 1213px;position: absolute;margin-top: -2px;color: black;ont-weight: 600;" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <?php echo ($this->session->userdata('username')); ?> </a>
+            <div class="dp" style="margin-left: 1228px;">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png" class="dpicn" alt="dp">
+            </div>
+
+
+        </div>
+
+    </header>
+<body>
+        <div class="main">
+
+            <div class="box-container">
+
+                <div class="box box1">
+                    <div class="text">
+                        <h2 class="topic-heading">  <?php echo $countworkorder; ?></h2>
+
+                        <h2 class="topic">total Workorders</h2>
+                    </div>
+                    <i class='bx bx-grid-alt' style="font-size: 39px;  color: white;">
+                    </i>
+
+                </div>
+
+                <div class="box box2">
+                    <div class="text">
+                        <h2 class="topic-heading"><?php echo $pendingWorkorders; ?></h2>
+
+                        <h2 class="topic">Pending Workorders</h2>
+                    </div>
+
+                    <i class='bx bx-box' style="font-size: 39px;  color: white;"></i>
+                </div>
+
+                <div class="box box3">
+                    <div class="text">
+                        <h2 class="topic-heading"><?php echo $countclents; ?></h2>
+
+
+                        <h2 class="topic">Number of Clients</h2>
+                    </div>
+
+                    <i class=' bx bx-user-pin' style="font-size: 39px; color: white;"></i>
+                </div>
+
+                <div class="box box4">
+                    <div class="text">
+                        <h2 class="topic-heading"><?php echo $countusers; ?></h2>
+
+
+                        <h2 class="topic">Number of Users</h2>
+
+                    </div>
+
+                    <i class='bx bx-user' style="font-size: 39px; color: white;"></i>
+                </div>
+            </div>
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Articles">Dashboard</h1>
+                    <button class="view" id="viewAllBtn" onclick="toggleView()">View All</button>
+                </div>
+
+                <div class="report-body">
+                    <div class="report-topic-heading">
+
+                        <h3 class="t-op">Notifications</h3>
+
+                        <h3 class="t-op" id="pen" style="margin-left: 211px;">Pending Workorders</h3>
+                        <h3 class="t-op">Closed Workorders</h3>
+                    </div>
+
+
+
+
+                    <div class="items">
+                        <div class="item1">
+                            <td>
+                                <!-- <h3 class="t-op-nextlvl">Notifications</h3> -->
+
+                                <ul class="test  alladmin___notificationsdata   alluser__notificationdata" id="dashboardData">
                             <!-- Closed wokrder array -->
                             <script>
                                 let removedItem = [];
@@ -441,169 +504,106 @@ if ($notfication['workorder_no'] && !$this->Workorder_model->getAssignToForWorkO
 
 
                         </ul>
-                        <?php
-                        if ($this->session->userdata('usertype') == 'admin') {
-                        ?>
-                            <div class="button_notify">
-                                <button class="show_button"> <a href="<?= base_url("Notification_Controller/notification") ?>" style="color:whitesmoke">View More</a></button>
-                            </div>
-                        <?php
-                        } else {
+                            </td>
+
+                            <td>
+                            <ul class="top-sales-details pending-details datadetails" id="tableofpendingworkorder" style="margin-left: 173px;">
+                            <script>
+                                let pendingWorkorders = [];
+                            </script>
 
 
+                            <?php
 
-                        ?>
-                            <div class="button_notify1  dashboarduser___notify0">
-                                <button class="show_button"> <a href="<?= base_url("Notification_Controller/notification") ?>" style="color:whitesmoke">View More</a></button>
-                            </div>
+                            if (!empty($pendingWorkorderDetails2)) {
 
-                        <?php
-                        } ?>
-                    </section>
+                                //print_r($pendingWorkorderDetails2);
+                                foreach ($pendingWorkorderDetails2  as $dataworkorder) {
+
+                                    $key = $dataworkorder['workordernumber'];
+                            ?>
+                                    <li style="color:blue"> <a href="<?= base_url("workorder/view_workorder/$key") ?>">
+                                            Workorder-<?php echo $dataworkorder['workordernumber'] ?> </a>
+                                        <script>
+                                            pendingWorkorders.push("<?php echo $dataworkorder['workordernumber'] ?>")
+                                        </script>
+                                    </li>
+
+                            <?php
+
+                                }
+                            }
+
+                            ?>
+
+                        </ul>
+                            </td>
+
+                            <td>
+                            <ul id="close_items" class="closedetails">
+                            </ul>
+                            </td>
+
+                        </div>
 
 
-
-
+                    </div>
                 </div>
-
-                <?php
-                if ($this->session->userdata('usertype') == 'admin') {
-                ?>
-                    <div class="top-sales box box-1">
-                        <div class="title1 pendingworkorder__adminside" id="heading1" style="text-align: center; margin-left: 117px; margin-top: -90px !important; font-size:20px">Pending Workorders</div>
-                        <ul class="top-sales-details pending-details datadetails" id="tableofpendingworkorder" style="margin-left: 173px;">
-                            <script>
-                                let pendingWorkorders = [];
-                            </script>
-
-
-                            <?php
-
-                            if (!empty($pendingWorkorderDetails2)) {
-
-                                //print_r($pendingWorkorderDetails2);
-                                foreach ($pendingWorkorderDetails2  as $dataworkorder) {
-
-                                    $key = $dataworkorder['workordernumber'];
-                            ?>
-                                    <li style="color:blue"> <a href="<?= base_url("workorder/view_workorder/$key") ?>">
-                                            Workorder-<?php echo $dataworkorder['workordernumber'] ?> </a>
-                                        <script>
-                                            pendingWorkorders.push("<?php echo $dataworkorder['workordernumber'] ?>")
-                                        </script>
-                                    </li>
-
-                            <?php
-
-                                }
-                            }
-
-                            ?>
-
-                        </ul>
-                        <div id="recently_close_pending_workorder1" class="closeworkorder1  recentlyclosed___workorder closedworkorder___dashboard">
-                            <p class="closeworkorder1" id="recent_close_header">Recently Closed Workorder</p>
-                            <ul id="close_items" class="closedetails">
-                            </ul>
-                        </div>
-
-                    </div>
-                <?php
-                } else {
-
-
-
-                ?>
-                    <div class="top-sales box box-2" id="pendingWorkorder__section">
-                        <div class="title2" id="heading2" style="text-align: center; margin-left: 129px; margin-top: 19px !important ; font-size:20px">Pending Workorders</div>
-                        <ul class="top-sales-details pending-details datadetails" id="user__pendingWorkorderList"style="margin-left: 191px; margin-top: 10px;">
-                            <script>
-                                let pendingWorkorders = [];
-                            </script>
-
-
-                            <?php
-
-                            if (!empty($pendingWorkorderDetails2)) {
-
-                                //print_r($pendingWorkorderDetails2);
-                                foreach ($pendingWorkorderDetails2  as $dataworkorder) {
-
-                                    $key = $dataworkorder['workordernumber'];
-                            ?>
-                                    <li style="color:blue"> <a href="<?= base_url("workorder/view_workorder/$key") ?>">
-                                            Workorder-<?php echo $dataworkorder['workordernumber'] ?> </a>
-                                        <script>
-                                            pendingWorkorders.push("<?php echo $dataworkorder['workordernumber'] ?>")
-                                        </script>
-                                    </li>
-
-                            <?php
-
-                                }
-                            }
-
-                            ?>
-
-                        </ul>
-                        <div id="recently_close_pending_workorder" class="user__closeworkorder2">
-                            <p class="user__closeworkorder2" id="recent_close_header">Recently Closed Workorder</p>
-                            <ul id="close_items" class="closedetails">
-                            </ul>
-                        </div>
-
-                    </div>
-                <?php
-                } ?>
             </div>
-
-
-
         </div>
-    </div>
+        </body>
+
+
+        <!-- functionality of side bar for mobile responsive script -->
+
+        <script src="./index.js"></script>
+</body>
+
+</html>
+
 <script>
-	window.addEventListener('beforeunload',function(){	
-    localStorage.removeItem('selectedte')	
-    localStorage.setItem('refreshPage',true)	
-})
+    let menuicn = document.querySelector(".menuicn");
+    let nav = document.querySelector(".navcontainer");
 
+    menuicn.addEventListener("click", () => {
+        nav.classList.toggle("navclose");
+    })
 </script>
-    <!-- Notification -->
-    <script>
-        $('ul.test p:gt(12)').hide();
-        var l = $('.test p').length;
-        if (l > 10) {
-            $('#show_button').show();
+
+
+
+<!-- drop down script -->
+
+<script>
+    function toggleDropdown(id) {
+        var dropdown = document.getElementById(id);
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
         } else {
-            $('#show_button').hide();
+            dropdown.style.display = "block";
         }
-        $('.').click(function() {
-            $('ul.test p:gt(12)').toggle('');
+    }
+</script>
+
+
+
+
+
+<!--script for view all button  -->
+
+<script>
+    function toggleView() {
+        var viewAllBtn = document.getElementById('viewAllBtn');
+        var dashboardData = document.getElementById('dashboardData');
+
+        // Toggle visibility of additional data items
+        var additionalDataItems = dashboardData.querySelectorAll('.data-item:nth-child(n+6)');
+        additionalDataItems.forEach(function(item) {
+            item.style.display = (item.style.display === 'none' || item.style.display === '') ? 'block' : 'none';
         });
-    </script>
 
-
-    <!-- closed workorder code -->
-
-
-    <script>
-        // let removedItem = ['24EA8', '23EA27', '23RF3', '23EA2']
-        for (let j = 0; j < removedItem.length; j++) {
-            let isMatch;
-            for (let i = 0; i < pendingWorkorders.length; i++) {
-                if (pendingWorkorders[i].trim() == removedItem[j]) {
-                    isMatch = true;
-                    console.log('Inside room 1')
-                }
-            }
-            if (!isMatch) {
-                let li = document.createElement('li');
-                let textNode = document.createTextNode(`${removedItem[j]} is closed`)
-                li.className = "closed_workorder"
-                li.appendChild(textNode)
-                document.getElementById('close_items').appendChild(li)
-                console.log('Inside room 2')
-
-            }
-        }
-    </script>
+        // Change the button text based on the state
+        var isViewingAll = additionalDataItems[0].style.display === 'block';
+        viewAllBtn.innerHTML = isViewingAll ? 'View Less' : 'View All';
+    }
+</script>

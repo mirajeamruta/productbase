@@ -1,49 +1,236 @@
 <style>
-	.pagination {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-		padding-left: 734px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-	}
-	a {
-    margin-left: 6px;
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f6f8fa;
+        font-family: 'Poppins', sans-serif;
+    }
+    .main-container {
+    display: flex;
+    width: 100vw;
+    position: relative;
+    top: 5px;
+    z-index: 1;
 }
 
-	.col-sm-12 {
-		padding-top: 15px;
-	}
+    .container-viewclient {
+        max-width: 1386px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 5px 12px -2px rgba(0, 0, 0, 0.1),
+            0px 18px 36px -6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: -4px;
+        height: 454px;
+    }
 
+    .container-viewclient .title {
+        padding: 25px;
+        background: #f6f8fa;
+        /* text-align: center; */
+    }
 
+    .container-viewclient .title p {
+        font-size: 25px;
+        font-weight: 500;
+        /* position: relative; */
+    }
 
-	table.dataTable thead .sorting_asc:after {
-		content: none !important;
-		
-	}
+    .container-viewclient .title p::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 3px;
+        background: linear-gradient(to right, #F37A65, #D64141);
+    }
 
-	
-	table.dataTable thead .sorting:after {
-		opacity: 0.2;
-		content: none !important;
-	}
+    .table {
+        font-size: 14px;
+        background-color: #fff;
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-	select.form-control.input-sm {
-    margin-left: 10px;
-	margin-right: 10px;
-    padding-left: 24px;
+    .table th {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .table th.hidden {
+        display: none;
+    }
+
+    .table th.tablehead {
+        width: 24.2px;
+    }
+
+    .table td {
+        background-color: #f6f8fa;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .table td.action-column {
+        margin-left: -8px;
+    }
+    #exportAllButtonContainer {
+    margin-top: 10px;
+    text-align: right; /* Align the export button to the right */
+    padding-right: 22px; /* Add some padding to the right to prevent button overflow */
 }
 
-li#clienttable_previous {
-    margin-right: 8px;
+#exportAllButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; /* Make the button occupy only the necessary space */
+    margin-top: 25px; /* Add margin to move the button down */
 }
 
-li#clienttable_next {
-    margin-left: 10px;
+#exportAllButton:hover {
+    background-color: #0056b3;
 }
+
+    .table .tablero td {
+        background-color: #fff;
+        text-align: center;
+    }
+
+ 
+
+    .pagination {
+
+        padding-left: 690px
+}
+
+
+/* Add this CSS to hide the top pagination controls */
+#clienttable_info {
+    display: none;
+}
+
+/* Add this CSS to show the "Showing X to Y of Z entries" text at the bottom */
+#clienttable_info {
+    display: block;
+    margin-left: 13px;
+}
+
+/* Hide the "Show" dropdown and "Entries" text next to the search bar */
+#clienttable_length {
+    display: none;
+}
+/* Move the search button up */
+.dataTables_filter label {
+    position: relative;
+    top: -37px; /* Adjust the top value as needed to move the button up */
+}
+
+.dataTables_filter input[type="search"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+/* Add this CSS for small screens only */
+@media (max-width: 767px) {
+    #exportAllButtonContainer {
+        text-align: left; /* Align the export button to the left for small screens */
+        margin-left: 41px !important;/* Remove the padding for small screens */
+    }
+
+    .dataTables_filter {
+        text-align: left; /* Align the search input to the left for small screens */
+        margin-bottom: 10px; /* Add some margin below the search input */
+    }
+
+    .dataTables_filter label {
+        position: relative;
+        top: 22px; /* Reset the top value to avoid overlap with the export button */
+    }
+
+    .dataTables_filter input[type="search"] {
+        display: inline-block;
+        width: auto;
+        margin-right: 20px; /* Adjust the margin between the search input and export button */
+    }
+
+    .container-viewclient {
+        margin-top: -1px !important;
+    height: 559px;
+    width: 359px;
+    margin-left: -24px !important; /* Add margin to move the table container down */
+    }
+    #clienttable{
+        margin-top:24px !important;
+    }
+
+    #clienttable_info {
+    display: block;
+    margin-left: -5px !important;
+
+}
+.pagination{
+    position: absolute;
+    margin-left: -439px !important;
+    margin-top: -23px !important;
+
+}
+
+
+}
+
+/* Add this CSS for small screens only */
+@media (max-width: 767px) {
+    #clienttable_wrapper {
+        overflow-x: auto; /* Enable horizontal scrolling for the table wrapper */
+    }
+    
+    .dataTables_wrapper {
+        overflow: hidden; /* Hide overflow for the outer wrapper */
+    }
+}
+
+
+
+
+
 </style>
 
-<div class='container-fluid' id="section_clientlist">
 
-	<table class="table table-bordered" id="clienttable" style="text-align: center;">
 
+
+<div class="main">
+
+
+<div class='container-viewclient' id="section_clientlist">
+<div class="title">
+      <p>View Client Details</p>
+    </div>
+    <div class="table-container">
+	<table class="table table-bordered" id="clienttable" style="text-align: center;  margin-top: -12px;">
+	<div id="exportAllButtonContainer" class="client___exportbutton" >
+        <button id="exportAllButton" class="btn btn-primary tableclientdata___exporting">Export Table Data to Excel file</button>
+    </div>
+</div>
 		<thead class="wkorderhead text-white">
 			<tr>
 				<th class="tablehead"> Legal Name</th>
@@ -61,6 +248,8 @@ li#clienttable_next {
 				<th> Action </th>
 			</tr>
 		</thead>
+
+
 		<tbody class="tablebody" id="bodytable">
 			<?php       
 			if (!empty($clientdetailsdata)) {
@@ -82,12 +271,8 @@ li#clienttable_next {
 						<td><?php echo $row['person_to_be_contact']; ?></td>
 					
 
-						<td style="margin-left: -8px ">
-							<a class="view_clientdeatils"  href="<?= base_url("Client/editClientData") ?>/
-						
-							<?php echo $row['client_id']; ?>"
-							
-							>
+						<td style="margin-left: -8px; font-weight: 700;">
+							<a class="view_clientdeatils"  href="<?= base_url("Client/editClientData") ?>/<?php echo $row['client_id']; ?>">
 							
 							View					
 					    </a>
@@ -105,10 +290,9 @@ li#clienttable_next {
 			?>
 		</tbody>
 	</table>
-<div id="exportAllButtonContainer" class="client___exportbutton" style="margin-top: 10px; margin-left: 690px">
-        <button id="exportAllButton" class="btn btn-primary tableclientdata___exporting">Export Table Data to Excel file</button>
-    </div>
 </div>
+</div>
+
 
 <script>
 window.addEventListener('beforeunload',function(){
@@ -117,12 +301,23 @@ window.addEventListener('beforeunload',function(){
 })
 </script>
 
-<script>
+<!-- <script>
 	
 	$(document).ready(function() {
 		$('#clienttable').DataTable();
 	});
+</script> -->
+
+
+<script>
+    $(document).ready(function() {
+        $('#clienttable').DataTable({
+            "bInfo": true // Show the "Showing X to Y of Z entries" text at the bottom
+        });
+    });
 </script>
+
+
 <!-- Excel data exporting code  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 <script>

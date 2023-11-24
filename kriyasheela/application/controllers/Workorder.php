@@ -36,10 +36,10 @@ class Workorder extends CI_Controller
 				);
 			}
 			$data['workordernumber'] = $this->Workorder_model->fetch_workorder();
-$data['EA']='23EA0';
-$data['IA']='23IA0';
-$data['TA']='23TA0';
-$data['RF']='23RF0';
+			$data['EA'] = '23EA0';
+			$data['IA'] = '23IA0';
+			$data['TA'] = '23TA0';
+			$data['RF'] = '23RF0';
 			foreach ($data['workordernumber'] as $worknumber) {
 				$workorder_no = $worknumber['workorder_no'];
 				//	$type_Of_Work=$worknumber['type_of_work'];
@@ -80,16 +80,13 @@ $data['RF']='23RF0';
 						foreach ((array) $data['EA'] as $id) {
 
 							$data['workdata1'] = substr($id, 4);
-echo $data['workdata1'];
-if($data['workdata1']=='')
-{
-//echo($data['workdata1']);
-//$data['workdata1']=1;
-}
-else
-{
-							$workdata_ea = $data['workdata1'] + 1;
-}
+							echo $data['workdata1'];
+							if ($data['workdata1'] == '') {
+								//echo($data['workdata1']);
+								//$data['workdata1']=1;
+							} else {
+								$workdata_ea = $data['workdata1'] + 1;
+							}
 							$data['work_order_last_number_ea'] = $workdata_ea;
 							// echo $id;	
 							// print_r($data['workdata']);
@@ -198,7 +195,7 @@ else
 		$deadline_date = $this->input->get('deadline_date');
 		$client_name = $this->input->get('client_name');
 		$partner_in_charge = $this->input->get('partner_in_charge');
- 	
+
 		$data = array(
 			'workorder_no' => $workorder_no,
 			'targetted_end_date' => $targeted_date,
@@ -209,7 +206,7 @@ else
 
 		$this->load->model('Workorder_model');
 		$this->Workorder_model->updateentitydate($data);
-	
+
 		$notification_data = array(
 			'workorder_no' => $workorder_no,
 			'targetted_end_date' => $targeted_date,
@@ -222,18 +219,18 @@ else
 		$this->load->model('Notification_Model');
 		$this->Notification_Model->insertnotification($notification_data);
 
-$notification_data = array(
-					//'assign_to' => $assign_tojson,
-					'workorder_no' => $workorder_no,
-					'targetted_end_date' => $targeted_date,
-					'deadline' => $deadline_date,
-					'status' => 0,
-					'type' => 'Workorder - Deadline',
-					'date' => date('Y-m-d H:i:s')
-				);
+		$notification_data = array(
+			//'assign_to' => $assign_tojson,
+			'workorder_no' => $workorder_no,
+			'targetted_end_date' => $targeted_date,
+			'deadline' => $deadline_date,
+			'status' => 0,
+			'type' => 'Workorder - Deadline',
+			'date' => date('Y-m-d H:i:s')
+		);
 
-				$this->load->model('Notification_Model');
-				$this->Notification_Model->insertnotification($notification_data);
+		$this->load->model('Notification_Model');
+		$this->Notification_Model->insertnotification($notification_data);
 
 		$this->session->set_flashdata('success', 'Data is updated successfully');
 	}
@@ -318,7 +315,7 @@ $notification_data = array(
 							'deadline' => $worksheet['deadline'],
 						);
 						//return;
-						
+
 					}
 
 					//print_r($data['workorderdetails']);
@@ -726,7 +723,7 @@ $notification_data = array(
 				//
 
 				$remarks = $this->input->post('remarks');
-				$time=date('Y-m-d H:i:s');
+				$time = date('Y-m-d H:i:s');
 				$data = array(
 					'workorder_no' => $workorder_no,
 					'created_on' => $created_on,
@@ -740,7 +737,7 @@ $notification_data = array(
 					//$data['assign_to'] = array();
 					'remarks' => $remarks,
 					'status' => 'open',
-					'time'=>$time
+					'time' => $time
 				);
 				//var_dump( $data);
 				$this->load->model('Workorder_model');
@@ -843,8 +840,7 @@ $notification_data = array(
 				);
 				$this->load->model('Notification_Model');
 				$this->Notification_Model->insertnotification($notification_data);
-			} 
-			else if ($status == 'open') {
+			} else if ($status == 'open') {
 				$notification_data = array(
 					'workorder_no' => $currentWorkorder,
 					'type' => 'Open Workorder',
@@ -854,8 +850,8 @@ $notification_data = array(
 				$this->load->model('Notification_Model');
 				$this->Notification_Model->insertnotification($notification_data);
 			}
-				//$this->session->set_flashdata('success', 'User Assigned Successfully');
-				redirect(base_url('Workorder/View_workorder/' . $currentWorkorder));
+			//$this->session->set_flashdata('success', 'User Assigned Successfully');
+			redirect(base_url('Workorder/View_workorder/' . $currentWorkorder));
 		}
 	}
 	// Deleting Workorder from Database

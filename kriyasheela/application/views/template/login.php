@@ -1,407 +1,255 @@
 <style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* The Modal (background) */
-    .modal1 {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        padding-top: 100px;
-        /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-        /* Black w/ opacity */
-    }
-
-    /* Modal Content */
-    .modal-content1 {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 40%;
-    }
-
-    /* The Close Button */
-    .close {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    #forgetPasswordForm{
-
-        position: relative;
-    }
-
-    span.closeForgetForm {
-    cursor: pointer;
-    font-size: 39px;
-    position: absolute;
-    top: -19%;
-    right: -2%;
-    z-index: 999999;
-}
-span.closeForgetForm:hover{
-    color: red;
-}
+  .popup {
+    display: none;
+    position: fixed;
+    top: 97px;
+    left: 570px;
+  }
 </style>
 
 
+<!-- login code -->
 
-<div class='container'>
-    <div id="section1">
-        <!-- Modal HTML -->
-    
-  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 CDN Link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <!-- Custom CSS Link -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <section class="wrapper">
+    <div class="login-form">
+      <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-center">
 
 
+        <form class="rounded bg-white shadow py-5 px-4" action="<?php echo base_url(); ?>Main/login_validation" method="post">
+          <div class="circlelogo">
+            <i class='far fa-user-circle' style='font-size:85px'></i>
+          </div>
 
-        <!-- Modal HTML -->
-        <div id="myModal">
-            <div class="modal-dialog modal-login">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Sign In</h4>
+          <h3 class="text-dark fw-bolder fs-8 mb-4" style="margin-top: 39px;">Sign In </h3>
 
-                    </div>
-                
-                    <div class="modal-body">
-                        <form action="<?php echo base_url(); ?>Main/login_validation" method="post">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" name="balunand_id_no" placeholder="Username" required="required">
+          <div class="form-floating mb-3">
+            <input type="text" name="balunand_id_no" class="form-control" id="floatingInput" placeholder="username" required="required">
+            <span class="text-danger"><?php echo form_error('balunand_id_no'); ?></span>
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required="required">
+            <span class="text-danger"><?php echo form_error('password'); ?></span>
+            <i class="far fa-eye" id="togglePassword" style="font-weight: 900;" onclick="togglePasswordVisibility()"></i>
+            <label for="floatingInput">Password</label>
+          </div>
 
-                                    <span class="text-danger"><?php echo form_error('balunand_id_no'); ?></span>
-                                
+          <div class="mt-2 text-end">
+            <a href="#" class="text-primary fw-bold text-decoration-none" id="showPopup">Forgot Password?</a>
+          </div>
 
-                                </div>
-                            </div>
-                     
-
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                                    <span class="text-danger"><?php echo form_error('password'); ?></span>
-                                </div>
-                            </div>
-                          
-                           
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
-                            </div>
-
-                            <h6 style="margin-top: -18px;"><a href="#" id="myBtn">Forgot Password?</a></h6>
-                          
-
-                            <?php
-                            echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>';
-                            ?>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <?php echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>'; ?>
+          <button type="submit" class="btn btn-primary submit_btn w-100 my-4">Login</button>
+        </form>
+      </div>
     </div>
-</div>
-                           
+  </section>
+
+</body>
+
+</html>
 
 
 <!-- The Modal -->
-<div id="myModal1" class="modal1">
 
-    <!-- Modal content -->
-    <div class="modal-content1">
-        <div class="modal-header1">
-  
+
+<!-- Modal content -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap 5 CDN Link -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Custom CSS Link -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <section class="wrapper">
+    <div class="container" id="myModal1">
+      <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-center">
+
+        <div class="popup" id="forgetPasswordPopup">
+          <div class="popup-content " style="  border: none;">
+            <form class="rounded bg-white shadow p-5" method="POST" action="<?= base_url('send') ?>">
+
+              <div class="lock"><i class='fas fa-lock' style='font-size:70px'></i></div>
+              <h3 class="text-dark fw-bolder fs-4 mb-2" style="margin-top: 37px;">Forget Password ?</h3>
+              <div class="fw-normal text-muted mb-4">
+                Enter your email to reset your password.
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <button type="submit" name="send" class="btn btn-primary submit_btn my-4">Submit</button>
+              <button type="button" id="closePopup" class="btn btn-secondary submit_btn my-4 ms-3">Cancel</button>
+            </form>
           </div>
-        <div class="modal-body1">
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Forgot Password  -->
-        
-        <form method="POST" action="<?= base_url('send') ?>" id="forgetPasswordForm">
-           <span class='closeForgetForm' id='closeForgetForm'>&times;</span>
-            <h4 id="fp_title">Forgot Password</h4>           
-           <input type="email" name="email" value="" id="resetEmail" placeholder="Enter your Official Email ID"/><br></br>
-           <button type="submit" name="send" id="resetPassword">Submit</button>
-        </form>
-</div>
+</body>
 
-<script>
-    // Get the modal
-    var modal1 = document.getElementById("myModal1");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal1.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal1.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal1) {
-            modal1.style.display = "none";
-        }
-    }
-</script>
+</html>
 
 
-
-<script>
-
-    document.getElementById('reset_password_btn').addEventListener('click',function(){
-        document.getElementById('reset_email_label').style.display="none";
-        document.getElementById('rest_Email').style.display="none";
-
-        document.getElementById('reset_password_success').style.display="block";
-        document.getElementById('reset_password_btn1').style.display="block";
-        document.getElementById('reset_password_btn').style.display="none";
-        
-        
-    })
-    document.getElementById('reset_password_btn1').addEventListener('click',function(){
-     
-        document.getElementById("myModal1").style.display="none";
-        location.reload();
-    })
-</script>
-
-
-<script>
-
-
-
-document.getElementById("resetForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get the entered email
-  var email = document.getElementById("rest_Email").value;
-
-  // Call a function to send the password reset email
-  sendPasswordResetEmail(rest_Email);
-});
-</script>
 
 
 
 
 <script>
-// Close Forget Password Form
-document.getElementById('closeForgetForm').addEventListener('click',function(){
-    modal1.style.display = "none";
-    // location.reload();
-})
-</script>
+  const showPopupButton = document.getElementById('showPopup');
+  const forgetPasswordPopup = document.getElementById('forgetPasswordPopup');
+  const closePopupButton = document.getElementById('closePopup');
 
-
-
-<script>
-    // Get the modal
-    var modal1 = document.getElementById("myModal1");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal1.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal1.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal1) {
-            modal1.style.display = "none";
-        }
-    }
-</script>
-
-
-
-<script>
-
-    document.getElementById('reset_password_btn').addEventListener('click',function(){
-        document.getElementById('reset_email_label').style.display="none";
-        document.getElementById('rest_Email').style.display="none";
-
-        document.getElementById('reset_password_success').style.display="block";
-        document.getElementById('reset_password_btn1').style.display="block";
-        document.getElementById('reset_password_btn').style.display="none";
-        
-        
-    })
-    document.getElementById('reset_password_btn1').addEventListener('click',function(){
-     
-        document.getElementById("myModal1").style.display="none";
-        location.reload();
-    })
-</script>
-
-
-<script>
-
-
-
-document.getElementById("resetForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get the entered email
-  var email = document.getElementById("rest_Email").value;
-
-  // Call a function to send the password reset email
-  sendPasswordResetEmail(rest_Email);
-});
-</script>
-
-
-
-
-<script>
-// Close Forget Password Form
-document.getElementById('closeForgetForm').addEventListener('click',function(){
-    modal1.style.display = "none";
-    // location.reload();
-})
-</script>
-
-
-
-
-<script>
-    // Get the modal
-    var modal1 = document.getElementById("myModal1");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal1.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal1.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal1) {
-            modal1.style.display = "none";
-        }
-    }
-</script>
-
-
-
-<script>
-
-    document.getElementById('reset_password_btn').addEventListener('click',function(){
-        document.getElementById('reset_email_label').style.display="none";
-        document.getElementById('rest_Email').style.display="none";
-
-        document.getElementById('reset_password_success').style.display="block";
-        document.getElementById('reset_password_btn1').style.display="block";
-        document.getElementById('reset_password_btn').style.display="none";
-        
-        
-    })
-    document.getElementById('reset_password_btn1').addEventListener('click',function(){
-     
-        document.getElementById("myModal1").style.display="none";
-        location.reload();
-    })
-</script>
-
-
-<script>
-
-
-
-document.getElementById("resetForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get the entered email
-  var email = document.getElementById("rest_Email").value;
-
-  // Call a function to send the password reset email
-  sendPasswordResetEmail(rest_Email);
-});
-</script>
-
-<script>
-function sendPasswordResetEmail(rest_Email) {
-  // You can use an API or a server-side script to send the email
-  // Here's a simplified example using the 'fetch' function:
-  
-  // Replace 'YOUR_SERVER_ENDPOINT' with the actual endpoint on your server
-  var url = 'YOUR_SERVER_ENDPOINT';
-
-  // Create the request payload
-  var payload = {
-    rest_Email: rest_Email
-  };
-
-  // Send a POST request to your server
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
-  .then(function(response) {
-    if (response.ok) {
-      alert("Password reset email sent!");
-    } else {
-      alert("Failed to send password reset email.");
-    }
-  })
-  .catch(function(error) {
-    console.error("Error:", error);
-    alert("An error occurred while sending the password reset email.");
+  showPopupButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    forgetPasswordPopup.style.display = 'flex';
   });
-}
+
+  closePopupButton.addEventListener('click', () => {
+    forgetPasswordPopup.style.display = 'none';
+  });
+
+  // Close the popup when the user clicks outside of it
+  window.addEventListener('click', (event) => {
+    if (event.target === forgetPasswordPopup) {
+      forgetPasswordPopup.style.display = 'none';
+    }
+  });
+</script>
+
+
+
+
+
+<script>
+  document.getElementById('reset_password_btn').addEventListener('click', function() {
+    document.getElementById('reset_email_label').style.display = "none";
+    document.getElementById('rest_Email').style.display = "none";
+
+    document.getElementById('reset_password_success').style.display = "block";
+    document.getElementById('reset_password_btn1').style.display = "block";
+    document.getElementById('reset_password_btn').style.display = "none";
+
+
+  })
+  document.getElementById('reset_password_btn1').addEventListener('click', function() {
+
+    document.getElementById("myModal1").style.display = "none";
+    location.reload();
+  })
+</script>
+
+
+<script>
+  document.getElementById("resetForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the entered email
+    var email = document.getElementById("rest_Email").value;
+
+    // Call a function to send the password reset email
+    sendPasswordResetEmail(rest_Email);
+  });
+</script>
+
+
+
+
+<script>
+  // Close Forget Password Form
+  document.getElementById('closeForgetForm').addEventListener('click', function() {
+    modal1.style.display = "none";
+    // location.reload();
+  })
+</script>
+
+
+
+
+<script>
+  function sendPasswordResetEmail(rest_Email) {
+    // You can use an API or a server-side script to send the email
+    // Here's a simplified example using the 'fetch' function:
+
+    // Replace 'YOUR_SERVER_ENDPOINT' with the actual endpoint on your server
+    var url = 'YOUR_SERVER_ENDPOINT';
+
+    // Create the request payload
+    var payload = {
+      rest_Email: rest_Email
+    };
+
+    // Send a POST request to your server
+    fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function(response) {
+        if (response.ok) {
+          alert("Password reset email sent!");
+        } else {
+          alert("Failed to send password reset email.");
+        }
+      })
+      .catch(function(error) {
+        console.error("Error:", error);
+        alert("An error occurred while sending the password reset email.");
+      });
+  }
+</script>
+
+
+<script>
+  function togglePasswordVisibility() {
+    const passwordField = document.getElementById('floatingPassword');
+    const togglePassword = document.getElementById('togglePassword');
+
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+      togglePassword.classList.remove('fa-eye');
+      togglePassword.classList.add('fa-eye-slash');
+    } else {
+      passwordField.type = 'password';
+      togglePassword.classList.remove('fa-eye-slash');
+      togglePassword.classList.add('fa-eye');
+    }
+  }
 </script>
